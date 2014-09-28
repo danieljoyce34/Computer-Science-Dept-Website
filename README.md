@@ -14,4 +14,4 @@ From there pick a place to put the local repository on your machine. Once it's c
 
 ##When you commit
 
-please put in a folder containing your information so that we can keep it separate until it's time to stick it together.
+please put in a separate folder named appropriately so that we can keep it separate until it's time to stick it together.
