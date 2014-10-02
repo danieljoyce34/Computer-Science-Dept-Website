@@ -6,37 +6,32 @@ body{
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
-#banner{
-  background-color: #003366;
-  min-width: 750px;
+#main_wrapper{
   width: 70%;
-  height: 200px;
+  min-width: 750px;
   margin-left: auto;
   margin-right: auto;
 }
 
+#banner{
+
+}
+
+#banner img{
+  width: 100%;
+}
+
 #menu{
-  background-color: #003366;
-  width: 70%;
-  min-width: 750px; 
-  margin-right: -5px;
-  border-top: 5px solid #fff;
-  margin-left: auto;
-  margin-right: auto;
+  border: 5px solid #fff;
 }
 
 #content{
   background-color: #fff;
-  width: 70%;
-  min-width: 750px;
   min-height: 500px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 #footer{
-  background-color: #26637f;
-  width: 70%;
+  //background-color: #003366;
   
 }
 
@@ -53,21 +48,30 @@ body{
 .menu_item{
   width: 20%;
   border-right: 3px solid #fff;
-  margin-right: -8.5px;
+  //margin-right: -8.5px;
   display: inline-block;
-  color: #fff;  
+  color: #fff; 
 }
 
 .menu_item.right{
-  //border-right: 0px;
+  border-right: 0px;
 }
 
 .menu_item.left{
-  border-left: 3px solid #fff;
+  //border-left: 3px solid #fff;
 }
 
 .menu_item h3{
   margin: 0px auto;
   padding: 5px;
   text-align: center;
+}
+
+@media screen and (max-width: 770px){
+  #main_wrapper{
+    width: 100%;
+    min-width: 0px;
+  }
+  
+  
 }
