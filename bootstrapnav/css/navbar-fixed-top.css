@@ -28,10 +28,16 @@
 
 @media (max-width: 767px){
 	.submenu {
-		background-color: #A7DBD8;
+		background-color: #ADD8E6;
+	}
+	.submenu:hover{
+		background-color: #b8ece9;
 	}
 	.submenu-item {
 		background-color: #E0E4CC;
+	}
+	.submenu-item:hover{
+		background-color: #f1f5dd;
 	}
 
 	.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus, 
@@ -41,7 +47,7 @@
 
 	.navbar-default .navbar-nav .open .dropdown-menu>li>a,
 	.navbar-default .navbar-nav .open .dropdown-menu>li>a:hover, .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus{
-		color: black;
+		color: #003366;
 	}
 	
 	.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus{
