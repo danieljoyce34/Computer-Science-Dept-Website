@@ -39,7 +39,6 @@ body{
   
 }
 
-
 #banner h1{
   color: #fff;
   text-align: center;
@@ -71,6 +70,13 @@ body{
   text-align: center;
 }
 
+.dropdown {
+  color: $fff;
+}
+
+.dropdown-toggle {
+  color: #fff;
+}
 @media screen and (max-width: 770px){
   #main_wrapper{
     width: 100%;

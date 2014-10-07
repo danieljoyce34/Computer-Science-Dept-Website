@@ -3148,7 +3148,7 @@ textarea.input-lg,select[multiple].input-lg{
 
 .btn-primary:hover,.btn-primary:focus,.btn-primary:active,.btn-primary.active,.open>.dropdown-toggle.btn-primary{
 	color:#ffffff;
-	background-color:#124fb5;
+	background-color:#178acc;
 	border-color:#1684c2
 }
 
@@ -3434,7 +3434,7 @@ tbody.collapse.in{
 .dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus{
 	text-decoration:none;
 	color:#ffffff;
-	background-color:#124fb5;//#2fa4e7;
+	background-color:#2fa4e7
 }
 
 .dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus{
@@ -4470,9 +4470,7 @@ textarea.input-group-sm>.form-control,textarea.input-group-sm>.input-group-addon
 
 .navbar-default .navbar-nav>li>a:hover,.navbar-default .navbar-nav>li>a:focus{
 	color:#ffffff;
-	//background-color:#178acc;
-	background-image:linear-gradient(#1260c6, #003b87 60%, #004477);
-
+	background-color:#178acc
 }
 
 .navbar-default .navbar-nav>.active>a,.navbar-default .navbar-nav>.active>a:hover,.navbar-default .navbar-nav>.active>a:focus{
@@ -4486,12 +4484,11 @@ textarea.input-group-sm>.form-control,textarea.input-group-sm>.input-group-addon
 }
 
 .navbar-default .navbar-toggle{
-	//border-color:#178acc;
+	border-color:#178acc
 }
 
 .navbar-default .navbar-toggle:hover,.navbar-default .navbar-toggle:focus{
-	//background-color:#178acc;
-	border-color: #fff;
+	background-color:#178acc
 }
 
 .navbar-default .navbar-toggle .icon-bar{
@@ -4503,8 +4500,7 @@ textarea.input-group-sm>.form-control,textarea.input-group-sm>.input-group-addon
 }
 
 .navbar-default .navbar-nav>.open>a,.navbar-default .navbar-nav>.open>a:hover,.navbar-default .navbar-nav>.open>a:focus{
-	//background-color:#178acc;
-	background-image:linear-gradient(#1260c6, #003b87 60%, #004477);
+	background-color:#178acc;
 	color:#ffffff
 }
 
@@ -6714,12 +6710,12 @@ button.close{
 }
 
 .navbar{
-	background-image:-webkit-linear-gradient(#124fb5, #003b87 60%, #003366);
-	background-image:-o-linear-gradient(#124fb5, #003b87 60%, #003366);
-	background-image:linear-gradient(#124fb5, #003b87 60%, #003366);
+	background-image:-webkit-linear-gradient(#54b4eb, #2fa4e7 60%, #1d9ce5);
+	background-image:-o-linear-gradient(#54b4eb, #2fa4e7 60%, #1d9ce5);
+	background-image:linear-gradient(#54b4eb, #2fa4e7 60%, #1d9ce5);
 	background-repeat:no-repeat;
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff54b4eb', endColorstr='#ff1d9ce5', GradientType=0);
-	border-bottom:1px solid #003366;
+	border-bottom:1px solid #178acc;
 	filter:none;
 	-webkit-box-shadow:0 1px 10px rgba(0,0,0,0.1);
 	box-shadow:0 1px 10px rgba(0,0,0,0.1)
