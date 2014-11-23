@@ -1,0 +1,186 @@
+/* adjust body when menu is open */
+body.slide-active {
+    overflow-x: hidden
+}
+/*first child of #page-content so it doesn't shift around*/
+.no-margin-top {
+    margin-top: 0px!important
+}
+/*wrap the entire page content but not nav inside this div if not a fixed top, don't add any top padding */
+#page-content {
+    position: relative;
+    padding: 20px;
+    left: 0;
+    background-color: #fff;
+}
+/* put toggle bars on the left :: not using button */
+#slide-nav .navbar-toggle {
+    cursor: pointer;
+    position: relative;
+    line-height: 0;
+    float: left;
+    margin: 0;
+    width: 30px;
+    height: 40px;
+    padding: 10px 0 0 0;
+    border: 0;
+    background: transparent;
+}
+/* icon bar prettyup - optional */
+#slide-nav .navbar-toggle > .icon-bar {
+    width: 100%;
+    display: block;
+    height: 3px;
+    margin: 5px 0 0 0;
+}
+#slide-nav .navbar-toggle.slide-active .icon-bar {
+    //background: orange
+}
+.navbar-header {
+    position: relative;
+    width: 100%;
+}
+/* un fix the navbar when active so that all the menu items are accessible */
+.navbar.navbar-fixed-top.slide-active {
+    position: relative
+}
+
+#slide-icon{
+	position: absolute;
+	bottom: 0px;
+	left: -5px;
+}
+
+#slidemenu .nav.navbar-nav{
+	/*max-height: 50px;*/
+}
+
+/* screw writing importants and shit, just stick it in max width since these classes are not shared between sizes */
+@media (max-width:768px) { 
+	#slide-nav .container {
+	    margin: 0;
+	    padding: 0!important;
+	}
+	#slide-nav .navbar-header {
+	    margin: 0 auto;
+	    padding: 0 15px;
+	}
+	#slide-nav .navbar.slide-active {
+	    position: absolute;
+	    width: 66%;
+	    top: -1px;
+	    z-index: 1000;
+	}
+	#slide-nav #slidemenu {
+	    //background: #f7f7f7;
+	    left: -100%;
+	    width: 66%;
+	    min-width: 0;
+	    position: absolute;
+	    padding-left: 0;
+	    z-index: 2;
+	    top: -8px;
+	    margin: 0;
+	    padding-top: 10px;
+	}
+	#slide-nav #slidemenu .navbar-nav {
+	    min-width: 0;
+	    width: 100%;
+	    margin: 0;
+	}
+	#slide-nav #slidemenu .navbar-nav .dropdown-menu li a {
+	    min-width: 0;
+	    width: 80%;
+	    white-space: normal;
+	}
+	#slide-nav #slidemenu>ul>li.dropdown{
+		border-bottom: 1px solid white;
+		margin-left: 10px;
+		margin-right: 50px;
+		min-width: 150px;
+	}
+	#slide-nav {
+	    border-top: 0
+	}
+	#slide-nav.navbar-inverse #slidemenu {
+	    //background: #333
+	}
+	/* this is behind the navigation but the navigation is not inside it so that the navigation is accessible and scrolls*/
+	#slide-nav #navbar-height-col {
+	    position: fixed;
+	    top: 0;
+	    height: 100%;
+	    width: 80%;
+	    left: -80%;
+	    background: #eee;
+	}
+	#slide-nav.navbar-inverse #navbar-height-col {
+	    background: #333;
+	    z-index: 1;
+	    border: 0;
+	}
+	#slide-nav .navbar-form {
+	    width: 100%;
+	    margin: 8px 0;
+	    text-align: center;
+	    overflow: hidden;
+	    /*fast clearfixer*/
+	}
+	#slide-nav .navbar-form .form-control {
+	    text-align: center
+	}
+	#slide-nav .navbar-form .btn {
+	    width: 100%
+	}
+
+	.submenu {
+		background-color: #ADD8E6;
+	}
+	.submenu:hover{
+		background-color: #b8ece9;
+	}
+	.submenu-item {
+		background-color: #E0E4CC;
+	}
+	.submenu-item:hover{
+		background-color: #f1f5dd;
+	}
+
+	.navbar-inverse .navbar-nav .open .dropdown-menu>li>a,
+	.navbar-inverse .navbar-nav .open .dropdown-menu>li>a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu>li>a:focus{
+		color: #003366;
+	}
+}
+@media (min-width:768px) { 
+	#page-content {
+	    left: 0!important
+	}
+	.navbar.navbar-fixed-top.slide-active {
+	    position: fixed
+	}
+	.navbar-header {
+	    left: 0!important
+	}
+}
+
+@media (max-width: 450px){
+	#slide-nav .navbar-toggle > .icon-bar {
+    	width: 70%;
+    	height: 2px;
+    	margin: 4px 0 0 0;
+	}
+	
+	#slide-icon{
+		left: -10px;
+		bottom: -8px;
+	}
+}
+
+#menu{
+  width: 70%;
+  min-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 5px solid #fff;
+  background-image:linear-gradient(#124fb5, #003b87 60%, #003366);
+}

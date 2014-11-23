@@ -1,5 +1,9 @@
 /* CSS Document */
 
+html{
+  min-height:100%;
+}
+
 body{
   background-color: #003366;
     background-image:linear-gradient(#003366, #003b87 60%, #124fb5);
@@ -16,7 +20,8 @@ body{
 }
 
 #banner{
-
+  position: relative;
+  width: 100%;
 }
 
 #banner img{
@@ -36,7 +41,6 @@ body{
 
 #footer{
   //background-color: #003366;
-  
 }
 
 
@@ -55,11 +59,6 @@ body{
   //margin-right: -8.5px;
   display: inline-block;
   color: #fff; 
-}
-
-.menu_item a{
-	color: #fff;
-	text-decoration: none;
 }
 
 .menu_item.right{
@@ -81,6 +80,4 @@ body{
     width: 100%;
     min-width: 0px;
   }
-  
-  
 }
