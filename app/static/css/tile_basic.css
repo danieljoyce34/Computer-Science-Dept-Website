@@ -1,0 +1,45 @@
+#container {
+    padding-bottom: 20%;
+}
+
+.item-container {
+    position: relative;
+    padding: 20px;
+ //   outline: double;
+    margin-left: 10%;
+//    margin-right: 10%;
+    display: block;
+    background-color: #FFFFFF;
+    border: solid black 1;
+    outline: solid black 1;
+//    outline-offset: 10px;
+}
+
+.item-container .item-image-left {
+    width: 200px;
+   /* margin-left: auto;
+    margin-right: auto; */
+    float: left;
+    display: inline;
+    padding: inherit;
+}
+
+.item-container .item-image-right {
+    width: 200px;
+    float: right;
+    display: block;
+    padding: inherit;
+}
+
+.item-container .item-content-left {
+
+    padding-right: 10%;
+}
+
+.item-container .item-content-right {
+//    position: relative;
+    padding-left: 10%;
+}
+
+
+
