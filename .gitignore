@@ -3,8 +3,6 @@ csc_web/.Python
 
 csc_web/bin/activate
 
-*.py
-
 *.csh
 
 *.fish
