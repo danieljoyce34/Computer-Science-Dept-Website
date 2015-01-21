@@ -18,3 +18,5 @@ csc_web/bin/pip2
 csc_web/bin/python
 
 csc_web/bin/python2
+
+*.pyc
