@@ -73,39 +73,4 @@ $(document).ready(function () {
 
 
     });
-
-  /*  $(document).on("click", function(e){
-        var $clickedElement = $(e.target);
-        var $self = $(this);
-        //console.log($clickedElement.parents('.navbar-nav').length);
-        var numParents = parseInt($clickedElement.parents('navbar-nav').length);
-        var $inNav = ( numParents > 0); 
-        console.log("there are " + numParents + "parents");
-        if(!($inNav)) {
-            $('.dropdown').removeClass("open");
-        }
-
-    })*/
-
-    $(".dropdown").on("hover", function (e) {
-        var $self = $(this);
-        $self.toggleClass("open");
-    });
-
-    $(".dropdown").on("hover click", function (e) {
-        var $self = $(this);
-        $self.toggleClass("open");
-        $self.siblings().removeClass("open");
-        $(".submenu-item").addClass("hiddensub");
-//        $self.siblings().children("").addClass("hiddensub");
-    });
-
-/*    $(".dropdown").on("focusout", function (e) {
-        var $self = $(this);
-        $self.toggleClass("open");
-
-
-    });*/
-
-
 });
