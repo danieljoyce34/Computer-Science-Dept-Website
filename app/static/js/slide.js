@@ -1,5 +1,3 @@
-
-
 $(document).ready(function () {
 
     //stick in the fixed 100% height behind the navbar but don't wrap it
@@ -35,10 +33,8 @@ $(document).ready(function () {
             left: selected ? '0px' : slidewidth
         });
 
-
         $(this).toggleClass('slide-active', !selected);
         $('#slidemenu').toggleClass('slide-active');
-
 
         $('#page-content, .navbar, body, .navbar-header').toggleClass('slide-active');
 
@@ -48,7 +44,13 @@ $(document).ready(function () {
     $(".submenu").click(function(){
         var $self = $(this);
         var menu_num = $self.data("menunum");
-        $self.siblings(".submenu-item").addClass("hiddensub"); 
+
+        if ($self.siblings(".submenu-item").hasClass("hiddensub")) {
+            $self.removeClass("hiddensub");
+        } else {
+            $self.siblings(".submenu-item").addClass("hiddensub"); 
+        }
+        
         $self.siblings(".submenu-item[data-menunum="+menu_num+"]").toggleClass("hiddensub");
     });
 
