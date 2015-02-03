@@ -8,14 +8,14 @@ ul {
 	padding:0;
 	position: absolute;
 	z-index: 1;
+	background-color: #fff;
 }
 
 /*Create a horizontal list with spacing*/
 li {
 	display:inline-block;
 	float: left;
-	margin-right: 1px;
-	border-right: 1px #fff dashed;
+	border-right: 1px #1f3664 dashed;
 }
 
 /*Style for menu links*/
@@ -29,6 +29,10 @@ li a {
 	color: #fff;
 	background: #1f3664;
 	text-decoration: none;
+}
+
+li:hover ul li{
+	border: none;
 }
 
 /*Hover state for top level links*/

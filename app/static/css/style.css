@@ -6,8 +6,7 @@ html{
 
 body{
   background-color: #003366;
-    background-image:linear-gradient(#003366, #003b87 60%, #124fb5);
-
+  background-image:linear-gradient(#003366, #003b87 60%, #124fb5);
   margin: 0;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
@@ -29,11 +28,6 @@ body{
   width: 100%;
 }
 
-#menu{
-  border: 5px solid #fff;
-  background-image:linear-gradient(#124fb5, #003b87 60%, #003366);
-}
-
 #content{
   background-color: #fff;
   min-height: 800px;
@@ -43,7 +37,6 @@ body{
   //background-color: #003366;
 }
 
-
 #banner h1{
   color: #fff;
   text-align: center;
@@ -51,28 +44,6 @@ body{
   padding-top: 25px;
   font-weight: normal;
   margin-top: 0px;
-}
-
-.menu_item{
-  width: 20%;
-  border-right: 3px solid #fff;
-  //margin-right: -8.5px;
-  display: inline-block;
-  color: #fff; 
-}
-
-.menu_item.right{
-  border-right: 0px;
-}
-
-.menu_item.left{
-  //border-left: 3px solid #fff;
-}
-
-.menu_item h3{
-  margin: 0px auto;
-  padding: 5px;
-  text-align: center;
 }
 
 @media screen and (max-width: 770px){
