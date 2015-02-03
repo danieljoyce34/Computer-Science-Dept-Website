@@ -20,3 +20,5 @@ csc_web/bin/python
 csc_web/bin/python2
 
 *.pyc
+
+/flask
