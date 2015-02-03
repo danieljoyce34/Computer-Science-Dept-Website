@@ -15,6 +15,7 @@ li {
 	display:inline-block;
 	float: left;
 	margin-right: 1px;
+	border-right: 1px #fff dashed;
 }
 
 /*Style for menu links*/
@@ -26,26 +27,26 @@ li a {
 	line-height: 50px;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	color: #fff;
-	background: #2f3036;
+	background: #1f3664;
 	text-decoration: none;
 }
 
 /*Hover state for top level links*/
 li:hover a {
-	background: #19c589;
+	background: #2E9AFE;
 }
 
 /*Style for dropdown links*/
 li:hover ul a {
 	background: #f3f3f3;
-	color: #2f3036;
+	color: #1f3664;
 	height: 40px;
 	line-height: 40px;
 }
 
 /*Hover state for dropdown links*/
 li:hover ul a:hover {
-	background: #19c589;
+	background: #2E9AFE;
 	color: #fff;
 }
 
@@ -77,7 +78,7 @@ ul li a:hover + .hidden, .hidden:hover {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	text-decoration: none;
 	color: #fff;
-	background: #19c589;
+	background: #2E9AFE;
 	text-align: center;
 	padding: 10px 0;
 	display: none;
