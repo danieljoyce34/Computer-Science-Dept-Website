@@ -15,6 +15,7 @@ body{
 #main_wrapper{
   width: 70%;
   min-width: 750px;
+  position: relative;
   margin-left: auto;
   margin-right: auto;
 }

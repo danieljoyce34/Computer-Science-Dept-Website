@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
- <script src="static/js/jquery-2.1.1.min.js"></script>
- <script src="static/js/slide.js"></script> 
-
+ 
  <link href="static/css/slide-style.css" rel="stylesheet" type="text/css" />
- <link href="static/css/navbar.blue.css" rel="stylesheet" type="text/css" />
  <link href="static/css/style.css" rel="stylesheet" type="text/css"/>
 
  <meta charset=utf-8 />
  <title>Villanova Computer Science</title>
 </head>
+
 <body>
   <div id="main_wrapper" class="col">
-    {% include "navigation.html" %}
+
+    <div id="header">
+      <!-- include header.html -->
+      {% include "navigation.html" %}
+    </div>
 
     <div id="page-content">
       <!-- TO DO: turn each div into a modular template -->
@@ -31,5 +33,8 @@
       </div>
     </div> 
   </div>
+
+  <script src="static/js/jquery-2.1.1.min.js"></script>
+  <script src="static/js/slide.js"></script> 
 </body>
 </html>
