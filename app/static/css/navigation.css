@@ -3,9 +3,9 @@
 
 /*Strip the ul of padding and list styling*/
 ul {
-	list-style-type:none;
-	margin:0;
-	padding:0;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
 	position: absolute;
 	z-index: 1;
 	background-color: #fff;
@@ -13,7 +13,7 @@ ul {
 
 /*Create a horizontal list with spacing*/
 li {
-	display:inline-block;
+	display: inline-block;
 	float: left;
 	border-right: 1px #1f3664 dashed;
 }
