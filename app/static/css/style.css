@@ -1,12 +1,12 @@
 /* CSS Document */
 
-html{
+html {
   min-height:100%;
 }
 
 body{
-  background-color: #003366;
-  background-image:linear-gradient(#003366, #003b87 60%, #124fb5);
+  background-color: #1f3664;
+  background-image:linear-gradient(#1f3664, #1f3664 60%, #124fb5);
   margin: 0;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
@@ -34,7 +34,7 @@ body{
 }
 
 #footer{
-  //background-color: #003366;
+  background-color: #1f3664;
 }
 
 #banner h1{
