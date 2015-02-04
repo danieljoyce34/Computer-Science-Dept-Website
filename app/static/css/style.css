@@ -4,14 +4,15 @@ html {
   min-height:100%;
 }
 
-body{
-  background-color: #1f3664;
-  background-image:linear-gradient(#1f3664, #1f3664 60%, #124fb5);
+body {
+  background-color: #003366;
+  background-image: linear-gradient(#003366, #003b87 60%, #124fb5);
+  background-attachment: fixed;
   margin: 0;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
-#main_wrapper{
+#main_wrapper {
   width: 70%;
   min-width: 750px;
   position: relative;
@@ -19,25 +20,25 @@ body{
   margin-right: auto;
 }
 
-#banner{
+#banner {
   position: relative;
   width: 100%;
 }
 
-#banner img{
+#banner img {
   width: 100%;
 }
 
-#content{
+#content {
   background-color: #fff;
   min-height: 800px;
 }
 
-#footer{
-  background-color: #1f3664;
+#footer {
+  //background-color: #003366;
 }
 
-#banner h1{
+#banner h1 {
   color: #fff;
   text-align: center;
   font-size: 60px;
@@ -46,8 +47,8 @@ body{
   margin-top: 0px;
 }
 
-@media screen and (max-width: 770px){
-  #main_wrapper{
+@media screen and (max-width: 770px) {
+  #main_wrapper {
     width: 100%;
     min-width: 0px;
   }
