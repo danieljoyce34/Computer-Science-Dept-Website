@@ -127,6 +127,6 @@ input[type=checkbox]:checked ~ #menu{
 	}
 	/*Display 'show menu' link*/
 	.show-menu {
-		display:block;
+		display: block;
 	}
 }
