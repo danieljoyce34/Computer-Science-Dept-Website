@@ -4,17 +4,11 @@
 /* Navbar styles are not complete!!! Work in progress*/
 
 #menu{
-	border-left: 1px #fff dashed;
 	width: 100%;
+	height: 100%;
+	border-left: 1px #fff dashed;
 	background-color: #1F3664;
-	width: 70%;
-	min-width: 750px;
 	position: relative;
-	margin-left: auto;
-	margin-right: auto;
-	z-index: 6;
-	position: fixed;
-	top: 0;
 }
 
 /*Strip the ul of padding and list styling*/

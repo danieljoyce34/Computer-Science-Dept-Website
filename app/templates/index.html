@@ -2,7 +2,6 @@
 <html>
 <head>
  
- <link href="static/css/slide-style.css" rel="stylesheet" type="text/css" />
  <link href="static/css/style.css" rel="stylesheet" type="text/css"/>
 
  <meta charset=utf-8 />
@@ -11,13 +10,18 @@
 
 <body>  
   <div id="header">
-      <!-- include header.html -->
-      {% include "navigation.html" %}
+      <div id="banner">
+        Banner
+        <!-- include header.html to replace the banner -->
+      </div>
+      <div id="nav-wrapper">
+        {% include "navigation.html" %}
+      </div>
   </div>
 
   <div id="main_wrapper" class="col">
-
-    <div id="page-content">
+      <!-- Do we actually need page-content? - Will -->
+      <div id="page-content">
       <!-- TO DO: turn each div into a modular template -->
       <div class="news-card card">
         Template for News Content goes here

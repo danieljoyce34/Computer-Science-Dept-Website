@@ -5,51 +5,99 @@ html {
 }
 
 body {
-  background-color: #003366;
-  background-image: linear-gradient(#003366, #003b87 60%, #124fb5);
+  background-color: #1F3664;
   background-attachment: fixed;
   margin: 0;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
+#header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: #1F3664;
+  z-index: 2;
+}
+
+#banner{
+  width: 780px;
+  height: 100px;
+  background: #fff;
+  margin: 0 auto;
+  /* temporary placeholder style */
+  text-align: center;
+  line-height: 100px;
+}
+
+/* Centers the nav menu and sets the menu width/height */
+#nav-wrapper{
+  width: 780px;
+  height: 50px;
+  margin: 0 auto;
+}
+
 #main_wrapper {
   width: 70%;
   min-width: 750px;
+  margin: 155px auto 0 auto;
+}
+
+/* Do we actually need page content? - Will/*
+/*wrap the entire page content but not nav inside this div if not a fixed top, don't add any top padding */
+#page-content {
   position: relative;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#banner {
-  position: relative;
-  width: 100%;
-}
-
-#banner img {
-  width: 100%;
-}
-
-#content {
+  padding: 20px;
+  left: 0;
+  border-radius: 2px;
   background-color: #fff;
-  min-height: 800px;
+  overflow: auto;
 }
 
-#footer {
-  //background-color: #003366;
-}
+@media screen and (max-width: 780px) {
+  #nav-wrapper, #banner{
+    width: 100%;
+  }
 
-#banner h1 {
-  color: #fff;
-  text-align: center;
-  font-size: 60px;
-  padding-top: 25px;
-  font-weight: normal;
-  margin-top: 0px;
-}
-
-@media screen and (max-width: 770px) {
   #main_wrapper {
     width: 100%;
     min-width: 0px;
   }
+}
+
+@media (min-width:768px) { 
+  #page-content {
+      left: 0!important
+  }
+}
+
+/* 
+  Added fixed heights for cards for now since the cards do not have content
+  The cards will need to have some sort of fixed height and width in the end
+  to normalize content --DS
+*/
+.card {
+  background-color: lightgrey;
+  margin-top: 5px;
+  margin-bottom: 2px;
+  display: inline-block;
+  border-radius: 2px;
+} 
+
+.news-card {
+  width: 100%;
+  height: 300px;
+}
+
+.alert-card {
+  width: 66%;
+  height: 300px;
+  float: left;
+}
+
+.aux-card {
+  width: 33%;
+  height: 300px;
+  float: right;
 }
