@@ -1,13 +1,10 @@
 #Computer Science Website Redesign
 
-##Getting Started
-**click** the button on the right side of the screen called 
->Clone in Desktop
+##Installing packages
+Please make you have Python 2.7, virtualenv, and MySQL for command line installed.
 
-Then download the associated app and install.
+>Installing packages for virtualenv
+All the packages that are currently being used are stored in the requirements.txt.
+To use the file, first do a source activate to activate your virtualenv, then do 'pip install -r requirements.txt'
 
-From there pick a place to put the local repository on your machine. Once it's cloned you can simply add your files directly to that folder, and using the github program previously installed, you can **commit** changes and **sync**
-
-**Remember** you must give a title to **each** commit and a small description, please make these meaningful. Then hit **sync** to sync your changes to github.
-
-####It's that easy
+####Remember to name your virtualenv flask so it will be ignored when you commit
