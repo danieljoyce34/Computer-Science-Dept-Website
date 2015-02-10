@@ -5,9 +5,12 @@
  <title>Villanova Computer Science</title>
 </head>
 <body>
-  {% for action in actions %}
+  {% for side in sideview %}
   <p>
-    Action ID is: {{action.id}} and the name is: {{action.name}}
+    Sideview ID is: {{side.id}} and it's content: {{side.content}}...
+  </p>
+  <p>
+    Sideview's image alt_text is: {{side.image.alt_text}}
   </p>
   {% endfor %}
 </body>

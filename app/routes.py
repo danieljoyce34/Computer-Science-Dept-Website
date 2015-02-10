@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from .models import Action
+from .models import Image, Sideview
 
 @app.route('/')
 @app.route('/index')
@@ -9,6 +9,7 @@ def index():
 
 @app.route('/testing')
 def testingPage():
-	#Querying the Action table and retrieving all data
-	actionTables = Action.query.all()
-	return render_template('testingPage.html', actions=actionTables)
+	#Querying Image and Sideview table and retrieving all data
+	image_table = Image.query.all()
+	sideview_table = Sideview.query.all()
+	return render_template('testingPage.html', sideview=sideview_table)
