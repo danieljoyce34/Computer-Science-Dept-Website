@@ -1,0 +1,25 @@
+.alert-box{
+	margin-bottom: 25px;
+	clear: both;
+	float: left;
+}
+
+.news-generic{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	float: left;
+	margin-left: 10px;
+	padding-left: 10px;
+	border-left: 1px black solid;
+	height: 100%;
+	line-height: 30px;
+}
+
+.icon-placeholder{
+	width: 30px;
+	height: 30px;
+	background: #1f3664;
+	float: left;
+	color: #fff;
+	text-align: center;
+	line-height: 30px;
+}
