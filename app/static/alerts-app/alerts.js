@@ -89,6 +89,3 @@ var data_container = [
 		"who":234
 	}
 ];
-
-console.log("hello I have the data");
-console.log(data_container);
