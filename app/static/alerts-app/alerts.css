@@ -4,7 +4,7 @@
 	float: left;
 }
 
-.news-generic{
+.alert-content{
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	float: left;
 	margin-left: 10px;
@@ -14,12 +14,10 @@
 	line-height: 30px;
 }
 
-.icon-placeholder{
+.icon{
 	width: 30px;
 	height: 30px;
-	background: #1f3664;
 	float: left;
-	color: #fff;
 	text-align: center;
 	line-height: 30px;
 }

@@ -99,18 +99,20 @@ $(document).ready(function () {
 	}
 ];
 	for (var i = 0; i < data_container.length; i++) {
-		$('.alert-container').append($('<div class=' + acontainer + '>')
-			.append($('<i class=' + icon + '>'))
-			.append($('<div class="news-generic">').text(data_container[i]['content']))
+		$('.alert-container').append($('<div class="' + acontainer + '"">')
+			.append($('<i class="' + icon + '"">'))
+			.append($('<div class="' + acontent + '"">').text(data_container[i]['content']))
 		);
-
+		
 		//$('.alert-container').append(piece1 + data_container[i]['content'] + piece2);	
 	}
 });
 
+
+// Adding method for later
 function addAlert(color, text, time){
-	$('.alert-container').append($('<div class=' + acontainer + '>')
-		.append($('<div class=' + icon + '>').text("o"))
-		.append($('<div class="news-generic">').text(data_container[i]['content']))
+	$('.alert-container').append($('<div class="' + acontainer + '"">')
+		.append($('<i class="' + icon + '"">'))
+		.append($('<div class="' + acontent + '"">').text(data_container[i]['content']))
 	);
 }
