@@ -1,13 +1,11 @@
 var acontainer = 'alert-box';
-var icon = 'icon-placeholder';
+var icon = 'icon ion-ios-alarm-outline';
 var acontent = 'alert-content';
 var piece1 = '<div class="news-generic"><i class="icon ion-ios-alarm-outline"></i>&nbsp;&nbsp;',
 	piece2 = '</div>';
 
 $(document).ready(function () {
 
-	
-	
 	var data_container = [ 
 		{
 			"color" : "General",
@@ -102,7 +100,7 @@ $(document).ready(function () {
 ];
 	for (var i = 0; i < data_container.length; i++) {
 		$('.alert-container').append($('<div class=' + acontainer + '>')
-			.append($('<div class=' + icon + '>').text("o"))
+			.append($('<i class=' + icon + '>'))
 			.append($('<div class="news-generic">').text(data_container[i]['content']))
 		);
 
