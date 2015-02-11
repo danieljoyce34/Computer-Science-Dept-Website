@@ -1,12 +1,13 @@
 var acontainer = 'alert-box';
 var icon = 'icon-placeholder';
-var acontent = 'alert-content'
-
-
-var piece1 = '<div class="news-generic">',
+var acontent = 'alert-content';
+var piece1 = '<div class="news-generic"><i class="icon ion-ios-alarm-outline"></i>&nbsp;&nbsp;',
 	piece2 = '</div>';
+
 $(document).ready(function () {
 
+	
+	
 	var data_container = [ 
 		{
 			"color" : "General",
