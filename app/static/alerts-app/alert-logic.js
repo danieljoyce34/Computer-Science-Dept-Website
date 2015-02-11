@@ -1,6 +1,8 @@
 var acontainer = 'alert-box';
 var icon = 'icon ion-ios-alarm-outline';
 var acontent = 'alert-content';
+var atime = 'alert-time';
+
 var piece1 = '<div class="news-generic"><i class="icon ion-ios-alarm-outline"></i>&nbsp;&nbsp;',
 	piece2 = '</div>';
 
@@ -96,23 +98,34 @@ $(document).ready(function () {
 		"content":"There is some kind of meeting",
 		"time":"2015-01-22",
 		"who":234
-	}
-];
+		}
+	];
+
 	for (var i = 0; i < data_container.length; i++) {
-		$('.alert-container').append($('<div class="' + acontainer + '"">')
-			.append($('<i class="' + icon + '"">'))
-			.append($('<div class="' + acontent + '"">').text(data_container[i]['content']))
-		);
-		
+		// Replace with addAlert
+		addAlert(data_container[i]['color'], data_container[i]['content'], data_container[i]['time']);
+
+		//$('.alert-container').append($('<div class="' + acontainer + '"">')
+		//	.append($('<i class="' + icon + '"">'))
+		//	.append($('<div class="' + acontent + '"">').text(data_container[i]['content']))
+		//);
 		//$('.alert-container').append(piece1 + data_container[i]['content'] + piece2);	
 	}
+
+	$(document).on("mouseenter", "i.icon", function(event){
+		$(this).parent().find($('div.' + atime)).show();		
+	});
+	$(document).on("mouseleave", "i.icon", function(event){
+		$(this).parent().find($('div.' + atime)).hide();		
+	});
 });
 
 
 // Adding method for later
 function addAlert(color, text, time){
-	$('.alert-container').append($('<div class="' + acontainer + '"">')
-		.append($('<i class="' + icon + '"">'))
-		.append($('<div class="' + acontent + '"">').text(data_container[i]['content']))
+	$('.alert-container').append($('<div class="' + acontainer + '">')
+		.append($('<i class="' + icon + '" title="' + time + '">'))
+		.append($('<div class="' + atime + '">').text(time))
+		.append($('<div class="' + acontent + '">').text(text))
 	);
 }

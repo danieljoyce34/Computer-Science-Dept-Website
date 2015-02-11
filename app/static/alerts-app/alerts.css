@@ -1,11 +1,12 @@
 .alert-box{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	margin-bottom: 25px;
+	height: auto;
 	clear: both;
 	float: left;
 }
 
 .alert-content{
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	float: left;
 	margin-left: 10px;
 	padding-left: 10px;
@@ -19,5 +20,12 @@
 	height: 30px;
 	float: left;
 	text-align: center;
+	line-height: 30px;
+}
+
+.alert-time{
+	display: none;
+	float: left;
+	margin-left: 5px;
 	line-height: 30px;
 }
