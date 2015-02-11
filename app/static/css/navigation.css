@@ -26,7 +26,8 @@ li {
 	display: inline-block;
 	float: left;
 	border-right: 1px #fff dashed;
-	width: 165px;
+	min-width: 165px;
+	/*width: 19.85%;*/
 }
 
 /*Style for menu links*/
@@ -34,6 +35,7 @@ li a {
 	display:block;
 	min-width:165px;
 	height: 50px;
+	width: 100%;
 	text-align: center;
 	line-height: 50px;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
