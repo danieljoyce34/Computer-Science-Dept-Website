@@ -1,8 +1,6 @@
-var piece1 = '<div class="news-generic">',
+var piece1 = '<div class="news-generic"><i class="icon ion-ios-alarm-outline"></i>&nbsp;&nbsp;',
 	piece2 = '</div>';
 $(document).ready(function () {
-
-	debugger;
 	var data_container = [ 
 	{
 		"color" : "General",
