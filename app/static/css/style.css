@@ -22,7 +22,7 @@ body {
 }
 
 #banner{
-  width: 780px;
+  width: 70%;
   height: 100px;
   background: #fff;
   margin: 0 auto;
@@ -33,7 +33,7 @@ body {
 
 /* Centers the nav menu and sets the menu width/height */
 #nav-wrapper{
-  width: 780px;
+  width: 70%;
   height: 50px;
   margin: 0 auto;
 }
@@ -53,6 +53,12 @@ body {
   border-radius: 2px;
   background-color: #fff;
   overflow: auto;
+}
+
+@media screen and (max-width: 1185px){
+  #nav-wrapper, #banner{
+    width: 780px;
+  }
 }
 
 @media screen and (max-width: 780px) {
