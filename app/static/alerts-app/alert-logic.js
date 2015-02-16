@@ -3,9 +3,6 @@ var icon = 'icon ion-ios-alarm-outline';
 var acontent = 'alert-content';
 var atime = 'alert-time';
 
-var piece1 = '<div class="news-generic"><i class="icon ion-ios-alarm-outline"></i>&nbsp;&nbsp;',
-	piece2 = '</div>';
-
 $(document).ready(function () {
 
 	var data_container = [ 
@@ -72,56 +69,54 @@ $(document).ready(function () {
 		{
 		"color" : "colloqium",
 		"content" : "Colloqium today at 4:30 in Mendel 115",
-		"time" : "2014-12-23",
+		"time" : "2:30PM",
 		"who" : 1234
 		},
 		{
 		"color":"class",
 		"content" : "Graduate Computer Vision Course has been cancelled tonight",
-		"time" : "2015-01-23",
+		"time" : "2:30PM",
 		"who" : 123
 		},
 		{
 		"color":"meeting",
 		"content":"CAVE Crew meeting tomorrow at 2:30pm in Mendel 292",
-		"time":"2014-11-25",
+		"time":"2:30PM",
 		"who": 111
 		},
 		{
 		"color":"reschedule",
 		"content":"Colloqium scheduled for today has been rescheduled for next week",
-		"time":"2014-12-23",
+		"time":"2:30PM",
 		"who":134
 		},
 		{
 		"color":"meeting",
 		"content":"There is some kind of meeting",
-		"time":"2015-01-22",
+		"time":"2:30PM",
 		"who":234
 		}
 	];
 
+	// Add alerts from json file
 	for (var i = 0; i < data_container.length; i++) {
-		// Replace with addAlert
 		addAlert(data_container[i]['color'], data_container[i]['content'], data_container[i]['time']);
-
-		//$('.alert-container').append($('<div class="' + acontainer + '"">')
-		//	.append($('<i class="' + icon + '"">'))
-		//	.append($('<div class="' + acontent + '"">').text(data_container[i]['content']))
-		//);
-		//$('.alert-container').append(piece1 + data_container[i]['content'] + piece2);	
 	}
 
+	// Shows/hides time on hover over clock icon
+	// For mobile devices use on click and check if time is hidden
 	$(document).on("mouseenter", "i.icon", function(event){
-		$(this).parent().find($('div.' + atime)).show();		
+		$(this).parent().find($('div.' + atime)).show();
+		$(this).parent().find($('div.' + acontent)).css('margin-left', '110px');	
 	});
 	$(document).on("mouseleave", "i.icon", function(event){
-		$(this).parent().find($('div.' + atime)).hide();		
+		$(this).parent().find($('div.' + atime)).hide();
+		$(this).parent().find($('div.' + acontent)).css('margin-left', '35px');			
 	});
 });
 
 
-// Adding method for later
+// Adds a new alert to the alert container
 function addAlert(color, text, time){
 	$('.alert-container').append($('<div class="' + acontainer + '">')
 		.append($('<i class="' + icon + '" title="' + time + '">'))
