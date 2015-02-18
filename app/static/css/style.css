@@ -110,12 +110,18 @@ body {
 }
 
 #Logo {
-  width: 20%;
-  height: 100%;
-  position: relative;
+  width: 10%;
+  height: 80%;
+  position: absolute;
 }
 
 #Head-Text {
-  position: relative;
+  position: absolute;
   color: #fff;
+  left: 26%;
+  top: 35%;
+  font-size: 3em;
+  font: Garamond, Book;
+  font-family: italic;
+  font-variant: small-caps;
 }
