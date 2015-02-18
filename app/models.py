@@ -7,6 +7,9 @@ class Image(db.Model):
     image_type = db.Column(db.String(45))
     alt_text = db.Column(db.Text)
     image_extension = db.Column(db.String(45))
+    sideviews_id = db.Column(db.Integer, db.ForeignKey('sideviews.id'))
+    news_id = db.Column(db.Integer, db.ForeignKey('news.id'))
+
 
     def __repr__(self):
         return ('<Image id %i, image_type %s, alt_text %s, image_extension %s>'
@@ -20,8 +23,7 @@ class Sideview(db.Model):
     title = db.Column(db.String(45))
     category = db.Column(db.String(45))
     active = db.Column(db.Integer)
-    image_id = db.Column(db.Integer, db.ForeignKey('images.id'))
-    image = db.relationship('Image', backref=db.backref('image', lazy='dynamic'),
+    image = db.relationship('Image', backref=db.backref('sideviews', ),
                             uselist=False)
 
     def __repr__(self):
@@ -38,8 +40,8 @@ class News(db.Model):
     intro = db.Column(db.Text)
     article = db.Column(db.Text)
     post_date = db.Column(db.DateTime)
-    image_id = db.Column(db.Integer, db.ForeignKey('images.id'))
-    #image = db.relationship('Image', backref=db.backref('image', lazy='dynamic'), uselist=False) #can't fix this error
+    image = db.relationship('Image', backref=db.backref('news',),
+                            uselist=False) #can't fix this error
 
     def __repr__(self):
         return ('<News id %i, start_date %f, end_date %f, headline %s, intro %s, article %s, post_date %f, image_id %i>'

@@ -85,7 +85,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="676" y="34" name="sideview">
+<table x="676" y="34" name="sideviews">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
