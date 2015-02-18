@@ -109,10 +109,16 @@ body {
   float: right;
 }
 
-#Logo {
+#Logo {  
   width: 10%;
-  height: 80%;
+  
+  /* for graph logo */
+  /*height: 80%;
+    
+  /* for tree logo */
+  height: 65%;
   position: absolute;
+
 }
 
 #Head-Text {
