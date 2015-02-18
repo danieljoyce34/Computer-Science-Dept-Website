@@ -26,9 +26,10 @@ body {
   height: 100px;
   background: #fff;
   margin: 0 auto;
+  background-color: #1F3664;
   /* temporary placeholder style */
-  text-align: center;
-  line-height: 100px;
+ /* text-align: center;
+  line-height: 100px; */
 }
 
 /* Centers the nav menu and sets the menu width/height */
@@ -100,10 +101,34 @@ body {
   width: 66%;
   height: 300px;
   float: left;
+  overflow: auto;
 }
 
 .aux-card {
   width: 33%;
   height: 300px;
   float: right;
+}
+
+#Logo {  
+  width: 10%;
+  
+  /* for graph logo */
+  /*height: 80%;
+    
+  /* for tree logo */
+  height: 65%;
+  position: absolute;
+
+}
+
+#Head-Text {
+  position: absolute;
+  color: #fff;
+  left: 26%;
+  top: 35%;
+  font-size: 3em;
+  font: Garamond, Book;
+  font-family: italic;
+  font-variant: small-caps;
 }
