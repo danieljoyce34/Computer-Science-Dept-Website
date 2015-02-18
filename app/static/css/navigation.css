@@ -6,7 +6,6 @@
 #menu{
 	width: 100%;
 	height: auto;
-	border-left: 1px #fff dashed;
 	background-color: #1F3664;
 	position: relative;
 }
@@ -21,13 +20,21 @@ ul {
 	background-color: #fff;
 }
 
+#menu > li{
+	width: 19.85%;
+	border-left: 1px #fff dashed;
+	position: relative;
+}
+
+#menu > li:first-child{
+	border-left: none;
+}
+
 /*Create a horizontal list with spacing*/
 li {
 	display: inline-block;
 	float: left;
-	border-right: 1px #fff dashed;
 	min-width: 165px;
-	/*width: 19.85%;*/
 }
 
 /*Style for menu links*/
@@ -35,7 +42,6 @@ li a {
 	display:block;
 	min-width:165px;
 	height: 45px;
-	width: 100%;
 	text-align: center;
 	line-height: 45px;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -70,12 +76,14 @@ li:hover ul a:hover {
 /*Hide dropdown links until they are needed*/
 li ul {
 	display: none;
+	width: 100%;
 }
 
 /*Make dropdown links vertical*/
 li ul li {
 	display: block;
 	float: none;
+	width: 100%;
 }
 
 /*Prevent text wrapping*/
