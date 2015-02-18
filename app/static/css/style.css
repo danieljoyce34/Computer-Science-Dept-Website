@@ -26,9 +26,10 @@ body {
   height: 100px;
   background: #fff;
   margin: 0 auto;
+  background-color: #1F3664;
   /* temporary placeholder style */
-  text-align: center;
-  line-height: 100px;
+ /* text-align: center;
+  line-height: 100px; */
 }
 
 /* Centers the nav menu and sets the menu width/height */
@@ -106,4 +107,15 @@ body {
   width: 33%;
   height: 300px;
   float: right;
+}
+
+#Logo {
+  width: 20%;
+  height: 100%;
+  position: relative;
+}
+
+#Head-Text {
+  position: relative;
+  color: #fff;
 }
