@@ -101,12 +101,14 @@ body {
   width: 66%;
   height: 300px;
   float: left;
+  overflow: auto;
 }
 
 .aux-card {
   width: 33%;
   height: 300px;
   float: right;
+  overflow: auto;
 }
 
 #Logo {  
@@ -130,4 +132,25 @@ body {
   font: Garamond, Book;
   font-family: italic;
   font-variant: small-caps;
+}
+
+#sidebar {
+  padding: 10px;
+}
+
+#sidebar .side-title {
+  font-variant: small-caps;
+  font-size: 1em;
+  font: Garamond;
+}
+
+#sidebar .side-content { 
+  /*padding: 15px; */
+}
+
+#sidebar .side-image {
+  float: left;
+  width: 6em;
+  height: 6em;
+  margin: 1px 5px 5px 0px;
 }

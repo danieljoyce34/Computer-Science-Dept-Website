@@ -118,7 +118,7 @@ $(document).ready(function () {
 
 // Adds a new alert to the alert container
 function addAlert(color, text, time){
-	$('.alert-container').append($('<div class="' + acontainer + '">')
+	$('.alert-container').append($('<div class="' + acontainer + " " + color + '">')
 		.append($('<i class="' + icon + '" title="' + time + '">'))
 		.append($('<div class="' + atime + '">').text(time))
 		.append($('<div class="' + acontent + '">').text(text))
