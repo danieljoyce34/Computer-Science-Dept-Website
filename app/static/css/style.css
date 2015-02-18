@@ -16,7 +16,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 150px;
+  height: 144px;
   background: #1F3664;
   z-index: 2;
 }
@@ -35,14 +35,14 @@ body {
 /* Centers the nav menu and sets the menu width/height */
 #nav-wrapper{
   width: 70%;
-  height: 50px;
+  height: 45px;
   margin: 0 auto;
 }
 
 #main_wrapper {
   width: 70%;
   min-width: 750px;
-  margin: 155px auto 0 auto;
+  margin: 150px auto 0 auto;
 }
 
 /* Do we actually need page content? - Will/*
