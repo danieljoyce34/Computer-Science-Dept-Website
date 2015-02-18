@@ -27,3 +27,20 @@ class Sideview(db.Model):
     def __repr__(self):
         return ('<Sideview id %i, content %s, title %s, active %i, image_id %i>'
                 % (self.id, self.content, self.title, self.active, self.image_id))
+
+class Alert(db.Model):
+	__tablename__ = 'alerts'
+	id = db.Column(db.Integer, primary_key=True, nullable=False)
+	content = db.Column(db.Text, nullable=True)
+	user_id = db.Column(db.Integer, nullable=False)
+	category = db.Column(db.String(45), nullable=True)
+	post_date = db.Column(db.DateTime,nullable=False )
+	location = db.Column(db.String(45), nullable=False)
+	start_date = db.Column(db.DateTime, nullable=False)
+	end_date = db.Column(db.DateTime, nullable=False)
+
+
+	def __repr__(self):
+		return ('<Alert id %i, content %s, user_id %i, category %s, post_date %f, location %s, start_date %f, end_date %f>'
+				% (self.id, self.content, self.user_id, self.category, self.post_date, self.location, self.start_date, self.end_date))
+
