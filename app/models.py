@@ -47,14 +47,14 @@ class News(db.Model):
 
 class Alert(db.Model):
 	__tablename__ = 'alerts'
-	id = db.Column(db.Integer, primary_key=True, nullable=False)
-	content = db.Column(db.Text, nullable=True)
-	user_id = db.Column(db.Integer, nullable=False)
-	category = db.Column(db.String(45), nullable=True)
-	post_date = db.Column(db.DateTime,nullable=False )
-	location = db.Column(db.String(45), nullable=False)
-	start_date = db.Column(db.DateTime, nullable=False)
-	end_date = db.Column(db.DateTime, nullable=False)
+	id = db.Column(db.Integer, primary_key=True)
+	content = db.Column(db.Text)
+	user_id = db.Column(db.Integer)
+	category = db.Column(db.String(45))
+	post_date = db.Column(db.DateTime)
+	location = db.Column(db.String(45))
+	start_date = db.Column(db.DateTime)
+	end_date = db.Column(db.DateTime)
 
 
 	def __repr__(self):

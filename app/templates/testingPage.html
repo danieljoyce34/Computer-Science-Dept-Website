@@ -13,9 +13,16 @@
     Sideview's image alt_text is: {{side.image.alt_text}}
   </p>
   {% endfor %}
+
   {% for story in news %}
   <p>
     News headline is: {{story.headline}}. News intro is: {{story.intro}}.
+  </p>
+  {% endfor %}
+
+  {% for a in alerts %}
+  <p>
+    Alert content is: {{a.content}}.
   </p>
   {% endfor %}
 </body>
