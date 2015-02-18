@@ -5,7 +5,6 @@ html {
 }
 
 body {
-  background-color: #1F3664;
   background-attachment: fixed;
   margin: 0;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
@@ -16,7 +15,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 144px;
+  height: 145px;
   background: #1F3664;
   z-index: 2;
 }
