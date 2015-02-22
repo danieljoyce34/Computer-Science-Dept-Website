@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, request, jsonify
 from app import app
 from .models import Image, Sideview, News, Alert
 
@@ -7,11 +7,13 @@ from .models import Image, Sideview, News, Alert
 def index():
 	return render_template('index.html')
 
-@app.route('/testing')
-def testingPage():
-	#Querying Image and Sideview table and retrieving all data
-	image_table = Image.query.all()
-	sideview_table = Sideview.query.all()
-	news_table = News.query.all()
-	alerts_table = Alert.query.all()
-	return render_template('testingPage.html', sideview=sideview_table, news=news_table, alerts=alerts_table)
+@app.route('/alerts', methods=['GET'])
+def alerts():
+	if request.method == 'GET':
+		alerts = Alert.query.all()
+
+		json_result = []
+		for alert in alerts:
+			json = alert.to_json_format()
+			json_result.append(json)
+	return jsonify(alerts=json_result)
