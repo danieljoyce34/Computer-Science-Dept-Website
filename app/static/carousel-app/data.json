@@ -1,16 +1,16 @@
 { "data" : [ 
 	{
-		"img_url": "www.google.com/img=92384uijkwlljalfsdkj",
+		"img_url": "../images/ferret-placeholder.jpg",
 		"title": "Testing Image",
 		"story_url": "localhost:5000"
 	},
 	{
-		"img_url": "../images/Graph-Logo.001.png",
+		"img_url": "https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg",
 		"title": "XJ's head gets swapped with a phone",
 		"story_url": "localhost:5000/"
 	},
 	{
-		"img_url": "http://theferretzone.com/wp-content/uploads/2011/07/ferret-adoption.jpg",
+		"img_url": "../images/logo-white-binary-2.png",
 		"title": "Some random title",
 		"story_url": "localhost:5000/alerts"
 	},
@@ -20,29 +20,13 @@
 		"story_url": "localhost:5000/"
 	},
 	{
-		"img_url": "https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg",
+		"img_url": "../images/logo-white-binary-2.png",
 		"title": "David puts a space before parenthesis",
 		"story_url": "localhost:5000/carousel"
 	},
 	{
-		"img_url": "http://www.gpb.org/files/hoodie_ferret.jpg",
+		"img_url": "../images/ferret-placeholder.jpg",
 		"title": "Testing Image",
 		"story_url": "localhost:5000/"
 	},
-	{
-		"img_url": "www.google.com/img=123412992ljjlkjhkjs",
-		"title": "Testing Image",
-		"story_url": "localhost:5000/"
-	},
-	{
-		"img_url": "www.google.com/img=9a09slksj0asss",
-		"title": "Testing Image",
-		"story_url": "localhost:5000/"
-	},
-	{
-		"img_url": "../images/logo-white-binary-2.png",
-		"title": "Testing Image",
-		"story_url": "localhost:5000"
-	}
 ]}
-
