@@ -1,7 +1,7 @@
 { "data" : [ 
 	{
 		"img_url": "../images/ferret-placeholder.jpg",
-		"title": "Testing Image",
+		"title": "New CS department logo: Ferrets",
 		"story_url": "localhost:5000"
 	},
 	{
@@ -10,23 +10,18 @@
 		"story_url": "localhost:5000/"
 	},
 	{
+		"img_url": "https://s-media-cache-ak0.pinimg.com/236x/a7/03/af/a703afab4ddbad8138fe1bd103133861.jpg",
+		"title": "David puts a space before parenthesis",
+		"story_url": "localhost:5000/carousel"
+	},
+	{
 		"img_url": "../images/logo-white-binary-2.png",
 		"title": "Some random title",
 		"story_url": "localhost:5000/alerts"
 	},
 	{
-		"img_url": "../images/banner.png",
+		"img_url": "../images/Graph-Logo.001.png",
 		"title": "Another random title",
 		"story_url": "localhost:5000/"
-	},
-	{
-		"img_url": "../images/logo-white-binary-2.png",
-		"title": "David puts a space before parenthesis",
-		"story_url": "localhost:5000/carousel"
-	},
-	{
-		"img_url": "../images/ferret-placeholder.jpg",
-		"title": "Testing Image",
-		"story_url": "localhost:5000/"
-	},
+	}
 ]}
