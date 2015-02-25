@@ -1,39 +1,19 @@
-.alert-box{
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	margin-bottom: 25px;
-	width: auto;
-	clear: both;
-	float: left;
+.carousel-container{
+
+}
+
+.active-image{
+	height: 500px;
+	width: 500px;
 	position: relative;
 }
 
-.alert-content{
-	float: left;
-	margin-left: 35px;
-	padding-left: 10px;
-	border-left: 1px black solid;
-	line-height: 30px;
-}
-
-.icon{
-	width: 30px;
-	float: left;
-	text-align: center;
-	line-height: 30px;
-	cursor: pointer;
+.active-image p{
 	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-}
-
-.alert-time{
-	display: none;
-	float: left;
-	margin-left: 5px;
-	line-height: 30px;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 31px;
+	background-color: rgba(255, 0, 0, 0.4);
+	bottom: 4em;
+	width: inherit;
+	font-size: 30px;
+	color: #fff;
+	font-family: Helvetica
 }
