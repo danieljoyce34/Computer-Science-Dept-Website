@@ -25,5 +25,11 @@
     Alert content is: {{a.content}}.
   </p>
   {% endfor %}
+
+  {% for c in courses %}
+  <p>
+    Course ID is: {{c.course_id}}. Course title is: {{c.title}}. Online Submission?: {{c.online_submission}}.
+  </p>
+  {% endfor %}
 </body>
 </html>

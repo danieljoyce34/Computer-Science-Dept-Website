@@ -41,7 +41,7 @@ class News(db.Model):
     article = db.Column(db.Text)
     post_date = db.Column(db.DateTime)
     image = db.relationship('Image', backref=db.backref('news',),
-                            uselist=False) #can't fix this error
+                            uselist=False)
 
     def __repr__(self):
         return ('<News id %i, start_date %f, end_date %f, headline %s, intro %s, article %s, post_date %f, image_id %i>'
@@ -62,3 +62,24 @@ class Alert(db.Model):
 	def __repr__(self):
 		return ('<Alert id %i, content %s, user_id %i, category %s, post_date %f, location %s, start_date %f, end_date %f>'
 				% (self.id, self.content, self.user_id, self.category, self.post_date, self.location, self.start_date, self.end_date))
+
+class Course(db.Model):
+    __tablename__ = 'courses'
+    id = db.Column(db.Integer, primary_key=True)
+    course_id = db.Column(db.String(255))
+    college_id = db.Column(db.Integer)
+    department_id = db.Column(db.Integer)
+    title = db.Column(db.String(255))
+    credits = db.Column(db.Integer)
+    level = db.Column(db.String(255))
+    description = db.Column(db.Text)
+    format = db.Column(db.String(255))
+    coordinator_id = db.Column(db.Integer)
+    prerequisite_expression = db.Column(db.String(255))
+    online_submission = db.Column(db.Boolean)
+    note = db.Column(db.String(255))
+
+
+    def __repr__(self):
+        return ('<Course id %i, course_id %s, college_id %i, department_id %i, title %s, credits %i, level %s, description %s, format %s, coordinator_id %i, prerequisite_expression %s, online_submission %i, note %s>'
+                % (self.id, self.course_id, self.college_id, self.department_id, self.title, self.credits, self.level, self.description, self.format, self.coordinator_id, self.prerequisite_expression, self.online_submission, self.note))
