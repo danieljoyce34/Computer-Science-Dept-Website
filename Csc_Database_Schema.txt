@@ -85,7 +85,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="676" y="34" name="sidebar">
+<table x="676" y="34" name="sideviews">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -99,12 +99,12 @@
 <row name="content" null="0" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
 <default>'NULL'</default></row>
+<row name="category" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>'NULL'</default></row>
 <row name="title" null="0" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>'NULL'</default></row>
-<row name="type" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
@@ -119,7 +119,7 @@
 <row name="user_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="type" null="0" autoincrement="0">
+<row name="category" null="0" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>'NULL'</default><comment>class, colloquium, event</comment>
 </row>
