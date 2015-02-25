@@ -90,7 +90,7 @@ class Alert(db.Model):
 
     def to_json_format(self):
         json = {'id': self.id,
-                'content': self.id,
+                'content': self.content,
                 'user_id': self.user_id,
                 'category': self.category,
                 'post_date': self.post_date,
@@ -104,3 +104,39 @@ class Alert(db.Model):
                 ' location %s, start_date %f, end_date %f>'
                 % (self.id, self.content, self.user_id, self.category,
                     self.post_date, self.location, self.start_date, self.end_date))
+
+class Course(db.Model):
+    __tablename__ = 'courses'
+    id = db.Column(db.Integer, primary_key=True)
+    course_id = db.Column(db.String(255))
+    college_id = db.Column(db.Integer)
+    department_id = db.Column(db.Integer)
+    title = db.Column(db.String(255))
+    credits = db.Column(db.Integer)
+    level = db.Column(db.String(255))
+    description = db.Column(db.Text)
+    format = db.Column(db.String(255))
+    coordinator_id = db.Column(db.Integer)
+    prerequisite_expression = db.Column(db.String(255))
+    online_submission = db.Column(db.Boolean)
+    note = db.Column(db.String(255))
+
+    def to_json_format(self):
+        json = {'id': self.id,
+                'course_id': self.course_id,
+                'college_id': self.college_id,
+                'department_id': self.department_id,
+                'title': self.title,
+                'credits': self.credits,
+                'level': self.level,
+                'description': self.description,
+                'format': self.format,
+                'coordinator_id': self.coordinator_id,
+                'prerequisite_expression': self.prerequisite_expression,
+                'online_submission': self.online_submission,
+                'note': self.note}
+        return json
+
+    def __repr__(self):
+        return ('<Course id %i, course_id %s, college_id %i, department_id %i, title %s, credits %i, level %s, description %s, format %s, coordinator_id %i, prerequisite_expression %s, online_submission %i, note %s>'
+                % (self.id, self.course_id, self.college_id, self.department_id, self.title, self.credits, self.level, self.description, self.format, self.coordinator_id, self.prerequisite_expression, self.online_submission, self.note))
