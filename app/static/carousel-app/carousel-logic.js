@@ -1,4 +1,5 @@
 $(document).ready(function () {
+	var image_container = $('.active-image');
 
 	var data_container = [ 
 		{
@@ -17,15 +18,45 @@ $(document).ready(function () {
 			"story_url": "localhost:5000/carousel"
 		},
 		{
-			"img_url": "../images/logo-white-binary-2.png",
+			"img_url": "https://unsplash.imgix.net/uploads/1413386993023a925afb4/4e769802?q=75&fm=jpg&s=84dfb097d39ff1600cdd32be44813650",
 			"title": "Some random title",
 			"story_url": "localhost:5000/alerts"
 		},
 		{
-			"img_url": "../images/Graph-Logo.001.png",
+			"img_url": "https://unsplash.imgix.net/photo-1423439793616-f2aa4356b37e?q=75&fm=jpg&s=3b42f9c018b2712544debf4d6a4998ff",
 			"title": "Another random title",
 			"story_url": "localhost:5000/"
 		}
 	];
+
+	function cycleImages(images) {
+		var i = 0,
+			max = images.length;                     
+
+		// bunch of bullshit since setTimeout and setInterval are non-blocking
+		// annnnnd its broken...
+		function myLoop() {           
+		   	window.setInterval(function() {    
+		   		swapImage(images[i]['img_url']);
+		   		console.log('looping', i);
+		      	i++;                     
+		      	if (i < max) {            
+		         	myLoop();             
+		      	} else {
+		      		i = 0;
+		      	}                      
+		   	}, 5000);
+		}
+
+		myLoop();
+	}
+
+	function swapImage(url) {
+		url = "url(" + url + ")"; 
+		console.log(url);
+		image_container.css('background-image', url);
+	}
+
+	cycleImages(data_container);
 });
 
