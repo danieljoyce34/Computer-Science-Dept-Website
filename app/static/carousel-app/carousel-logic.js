@@ -4,11 +4,6 @@ $(document).ready(function () {
 
 	var data_container = [ 
 		{
-			"img_url": "../images/ferret-placeholder.jpg",
-			"title": "New CS department logo: Ferrets",
-			"story_url": "localhost:5000"
-		},
-		{
 			"img_url": "https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg",
 			"title": "XJ's head gets swapped with a phone",
 			"story_url": "localhost:5000/"
