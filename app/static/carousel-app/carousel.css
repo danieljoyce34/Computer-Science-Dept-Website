@@ -16,8 +16,10 @@
 
 .active-image p{
 	position: absolute;
-	background-color: rgba(255, 0, 0, 0.4);
-	bottom: 4em;
+	background-color: rgba(0, 0, 0, 0.4);
+	padding: 10px 0 10px 0;
+	text-align: center;
+	bottom: 3em;
 	width: inherit;
 	font-size: 30px;
 	color: #fff;
