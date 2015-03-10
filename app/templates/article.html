@@ -1,3 +1,11 @@
-<div id="article-template">
+<div class="article-template">
+	{% if data %}
+		<div class="article-header">{{data['articleHeader']}}</div>
 
+		<div class="article-image">{{data['articleImage']}}</div>
+
+		<div class="article-content">{{data['articleContent']}}</div>
+	{% else %}
+		<div class="errorMessage">Something went wrong with the reference number</div>
+	{% endif %}
 </div>
