@@ -1,5 +1,6 @@
 $(document).ready(function () {
-	var image_container = $('.active-image');
+	var image_container = $('.active-image'),
+		current_title = $('.active-title');
 
 	var data_container = [ 
 		{
@@ -39,6 +40,7 @@ $(document).ready(function () {
 				i = 0;
 			
 			swapImage(images[i]['img_url']);
+			swapTitle(images[i]['title']);
 		}, 5000);
 	}
 
@@ -46,6 +48,11 @@ $(document).ready(function () {
 		url = "url(" + url + ")"; 
 		console.log(url);
 		image_container.css('background-image', url);
+	}
+
+	function swapTitle(title) {
+		console.log(title);
+		current_title.text(title);
 	}
 
 	cycleImages(data_container);
