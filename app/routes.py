@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, request
 from app import app
 
 @app.route('/')
@@ -11,7 +11,8 @@ def carousel():
 	return render_template('carousel.html')
 
 @app.route('/article', methods=['POST', 'GET'])
-	e=request.args['articleNumber']
+def article():
+	#e=request.args['articleNumber']
 
 	#QUERY DATABASE HERE
 	results = {}
@@ -19,7 +20,7 @@ def carousel():
 	results['articleHeader']='There is some data'
 	results['articleContent']='We have contempt for our content'
 
-	return render_template('article', data=results)
+	return render_template('article.html', data=results)
 
 @app.route('/getArticleNumber')
 def getArticleNumber():
