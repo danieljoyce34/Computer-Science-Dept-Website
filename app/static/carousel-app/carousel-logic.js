@@ -1,12 +1,8 @@
 $(document).ready(function () {
-	var image_container = $('.active-image');
+	var image_container = $('.active-image'),
+		current_title = $('.active-title');
 
 	var data_container = [ 
-		{
-			"img_url": "../images/ferret-placeholder.jpg",
-			"title": "New CS department logo: Ferrets",
-			"story_url": "localhost:5000"
-		},
 		{
 			"img_url": "https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg",
 			"title": "XJ's head gets swapped with a phone",
@@ -39,6 +35,7 @@ $(document).ready(function () {
 				i = 0;
 			
 			swapImage(images[i]['img_url']);
+			swapTitle(images[i]['title']);
 		}, 5000);
 	}
 
@@ -46,6 +43,11 @@ $(document).ready(function () {
 		url = "url(" + url + ")"; 
 		console.log(url);
 		image_container.css('background-image', url);
+	}
+
+	function swapTitle(title) {
+		console.log(title);
+		current_title.text(title);
 	}
 
 	cycleImages(data_container);
