@@ -33,9 +33,13 @@ $(document).ready(function () {
 		var i = 0,
 			max = images.length;                     
 
-		// bunch of bullshit since setTimeout and setInterval are non-blocking
-		// annnnnd its broken...
-		setInterval(function () { console.log("Hello"); }, 3000);
+		setInterval(function () { 
+			i++;
+			if (i > (max - 1))
+				i = 0;
+			
+			swapImage(images[i]['img_url']);
+		}, 5000);
 	}
 
 	function swapImage(url) {
