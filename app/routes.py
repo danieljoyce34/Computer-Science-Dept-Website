@@ -26,3 +26,16 @@ def article():
 def getArticleNumber():
 	return 12
 
+@app.route('/general', methods=['POST', 'GET'])
+def generalPage():
+	e = request.args['content']
+	return render_template('pageTemplate.html', content=e)
+
+#@app.route('/about')
+#def aboutGeneral():
+# #	return render_template('pageTemplate.html', content="about")
+
+# @app.route('/academics')
+# def aboutGeneral():
+# 	return render_template('pageTemplate.html', content="academics")
+
