@@ -152,19 +152,19 @@
 <row name="lname" null="0" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>'NULL'</default></row>
-<row name="email-id" null="0" autoincrement="0">
+<row name="email_id" null="0" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>'NULL'</default></row>
-<row name="vu_userid" null="0" autoincrement="0">
+<row name="vu_ldap" null="0" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>'NULL'</default></row>
 <row name="image_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="images" row="id" />
 </row>
-<row name="role_id" null="0" autoincrement="0">
+<row name="id" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="user role" row="role_id" />
+<default>NULL</default><relation table="user_role" row="id" />
 </row>
 <key type="PRIMARY" name="">
 <part>id</part>
@@ -224,7 +224,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="374" y="783" name="phoneno">
+<table x="374" y="783" name="phone">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -232,7 +232,7 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="user" row="id" />
 </row>
-<row name="area code" null="1" autoincrement="0">
+<row name="area_code" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="number" null="1" autoincrement="0">
@@ -272,7 +272,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="939" y="576" name="cs interests">
+<table x="939" y="576" name="cs_interests">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -293,7 +293,7 @@
 </row>
 <row name="cs interests_id" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="cs interests" row="id" />
+<default>NULL</default><relation table="cs_interests" row="id" />
 </row>
 <key type="PRIMARY" name="">
 <part>id</part>
@@ -320,7 +320,7 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="term" row="id" />
 </row>
-<row name="apntmnt msg" null="1" autoincrement="0">
+<row name="apntmnt_msg" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
@@ -346,6 +346,7 @@
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
+<comment>Fall,Spring,Summer I,Summer II,Summer III</comment>
 </table>
 <table x="744" y="423" name="faculty_services">
 <row name="id" null="1" autoincrement="1">
@@ -355,7 +356,7 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="faculty" row="id" />
 </row>
-<row name="service name" null="0" autoincrement="0">
+<row name="service_name" null="0" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>'NULL'</default></row>
 <row name="type" null="0" autoincrement="0">
@@ -365,7 +366,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="723" y="1022" name="committees">
+<table x="723" y="1022" name="committee">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -386,9 +387,9 @@
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="committees_id" null="0" autoincrement="0">
+<row name="committee_id" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="committees" row="id" />
+<default>NULL</default><relation table="committee" row="id" />
 </row>
 <row name="faculty_id" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -396,9 +397,6 @@
 </row>
 <row name="role" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="chair" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
@@ -441,15 +439,15 @@
 </key>
 <comment>Do not implement right now</comment>
 </table>
-<table x="7" y="1052" name="user role">
-<row name="role_id" null="0" autoincrement="1">
+<table x="7" y="1052" name="user_role">
+<row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="role name" null="0" autoincrement="0">
+<row name="name" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
-<part>role_id</part>
+<part>id</part>
 </key>
 <comment>UG,G,Faculty,Staff and WebTeam</comment>
 </table>
