@@ -34,10 +34,10 @@ body {
 
 #header-text {
   position: absolute;
-  bottom: 0;
-  left: 170px;
+  bottom: 0.5em;
+  left: 4em;
   color: #fff;
-  font-size: 30px;
+  font-size: 3em;
   font: Garamond, Book;
   font-family: italic;
   font-variant: small-caps;
