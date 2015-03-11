@@ -142,8 +142,7 @@
 <table x="123" y="703" name="user">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="user_role" row="id" />
-</row>
+<default>NULL</default></row>
 <row name="fname" null="0" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>'NULL'</default></row>
@@ -165,7 +164,8 @@
 </row>
 <row name="user_role_id" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default></row>
+<default>NULL</default><relation table="user_role" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
