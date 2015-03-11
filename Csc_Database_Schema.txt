@@ -139,10 +139,11 @@
 <part>id</part>
 </key>
 </table>
-<table x="45" y="717" name="user">
+<table x="123" y="703" name="user">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
-<default>NULL</default></row>
+<default>NULL</default><relation table="user_role" row="id" />
+</row>
 <row name="fname" null="0" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>'NULL'</default></row>
@@ -162,10 +163,9 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="images" row="id" />
 </row>
-<row name="id" null="0" autoincrement="0">
+<row name="user_role_id" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="user_role" row="id" />
-</row>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
@@ -224,7 +224,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="374" y="783" name="phone">
+<table x="437" y="785" name="phone">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -233,13 +233,13 @@
 <default>NULL</default><relation table="user" row="id" />
 </row>
 <row name="area_code" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <row name="number" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <row name="extension" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
@@ -321,7 +321,7 @@
 <default>NULL</default><relation table="term" row="id" />
 </row>
 <row name="apntmnt_msg" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
@@ -420,7 +420,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="260" y="1173" name="administration">
+<table x="259" y="1136" name="administration">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -439,12 +439,12 @@
 </key>
 <comment>Do not implement right now</comment>
 </table>
-<table x="7" y="1052" name="user_role">
-<row name="id" null="0" autoincrement="1">
+<table x="73" y="1066" name="user_role">
+<row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="name" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
+<row name="name" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
