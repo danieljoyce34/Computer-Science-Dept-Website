@@ -23,7 +23,14 @@
 	width: inherit;
 	font-size: 30px;
 	color: #fff;
-	font-family: Helvetica
+	font-family: Helvetica;
+	margin: 0;
+}
+
+.active-description {
+	font-style: italic;
+	font-size: 15px;
+
 }
 
 #dot-container{

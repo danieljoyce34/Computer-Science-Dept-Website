@@ -7,10 +7,10 @@ $(document).ready(function () {
 
 	var data_container = [ 
 		{
-			"color" : "General",
-			"content" : "Atention all campers, meals are cancelled today due to lack of hustle... deal with it",
-			"time" : "12:00AM",
-			"who" : 11
+		"color" : "General",
+		"content" : "Atention all campers, meals are cancelled today due to lack of hustle... deal with it",
+		"time" : "12:00AM",
+		"who" : 11
 		},
 		{
 		"color" : "Warning",
@@ -25,7 +25,7 @@ $(document).ready(function () {
 		"who" : 33
 		},
 		{
-		"color" : "Colloquiums",
+		"color" : "Colloquium",
 		"content" : "All Colloquiums are cancelled today",
 		"time" : "3:00PM",
 		"who" : 44
@@ -37,13 +37,13 @@ $(document).ready(function () {
 		"who" : 55
 		}, 
 		{
-		"color": "class",
+		"color": "Class",
 		"content": "Dr. Ways class has been cancelled",
 		"time": "12:30PM",
 		"who": 12
 		},
 		{
-		"color": "meeting",
+		"color": "Meeting",
 		"content": "Bansai Gardening club meeting today!",
 		"time": "1:30PM",
 		"who": 55
@@ -88,13 +88,13 @@ $(document).ready(function () {
 		"color":"reschedule",
 		"content":"Colloqium scheduled for today has been rescheduled for next week",
 		"time":"2:30PM",
-		"who":134
+		"who": 134
 		},
 		{
-		"color":"meeting",
+		"color":"Meeting",
 		"content":"There is some kind of meeting",
 		"time":"2:30PM",
-		"who":234
+		"who": 234
 		}
 	];
 
