@@ -110,7 +110,7 @@ class Course(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     course_id = db.Column(db.String(255))
     college_id = db.Column(db.Integer)
-    department_id = db.Column(db.Integer)
+    department_id = db.Column(db.Integer, db.ForeignKey('departments.dept_id'))
     title = db.Column(db.String(255))
     credits = db.Column(db.Integer)
     level = db.Column(db.String(255))
@@ -120,6 +120,7 @@ class Course(db.Model):
     prerequisite_expression = db.Column(db.String(255))
     online_submission = db.Column(db.Boolean)
     note = db.Column(db.String(255))
+    course_year = db.Column(db.Integer)
 
     def to_json_format(self):
         json = {'id': self.id,
@@ -134,9 +135,28 @@ class Course(db.Model):
                 'coordinator_id': self.coordinator_id,
                 'prerequisite_expression': self.prerequisite_expression,
                 'online_submission': self.online_submission,
-                'note': self.note}
+                'note': self.note,
+                'course_year': self.course_year}
         return json
 
     def __repr__(self):
-        return ('<Course id %i, course_id %s, college_id %i, department_id %i, title %s, credits %i, level %s, description %s, format %s, coordinator_id %i, prerequisite_expression %s, online_submission %i, note %s>'
-                % (self.id, self.course_id, self.college_id, self.department_id, self.title, self.credits, self.level, self.description, self.format, self.coordinator_id, self.prerequisite_expression, self.online_submission, self.note))
+        return ('<Course id %i, course_id %s, college_id %i, department_id %i, title %s, credits %i, level %s, description %s, format %s, coordinator_id %i, prerequisite_expression %s, online_submission %i, note %s, course_year %i>'
+                % (self.id, self.course_id, self.college_id, self.department_id, self.title, self.credits, self.level, self.description, self.format, self.coordinator_id, self.prerequisite_expression, self.online_submission, self.note, self.course_year))
+
+
+class Department(db.Model):
+    __tablename__ = 'departments'
+    dept_id = db.Column(db.Integer, primary_key=True)
+    dept_name = db.Column(db.String(255))
+    college_name = db.Column(db.String(255))
+
+
+    def to_json_format(self):
+        json = {'dept_id': self.dept_id,
+                'dept_name': self.dept_name,
+                'college_name': self.college_name}
+        return json
+
+    def __repr__(self):
+        return ('<dept_id %s, dept_name %s, college_name %s>'
+                % (self.dept_id, self.dept_name, self.college_name))

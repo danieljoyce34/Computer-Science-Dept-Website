@@ -28,7 +28,13 @@
 
   {% for c in courses %}
   <p>
-    Course ID is: {{c.course_id}}. Course title is: {{c.title}}. Online Submission?: {{c.online_submission}}.
+    Course ID is: {{c.course_id}}. Course title is: {{c.title}}. Department ID: {{c.department_id}}. Online Submission?: {{c.online_submission}}. Course Year: {{c.course_year}}
+  </p>
+  {% endfor %}
+
+  {% for d in departments %}
+  <p>
+    Department ID: {{d.dept_id}}. Department name: {{d.dept_name}}. College name: {{d.college_name}}.
   </p>
   {% endfor %}
 </body>
