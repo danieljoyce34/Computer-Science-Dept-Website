@@ -13,7 +13,7 @@ c = models.Course(course_id='CSC 2405', department_id=100, title='Computing Syst
 
 d = models.Department(dept_id=100, dept_name='Computer Science', college_name="Liberal Arts & Sciences")
 
-#db.create_all()
+db.create_all()
 #db.session.add(a)
 #db.session.add(i)
 #db.session.add(s)

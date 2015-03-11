@@ -136,10 +136,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="646" y="222" name="courses">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
+<table x="615" y="349" name="courses">
 <row name="course_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -148,7 +145,8 @@
 <default>NULL</default></row>
 <row name="department_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default></row>
+<default>NULL</default><relation table="department" row="department_id" />
+</row>
 <row name="course_title" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
@@ -176,9 +174,82 @@
 <row name="note" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
+<row name="course_year" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
-<part>id</part>
+<part>course_id</part>
+</key>
+</table>
+<table x="911" y="409" name="department">
+<row name="department_id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="department_name" null="1" autoincrement="0">
+<datatype>CHAR</datatype>
+<default>NULL</default></row>
+<row name="college_name" null="1" autoincrement="0">
+<datatype>CHAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>department_id</part>
+</key>
+</table>
+<table x="887" y="167" name="textbook">
+<row name="text_id" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="course_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="courses" row="course_id" />
+</row>
+<row name="author" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="title" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="edition" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="publisher_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="isbn" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>text_id</part>
+</key>
+</table>
+<table x="324" y="516" name="course_sections">
+<row name="section_id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="course_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="courses" row="course_id" />
+</row>
+<row name="instructor_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="days" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="start_time" null="1" autoincrement="0">
+<datatype>TIME</datatype>
+<default>NULL</default></row>
+<row name="end_time" null="1" autoincrement="0">
+<datatype>TIME</datatype>
+<default>NULL</default></row>
+<row name="room" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="section_type" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>section_id</part>
 </key>
 </table>
 </sql>
-
