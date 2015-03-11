@@ -1,7 +1,7 @@
 .alert-box{
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	margin-bottom: 25px;
-	width: auto;
+	margin-bottom: 10px;
+	width: 100%;
 	clear: both;
 	float: left;
 	position: relative;
@@ -36,4 +36,28 @@
 	top: 0;
 	bottom: 0;
 	left: 31px;
+}
+
+.General {
+	background: #DCDCDC; 
+}
+
+.Warning {
+	background: #C25F38;
+}
+
+.Colloquium {
+	background: #6395B0;
+}
+
+.Class {
+	background: #9AAF6E;
+}
+
+.Meeting {
+	background: #CF9C38;
+}
+
+.Club {
+	background: #B2C3CA;
 }

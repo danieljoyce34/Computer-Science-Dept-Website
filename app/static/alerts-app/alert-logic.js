@@ -7,10 +7,10 @@ $(document).ready(function () {
 
 	var data_container = [ 
 		{
-			"color" : "General",
-			"content" : "Atention all campers, meals are cancelled today due to lack of hustle... deal with it",
-			"time" : "12:00AM",
-			"who" : 11
+		"color" : "General",
+		"content" : "Atention all campers, meals are cancelled today due to lack of hustle... deal with it",
+		"time" : "12:00AM",
+		"who" : 11
 		},
 		{
 		"color" : "Warning",
@@ -19,13 +19,13 @@ $(document).ready(function () {
 		"who" : 22
 		},
 		{
-		"color" : "Abrupt Comment",
+		"color" : "Warning",
 		"content" : "Imma let you finish, but Beyonce had the best web-page ever",
 		"time" : "4:00PM",
 		"who" : 33
 		},
 		{
-		"color" : "Colloquiums",
+		"color" : "Colloquium",
 		"content" : "All Colloquiums are cancelled today",
 		"time" : "3:00PM",
 		"who" : 44
@@ -37,64 +37,64 @@ $(document).ready(function () {
 		"who" : 55
 		}, 
 		{
-		"color": "class",
+		"color": "Class",
 		"content": "Dr. Ways class has been cancelled",
 		"time": "12:30PM",
 		"who": 12
 		},
 		{
-		"color": "meeting",
+		"color": "Meeting",
 		"content": "Bansai Gardening club meeting today!",
 		"time": "1:30PM",
 		"who": 55
 		},
 		{
-		"color": "colloqium",
+		"color": "Colloquium",
 		"content": "Former totalitarian dictator Stalin giving colloqium in room M292",
 		"time": "4:30PM",
 		"who": 122
 		},
 		{
-		"color": "reschedule",
+		"color": "Class",
 		"content": "All classes pushed back to tomorrow",
 		"time": "2:30PM",
 		"who": 1
 		},
 		{
-		"color": "club",
+		"color": "Club",
 		"content": "Rom com club meeting tomorrow",
 		"time": "12:30PM",
 		"who": 15
 		},
 		{
-		"color" : "colloqium",
+		"color" : "Colloquium",
 		"content" : "Colloqium today at 4:30 in Mendel 115",
 		"time" : "2:30PM",
 		"who" : 1234
 		},
 		{
-		"color":"class",
+		"color":"Class",
 		"content" : "Graduate Computer Vision Course has been cancelled tonight",
 		"time" : "2:30PM",
 		"who" : 123
 		},
 		{
-		"color":"meeting",
+		"color":"Meeting",
 		"content":"CAVE Crew meeting tomorrow at 2:30pm in Mendel 292",
 		"time":"2:30PM",
 		"who": 111
 		},
 		{
-		"color":"reschedule",
+		"color":"Colloquium",
 		"content":"Colloqium scheduled for today has been rescheduled for next week",
 		"time":"2:30PM",
-		"who":134
+		"who": 134
 		},
 		{
-		"color":"meeting",
+		"color":"Meeting",
 		"content":"There is some kind of meeting",
 		"time":"2:30PM",
-		"who":234
+		"who": 234
 		}
 	];
 
