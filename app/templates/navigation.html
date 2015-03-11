@@ -1,46 +1,46 @@
 {% block head %}
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/navigation.css') }}">
 {% endblock %}
-<!-- Navigation Bar from: http://medialoot.com/blog/how-to-create-a-responsive-navigation-menu-using-only-css/ -->
-<label for="show-menu" class="show-menu">Show Menu</label>
-<input type="checkbox" id="show-menu" role="button">
-<ul id="menu">
 
-  <li>
+<div id="nav-switch"></div>
+
+<ul id="nav">
+
+  <li class="nav-item">
     <a href="#">About Us</a>
-    <ul class="hidden">
-      <li><a href="#">Prospective Students</a></li>
-      <li><a href="#">Support</a></li>
+    <ul class="subnav">
+      <li class="subnav-item"><a href="#">Prospective Students</a></li>
+      <li class="subnav-item"><a href="#">Support</a></li>
     </ul>
   </li>
 
-  <li>
+  <li class="nav-item">
     <a href="#">Academics</a>
-    <ul class="hidden">
-    </ul>
+    <ul class="subnav"></ul>
   </li>
 
-  <li>
+  <li class="nav-item">
     <a href="#">Research</a>
-    <ul class="hidden">
-    </ul>
+    <ul class="subnav"></ul>
   </li>
 
-  <li>
+  <li class="nav-item">
     <a href="#">Opportunities</a>
-    <ul class="hidden">
-      <li><a href="#">Jobs</a></li>
-      <li><a href="#">Internships</a></li>
-      <li><a href="#">Scholarships</a></li>
+    <ul class="subnav">
+      <li class="subnav-item"><a href="#">Jobs</a></li>
+      <li class="subnav-item"><a href="#">Internships</a></li>
+      <li class="subnav-item"><a href="#">Scholarships</a></li>
     </ul>
   </li>
 
-  <li>
+  <li class="nav-item">
     <a href="#">Events</a>
-    <ul class="hidden">
-      <li><a href="#">Alumni</a></li>
-      <li><a href="#">Student Activities</a></li>
-      <li><a href="#">Images</a></li>
+    <ul class="subnav">
+      <li class="subnav-item"><a href="#">Alumni</a></li>
+      <li class="subnav-item"><a href="#">Student Activities</a></li>
+      <li class="subnav-item"><a href="#">Images</a></li>
     </ul>
   </li>
 </ul>
+
+<script type="text/javascript" src="static/js/navigation.js"></script>

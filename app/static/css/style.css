@@ -1,12 +1,9 @@
-/* CSS Document */
-
-html {
-  min-height:100%;
-}
+/* CSS Stylesheet for index.html */
 
 body {
   background-attachment: fixed;
   margin: 0;
+  padding: 0;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
@@ -15,66 +12,97 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 145px;
+  height: 140px;
   background: #1F3664;
-  z-index: 2;
+  z-index: 1;
 }
-
+/* Header Style */
 #banner{
+  position: relative;
   width: 70%;
   height: 100px;
-  background: #fff;
   margin: 0 auto;
   background-color: #1F3664;
-  /* temporary placeholder style */
- /* text-align: center;
-  line-height: 100px; */
 }
+
+#logo {
+  position: absolute;
+  width: auto;
+  margin-right: 10px;
+  height: 100%;
+}
+
+#header-text {
+  position: absolute;
+  bottom: 0;
+  left: 170px;
+  color: #fff;
+  font-size: 30px;
+  font: Garamond, Book;
+  font-family: italic;
+  font-variant: small-caps;
+}
+/* End Header Style */
 
 /* Centers the nav menu and sets the menu width/height */
 #nav-wrapper{
+  position: relative;
+  height: 40px;
   width: 70%;
-  height: 45px;
+  min-width: 780px;
   margin: 0 auto;
 }
 
-#main_wrapper {
-  width: 70%;
-  min-width: 750px;
-  margin: 150px auto 0 auto;
-}
-
-/* Do we actually need page content? - Will/*
-/*wrap the entire page content but not nav inside this div if not a fixed top, don't add any top padding */
-#page-content {
-  position: relative;
-  padding: 20px;
+#content-wrapper{
+  position: fixed;
+  top: 140px;
+  bottom: 0;
   left: 0;
-  border-radius: 2px;
-  background-color: #fff;
+  right: 0;
   overflow: auto;
 }
 
-@media screen and (max-width: 1185px){
-  #nav-wrapper, #banner{
-    width: 780px;
+#content{
+  width: 70%;
+  min-width: 780px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 781px){
+  #content-wrapper{
+    left: 0 !important;
   }
 }
 
-@media screen and (max-width: 780px) {
-  #nav-wrapper, #banner{
-    width: 100%;
+@media screen and (max-width: 780px){
+  #header{
+    height: auto;
+    bottom: 0;
   }
 
-  #main_wrapper {
+  #content, #banner{
     width: 100%;
-    min-width: 0px;
+    min-width: 0
   }
-}
 
-@media (min-width:768px) { 
-  #page-content {
-      left: 0!important
+  #banner{
+    height: 65px;
+  }
+
+  #nav-wrapper{
+    width: 160px;
+    min-width: 0;
+    height: auto;
+    position: absolute;
+    top: 65px;
+    bottom: 0;
+    float: left;
+  }
+
+  #content-wrapper{
+    top: 105px;
+    z-index: 2;
+    background: #fff;
   }
 }
 
@@ -103,34 +131,11 @@ body {
   overflow: auto;
 }
 
-.aux-card {
+.sidebar-card {
   width: 33%;
   height: 300px;
   float: right;
   overflow: auto;
-}
-
-#Logo {  
-  width: 10%;
-  
-  /* for graph logo */
-  /*height: 80%;
-    
-  /* for tree logo */
-  height: 65%; 
-  position: absolute;
-
-}
-
-#Head-Text {
-  position: absolute;
-  color: #fff;
-  left: 26%;
-  top: 35%;
-  font-size: 3em;
-  font: Garamond, Book;
-  font-family: italic;
-  font-variant: small-caps;
 }
 
 #sidebar {
