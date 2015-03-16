@@ -152,7 +152,7 @@
 <row name="lname" null="0" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>'NULL'</default></row>
-<row name="email_id" null="0" autoincrement="0">
+<row name="email" null="0" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>'NULL'</default></row>
 <row name="vu_ldap" null="0" autoincrement="0">
@@ -224,7 +224,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="437" y="785" name="phone">
+<table x="408" y="801" name="phone_number">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -272,17 +272,6 @@
 <part>id</part>
 </key>
 </table>
-<table x="939" y="576" name="cs_interests">
-<row name="id" null="0" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="name" null="0" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>'NULL'</default></row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
 <table x="730" y="571" name="faculty_interests">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
@@ -291,10 +280,9 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="faculty" row="id" />
 </row>
-<row name="cs interests_id" null="0" autoincrement="0">
+<row name="interest" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="cs_interests" row="id" />
-</row>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
@@ -359,7 +347,7 @@
 <row name="service_name" null="0" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>'NULL'</default></row>
-<row name="type" null="0" autoincrement="0">
+<row name="category" null="0" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>'NULL'</default></row>
 <key type="PRIMARY" name="">
@@ -373,11 +361,11 @@
 <row name="name" null="0" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>'NULL'</default></row>
-<row name="type" null="0" autoincrement="0">
+<row name="category" null="0" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>'NULL'</default></row>
 <row name="description" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
+<datatype>MEDIUMTEXT</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
@@ -443,7 +431,7 @@
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="name" null="1" autoincrement="0">
+<row name="role" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
