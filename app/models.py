@@ -13,7 +13,8 @@ class Image(db.Model):
                                uselist=False)
     news = db.relationship('News', backref=db.backref('image',),
                            uselist=False)
-    # user object here
+    user = db.relationship('User', backref=db.backref('image',),
+                           uselist=False)
 
     def to_json_format(self):
         json = {'id': self.id,
@@ -116,14 +117,21 @@ class User(db.Model):
     lname = db.Column(db.String(32))
     email = db.Column(db.String(64))
     vu_ldap = db.Column(db.String(64))
-    # image_id foreign key here
-    # user_role_id foreign key here
-    # staff object here
-    # administration object here
-    # phoneNumber object here
-    # address object here
-    # officeHours object here
-    # Faculty object here
+    image_id = db.Column(db.Integer, db.ForeignKey('images.id'))
+    user_role_id = db.Column(db.Integer, db.ForeignKey('user_role.id'))
+    staff = db.relationship('Staff', backref=db.backref('user',),
+                            uselist=False)
+    administration = db.relationship('Administration',
+                                     backref=db.backref('user',),
+                                     uselist=False)
+    phone_number = db.relationship('PhoneNumber', backref=db.backref('user',),
+                                   uselist=False)
+    address = db.relationship('Address', backref=db.backref('user',),
+                              uselist=False)
+    office_hours = db.relationship('OfficeHours', backref=db.backref('user',),
+                                   uselist=False)
+    faculty = db.relationship('Faculty', backref=db.backref('user',),
+                              uselist=False)
 
     # to_json_format
     # repr function
@@ -133,7 +141,8 @@ class UserRole(db.Model):
     __tablename__ = 'user_role'
     id = db.Column(db.Integer, primary_key=True)
     role = db.Column(db.String(32))
-    # user object here
+    user = db.relationship('User', backref=db.backref('user_role',),
+                           uselist=False)
 
     # to_json_format
     # repr function
@@ -144,7 +153,7 @@ class Staff(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     position = db.Column(db.String(64))
     office_loc = db.Column(db.String(64))
-    # user_id foreign key here
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     # to_json_format
     # repr function
@@ -155,7 +164,7 @@ class Administration(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     description = db.Column(db.String(128))
     priority = db.Column(db.String(64))
-    # user_id foreign key here
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     # to_json_format
     # repr function
@@ -167,7 +176,7 @@ class PhoneNumber(db.Model):
     area_code = db.Column(db.String(8))
     number = db.Column(db.String(8))
     extension = db.Column(db.String(8))
-    # user_id foreign key here
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     # to_json_format
     # repr function
@@ -181,7 +190,7 @@ class Address(db.Model):
     city = db.Column(db.String(32))
     state = db.Column(db.String(32))
     zip = db.Column(db.Integer)
-    # user_id foreign key here
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     # to_json_format
     # repr function
@@ -197,21 +206,22 @@ class OfficeHours(db.Model):
     end_time = db.Column(db.DateTime)
     days = db.Column(db.String(5))
     apntmnt_msg = db.Column(db.String(128))
-    # user_id foreign key here
-    # term_id foreign key here
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    term_id = db.Column(db.Integer, db.ForeignKey('term.id'))
 
     # to_json_format
     # repr function
 
 
-class term(db.Model):
+class Term(db.Model):
     __tablename__ = 'term'
     id = db.Column(db.Integer, primary_key=True)
     semester = db.Column(db.String(16))
     year = db.Column(db.Integer)
     start_date = db.Column(db.DateTime)
     end_date = db.Column(db.DateTime)
-    # officeHours object here
+    office_hours = db.relationship('OfficeHours', backref=db.backref('term',),
+                                   uselist=False)
 
     # to_json_format
     # repr function
@@ -227,11 +237,18 @@ class Faculty(db.Model):
     faculty_rank = db.Column(db.String(32))
     status = db.Column(db.String(32))
     office_loc = db.Column(db.String(64))
-    # user_id foreign key here
-    # education object here
-    # facultyServices object here
-    # facultyInterests object here
-    # committeeMembers object here
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    education = db.relationship('Education', backref=db.backref('faculty',),
+                                uselist=False)
+    faculty_services = db.relationship('FacultyServices',
+                                       backref=db.backref('faculty',),
+                                       uselist=False)
+    faculty_services = db.relationship('FacultyInterests',
+                                       backref=db.backref('faculty',),
+                                       uselist=False)
+    committee_members = db.relationship('CommitteeMembers',
+                                        backref=db.backref('faculty',),
+                                        uselist=False)
 
     # to_json_format
     # repr function
@@ -243,7 +260,7 @@ class Education(db.Model):
     degree = db.Column(db.String(64))
     discipline = db.Column(db.String(128))
     school = db.Column(db.String(128))
-    # faculty_id foreign key here
+    faculty_id = db.Column(db.Integer, db.ForeignKey('faculty.id'))
 
     # to_json_format
     # repr function
@@ -254,7 +271,7 @@ class FacultyServices(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     service_name = db.Column(db.String(64))
     category = db.Column(db.String(64))
-    # faculty_id foreign key here
+    faculty_id = db.Column(db.Integer, db.ForeignKey('faculty.id'))
 
     # to_json_format
     # repr function
@@ -264,28 +281,32 @@ class FacultyInterests(db.Model):
     __tablename__ = 'faculty_interests'
     id = db.Column(db.Integer, primary_key=True)
     interest = db.Column(db.String(64))
-    # faculty_id foreign key here
+    faculty_id = db.Column(db.Integer, db.ForeignKey('faculty.id'))
 
     # to_json_format
     # repr function
 
 
-class committee_members(db.Model):
+class CommitteeMembers(db.Model):
+    __tablename__ = 'committee_members'
     id = db.Column(db.Integer, primary_key=True)
     role = db.Column(db.String(64))
-    # faculty_id foreign key here
-    # committee_id foreign key here
+    faculty_id = db.Column(db.Integer, db.ForeignKey('faculty.id'))
+    committee_id = db.Column(db.Integer, db.ForeignKey('committee.id'))
 
     # to_json_format
     # repr function
 
 
-class committee(db.Model):
+class Committee(db.Model):
+    __tablename__ = 'committee'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64))
     category = db.Column(db.String(64))
     description = db.Column(db.Text)
-    # committeeMembers object here
+    committee_members = db.relationship('CommitteeMembers',
+                                        backref=db.backref('committee',),
+                                        uselist=False)
 
     # to_json_format
     # repr function
