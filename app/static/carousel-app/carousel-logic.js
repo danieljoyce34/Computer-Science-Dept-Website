@@ -1,6 +1,7 @@
 $(document).ready(function () {
 	var image_container = $('.active-image'),
-		current_title = $('.active-title');
+		current_title = $('.active-title'),
+		i = 0; // global image/story number
 
 	var data_container = [ 
 		{
@@ -29,28 +30,36 @@ $(document).ready(function () {
 		}
 	];
 
-	function cycleImages(images) {
-		var i = 0,
-			max = images.length;                     
+	function cycleImages (images) {
+		var max = images.length;                     
 
 		setInterval(function () { 
 			i++;
 			if (i > (max - 1))
 				i = 0;
 			
+			$("#carousel-item-" + (i + 1)).prop('checked', true);
+			console.log(images[i]);
 			swapImage(images[i]['img_url']);
 			swapTitle(images[i]['title'], images[i]['description']);
-		}, 5000);
+		}, 15000);
 	}
 
-	function swapImage(url) {
+	function swapImage (url) {
 		url = "url(" + url + ")"; 
 		image_container.css('background-image', url);
 	}
 
-	function swapTitle(title, subtitle) {
+	$("input[name='carousel-dots']").click(function (e) {
+		var news_id = Number(this.id.substring(14)) - 1; // get the array id from the number
+		i = news_id;
+		swapImage(data_container[news_id]['img_url']);
+		swapTitle(data_container[news_id]['title'], data_container[i]['description']);
+	});
+
+	function swapTitle (title, subtitle) {
 		var contents = title + '<br>' 
-			+ '<i class="active-description">' + subtitle + '<i>';
+			+ '<i class="active-description">' + subtitle + '</i>';
 		current_title.html(contents);
 	}
 
