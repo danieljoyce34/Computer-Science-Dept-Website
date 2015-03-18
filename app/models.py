@@ -31,7 +31,8 @@ class Sideview(db.Model):
     title = db.Column(db.String(45))
     category = db.Column(db.String(45))
     active = db.Column(db.Integer)
-    image = db.relationship('Image', backref=db.backref('sideviews', ), uselist=False)
+    image = db.relationship(
+        'Image', backref=db.backref('sideviews', ), uselist=False)
 
     def to_json_format(self):
         json = {'id': self.id,
@@ -55,7 +56,8 @@ class News(db.Model):
     intro = db.Column(db.Text)
     article = db.Column(db.Text)
     post_date = db.Column(db.DateTime, default=datetime.date.today())
-    image = db.relationship('Image', backref=db.backref('news',), uselist=False)
+    image = db.relationship(
+        'Image', backref=db.backref('news',), uselist=False)
 
     def to_json_format(self):
         json = {'id': self.id,
@@ -84,7 +86,6 @@ class Alert(db.Model):
     start_date = db.Column(db.DateTime, default=datetime.date.today())
     end_date = db.Column(db.DateTime, default=util._next_month())
 
-
     def to_json_format(self):
         json = {'id': self.id,
                 'content': self.content,
@@ -99,6 +100,7 @@ class Alert(db.Model):
     def __repr__(self):
         return ('<Alert id %i, content %s, user_id %i, category %s, post_date %f, location %s, start_date %f, end_date %f>'
                 % (self.id, self.content, self.user_id, self.category, self.post_date, self.location, self.start_date, self.end_date))
+
 
 class Course(db.Model):
     __tablename__ = 'courses'
@@ -134,7 +136,6 @@ class Department(db.Model):
     dept_id = db.Column(db.Integer, primary_key=True)
     dept_name = db.Column(db.String(255))
 
-
     def to_json_format(self):
         json = {'dept_id': self.dept_id,
                 'dept_name': self.dept_name}
@@ -151,18 +152,18 @@ class Textbook(db.Model):
     title = db.Column(db.String(255))
     author = db.Column(db.String(255))
     edition = db.Column(db.String(255))
-    section_id = db.Column(db.Integer, db.ForeignKey('course_sections.section_id'))
+    section_id = db.Column(
+        db.Integer, db.ForeignKey('course_sections.section_id'))
     publisher_id = db.Column(db.Integer)
     isbn = db.Column(db.Integer)
-
 
     def to_json_format(self):
         json = {'text_id': self.text_id,
                 'title': self.title,
                 'author': self.author,
-                'edition': self.edition, 
-                'section_id': self.section_id, 
-                'publisher_id': self.publisher_id, 
+                'edition': self.edition,
+                'section_id': self.section_id,
+                'publisher_id': self.publisher_id,
                 'isbn': self.isbn}
         return json
 
@@ -182,15 +183,14 @@ class Course_Section(db.Model):
     room = db.Column(db.String(255))
     section_type = db.Column(db.String(255))
 
-
     def to_json_format(self):
         json = {'section_id': self.section_id,
                 'course_id': self.course_id,
                 'faculty_id': self.faculty_id,
-                'days': self.days, 
-                'start_time': self.start_time, 
-                'end_time': self.end_time, 
-                'room': self.room, 
+                'days': self.days,
+                'start_time': self.start_time,
+                'end_time': self.end_time,
+                'room': self.room,
                 'section_type': self.section_type}
         return json
 
