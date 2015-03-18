@@ -1,5 +1,6 @@
-from flask import render_template, request
+from flask import render_template, request, json, jsonify
 from app import app
+import os
 
 @app.route('/')
 @app.route('/index')
@@ -33,7 +34,9 @@ def generalPage():
 
 @app.route('/loadJson', methods=['POST', 'GET'])
 def loadJson():
-	return 12
+	j = open(os.path.join(os.path.dirname(__file__), 'static/json-data/about-page.json'), 'r')
+	data = json.load(j)
+	return json.dumps(data)
 #@app.route('/about')
 #def aboutGeneral():
 # #	return render_template('pageTemplate.html', content="about")
