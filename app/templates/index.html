@@ -1,35 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
- <script src="static/js/jquery-2.1.1.min.js"></script>
- <script src="static/js/slide.js"></script> 
+  <head>
+    <link href="static/css/style.css" rel="stylesheet" type="text/css"/>
+    <script src="static/js/jquery-2.1.1.min.js"></script>
+    <meta charset=utf-8 />
+    <meta name="viewport" content="width=device-width" />
+    <title>Villanova Computer Science</title>
+  </head>
 
- <link href="static/css/slide-style.css" rel="stylesheet" type="text/css" />
- <link href="static/css/navbar.blue.css" rel="stylesheet" type="text/css" />
- <link href="static/css/style.css" rel="stylesheet" type="text/css"/>
+  <body>
+    <div id="header">
+      <div id="banner">{% include "header.html" %}</div>
+      <div id="nav-wrapper">{% include "navigation.html" %}</div>
+    </div>
 
- <meta charset=utf-8 />
- <title>Villanova Computer Science</title>
-</head>
-<body>
-  <div id="main_wrapper" class="col">
-    {% include "navigation.html" %}
+    <div id="content-wrapper">
+      <div class="news-card card">{% include "carousel.html" %}</div>
+      <div class="alert-card card">{% include "alerts.html" %}</div>
+      <div class="sidebar-card card">{% include "sidebar.html" %}</div> 
+    </div>
 
-    <div id="page-content">
-      <!-- TO DO: turn each div into a modular template -->
-      <div class="news-card card">
-        Template for News Content goes here
-      </div>
-      <div class="alert-card card">
-        Template for Alerts goes here
-      </div>
-      <div class="aux-card card">
-        TBD template
-      </div>
-      <div class="aux-card card">
-        TBD template
-      </div>
-    </div> 
-  </div>
-</body>
+  </body>
 </html>
