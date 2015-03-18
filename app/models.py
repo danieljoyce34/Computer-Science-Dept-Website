@@ -105,12 +105,12 @@ class Alert(db.Model):
 class Course(db.Model):
     __tablename__ = 'courses'
     id = db.Column(db.Integer, primary_key=True)
-    department_id = db.Column(db.Integer, db.ForeignKey('departments.dept_id'))
-    title = db.Column(db.String(255))
+    department_id = db.Column(db.Integer, db.ForeignKey('departments.id'))
+    title = db.Column(db.String(32))
     credits = db.Column(db.Integer)
-    level = db.Column(db.String(255))
+    level = db.Column(db.String(16))
     description = db.Column(db.Text)
-    prerequisites = db.Column(db.String(255))
+    prerequisites = db.Column(db.String(16))
     term_id = db.Column(db.Integer)
 
     def to_json_format(self):
@@ -132,7 +132,7 @@ class Course(db.Model):
 class Department(db.Model):
     __tablename__ = 'departments'
     id = db.Column(db.Integer, primary_key=True)
-    dept_name = db.Column(db.String(255))
+    dept_name = db.Column(db.String(16))
 
     def to_json_format(self):
         json = {'id': self.id,
@@ -147,11 +147,11 @@ class Department(db.Model):
 class Textbook(db.Model):
     __tablename__ = 'textbooks'
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(255))
-    author = db.Column(db.String(255))
-    edition = db.Column(db.String(255))
+    title = db.Column(db.String(32))
+    author = db.Column(db.String(32))
+    edition = db.Column(db.String(8))
     section_id = db.Column(
-        db.Integer, db.ForeignKey('course_sections.section_id'))
+        db.Integer, db.ForeignKey('course_sections.id'))
     publisher_id = db.Column(db.Integer)
     isbn = db.Column(db.Integer)
 
@@ -173,13 +173,13 @@ class Textbook(db.Model):
 class CourseSection(db.Model):
     __tablename__ = 'course_sections'
     id = db.Column(db.Integer, primary_key=True)
-    course_id = db.Column(db.Integer, db.ForeignKey('courses.course_id'))
+    course_id = db.Column(db.Integer, db.ForeignKey('courses.id'))
     faculty_id = db.Column(db.Integer)
-    days = db.Column(db.String(255))
+    days = db.Column(db.String(8))
     start_time = db.Column(db.DateTime)
     end_time = db.Column(db.DateTime)
-    room = db.Column(db.String(255))
-    section_type = db.Column(db.String(255))
+    room = db.Column(db.String(16))
+    section_type = db.Column(db.String(32))
 
     def to_json_format(self):
         json = {'id': self.id,
