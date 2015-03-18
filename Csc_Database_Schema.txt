@@ -136,11 +136,8 @@
 <part>id</part>
 </key>
 </table>
-<table x="615" y="349" name="courses">
+<table x="562" y="298" name="courses">
 <row name="course_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="college_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="department_id" null="1" autoincrement="0">
@@ -159,22 +156,15 @@
 <row name="description " null="1" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
 <default>NULL</default></row>
-<row name="format" null="1" autoincrement="0">
+<row name="prerequisites" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="coordinator_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="prerequisite_expression" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="online_submission" null="1" autoincrement="0">
-<datatype>TINYINT</datatype>
-<default>NULL</default></row>
+<default>NULL</default><comment>list and prerequisites need to take the course</comment>
+</row>
 <row name="note" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="course_year" null="1" autoincrement="0">
+<default>NULL</default><comment>comments section </comment>
+</row>
+<row name="term_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
@@ -195,13 +185,13 @@
 <part>department_id</part>
 </key>
 </table>
-<table x="887" y="167" name="textbook">
+<table x="101" y="522" name="textbook">
 <row name="text_id" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="course_id" null="1" autoincrement="0">
+<row name="section_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="courses" row="course_id" />
+<default>NULL</default><relation table="course_sections" row="section_id" />
 </row>
 <row name="author" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
@@ -230,7 +220,7 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="courses" row="course_id" />
 </row>
-<row name="instructor_id" null="1" autoincrement="0">
+<row name="faculty_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="days" null="1" autoincrement="0">
@@ -253,3 +243,4 @@
 </key>
 </table>
 </sql>
+
