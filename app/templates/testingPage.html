@@ -5,15 +5,6 @@
  <title>Villanova Computer Science</title>
 </head>
 <body>
-  {% for side in sideview %}
-  <p>
-    Sideview ID is: {{side.id}} and it's content: {{side.content}}...
-  </p>
-  <p>
-    Sideview's image alt_text is: {{side.image.alt_text}}
-  </p>
-  {% endfor %}
-
   {% for story in news %}
   <p>
     News headline is: {{story.headline}}. News intro is: {{story.intro}}.

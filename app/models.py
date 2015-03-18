@@ -104,39 +104,31 @@ class Course(db.Model):
     __tablename__ = 'courses'
     id = db.Column(db.Integer, primary_key=True)
     course_id = db.Column(db.String(255))
-    college_id = db.Column(db.Integer)
     department_id = db.Column(db.Integer, db.ForeignKey('departments.dept_id'))
     title = db.Column(db.String(255))
     credits = db.Column(db.Integer)
     level = db.Column(db.String(255))
     description = db.Column(db.Text)
-    format = db.Column(db.String(255))
-    coordinator_id = db.Column(db.Integer)
-    prerequisite_expression = db.Column(db.String(255))
-    online_submission = db.Column(db.Boolean)
+    prerequisites = db.Column(db.String(255))
     note = db.Column(db.String(255))
-    course_year = db.Column(db.Integer)
+    term_id = db.Column(db.Integer)
 
     def to_json_format(self):
         json = {'id': self.id,
                 'course_id': self.course_id,
-                'college_id': self.college_id,
                 'department_id': self.department_id,
                 'title': self.title,
                 'credits': self.credits,
                 'level': self.level,
                 'description': self.description,
-                'format': self.format,
-                'coordinator_id': self.coordinator_id,
-                'prerequisite_expression': self.prerequisite_expression,
-                'online_submission': self.online_submission,
+                'prerequisites': self.prerequisites,
                 'note': self.note,
-                'course_year': self.course_year}
+                'term_id': self.term_id}
         return json
 
     def __repr__(self):
-        return ('<Course id %i, course_id %s, college_id %i, department_id %i, title %s, credits %i, level %s, description %s, format %s, coordinator_id %i, prerequisite_expression %s, online_submission %i, note %s, course_year %i>'
-                % (self.id, self.course_id, self.college_id, self.department_id, self.title, self.credits, self.level, self.description, self.format, self.coordinator_id, self.prerequisite_expression, self.online_submission, self.note, self.course_year))
+        return ('<Course id %i, course_id %s, department_id %i, title %s, credits %i, level %s, description %s, prerequisites %s, note %s, term_id %i>'
+                % (self.id, self.course_id, self.department_id, self.title, self.credits, self.level, self.description, self.prerequisites, self.note, self.term_id))
 
 
 class Department(db.Model):
@@ -163,7 +155,7 @@ class Textbook(db.Model):
     title = db.Column(db.String(255))
     author = db.Column(db.String(255))
     edition = db.Column(db.String(255))
-    course_id = db.Column(db.Integer, db.ForeignKey('courses.course_id'))
+    section_id = db.Column(db.Integer, db.ForeignKey('course_sections.section_id'))
     publisher_id = db.Column(db.Integer)
     isbn = db.Column(db.Integer)
 
@@ -173,21 +165,21 @@ class Textbook(db.Model):
                 'title': self.title,
                 'author': self.author,
                 'edition': self.edition, 
-                'course_id': self.course_id, 
+                'section_id': self.section_id, 
                 'publisher_id': self.publisher_id, 
                 'isbn': self.isbn}
         return json
 
     def __repr__(self):
-        return ('<Textbook id %i, title %s, author %s, edition %s, course_id %i, publisher_id %i, isbn %i>'
-                % (self.text_id, self.title, self.author, self.edition, self.course_id, self.publisher_id, self.isbn))
+        return ('<Textbook id %i, title %s, author %s, edition %s, section_id %i, publisher_id %i, isbn %i>'
+                % (self.text_id, self.title, self.author, self.edition, self.section_id, self.publisher_id, self.isbn))
 
 
 class Course_Section(db.Model):
     __tablename__ = 'course_sections'
     section_id = db.Column(db.Integer, primary_key=True)
     course_id = db.Column(db.Integer, db.ForeignKey('courses.course_id'))
-    instructor_id = db.Column(db.Integer)
+    faculty_id = db.Column(db.Integer)
     days = db.Column(db.String(255))
     start_time = db.Column(db.DateTime)
     end_time = db.Column(db.DateTime)
@@ -198,7 +190,7 @@ class Course_Section(db.Model):
     def to_json_format(self):
         json = {'section_id': self.section_id,
                 'course_id': self.course_id,
-                'instructor_id': self.instructor_id,
+                'faculty_id': self.faculty_id,
                 'days': self.days, 
                 'start_time': self.start_time, 
                 'end_time': self.end_time, 
@@ -207,5 +199,5 @@ class Course_Section(db.Model):
         return json
 
     def __repr__(self):
-        return ('<section_id %i, course_id %i, instructor_id %i, days %s, start_time %f, end_time %f, room %s, section_type %s>'
-                % (self.section_type, self.course_id, self.instructor_id, self.days, self.start_time, self.end_time, self.room, self.section_type))
+        return ('<section_id %i, course_id %i, faculty_id %i, days %s, start_time %f, end_time %f, room %s, section_type %s>'
+                % (self.section_type, self.course_id, self.faculty_id, self.days, self.start_time, self.end_time, self.room, self.section_type))

@@ -1,6 +1,6 @@
 from flask import render_template, request, jsonify
 from app import app
-from .models import Image, Sideview, News, Alert, Course, Department
+from .models import News, Alert, Course, Department
 
 @app.route('/')
 @app.route('/index')
@@ -10,13 +10,13 @@ def index():
 @app.route('/testing')
 def testingPage():
 	#Querying Image and Sideview table and retrieving all data
-	image_table = Image.query.all()
-	sideview_table = Sideview.query.all()
+	#image_table = Image.query.all()
+	#sideview_table = Sideview.query.all()
 	news_table = News.query.all()
 	alerts_table = Alert.query.all()
 	courses_table = Course.query.all()
 	departments_table = Department.query.all()
-	return render_template('testingPage.html', sideview=sideview_table, news=news_table, alerts=alerts_table, courses=courses_table, departments=departments_table)
+	return render_template('testingPage.html', news=news_table, alerts=alerts_table, courses=courses_table, departments=departments_table)
 
 @app.route('/testing', methods=['GET'])
 def alerts():

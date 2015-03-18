@@ -9,7 +9,7 @@ n = models.News(headline='this is some news', intro='here is some content', imag
 
 a = models.Alert(content='this is some content', user_id=1, location='villanova', category='alertCat', end_date=datetime.date(2016, 1, 1))
 
-c = models.Course(course_id='CSC 2405', department_id=100, title='Computing Systems', online_submission=False, course_year=2015)
+c = models.Course(course_id='CSC 2405', department_id=100, title='Computing Systems')
 
 d = models.Department(dept_id=100, dept_name='Computer Science', college_name="Liberal Arts & Sciences")
 
