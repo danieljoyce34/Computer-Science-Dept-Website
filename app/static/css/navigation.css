@@ -2,8 +2,13 @@
 	display: none;
 	width: 30px;
 	height: 30px;
-	background: #fff;
 	margin: 5px 10px;
+}
+
+#nav-switch > i.icon{
+	width: 50px;
+	line-height: 40px;
+	color: #fff;
 }
 
 #nav{
