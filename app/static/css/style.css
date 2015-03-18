@@ -59,14 +59,17 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
+  padding: 0 10%;
   overflow: auto;
 }
 
+/*
 #content{
-  width: 70%;
+  width: 100%;
   min-width: 780px;
+  height: 100%;
   margin: 0 auto;
-}
+}*/
 
 /* 
   Added fixed heights for cards for now since the cards do not have content
@@ -77,6 +80,7 @@ body {
   margin: 5px 0;
   display: inline-block;
   border-radius: 7px;
+  position: relative;
 } 
 
 .news-card {
@@ -87,7 +91,7 @@ body {
 .alert-card {
   background-color: lightgrey;
   width: 66%;
-  height: 300px;
+  height: 400px;
   float: left;
   overflow: auto;
 }
@@ -95,21 +99,51 @@ body {
 .sidebar-card {
   background-color: #94C8D9;
   width: 33%;
-  height: 300px;
+  height: 400px;
   float: right;
   overflow: auto;
 }
 
 @media screen and (min-width: 830px){
+  /*
   #content{
     padding: 0 10px;
-  }
+  }*/
 }
 
 @media screen and (min-width: 781px){
   #content-wrapper{
     left: 0 !important;
     right: 0 !important;
+  }
+}
+
+/* Header text responsiveness */
+@media screen and (max-width: 1275px){
+  #header-text{
+    font-size: 2.5em;
+    bottom: 0.75em;
+    left: 4.5em;
+  }
+}
+@media screen and (max-width: 1085px){
+  #header-text{
+    font-size: 2em;
+    bottom: 1em;
+    left: 5.5em;
+  }
+  #content-wrapper{
+    padding: 0 5%;
+  }
+}
+@media screen and (max-width: 900px){
+  .alert-card{
+    width: 100%;
+  }
+
+  .sidebar-card{
+    width: 100%;
+    height: auto;
   }
 }
 
@@ -142,11 +176,13 @@ body {
     top: 105px;
     z-index: 2;
     background: #fff;
+    padding: 0;
   }
 }
 
 #sidebar {
-  padding: 10px;
+  padding: 5%;
+  width: 90%;
 }
 
 #sidebar .side-title {

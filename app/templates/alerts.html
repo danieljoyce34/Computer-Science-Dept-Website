@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
+{% block head %}
 	<title>Alerts Testing App</title>
 	<script src="static/js/jquery-2.1.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="static/alerts-app/alerts.css">
 	<link rel="stylesheet" href="/static/bower_components/ionicons/css/ionicons.min.css">
-</head>
-<body>
-	<div class="alert-container"></div>
+{% endblock %}
 
-	<!--<script src="static/alerts-app/alerts.js"></script>-->
-	<script src="static/alerts-app/alert-logic.js"></script>
-</body>
-</html>
+<div class="alert-container"></div>
+
+<!--<script src="static/alerts-app/alerts.js"></script>-->
+<script src="static/alerts-app/alert-logic.js"></script>
