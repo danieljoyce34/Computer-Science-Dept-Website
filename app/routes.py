@@ -31,6 +31,9 @@ def generalPage():
 	e = request.args['content']
 	return render_template('pageTemplate.html', content=e)
 
+@app.route('/loadJson', methods=['POST', 'GET'])
+def loadJson():
+	return 12
 #@app.route('/about')
 #def aboutGeneral():
 # #	return render_template('pageTemplate.html', content="about")
