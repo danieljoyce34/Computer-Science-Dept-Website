@@ -11,7 +11,7 @@ a = models.Alert(content='this is some content', user_id=1, location='villanova'
 
 c = models.Course(course_id='CSC 2405', department_id=100, title='Computing Systems')
 
-d = models.Department(dept_id=100, dept_name='Computer Science', college_name="Liberal Arts & Sciences")
+d = models.Department(dept_id=100, dept_name='Computer Science')
 
 db.create_all()
 #db.session.add(a)

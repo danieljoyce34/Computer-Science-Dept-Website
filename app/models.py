@@ -110,7 +110,6 @@ class Course(db.Model):
     level = db.Column(db.String(255))
     description = db.Column(db.Text)
     prerequisites = db.Column(db.String(255))
-    note = db.Column(db.String(255))
     term_id = db.Column(db.Integer)
 
     def to_json_format(self):
@@ -122,31 +121,28 @@ class Course(db.Model):
                 'level': self.level,
                 'description': self.description,
                 'prerequisites': self.prerequisites,
-                'note': self.note,
                 'term_id': self.term_id}
         return json
 
     def __repr__(self):
-        return ('<Course id %i, course_id %s, department_id %i, title %s, credits %i, level %s, description %s, prerequisites %s, note %s, term_id %i>'
-                % (self.id, self.course_id, self.department_id, self.title, self.credits, self.level, self.description, self.prerequisites, self.note, self.term_id))
+        return ('<Course id %i, course_id %s, department_id %i, title %s, credits %i, level %s, description %s, prerequisites %s, term_id %i>'
+                % (self.id, self.course_id, self.department_id, self.title, self.credits, self.level, self.description, self.prerequisites, self.term_id))
 
 
 class Department(db.Model):
     __tablename__ = 'departments'
     dept_id = db.Column(db.Integer, primary_key=True)
     dept_name = db.Column(db.String(255))
-    college_name = db.Column(db.String(255))
 
 
     def to_json_format(self):
         json = {'dept_id': self.dept_id,
-                'dept_name': self.dept_name,
-                'college_name': self.college_name}
+                'dept_name': self.dept_name}
         return json
 
     def __repr__(self):
-        return ('<dept_id %s, dept_name %s, college_name %s>'
-                % (self.dept_id, self.dept_name, self.college_name))
+        return ('<dept_id %s, dept_name %s>'
+                % (self.dept_id, self.dept_name))
 
 
 class Textbook(db.Model):
