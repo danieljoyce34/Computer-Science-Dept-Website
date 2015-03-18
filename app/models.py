@@ -105,7 +105,6 @@ class Alert(db.Model):
 class Course(db.Model):
     __tablename__ = 'courses'
     id = db.Column(db.Integer, primary_key=True)
-    course_id = db.Column(db.String(255))
     department_id = db.Column(db.Integer, db.ForeignKey('departments.dept_id'))
     title = db.Column(db.String(255))
     credits = db.Column(db.Integer)
@@ -116,7 +115,6 @@ class Course(db.Model):
 
     def to_json_format(self):
         json = {'id': self.id,
-                'course_id': self.course_id,
                 'department_id': self.department_id,
                 'title': self.title,
                 'credits': self.credits,
@@ -127,28 +125,28 @@ class Course(db.Model):
         return json
 
     def __repr__(self):
-        return ('<Course id %i, course_id %s, department_id %i, title %s, credits %i, level %s, description %s, prerequisites %s, term_id %i>'
-                % (self.id, self.course_id, self.department_id, self.title, self.credits, self.level, self.description, self.prerequisites, self.term_id))
+        return ('<Course id %i, department_id %i, title %s, credits %i, level %s, description %s, prerequisites %s, term_id %i>'
+                % (self.id, self.department_id, self.title, self.credits, self.level, self.description, self.prerequisites, self.term_id))
 
 
 class Department(db.Model):
     __tablename__ = 'departments'
-    dept_id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     dept_name = db.Column(db.String(255))
 
     def to_json_format(self):
-        json = {'dept_id': self.dept_id,
+        json = {'id': self.id,
                 'dept_name': self.dept_name}
         return json
 
     def __repr__(self):
-        return ('<dept_id %s, dept_name %s>'
-                % (self.dept_id, self.dept_name))
+        return ('<id %i, dept_name %s>'
+                % (self.id, self.dept_name))
 
 
 class Textbook(db.Model):
     __tablename__ = 'textbooks'
-    text_id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255))
     author = db.Column(db.String(255))
     edition = db.Column(db.String(255))
@@ -158,7 +156,7 @@ class Textbook(db.Model):
     isbn = db.Column(db.Integer)
 
     def to_json_format(self):
-        json = {'text_id': self.text_id,
+        json = {'id': self.id,
                 'title': self.title,
                 'author': self.author,
                 'edition': self.edition,
@@ -168,13 +166,13 @@ class Textbook(db.Model):
         return json
 
     def __repr__(self):
-        return ('<Textbook id %i, title %s, author %s, edition %s, section_id %i, publisher_id %i, isbn %i>'
-                % (self.text_id, self.title, self.author, self.edition, self.section_id, self.publisher_id, self.isbn))
+        return ('<id %i, title %s, author %s, edition %s, section_id %i, publisher_id %i, isbn %i>'
+                % (self.id, self.title, self.author, self.edition, self.section_id, self.publisher_id, self.isbn))
 
 
-class Course_Section(db.Model):
+class CourseSection(db.Model):
     __tablename__ = 'course_sections'
-    section_id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     course_id = db.Column(db.Integer, db.ForeignKey('courses.course_id'))
     faculty_id = db.Column(db.Integer)
     days = db.Column(db.String(255))
@@ -184,7 +182,7 @@ class Course_Section(db.Model):
     section_type = db.Column(db.String(255))
 
     def to_json_format(self):
-        json = {'section_id': self.section_id,
+        json = {'id': self.id,
                 'course_id': self.course_id,
                 'faculty_id': self.faculty_id,
                 'days': self.days,
@@ -195,5 +193,5 @@ class Course_Section(db.Model):
         return json
 
     def __repr__(self):
-        return ('<section_id %i, course_id %i, faculty_id %i, days %s, start_time %f, end_time %f, room %s, section_type %s>'
-                % (self.section_type, self.course_id, self.faculty_id, self.days, self.start_time, self.end_time, self.room, self.section_type))
+        return ('<id %i, course_id %i, faculty_id %i, days %s, start_time %f, end_time %f, room %s, section_type %s>'
+                % (self.id, self.course_id, self.faculty_id, self.days, self.start_time, self.end_time, self.room, self.section_type))
