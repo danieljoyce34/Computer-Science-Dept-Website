@@ -136,7 +136,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="562" y="298" name="courses">
+<table x="611" y="511" name="courses">
 <row name="course_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -160,10 +160,6 @@
 <datatype>VARCHAR</datatype>
 <default>NULL</default><comment>list and prerequisites need to take the course</comment>
 </row>
-<row name="note" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default><comment>comments section </comment>
-</row>
 <row name="term_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -171,14 +167,11 @@
 <part>course_id</part>
 </key>
 </table>
-<table x="911" y="409" name="department">
+<table x="886" y="504" name="department">
 <row name="department_id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="department_name" null="1" autoincrement="0">
-<datatype>CHAR</datatype>
-<default>NULL</default></row>
-<row name="college_name" null="1" autoincrement="0">
 <datatype>CHAR</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
