@@ -74,7 +74,8 @@ class News(db.Model):
         return json
 
     def __repr__(self):
-        return ('<News id %i, start_date %f, end_date %f, headline %s, intro %s, article %s, post_date %f, image_id %i>'
+        return ('<News id %i, start_date %f, end_date %f, headline %s, intro %s,'
+                ' article %s, post_date %f, image_id %i>'
                 % (self.id, self.start_date, self.end_date, self.headline,
                     self.intro, self.article, self.post_date, self.image_id))
 
@@ -470,8 +471,10 @@ class Course(db.Model):
         return json
 
     def __repr__(self):
-        return ('<Course id %i, department_id %i, title %s, credits %i, level %s, description %s, prerequisites %s, term_id %i>'
-                % (self.id, self.department_id, self.title, self.credits, self.level, self.description, self.prerequisites, self.term_id))
+        return ('<Course id %i, department_id %i, title %s, credits %i, level %s,'
+                ' description %s, prerequisites %s, term_id %i>'
+                % (self.id, self.department_id, self.title, self.credits,
+                    self.level, self.description, self.prerequisites, self.term_id))
 
 
 class Department(db.Model):
@@ -511,8 +514,10 @@ class Textbook(db.Model):
         return json
 
     def __repr__(self):
-        return ('<id %i, title %s, author %s, edition %s, section_id %i, publisher_id %i, isbn %i>'
-                % (self.id, self.title, self.author, self.edition, self.section_id, self.publisher_id, self.isbn))
+        return ('<id %i, title %s, author %s, edition %s, section_id %i,'
+                ' publisher_id %i, isbn %i>'
+                % (self.id, self.title, self.author, self.edition, self.section_id,
+                    self.publisher_id, self.isbn))
 
 
 class CourseSection(db.Model):
@@ -538,5 +543,7 @@ class CourseSection(db.Model):
         return json
 
     def __repr__(self):
-        return ('<id %i, course_id %i, faculty_id %i, days %s, start_time %f, end_time %f, room %s, section_type %s>'
-                % (self.id, self.course_id, self.faculty_id, self.days, self.start_time, self.end_time, self.room, self.section_type))
+        return ('<id %i, course_id %i, faculty_id %i, days %s, start_time %f,'
+                ' end_time %f, room %s, section_type %s>'
+                % (self.id, self.course_id, self.faculty_id, self.days,
+                    self.start_time, self.end_time, self.room, self.section_type))
