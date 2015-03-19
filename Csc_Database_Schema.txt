@@ -118,7 +118,8 @@
 <default>'NULL'</default></row>
 <row name="user_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default></row>
+<default>NULL</default><relation table="user" row="id" />
+</row>
 <row name="category" null="0" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>'NULL'</default><comment>class, colloquium, event</comment>
@@ -465,7 +466,8 @@
 </row>
 <row name="term_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default></row>
+<default>NULL</default><relation table="term" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
@@ -518,7 +520,8 @@
 </row>
 <row name="faculty_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default></row>
+<default>NULL</default><relation table="faculty" row="id" />
+</row>
 <row name="days" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
