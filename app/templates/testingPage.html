@@ -5,15 +5,6 @@
  <title>Villanova Computer Science</title>
 </head>
 <body>
-  {% for side in sideview %}
-  <p>
-    Sideview ID is: {{side.id}} and it's content: {{side.content}}...
-  </p>
-  <p>
-    Sideview's image alt_text is: {{side.image.alt_text}}
-  </p>
-  {% endfor %}
-
   {% for story in news %}
   <p>
     News headline is: {{story.headline}}. News intro is: {{story.intro}}.
@@ -23,6 +14,18 @@
   {% for a in alerts %}
   <p>
     Alert content is: {{a.content}}.
+  </p>
+  {% endfor %}
+
+  {% for c in courses %}
+  <p>
+    Course ID is: {{c.course_id}}. Course title is: {{c.title}}. Department ID: {{c.department_id}}. Online Submission?: {{c.online_submission}}. Course Year: {{c.course_year}}
+  </p>
+  {% endfor %}
+
+  {% for d in departments %}
+  <p>
+    Department ID: {{d.dept_id}}. Department name: {{d.dept_name}}. College name: {{d.college_name}}.
   </p>
   {% endfor %}
 </body>

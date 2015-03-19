@@ -1,0 +1,71 @@
+#alerts-title{
+	width: 100%;
+}
+
+.alert-container{
+	width: 100%;
+}
+
+.alert-box{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin-bottom: 10px;
+	width: 100%;
+	clear: both;
+	float: left;
+	position: relative;
+}
+
+.alert-content{
+	float: left;
+	margin-left: 35px;
+	padding-left: 10px;
+	border-left: 1px black solid;
+	line-height: 30px;
+}
+
+.icon{
+	width: 30px;
+	float: left;
+	text-align: center;
+	line-height: 30px;
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.alert-time{
+	display: none;
+	float: left;
+	margin-left: 5px;
+	line-height: 30px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 31px;
+}
+
+.General {
+	background: #DCDCDC; 
+}
+
+.Warning {
+	background: #C25F38;
+}
+
+.Colloquium {
+	background: #6395B0;
+}
+
+.Class {
+	background: #9AAF6E;
+}
+
+.Meeting {
+	background: #CF9C38;
+}
+
+.Club {
+	background: #B2C3CA;
+}
