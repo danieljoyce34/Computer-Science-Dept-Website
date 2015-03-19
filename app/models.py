@@ -70,7 +70,7 @@ class News(db.Model):
                 'intro': self.intro,
                 'article': self.article,
                 'post_date': self.post_date,
-                'image_id': self.image}
+                'image_id': self.image_id}
         return json
 
     def __repr__(self):
@@ -93,7 +93,7 @@ class Alert(db.Model):
 
     def to_json_format(self):
         json = {'id': self.id,
-                'content': self.id,
+                'content': self.content,
                 'user_id': self.user_id,
                 'category': self.category,
                 'post_date': self.post_date,
@@ -133,8 +133,22 @@ class User(db.Model):
     faculty = db.relationship('Faculty', backref=db.backref('user',),
                               uselist=False)
 
-    # to_json_format
-    # repr function
+    def to_json_format(self):
+        json = {'id': self.id,
+                'fname': self.fname,
+                'minit': self.minit,
+                'lname': self.lname,
+                'email': self.email,
+                'vu_ldap': self.vu_ldap,
+                'image_id': self.image_id,
+                'user_role_id': self.user_role_id}
+        return json
+
+    def __repr__(self):
+        return ('<User id %i, fname %s, minit %s, lname %s, email %s, vu_ldap %s,'
+                ' image_id %i, user_role_id %i>'
+                % (self.id, self.fname, self.minit, self.lname, self.email,
+                   self.vu_ldap, self.image_id, self.user_role_id))
 
 
 class UserRole(db.Model):
@@ -144,8 +158,13 @@ class UserRole(db.Model):
     user = db.relationship('User', backref=db.backref('user_role',),
                            uselist=False)
 
-    # to_json_format
-    # repr function
+    def to_json_format(self):
+        json = {'id': self.id,
+                'role': self.role}
+        return json
+
+    def __repr__(self):
+        return ('<UserRole id %i, role %s>' % (self.id, self.role))
 
 
 class Staff(db.Model):
@@ -155,8 +174,16 @@ class Staff(db.Model):
     office_loc = db.Column(db.String(64))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
-    # to_json_format
-    # repr function
+    def to_json_format(self):
+        json = {'id': self.id,
+                'position': self.position,
+                'office_loc': self.office_loc,
+                'user_id': self.user_id}
+        return json
+
+    def __repr__(self):
+        return ('<Staff id %i, position %s, office_loc %s, user_id %i>'
+                % (self.id, self.position, self.office_loc, self.user_id))
 
 
 class Administration(db.Model):
@@ -166,8 +193,16 @@ class Administration(db.Model):
     priority = db.Column(db.String(64))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
-    # to_json_format
-    # repr function
+    def to_json_format(self):
+        json = {'id': self.id,
+                'description': self.description,
+                'priority': self.priority,
+                'user_id': self.user_id}
+        return json
+
+    def __repr__(self):
+        return ('<Administration id %i, description %s, priority %s, user_id %i>'
+                % (self.id, self.description, self.priority, self.user_id))
 
 
 class PhoneNumber(db.Model):
@@ -178,8 +213,18 @@ class PhoneNumber(db.Model):
     extension = db.Column(db.String(8))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
-    # to_json_format
-    # repr function
+    def to_json_format(self):
+        json = {'id': self.id,
+                'area_code': self.area_code,
+                'number': self.number,
+                'extension': self.extension,
+                'user_id': self.user_id}
+        return json
+
+    def __repr__(self):
+        return ('<PhoneNumber id %i, area_code %s, number %s, extension %s,'
+                ' user_id %i>'
+                % (self.id, self.area_code, self.number, self.extension))
 
 
 class Address(db.Model):
@@ -192,16 +237,26 @@ class Address(db.Model):
     zip = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
-    # to_json_format
-    # repr function
+    def to_json_format(self):
+        json = {'id': self.id,
+                'line1': self.line1,
+                'line2': self.line2,
+                'city': self.city,
+                'state': self.state,
+                'zip': self.zip,
+                'user_id': self.user_id}
+        return json
+
+    def __repr__(self):
+        return ('<Address id %i, line1 %s, line2 %s, city %s, state %s, zip %i'
+                ' user_id %i>'
+                % (self.id, self.line1, self.line2, self.city, self.state, self.zip,
+                    self.user_id))
 
 
 class OfficeHours(db.Model):
-    # TODO: Add util functionality to retrieve time from a DateTime object
     __tablename__ = 'office_hours'
     id = db.Column(db.Integer, primary_key=True)
-    # using DateTime object since that's the only Flask SQLAlchemy datatype that
-    # deals with time
     start_time = db.Column(db.DateTime)
     end_time = db.Column(db.DateTime)
     days = db.Column(db.String(5))
@@ -209,8 +264,21 @@ class OfficeHours(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     term_id = db.Column(db.Integer, db.ForeignKey('term.id'))
 
-    # to_json_format
-    # repr function
+    def to_json_format(self):
+        json = {'id': self.id,
+                'start_time': self.start_time,
+                'end_time': self.end_time,
+                'days': self.days,
+                'apntmnt_msg': self.apntmnt_msg,
+                'user_id': self.user_id,
+                'term_id': self.term_id}
+        return json
+
+    def __repr__(self):
+        return ('<OfficeHours id %i, start_time %f, end_time %f, days %s,'
+                ' apntmnt_msg %s, user_id %i, term_id %i>'
+                % (self.id, self.start_time, self.end_time, self.days,
+                    self.apntmnt_msg, self.user_id, self.term_id))
 
 
 class Term(db.Model):
@@ -223,8 +291,17 @@ class Term(db.Model):
     office_hours = db.relationship('OfficeHours', backref=db.backref('term',),
                                    uselist=False)
 
-    # to_json_format
-    # repr function
+    def to_json_format(self):
+        json = {'id': self.id,
+                'semester': self.semester,
+                'year': self.year,
+                'start_date': self.start_date,
+                'end_date': self.end_date}
+        return json
+
+    def __repr__(self):
+        return ('<Term id %i, semester %s, year %i, start_date %i, end_date %i>'
+                % (self.id, self.semester, self.year, self.start_date, self.end_date))
 
 
 class Faculty(db.Model):
@@ -250,8 +327,25 @@ class Faculty(db.Model):
                                         backref=db.backref('faculty',),
                                         uselist=False)
 
-    # to_json_format
-    # repr function
+    def to_json_format(self):
+        json = {'id': self.id,
+                'salutation': self.salutation,
+                'secondary_email': self.secondary_email,
+                'website_url': self.website_url,
+                'faculty_type': self.faculty_type,
+                'faculty_rank': self.faculty_rank,
+                'status': self.status,
+                'office_loc': self.office_loc,
+                'user_id': self.user_id}
+        return json
+
+    def __repr__(self):
+        return ('<Faculty id %i, salutation %s, secondary_email %s, website_url %s,'
+                ' faculty_type %s, faculty_rank %s, status %s, office_loc %s,'
+                ' user_id %s>'
+                % (self.id, self.salutation, self.secondary_email, self.website_url,
+                    self.faculty_type, self.faculty_rank, self.status,
+                    self.office_loc, self.user_id))
 
 
 class Education(db.Model):
@@ -262,8 +356,19 @@ class Education(db.Model):
     school = db.Column(db.String(128))
     faculty_id = db.Column(db.Integer, db.ForeignKey('faculty.id'))
 
-    # to_json_format
-    # repr function
+    def to_json_format(self):
+        json = {'id': self.id,
+                'degree': self.degree,
+                'discipline': self.discipline,
+                'school': self.school,
+                'faculty_id': self.faculty_id}
+        return json
+
+    def __repr__(self):
+        return ('<Education id %i, degree %s, discipline %s, school %s,'
+                ' faculty_id %s>'
+                % (self.id, self.degree, self.discipline, self.school,
+                    self.faculty_id))
 
 
 class FacultyServices(db.Model):
@@ -273,8 +378,16 @@ class FacultyServices(db.Model):
     category = db.Column(db.String(64))
     faculty_id = db.Column(db.Integer, db.ForeignKey('faculty.id'))
 
-    # to_json_format
-    # repr function
+    def to_json_format(self):
+        json = {'id': self.id,
+                'service_name': self.service_name,
+                'category': self.category,
+                'faculty_id': self.faculty_id}
+        return json
+
+    def __repr__(self):
+        return ('<FacultyServices %i, service_name %s, category %s, faculty_id %i>'
+                % (self.id, self.service_name, self.category, self.faculty_id))
 
 
 class FacultyInterests(db.Model):
@@ -283,8 +396,15 @@ class FacultyInterests(db.Model):
     interest = db.Column(db.String(64))
     faculty_id = db.Column(db.Integer, db.ForeignKey('faculty.id'))
 
-    # to_json_format
-    # repr function
+    def to_json_format(self):
+        json = {'id': self.id,
+                'interest': self.interest,
+                'faculty_id': self.faculty_id}
+        return json
+
+    def __repr__(self):
+        return ('<FacultyInterests id %i, interest %s, faculty_id %i>'
+                % (self.id, self.interest, self.faculty_id))
 
 
 class CommitteeMembers(db.Model):
@@ -294,8 +414,16 @@ class CommitteeMembers(db.Model):
     faculty_id = db.Column(db.Integer, db.ForeignKey('faculty.id'))
     committee_id = db.Column(db.Integer, db.ForeignKey('committee.id'))
 
-    # to_json_format
-    # repr function
+    def to_json_format(self):
+        json = {'id': self.id,
+                'role': self.role,
+                'faculty_id': self.faculty_id,
+                'committee_id': self.committee_id}
+        return json
+
+    def __repr__(self):
+        return ('<CommitteeMembers id %i, role %s, faculty_id %i, committee_id %i>'
+                % (self.id, self.role, self.faculty_id, self.committee_id))
 
 
 class Committee(db.Model):
@@ -308,5 +436,13 @@ class Committee(db.Model):
                                         backref=db.backref('committee',),
                                         uselist=False)
 
-    # to_json_format
-    # repr function
+    def to_json_format(self):
+        json = {'id': self.id,
+                'name': self.name,
+                'category': self.category,
+                'description': self.description}
+        return json
+
+    def __repr__(self):
+        return ('<Committee id %i, name %s, category %s, description %s>'
+                % (self.id, self.name, self.category, self.description))
