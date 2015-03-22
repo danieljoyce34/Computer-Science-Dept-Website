@@ -10,10 +10,9 @@ def _next_month():
     return datetime.date(year, month, day)
 
 
-# TODO: 0 = 12 AM, fix that and use short if
-def _time(dateTime):
-    hour = dateTime.hour
-    minute = dateTime.minute
+def _get_time(datetime_obj):
+    hour = datetime_obj.hour
+    minute = datetime_obj.minute
     if minute < 10:
         strminute = '0' + str(minute)
     else:
@@ -23,5 +22,7 @@ def _time(dateTime):
         return str(mhour) + ':' + strminute + ' PM'
     elif hour == 12:
         return str(hour) + ':' + strminute + ' PM'
+    elif hour == 0:
+        return '12:' + strminute + ' AM'
     else:
-        return str(hour) + ':' + strminute + 'AM'
+        return str(hour) + ':' + strminute + ' AM'
