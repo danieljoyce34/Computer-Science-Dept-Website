@@ -9,11 +9,11 @@ class Image(db.Model):
     image_type = db.Column(db.String(64))
     alt_text = db.Column(db.Text)
     image_extension = db.Column(db.String(64))
-    sideview = db.relationship('Sideview', backref=db.backref('image', ),
+    sideview = db.relationship('Sideview', backref=db.backref('image', lazy='dynamic'),
                                uselist=False)
-    news = db.relationship('News', backref=db.backref('image',),
+    news = db.relationship('News', backref=db.backref('image', lazy='dynamic'),
                            uselist=False)
-    user = db.relationship('User', backref=db.backref('image',),
+    user = db.relationship('User', backref=db.backref('image', lazy='dynamic'),
                            uselist=False)
 
     def to_json_format(self):
@@ -84,12 +84,12 @@ class Alert(db.Model):
     __tablename__ = 'alerts'
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.Text)
-    user_id = db.Column(db.Integer)
     category = db.Column(db.String(64))
     post_date = db.Column(db.DateTime, default=datetime.date.today())
     location = db.Column(db.String(64))
     start_date = db.Column(db.DateTime, default=datetime.date.today())
     end_date = db.Column(db.DateTime, default=util._next_month())
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def to_json_format(self):
         json = {'id': self.id,
@@ -119,19 +119,25 @@ class User(db.Model):
     vu_ldap = db.Column(db.String(64))
     image_id = db.Column(db.Integer, db.ForeignKey('images.id'))
     user_role_id = db.Column(db.Integer, db.ForeignKey('user_role.id'))
-    staff = db.relationship('Staff', backref=db.backref('user',),
-                            uselist=False)
+    staff = db.relationship('Staff', backref=db.backref('user', lazy='dynamic'),
+                            uselist=False, lazy='dynamic')
     administration = db.relationship('Administration',
-                                     backref=db.backref('user',),
-                                     uselist=False)
-    phone_number = db.relationship('PhoneNumber', backref=db.backref('user',),
-                                   uselist=False)
-    address = db.relationship('Address', backref=db.backref('user',),
-                              uselist=False)
-    office_hours = db.relationship('OfficeHours', backref=db.backref('user',),
-                                   uselist=False)
-    faculty = db.relationship('Faculty', backref=db.backref('user',),
-                              uselist=False)
+                                     backref=db.backref(
+                                         'user', lazy='dynamic'),
+                                     uselist=False, lazy='dynamic')
+    phone_number = db.relationship('PhoneNumber',
+                                   backref=db.backref(
+                                       'user', lazy='dynamic'),
+                                   lazy='dynamic')
+    address = db.relationship('Address', backref=db.backref('user', lazy='dynamic'),
+                              lazy='dynamic')
+    office_hours = db.relationship('OfficeHours',
+                                   backref=db.backref('user', lazy='dynamic'),
+                                   lazy='dynamic')
+    faculty = db.relationship('Faculty', backref=db.backref('user', lazy='dynamic'),
+                              uselist=False, lazy='dynamic')
+    alert = db.relationship('Alert', backref=db.backref('user', lazy='dynamic'),
+                            lazy='dynamic')
 
     def to_json_format(self):
         json = {'id': self.id,
@@ -288,8 +294,11 @@ class Term(db.Model):
     year = db.Column(db.Integer)
     start_date = db.Column(db.DateTime)
     end_date = db.Column(db.DateTime)
-    office_hours = db.relationship('OfficeHours', backref=db.backref('term',),
-                                   uselist=False)
+    office_hours = db.relationship('OfficeHours',
+                                   backref=db.backref('term', lazy='dynamic'),
+                                   lazy='dynamic')
+    courses = db.relationship('Course', backref('term', lazy='dynamic'),
+                              lazy='dynamic')
 
     def to_json_format(self):
         json = {'id': self.id,
@@ -315,17 +324,25 @@ class Faculty(db.Model):
     status = db.Column(db.String(32))
     office_loc = db.Column(db.String(64))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    education = db.relationship('Education', backref=db.backref('faculty',),
-                                uselist=False)
+    education = db.relationship('Education',
+                                backref=db.backref('faculty', lazy='dynamic'),
+                                lazy='dynamic')
     faculty_services = db.relationship('FacultyServices',
-                                       backref=db.backref('faculty',),
-                                       uselist=False)
-    faculty_services = db.relationship('FacultyInterests',
-                                       backref=db.backref('faculty',),
-                                       uselist=False)
+                                       backref=db.backref(
+                                           'faculty', lazy='dynamic'),
+                                       lazy='dynamic')
+    faculty_interests = db.relationship('FacultyInterests',
+                                        backref=db.backref(
+                                            'faculty', lazy='dynamic'),
+                                        lazy='dynamic')
     committee_members = db.relationship('CommitteeMembers',
-                                        backref=db.backref('faculty',),
-                                        uselist=False)
+                                        backref=db.backref(
+                                            'faculty', lazy='dynamic'),
+                                        lazy='dynamic')
+    course_sections = db.relationship('CourseSection',
+                                      backref=db.backref(
+                                          'faculty', lazy='dynamic'),
+                                      lazy='dynamic')
 
     def to_json_format(self):
         json = {'id': self.id,
@@ -433,8 +450,9 @@ class Committee(db.Model):
     category = db.Column(db.String(64))
     description = db.Column(db.Text)
     committee_members = db.relationship('CommitteeMembers',
-                                        backref=db.backref('committee',),
-                                        uselist=False)
+                                        backref=db.backref(
+                                            'committee', lazy='dynamic'),
+                                        lazy='dynamic')
 
     def to_json_format(self):
         json = {'id': self.id,
@@ -451,13 +469,16 @@ class Committee(db.Model):
 class Course(db.Model):
     __tablename__ = 'courses'
     id = db.Column(db.Integer, primary_key=True)
-    department_id = db.Column(db.Integer, db.ForeignKey('departments.id'))
     title = db.Column(db.String(32))
     credits = db.Column(db.Integer)
     level = db.Column(db.String(16))
     description = db.Column(db.Text)
     prerequisites = db.Column(db.String(16))
-    term_id = db.Column(db.Integer)
+    department_id = db.Column(db.Integer, db.ForeignKey('departments.id'))
+    term_id = db.Column(db.Integer, db.ForeignKey('term.id'))
+    course = db.relationship('CourseSection',
+                             backref=db.backref('course', lazy='dynamic'),
+                             lazy='dynamic')
 
     def to_json_format(self):
         json = {'id': self.id,
@@ -481,6 +502,9 @@ class Department(db.Model):
     __tablename__ = 'departments'
     id = db.Column(db.Integer, primary_key=True)
     dept_name = db.Column(db.String(16))
+    course = db.relationship('Course',
+                             backref=db.backref('department', lazy='dynamic'),
+                             lazy='dynamic')
 
     def to_json_format(self):
         json = {'id': self.id,
@@ -498,10 +522,9 @@ class Textbook(db.Model):
     title = db.Column(db.String(32))
     author = db.Column(db.String(32))
     edition = db.Column(db.String(8))
-    section_id = db.Column(
-        db.Integer, db.ForeignKey('course_sections.id'))
     publisher_id = db.Column(db.Integer)
     isbn = db.Column(db.Integer)
+    section_id = db.Column(db.Integer, db.ForeignKey('course_sections.id'))
 
     def to_json_format(self):
         json = {'id': self.id,
@@ -523,13 +546,17 @@ class Textbook(db.Model):
 class CourseSection(db.Model):
     __tablename__ = 'course_sections'
     id = db.Column(db.Integer, primary_key=True)
-    course_id = db.Column(db.Integer, db.ForeignKey('courses.id'))
-    faculty_id = db.Column(db.Integer)
     days = db.Column(db.String(8))
     start_time = db.Column(db.DateTime)
     end_time = db.Column(db.DateTime)
     room = db.Column(db.String(16))
     section_type = db.Column(db.String(32))
+    course_id = db.Column(db.Integer, db.ForeignKey('courses.id'))
+    faculty_id = db.Column(db.Integer, db.ForeignKey('faculty.id'))
+    textbook = db.relationship('Textbook',
+                               backref=db.backref(
+                                   'course_section', lazy='dynamic'),
+                               lazy='dynamic')
 
     def to_json_format(self):
         json = {'id': self.id,
