@@ -345,7 +345,7 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="faculty" row="id" />
 </row>
-<row name="service_name" null="0" autoincrement="0">
+<row name="name" null="0" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>'NULL'</default></row>
 <row name="category" null="0" autoincrement="0">
@@ -476,7 +476,7 @@
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="department_name" null="1" autoincrement="0">
+<row name="name" null="1" autoincrement="0">
 <datatype>CHAR</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
