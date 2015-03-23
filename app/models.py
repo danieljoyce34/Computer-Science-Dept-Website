@@ -9,11 +9,11 @@ class Image(db.Model):
     image_type = db.Column(db.String(64))
     alt_text = db.Column(db.Text)
     image_extension = db.Column(db.String(64))
-    sideview = db.relationship('Sideview', backref=db.backref('image', lazy='dynamic'),
+    sideviews = db.relationship('Sideview', backref=db.backref('image', lazy='dynamic'),
                                uselist=False)
     news = db.relationship('News', backref=db.backref('image', lazy='dynamic'),
                            uselist=False)
-    user = db.relationship('User', backref=db.backref('image', lazy='dynamic'),
+    users = db.relationship('User', backref=db.backref('image', lazy='dynamic'),
                            uselist=False)
 
     def to_json_format(self):
@@ -119,24 +119,24 @@ class User(db.Model):
     vu_ldap = db.Column(db.String(64))
     image_id = db.Column(db.Integer, db.ForeignKey('images.id'))
     user_role_id = db.Column(db.Integer, db.ForeignKey('user_role.id'))
-    staff = db.relationship('Staff', backref=db.backref('user', lazy='dynamic'),
+    staffs = db.relationship('Staff', backref=db.backref('user', lazy='dynamic'),
                             uselist=False, lazy='dynamic')
-    administration = db.relationship('Administration',
+    administrations = db.relationship('Administration',
                                      backref=db.backref(
                                          'user', lazy='dynamic'),
                                      uselist=False, lazy='dynamic')
-    phone_number = db.relationship('PhoneNumber',
+    phone_numbers = db.relationship('PhoneNumber',
                                    backref=db.backref(
                                        'user', lazy='dynamic'),
                                    lazy='dynamic')
-    address = db.relationship('Address', backref=db.backref('user', lazy='dynamic'),
+    addresses = db.relationship('Address', backref=db.backref('user', lazy='dynamic'),
                               lazy='dynamic')
     office_hours = db.relationship('OfficeHours',
                                    backref=db.backref('user', lazy='dynamic'),
                                    lazy='dynamic')
-    faculty = db.relationship('Faculty', backref=db.backref('user', lazy='dynamic'),
+    faculties = db.relationship('Faculty', backref=db.backref('user', lazy='dynamic'),
                               uselist=False, lazy='dynamic')
-    alert = db.relationship('Alert', backref=db.backref('user', lazy='dynamic'),
+    alerts = db.relationship('Alert', backref=db.backref('user', lazy='dynamic'),
                             lazy='dynamic')
 
     def to_json_format(self):
@@ -161,7 +161,7 @@ class UserRole(db.Model):
     __tablename__ = 'user_role'
     id = db.Column(db.Integer, primary_key=True)
     role = db.Column(db.String(32))
-    user = db.relationship('User', backref=db.backref('user_role',),
+    users = db.relationship('User', backref=db.backref('user_role',),
                            uselist=False)
 
     def to_json_format(self):
@@ -324,7 +324,7 @@ class Faculty(db.Model):
     status = db.Column(db.String(32))
     office_loc = db.Column(db.String(64))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    education = db.relationship('Education',
+    educations = db.relationship('Education',
                                 backref=db.backref('faculty', lazy='dynamic'),
                                 lazy='dynamic')
     faculty_services = db.relationship('FacultyServices',
@@ -476,7 +476,7 @@ class Course(db.Model):
     prerequisites = db.Column(db.String(16))
     department_id = db.Column(db.Integer, db.ForeignKey('departments.id'))
     term_id = db.Column(db.Integer, db.ForeignKey('term.id'))
-    course = db.relationship('CourseSection',
+    courses = db.relationship('CourseSection',
                              backref=db.backref('course', lazy='dynamic'),
                              lazy='dynamic')
 
@@ -502,7 +502,7 @@ class Department(db.Model):
     __tablename__ = 'departments'
     id = db.Column(db.Integer, primary_key=True)
     dept_name = db.Column(db.String(16))
-    course = db.relationship('Course',
+    courses = db.relationship('Course',
                              backref=db.backref('department', lazy='dynamic'),
                              lazy='dynamic')
 
@@ -553,7 +553,7 @@ class CourseSection(db.Model):
     section_type = db.Column(db.String(32))
     course_id = db.Column(db.Integer, db.ForeignKey('courses.id'))
     faculty_id = db.Column(db.Integer, db.ForeignKey('faculty.id'))
-    textbook = db.relationship('Textbook',
+    textbooks = db.relationship('Textbook',
                                backref=db.backref(
                                    'course_section', lazy='dynamic'),
                                lazy='dynamic')
