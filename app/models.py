@@ -297,7 +297,7 @@ class Term(db.Model):
     office_hours = db.relationship('OfficeHours',
                                    backref=db.backref('term', lazy='dynamic'),
                                    lazy='dynamic')
-    courses = db.relationship('Course', backref('term', lazy='dynamic'),
+    courses = db.relationship('Course', backref=db.backref('term', lazy='dynamic'),
                               lazy='dynamic')
 
     def to_json_format(self):
