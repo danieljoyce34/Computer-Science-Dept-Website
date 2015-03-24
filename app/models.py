@@ -501,6 +501,7 @@ class Department(db.Model):
                 % (self.id, self.dept_name))
 
 # TODO: Course sections should store textbook id instead
+# TODO: Textbook could be related to professor if that prof wrote the book
 
 
 class Textbook(db.Model):
