@@ -37,7 +37,7 @@
 		<type label="SET" length="1" sql="SET" quote=""/>
 		<type label="Bit" length="0" sql="bit" quote=""/>
 	</group>
-</datatypes><table x="487" y="141" name="news">
+</datatypes><table x="79" y="9" name="news">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -67,7 +67,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="107" y="45" name="images">
+<table x="248" y="199" name="images">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -85,7 +85,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="676" y="34" name="sideview">
+<table x="310" y="13" name="sideview">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -109,7 +109,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="924" y="26" name="alerts">
+<table x="73" y="621" name="alerts">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -140,7 +140,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="123" y="703" name="user">
+<table x="59" y="305" name="user">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -171,7 +171,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="374" y="522" name="faculty">
+<table x="613" y="330" name="faculty">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -204,7 +204,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="747" y="247" name="education">
+<table x="817" y="59" name="education">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -225,7 +225,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="408" y="801" name="phone_number">
+<table x="264" y="677" name="phone_number">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -246,7 +246,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="504" y="1102" name="address">
+<table x="278" y="446" name="address">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -273,7 +273,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="730" y="571" name="faculty_interests">
+<table x="841" y="371" name="faculty_interests">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -288,7 +288,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="871" y="694" name="office_hours">
+<table x="423" y="375" name="office_hours">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -316,7 +316,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="964" y="1070" name="term">
+<table x="446" y="591" name="term">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -337,7 +337,7 @@
 </key>
 <comment>Fall,Spring,Summer I,Summer II,Summer III</comment>
 </table>
-<table x="744" y="423" name="faculty_services">
+<table x="830" y="236" name="faculty_services">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -355,7 +355,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="723" y="1022" name="committee">
+<table x="1093" y="482" name="committee">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -372,7 +372,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="601" y="783" name="committee_members">
+<table x="848" y="481" name="committee_members">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -391,7 +391,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="122" y="416" name="staff">
+<table x="506" y="18" name="staff">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -409,7 +409,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="259" y="1136" name="administration">
+<table x="513" y="175" name="administration">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -428,7 +428,7 @@
 </key>
 <comment>Do not implement right now</comment>
 </table>
-<table x="73" y="1066" name="user_role">
+<table x="98" y="534" name="user_role">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -440,7 +440,7 @@
 </key>
 <comment>UG,G,Faculty,Staff and WebTeam</comment>
 </table>
-<table x="1251" y="618" name="courses">
+<table x="613" y="602" name="courses">
 <row name="id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -472,7 +472,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1013" y="577" name="department">
+<table x="610" y="829" name="department">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -483,7 +483,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="943" y="297" name="textbook">
+<table x="1050" y="624" name="textbook">
 <row name="id" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -510,7 +510,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1255" y="333" name="course_sections">
+<table x="847" y="616" name="course_sections">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
