@@ -1,6 +1,7 @@
 from flask import render_template, request, jsonify
 from app import app
-from .models import Image, Sideview, News, Alert
+from .models import Image, Sideview, News, Alert, Faculty, User
+import util
 
 @app.route('/')
 @app.route('/index')
@@ -42,6 +43,19 @@ def sideviewsAjax():
 			json = sideview.to_json_format()
 			sideview_result.append(json)
 		return jsonify(sideviews=sideview_result)
+
+@app.route('/retrieveFullTimeFaculty', methods = ['GET'])
+def fullTimeFacultyAjax():
+	if request.method == 'GET':
+		faculties = Faculty.query.filter_by(faculty_type='full time').all()
+
+		faculties_result = []
+		for faculty in faculties:
+			faculty_dict = faculty.to_json_format()
+			user_dict = faculty.user.to_json_format()
+			json = util._merge_two_dicts(user_dict, faculty_dict)
+			faculties_result.append(json)
+		return jsonify(faculties=faculties_result)
 
 @app.route('/carousel')
 def carousel():
