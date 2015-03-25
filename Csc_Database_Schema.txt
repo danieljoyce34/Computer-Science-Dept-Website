@@ -483,14 +483,10 @@
 <part>id</part>
 </key>
 </table>
-<table x="1050" y="624" name="textbook">
+<table x="1119" y="232" name="textbook">
 <row name="id" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="section_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="course_sections" row="id" />
-</row>
 <row name="author" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
@@ -500,6 +496,10 @@
 <row name="edition" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
+<row name="author_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="faculty" row="id" />
+</row>
 <row name="publisher_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -522,6 +522,28 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="faculty" row="id" />
 </row>
+<row name="room" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="section_type" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="textbook_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="textbook" row="id" />
+</row>
+<row name="course_time_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="course_times" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1052" y="860" name="course_times">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
 <row name="days" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
@@ -530,12 +552,6 @@
 <default>NULL</default></row>
 <row name="end_time" null="1" autoincrement="0">
 <datatype>TIME</datatype>
-<default>NULL</default></row>
-<row name="room" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="section_type" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
