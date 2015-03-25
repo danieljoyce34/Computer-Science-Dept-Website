@@ -26,6 +26,17 @@ $(document).ready(function(){
 
 	$('.nav-item').on('swipedown', function(){
 		$('#nav').find('.subnav').hide();
-		$('this').find('.subnav').show();
+		$(this).find('.subnav').show();
+	});
+
+	$('#content-wrapper').click(function(){
+		if($(this).css('left') == '200px'){
+			$(this).animate({
+				left: 0,
+				right: 0
+			}, 200, function(){
+				$('#nav').hide();
+			});
+		}
 	});
 });
