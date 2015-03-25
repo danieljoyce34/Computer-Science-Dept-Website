@@ -36,7 +36,7 @@ def generalPage():
 def loadJson():
 	j = open(os.path.join(os.path.dirname(__file__), 'static/json-data/about-page.json'), 'r')
 	data = json.load(j)
-	return json.dumps(data)
+	return jsonify(data)
 #@app.route('/about')
 #def aboutGeneral():
 # #	return render_template('pageTemplate.html', content="about")
