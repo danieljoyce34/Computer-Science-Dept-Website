@@ -521,7 +521,7 @@ class Textbook(db.Model):
                 'author': self.author,
                 'edition': self.edition,
                 'publisher_id': self.publisher_id,
-                'isbn': self.isbn
+                'isbn': self.isbn,
                 'author_id': self.author_id}
         return json
 

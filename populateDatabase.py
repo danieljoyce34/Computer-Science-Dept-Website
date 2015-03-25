@@ -198,22 +198,27 @@ course_1 = models.Course(title='Software Engineering',
                          term=term_fall,
                          department=dept)
 
-course_sect_1 = models.CourseSection(days='MWF',
-                                     start_time=datetime.datetime(2014, 9, 1, 12),
-                                     end_time=datetime.datetime(2014, 9, 1, 13, 30),
+course_sect_1 = models.CourseSection(course_time_id='1',
                                      room='MSC-168',
                                      section_type='Lecture',
                                      course=course_1,
                                      faculty=faculty)
 
-course_sect_2 = models.CourseSection(days='W',
-                                     start_time=datetime.datetime(2014, 9, 1, 18),
-                                     end_time=datetime.datetime(2014, 9, 1, 21),
+course_sect_2 = models.CourseSection(course_time_id='2',
                                      room='MSC-168',
                                      section_type='Lecture',
                                      course=course_1,
                                      faculty=faculty)
 
+course_time_1 = models.CourseTimes(days='MWF',
+                                   start_time=datetime.datetime(2014, 9, 1, 11, 30),
+                                   end_time=datetime.datetime(2014, 9, 1, 14))
+
+course_time_2 = models.CourseTimes(days='TTR',
+                                   start_time=datetime.datetime(2014, 9, 1, 11, 30),
+                                   end_time=datetime.datetime(2014, 9, 1, 14))
+
+#db.create_all()
 db.session.add(image_icon)
 db.session.add(sideview)
 db.session.add(news)
@@ -252,4 +257,6 @@ db.session.add(dept)
 db.session.add(course_1)
 db.session.add(course_sect_1)
 db.session.add(course_sect_2)
+db.session.add(course_time_1)
+db.session.add(course_time_2)
 db.session.commit()
