@@ -1,9 +1,17 @@
-var acontainer = 'alert-box';
-var icon = 'icon ion-ios-alarm-outline';
-var acontent = 'alert-content';
-var atime = 'alert-time';
-
 $(document).ready(function () {
+	var acontainer = 'alert-box',
+	 	icon = 'icon ion-ios-alarm-outline',
+	 	acontent = 'alert-content',
+	 	atime = 'alert-time';
+
+	 // Adds a new alert to the alert container
+	function addAlert(color, text, time){
+		$('.alert-container').append($('<div class="' + acontainer + " " + color + '">')
+			.append($('<i class="' + icon + '" title="' + time + '">'))
+			.append($('<div class="' + atime + '">').text(time))
+			.append($('<div class="' + acontent + '">').text(text))
+		);
+	}
 
 	var data_container = [ 
 		{
@@ -109,18 +117,9 @@ $(document).ready(function () {
 		$(this).parent().find($('div.' + atime)).show();
 		$(this).parent().find($('div.' + acontent)).css('margin-left', '110px');	
 	});
+
 	$(document).on("mouseleave", "i.icon", function(event){
 		$(this).parent().find($('div.' + atime)).hide();
 		$(this).parent().find($('div.' + acontent)).css('margin-left', '35px');			
 	});
 });
-
-
-// Adds a new alert to the alert container
-function addAlert(color, text, time){
-	$('.alert-container').append($('<div class="' + acontainer + " " + color + '">')
-		.append($('<i class="' + icon + '" title="' + time + '">'))
-		.append($('<div class="' + atime + '">').text(time))
-		.append($('<div class="' + acontent + '">').text(text))
-	);
-}
