@@ -22,3 +22,5 @@ csc_web/bin/python2
 *.pyc
 
 /flask
+
+venv/
