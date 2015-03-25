@@ -82,9 +82,11 @@
 	color: #fff;
 }
 
+
+/* Replaced by a nav-item hover handler in navigation.js
 .nav-item > a:hover + .subnav, .subnav:hover{
 		display: block;
-}
+}*/
 
 @media screen and (min-width: 781px){
 	#nav{
@@ -109,5 +111,9 @@
 
 	.nav-item > a{
 		border: none;
+	}
+
+	.nav-item > a:hover + .subnav, .subnav:hover{
+		display: block;
 	}
 }
