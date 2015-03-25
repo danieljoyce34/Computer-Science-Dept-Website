@@ -57,6 +57,19 @@ def fullTimeFacultyAjax():
 			faculties_result.append(json)
 		return jsonify(faculties=faculties_result)
 
+@app.route('/retrieveAdjunctFaculty', methods = ['GET'])
+def adjunctFacultyAjax():
+	if request.method == 'GET':
+		faculties = Faculty.query.filter_by(faculty_type='adjunct').all()
+
+		faculties_result = []
+		for faculty in faculties:
+			faculty_dict = faculty.to_json_format()
+			user_dict = faculty.user.to_json_format()
+			json = util._merge_two_dicts(user_dict, faculty_dict)
+			faculties_result.append(json)
+		return jsonify(faculties=faculties_result)
+
 @app.route('/carousel')
 def carousel():
 	return render_template('carousel.html')
