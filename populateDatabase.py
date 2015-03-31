@@ -141,11 +141,11 @@ term_fall = models.Term(semester='Fall',
                         end_date=datetime.date(2020, 12, 21))
 
 office_hour = models.OfficeHours(start_time=datetime.datetime(2014, 9, 1, 11, 30),
-                                end_time=datetime.datetime(2014, 9, 1, 14),
-                                apntmnt_msg='email beforehand',
-                                days='MWF',
-                                user=prof,
-                                term=term_fall)
+                                 end_time=datetime.datetime(2014, 9, 1, 14),
+                                 apntmnt_msg='email beforehand',
+                                 days='MWF',
+                                 user=prof,
+                                 term=term_fall)
 
 faculty = models.Faculty(salutation='Dr.',
                          secondary_email='joyce@fakemail.com',
@@ -198,27 +198,31 @@ course_1 = models.Course(title='Software Engineering',
                          term=term_fall,
                          department=dept)
 
+course_time_1 = models.CourseTimes(days='MWF',
+                                   start_time=datetime.datetime(
+                                       2014, 9, 1, 11, 30),
+                                   end_time=datetime.datetime(2014, 9, 1, 14))
+
+course_time_2 = models.CourseTimes(days='TTR',
+                                   start_time=datetime.datetime(
+                                       2014, 9, 1, 11, 30),
+                                   end_time=datetime.datetime(2014, 9, 1, 14))
+
 course_sect_1 = models.CourseSection(course_time_id='1',
                                      room='MSC-168',
                                      section_type='Lecture',
                                      course=course_1,
-                                     faculty=faculty)
+                                     faculty=faculty,
+                                     course_time=course_time_2)
 
 course_sect_2 = models.CourseSection(course_time_id='2',
                                      room='MSC-168',
                                      section_type='Lecture',
                                      course=course_1,
-                                     faculty=faculty)
+                                     faculty=faculty,
+                                     course_time=course_time_1)
 
-course_time_1 = models.CourseTimes(days='MWF',
-                                   start_time=datetime.datetime(2014, 9, 1, 11, 30),
-                                   end_time=datetime.datetime(2014, 9, 1, 14))
-
-course_time_2 = models.CourseTimes(days='TTR',
-                                   start_time=datetime.datetime(2014, 9, 1, 11, 30),
-                                   end_time=datetime.datetime(2014, 9, 1, 14))
-
-#db.create_all()
+# db.create_all()
 db.session.add(image_icon)
 db.session.add(sideview)
 db.session.add(news)

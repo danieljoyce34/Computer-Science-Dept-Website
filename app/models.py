@@ -512,8 +512,7 @@ class Textbook(db.Model):
     publisher_id = db.Column(db.Integer)
     isbn = db.Column(db.Integer)
     author_id = db.Column(db.Integer, db.ForeignKey('faculty.id'))
-    sections = db.relationship(
-        'CourseSection', backref=db.backref('textbook'))
+    sections = db.relationship('CourseSection', backref=db.backref('textbook'))
 
     def to_json_format(self):
         json = {'id': self.id,
@@ -528,7 +527,7 @@ class Textbook(db.Model):
     def __repr__(self):
         return ('<id %i, title %s, author %s, edition %s,'
                 ' publisher_id %i, isbn %i, author_id %i>'
-                % (self.id, self.title, self.author, self.edition, 
+                % (self.id, self.title, self.author, self.edition,
                     self.publisher_id, self.isbn, self.author_id))
 
 
