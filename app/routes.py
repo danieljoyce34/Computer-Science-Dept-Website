@@ -1,6 +1,6 @@
 from flask import render_template, request, jsonify
 from app import app
-from .models import Image, Sideview, News, Alert, Faculty, User
+from .models import Image, Sideview, News, Alert, Faculty, User, Staff
 import util
 
 @app.route('/')
@@ -69,6 +69,20 @@ def adjunctFacultyAjax():
 			json = util._merge_two_dicts(user_dict, faculty_dict)
 			faculties_result.append(json)
 		return jsonify(faculties=faculties_result)
+
+# TODO: Test to make sure it works
+@app.route('/retrieveStaff', methods = ['GET'])
+def staffAjax():
+	if request.method == 'GET':
+		staffs = Staff.query.all()
+
+		staff_result = []
+		for staff in staffs:
+			staff_dict = staff.to_json_format()
+			user_dict = staff.user.to_json_format()
+			json = util._merge_two_dicts(user_dict, staff_dict)
+			staff_result.append(json)
+		return jsonify(faculties=staff_result)
 
 @app.route('/carousel')
 def carousel():
