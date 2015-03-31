@@ -70,7 +70,6 @@ def adjunctFacultyAjax():
 			faculties_result.append(json)
 		return jsonify(faculties=faculties_result)
 
-# TODO: Test to make sure it works
 @app.route('/retrieveStaff', methods = ['GET'])
 def staffAjax():
 	if request.method == 'GET':
@@ -82,7 +81,7 @@ def staffAjax():
 			user_dict = staff.user.to_json_format()
 			json = util._merge_two_dicts(user_dict, staff_dict)
 			staff_result.append(json)
-		return jsonify(faculties=staff_result)
+		return jsonify(staffs=staff_result)
 
 @app.route('/carousel')
 def carousel():
