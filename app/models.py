@@ -334,6 +334,8 @@ class Faculty(db.Model):
                                         backref=db.backref('faculty'))
     course_sections = db.relationship('CourseSection',
                                       backref=db.backref('faculty'))
+    textbooks = db.relationship('Textbook',
+                                backref=db.backref('faculty'))
 
     def to_json_format(self):
         json = {'id': self.id,
@@ -500,9 +502,6 @@ class Department(db.Model):
         return ('<id %i, dept_name %s>'
                 % (self.id, self.dept_name))
 
-# TODO: Course sections should store textbook id instead
-# TODO: Textbook could be related to professor if that prof wrote the book
-
 
 class Textbook(db.Model):
     __tablename__ = 'textbooks'
@@ -512,53 +511,69 @@ class Textbook(db.Model):
     edition = db.Column(db.String(8))
     publisher_id = db.Column(db.Integer)
     isbn = db.Column(db.Integer)
-    section_id = db.Column(db.Integer, db.ForeignKey('course_sections.id'))
+    author_id = db.Column(db.Integer, db.ForeignKey('faculty.id'))
+    sections = db.relationship('CourseSection', backref=db.backref('textbook'))
 
     def to_json_format(self):
         json = {'id': self.id,
                 'title': self.title,
                 'author': self.author,
                 'edition': self.edition,
-                'section_id': self.section_id,
                 'publisher_id': self.publisher_id,
-                'isbn': self.isbn}
+                'isbn': self.isbn,
+                'author_id': self.author_id}
         return json
 
     def __repr__(self):
-        return ('<id %i, title %s, author %s, edition %s, section_id %i,'
-                ' publisher_id %i, isbn %i>'
-                % (self.id, self.title, self.author, self.edition, self.section_id,
-                    self.publisher_id, self.isbn))
+        return ('<id %i, title %s, author %s, edition %s,'
+                ' publisher_id %i, isbn %i, author_id %i>'
+                % (self.id, self.title, self.author, self.edition,
+                    self.publisher_id, self.isbn, self.author_id))
 
-# TODO: make a time table to store class times
+
+class CourseTimes(db.Model):
+    __tablename__ = 'course_times'
+    id = db.Column(db.Integer, primary_key=True)
+    days = db.Column(db.String(8))
+    start_time = db.Column(db.DateTime)
+    end_time = db.Column(db.DateTime)
+    sections = db.relationship(
+        'CourseSection', backref=db.backref('course_time'))
+
+    def to_json_format(self):
+        json = {'id': self.id,
+                'days': self.days,
+                'start_time': self.start_time,
+                'end_time': self.end_time}
+        return json
+
+    def __repr__(self):
+        return ('<id %i, days %s, start_time %f, end_time %f>'
+                % (self.id, self.days, self.start_time, self.end_time))
 
 
 class CourseSection(db.Model):
     __tablename__ = 'course_sections'
     id = db.Column(db.Integer, primary_key=True)
-    days = db.Column(db.String(8))
-    start_time = db.Column(db.DateTime)
-    end_time = db.Column(db.DateTime)
     room = db.Column(db.String(16))
     section_type = db.Column(db.String(32))
     course_id = db.Column(db.Integer, db.ForeignKey('courses.id'))
     faculty_id = db.Column(db.Integer, db.ForeignKey('faculty.id'))
-    textbooks = db.relationship(
-        'Textbook', backref=db.backref('course_section'))
+    textbook_id = db.Column(db.Integer, db.ForeignKey('textbooks.id'))
+    course_time_id = db.Column(db.Integer, db.ForeignKey('course_times.id'))
 
     def to_json_format(self):
         json = {'id': self.id,
                 'course_id': self.course_id,
                 'faculty_id': self.faculty_id,
-                'days': self.days,
-                'start_time': self.start_time,
-                'end_time': self.end_time,
+                'textbook_id': self.textbook_id,
+                'course_time_id': self.course_time_id,
                 'room': self.room,
                 'section_type': self.section_type}
         return json
 
     def __repr__(self):
-        return ('<id %i, course_id %i, faculty_id %i, days %s, start_time %f,'
-                ' end_time %f, room %s, section_type %s>'
-                % (self.id, self.course_id, self.faculty_id, self.days,
-                    self.start_time, self.end_time, self.room, self.section_type))
+        return ('<id %i, course_id %i, faculty_id %i, textbook_id %i,'
+                ' course_time_id %i, room %s, section_type %s>'
+                % (self.id, self.course_id, self.faculty_id, self.textbook_id,
+                    self.course_time_id, self.room, self.section_type))
