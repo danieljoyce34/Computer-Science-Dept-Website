@@ -68,6 +68,7 @@ def alertsAjax():
 					sideviews=sideview_result)
 
 @app.route('/retrieveNews', methods = ['GET'])
+@crossdomain(origin='*')
 def newsAjax():
 	if request.method == 'GET':
 		news = News.query.all()
