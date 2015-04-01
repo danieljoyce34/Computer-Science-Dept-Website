@@ -666,7 +666,7 @@
 <row name="salary" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
-<row name="reasons" null="1" autoincrement="0">
+<row name="reasons_joined" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default><comment>reason who person joined the company </comment>
 </row>
