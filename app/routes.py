@@ -48,12 +48,14 @@ def crossdomain(origin=None, methods=None, headers=None,
         return update_wrapper(wrapped_function, f)
     return decorator
 
+
 @app.route('/')
 @app.route('/index')
 def index():
 	return render_template('index.html')
 
 @app.route('/retrieveAlerts', methods = ['GET'])
+@crossdomain(origin='*')
 def alertsAjax():
 	if request.method == 'GET':
 		alerts = Alert.query.all()
