@@ -56,6 +56,7 @@ def index():
 
 
 @app.route('/retrieveAlerts', methods=['GET'])
+@crossdomain(origin='*')
 def alertsAjax():
     if request.method == 'GET':
         alerts = Alert.query.all()
