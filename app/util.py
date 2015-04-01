@@ -34,6 +34,6 @@ def _merge_two_dicts(dict1, dict2):
     return newDict
 
 
-def _append_todict(origin, to_append):
-    origin[to_append.__tablename__] = to_append
+def _append_to_dict(origin, list_to_append, name):
+    origin[name] = list_to_append
     return origin
