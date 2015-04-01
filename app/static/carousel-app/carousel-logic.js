@@ -39,7 +39,6 @@ $(document).ready(function () {
 				i = 0;
 			
 			$("#carousel-item-" + (i + 1)).prop('checked', true);
-			console.log(images[i]);
 			swapImage(images[i]['img_url']);
 			swapTitle(images[i]['title'], images[i]['description']);
 		}, 15000);
@@ -65,4 +64,3 @@ $(document).ready(function () {
 
 	cycleImages(data_container);
 });
-
