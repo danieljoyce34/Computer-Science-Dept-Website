@@ -83,6 +83,17 @@ def staffAjax():
 			staff_result.append(json)
 		return jsonify(staffs=staff_result)
 
+@app.route('/retrieveFaculty/<int:faculty_id>', methods = ['GET'])
+def facultyIdAjax():
+	if request.method == 'GET':
+		faculty = Faculty.query.filter_by(id=faculty_id).first()
+
+		faculty_result = []
+		faculty_dict = faculty.to_json_format()
+		user_dict = faculty.user.to_json_format()
+		json = util._merge_two_dicts(user_dict, faculty_dict)
+		educations = faculty.
+
 @app.route('/carousel')
 def carousel():
 	return render_template('carousel.html')
