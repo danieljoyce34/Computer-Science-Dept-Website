@@ -91,6 +91,17 @@ def staffAjax():
             staff_result.append(json)
         return jsonify(staffs=staff_result)
 
+@app.route('/retrieveStaff/<int:staff_id>', methods=['GET'])
+def staffIdAjax(staff_id):
+    if request.method == 'GET':
+        staff = Staff.query.filter_by(id=staff_id).first()
+
+        staff_result = []
+        staff_dict = staff.to_json_format()
+        user_dict = staff.user.to_json_format()
+        json = util._merge_two_dicts(user_dict, staff_dict)
+        staff_result.append(json)
+        return jsonify(staff=staff_result)
 
 @app.route('/retrieveFaculty/<int:faculty_id>', methods=['GET'])
 def facultyIdAjax(faculty_id):
