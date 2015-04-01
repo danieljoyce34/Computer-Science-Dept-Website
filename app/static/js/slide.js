@@ -4,13 +4,13 @@ $(document).ready(function () {
     $('#slide-nav.navbar .container').append($('<div id="navbar-height-col"></div>'));
 
     // Enter your ids or classes
-    var toggler = '.navbar-toggle';
-    var pagewrapper = '#page-content';
-    var navigationwrapper = '.navbar-header';
-    var menuwidth = '100%'; // the menu inside the slide menu itself
-    var slidewidth = '66%';
-    var menuneg = '-100%';
-    var slideneg = '-66%';
+    var toggler = '.navbar-toggle',
+        pagewrapper = '#page-content',
+        navigationwrapper = '.navbar-header',
+        menuwidth = '100%', // the menu inside the slide menu itself
+        slidewidth = '66%',
+        menuneg = '-100%',
+        slideneg = '-66%';
 
 
     $("#slide-nav").on("click", toggler, function (e) {
