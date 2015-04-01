@@ -79,7 +79,7 @@ body {
 .card {
   margin: 5px 0;
   display: inline-block;
-  border-radius: 7px;
+  border-radius: 3px;
   position: relative;
 } 
 

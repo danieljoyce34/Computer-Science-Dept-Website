@@ -12,6 +12,7 @@
 	background-repeat: no-repeat;
     background-position: center; 
 	position: relative;
+	border-radius: 3px;
 }
 
 .active-image p{
