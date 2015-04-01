@@ -544,14 +544,14 @@
 <table x="415" y="1049" name="exit_interview">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="student_id" null="1" autoincrement="0">
+<default>NULL</default><relation table="exit_interview_course_evaluation" row="exit_interview_id" />
+</row>
+<row name="user_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="course_evaluation_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="exit_interview_course_evaluation" row="id" />
-</row>
+<default>NULL</default></row>
 <row name="job_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="exit_interview_job" row="id" />
@@ -564,56 +564,61 @@
 <datatype>TINYINT</datatype>
 <default>NULL</default><comment>current database this is a boolean </comment>
 </row>
-<row name="fill_form" null="1" autoincrement="0">
+<row name="form_completed" null="1" autoincrement="0">
 <datatype>TINYINT</datatype>
 <default>NULL</default><comment>on current db this is a boolean value</comment>
 </row>
 <row name="term_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
+<row name="cs_improvment_suggestions" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default><comment>Please give suggestions for improving the CSC program:</comment>
+</row>
+<row name="other_comments" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default><comment>any comments that user wants to present</comment>
+</row>
+<row name="sufficient_info" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default><comment>Were you provided sufficient information and help as you made your plans for the future?</comment>
+</row>
+<row name="valueable_aspects" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default><comment>What were the most valuable aspects of the CSC program?</comment>
+</row>
 <row name="creation_date" null="1" autoincrement="0">
 <datatype>DATE</datatype>
 <default>NULL</default></row>
-<row name="sufficient_information_comment" null="1" autoincrement="0">
-<datatype>MEDIUMTEXT</datatype>
-<default>NULL</default></row>
-<row name="future_plans_comment" null="1" autoincrement="0">
-<datatype>MEDIUMTEXT</datatype>
-<default>NULL</default></row>
-<row name="curriculum_comments" null="1" autoincrement="0">
-<datatype>MEDIUMTEXT</datatype>
-<default>NULL</default></row>
-<row name="program_lang" null="1" autoincrement="0">
-<datatype>MEDIUMTEXT</datatype>
-<default>NULL</default><comment>comment on languages proficient with </comment>
-</row>
-<row name="most_valuable_aspects " null="1" autoincrement="0">
-<datatype>MEDIUMTEXT</datatype>
-<default>NULL</default></row>
-<row name="csc_improvemnets_suggestions" null="1" autoincrement="0">
-<datatype>MEDIUMTEXT</datatype>
-<default>NULL</default></row>
-<row name="other_comments" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><comment>any comments that user wants to present</comment>
-</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="674" y="1032" name="exit_interview_course_evaluation">
+<table x="701" y="981" name="exit_interview_course_evaluation">
 <row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="exit_interview_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="course_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="comments" null="1" autoincrement="0">
-<datatype>MEDIUMTEXT</datatype>
-<default>NULL</default></row>
 <row name="course_rating" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
+<default>NULL</default><comment>Did not take, poor, ok, good</comment>
+</row>
+<row name="program_lang" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default><comment>comments on What computer language or languages are you proficient with</comment>
+</row>
+<row name="curriculum_comments" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
 <default>NULL</default></row>
+<row name="course_comments" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default><comment> Comments on courses:</comment>
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
@@ -629,7 +634,7 @@
 <row name="field of study" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
-<row name="accepted" null="1" autoincrement="0">
+<row name="acceptance" null="1" autoincrement="0">
 <datatype>TINYINT</datatype>
 <default>NULL</default><comment>boolean value representing acceptance</comment>
 </row>
@@ -642,7 +647,7 @@
 </key>
 <comment>information about students attending grad school after graduation </comment>
 </table>
-<table x="687" y="1191" name="exit_interview_job">
+<table x="733" y="1199" name="exit_interview_job">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -665,8 +670,8 @@
 <datatype>VARCHAR</datatype>
 <default>NULL</default><comment>reason who person joined the company </comment>
 </row>
-<row name="other_companies" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
+<row name="other_offers" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
 <default>NULL</default><comment>other job offer company names</comment>
 </row>
 <key type="PRIMARY" name="">
