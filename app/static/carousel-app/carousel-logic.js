@@ -2,7 +2,8 @@ $(document).ready(function () {
 	var image_container = $('.active-image'),
 		current_title = $('.active-title'),
 		i = 0; // global image/story number
-
+		var data_container = [];
+/*
 	var data_container = [ 
 		{
 			"img_url": "https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg",
@@ -29,10 +30,23 @@ $(document).ready(function () {
 			"story_url": "localhost:5000/"
 		}
 	];
+*/
+	$.ajax({
+		url: 'http://localhost:5000/retrieveNews',
+		type: 'GET',
+		dataType: 'json',
+		success: function (data) {
+			data_container = data.news;
+			cycleImages(data_container);
+		},
+		error: function (err) {
+			console.log(err);
+		}
+	});
 
 	function cycleImages (images) {
 		var max = images.length;                     
-
+		debugger;
 		setInterval(function () { 
 			i++;
 			if (i > (max - 1))
@@ -40,8 +54,8 @@ $(document).ready(function () {
 			
 			$("#carousel-item-" + (i + 1)).prop('checked', true);
 			swapImage(images[i]['img_url']);
-			swapTitle(images[i]['title'], images[i]['description']);
-		}, 15000);
+			swapTitle(images[i]['headline'], images[i]['intro']);
+		}, 10000);
 	}
 
 	function swapImage (url) {
@@ -49,18 +63,19 @@ $(document).ready(function () {
 		image_container.css('background-image', url);
 	}
 
+	// could break with new data
 	$("input[name='carousel-dots']").click(function (e) {
 		var news_id = Number(this.id.substring(14)) - 1; // get the array id from the number
 		i = news_id;
 		swapImage(data_container[news_id]['img_url']);
-		swapTitle(data_container[news_id]['title'], data_container[i]['description']);
+		swapTitle(data_container[news_id]['headline'], data_container[i]['intro']);
 	});
 
 	function swapTitle (title, subtitle) {
-		var contents = title + '<br>' 
-			+ '<i class="active-description">' + subtitle + '</i>';
+		var contents = title + '<br>' + 
+			'<i class="active-description">' + subtitle + '</i>';
 		current_title.html(contents);
 	}
 
-	cycleImages(data_container);
+	//cycleImages(data_container);
 });
