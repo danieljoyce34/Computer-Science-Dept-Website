@@ -5,7 +5,7 @@ var acontainer = 'alert-box',
 
 $(document).ready(function () {
 
-	//getAlerts();
+	getAlerts();
 
 	var data_container = [ 
 		{
@@ -109,7 +109,7 @@ $(document).ready(function () {
 	// For mobile devices use on click and check if time is hidden
 	$(document).on("mouseenter", "i.icon", function(event){
 		$(this).parent().find($('div.' + atime)).show();
-		$(this).parent().find($('div.' + acontent)).css('margin-left', '110px');	
+		$(this).parent().find($('div.' + acontent)).css('margin-left', '175px');	
 	});
 
 	$(document).on("mouseleave", "i.icon", function(event){
@@ -127,7 +127,7 @@ function addAlert(color, text, time){
 		.append($('<div class="' + acontent + '">').text(text))
 	);
 }
-/*()
+
 // Adds alerts from json file
 function getAlerts(){
 	$.ajax({
@@ -135,13 +135,13 @@ function getAlerts(){
 		type: 'GET',
 		dataType: 'json',
 		success: function(data){
-			alert(data.alerts[1].start_date);
-			for(alert in data.alerts){
-				date = new Date(alert.start_date);
-				//date = date.toLocaleDateString() + " " + date.toLocaleTimeString();
-				addAlert(alert.category, alert.content, date);
-			}
+			$.each(data.alerts, function(i,obj){
+				// Could use better formatting
+				var date = new Date(obj.start_date);
+				var formattedDate = (date.getMonth()+1) + "/" + date.getDate() + " " + date.toLocaleTimeString();
+				addAlert(obj.category, obj.content, formattedDate);
+			});
 		},
 		error: function(err){console.log(err);}
 	});
-}*/
+}
