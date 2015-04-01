@@ -48,77 +48,87 @@ def crossdomain(origin=None, methods=None, headers=None,
         return update_wrapper(wrapped_function, f)
     return decorator
 
+
 @app.route('/')
 @app.route('/index')
 def index():
-	return render_template('index.html')
+    return render_template('index.html')
 
-@app.route('/retrieveAlerts', methods = ['GET'])
+
+@app.route('/retrieveAlerts', methods=['GET'])
 def alertsAjax():
-	if request.method == 'GET':
-		alerts = Alert.query.all()
+    if request.method == 'GET':
+        alerts = Alert.query.all()
 
-		alert_result = []
-		image_result = []
-		sideview_result = []
-		for alert in alerts:
-			json = alert.to_json_format()
-			alert_result.append(json)
-		return jsonify(alerts=alert_result, images=image_result,
-					sideviews=sideview_result)
+        alert_result = []
+        image_result = []
+        sideview_result = []
+        for alert in alerts:
+            json = alert.to_json_format()
+            alert_result.append(json)
+        return jsonify(alerts=alert_result, images=image_result,
+                       sideviews=sideview_result)
 
-@app.route('/retrieveNews', methods = ['GET'])
+
+@app.route('/retrieveNews', methods=['GET'])
 @crossdomain(origin='*')
 def newsAjax():
-	if request.method == 'GET':
-		news = News.query.all()
+    if request.method == 'GET':
+        news = News.query.all()
 
-		news_result = []
-		for new in news:
-			json = new.to_json_format()
-			news_result.append(json)
-		return jsonify(news=news_result)
+        news_result = []
+        for new in news:
+            json = new.to_json_format()
+            json[
+                'image_url'] = 'https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg'
+            news_result.append(json)
+        return jsonify(news=news_result)
 
-@app.route('/retrieveSideviews', methods = ['GET'])
+
+@app.route('/retrieveSideviews', methods=['GET'])
 @crossdomain(origin='*')
 def sideviewsAjax():
-	if request.method == 'GET':
-		sideviews = Sideview.query.all()
+    if request.method == 'GET':
+        sideviews = Sideview.query.all()
 
-		sideview_result = []
-		for sideview in sideviews:
-			json = sideview.to_json_format()
-			sideview_result.append(json)
-		return jsonify(sideviews=sideview_result)
+        sideview_result = []
+        for sideview in sideviews:
+            json = sideview.to_json_format()
+            sideview_result.append(json)
+        return jsonify(sideviews=sideview_result)
+
 
 @app.route('/carousel')
 def carousel():
-	return render_template('carousel.html')
+    return render_template('carousel.html')
+
 
 @app.route('/article', methods=['POST', 'GET'])
 def article():
-	#e=request.args['articleNumber']
+    # e=request.args['articleNumber']
 
-	#QUERY DATABASE HERE
-	results = {}
-	results['articleImage'] ='120003' 
-	results['articleHeader']='There is some data'
-	results['articleContent']='We have contempt for our content'
+    # QUERY DATABASE HERE
+    results = {}
+    results['articleImage'] = '120003'
+    results['articleHeader'] = 'There is some data'
+    results['articleContent'] = 'We have contempt for our content'
 
-	return render_template('article.html', data=results)
+    return render_template('article.html', data=results)
+
 
 @app.route('/getArticleNumber')
 def getArticleNumber():
-	return 12
+    return 12
+
 
 @app.route('/general', methods=['POST', 'GET'])
 def generalPage():
-	e = request.args['content']
-	return render_template('pageTemplate.html', content=e)
+    e = request.args['content']
+    return render_template('pageTemplate.html', content=e)
 
 #@app.route('/about')
-#def aboutGeneral():
-# #	return render_template('pageTemplate.html', content="about")
+# def aboutGeneral():
+# return render_template('pageTemplate.html', content="about")
 
 # @app.route('/academics')
 # def aboutGeneral():
