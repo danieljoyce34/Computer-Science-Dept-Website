@@ -32,7 +32,7 @@ def generalPage():
 	e = request.args['content']
 	return render_template('pageTemplate.html', content=e)
 
-@app.route('/loadJson', methods=['POST', 'GET'])
+@app.route('/loadJSON', methods=['POST', 'GET'])
 def loadJson():
 	j = open(os.path.join(os.path.dirname(__file__), 'static/json-data/about-page.json'), 'r')
 	data = json.load(j)
