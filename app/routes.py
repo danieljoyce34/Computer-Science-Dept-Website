@@ -71,16 +71,6 @@ def editNews():
 	db.session.commit()
 	return "News entry was successfully edited."
 
-@app.route('/activateNews', methods=['POST'])
-def editNews():
-	#if not session.get('logged_in'):
-	#	abort(401)
-	nID = request.form['id']
-	news = News.query.filter_by(id=nID).first()
-	news.active = request.form['active']
-	db.session.commit()
-	return "News entry was successfully updated."
-
 @app.route('/carousel')
 def carousel():
 	return render_template('carousel.html')

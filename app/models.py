@@ -64,7 +64,6 @@ class News(db.Model):
     article = db.Column(db.Text)
     post_date = db.Column(db.DateTime, default=datetime.date.today())
     image_id = db.Column(db.Integer, db.ForeignKey('images.id'))
-    active = db.Column(db.Integer, default=0)
 
     def to_json_format(self):
         json = {'id': self.id,
@@ -74,16 +73,14 @@ class News(db.Model):
                 'intro': self.intro,
                 'article': self.article,
                 'post_date': self.post_date,
-                'image_id': self.image_id, 
-                'active': self.active}
+                'image_id': self.image_id}
         return json
 
     def __repr__(self):
         return ('<News id %i, start_date %f, end_date %f, headline %s, intro %s,'
-                ' article %s, post_date %f, image_id %i, active %i>'
+                ' article %s, post_date %f, image_id %i>'
                 % (self.id, self.start_date, self.end_date, self.headline,
-                    self.intro, self.article, self.post_date, self.image_id, 
-                    self.active))
+                    self.intro, self.article, self.post_date, self.image_id))
 
 
 class Alert(db.Model):
