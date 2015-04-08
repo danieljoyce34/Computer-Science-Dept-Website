@@ -21,6 +21,7 @@ $(document).ready(function () {
 		var max = images.length;                     
 		setInterval(function () { 
 			i++;
+			
 			if (i > (max - 1))
 				i = 0;
 			
