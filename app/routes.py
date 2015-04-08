@@ -2,6 +2,9 @@ from flask import render_template, request, jsonify
 from app import app, db
 from .models import Image, Sideview, News, Alert
 
+from datetime import timedelta
+from functools import update_wrapper
+
 def crossdomain(origin=None, methods=None, headers=None,
                 max_age=21600, attach_to_all=True,
                 automatic_options=True):
