@@ -87,6 +87,16 @@ def newsAjax():
             news_result.append(json)
         return jsonify(news=news_result)
 
+@app.route('/retrieveNews/<int:news_id>', methods=['GET'])
+def newsIdAjax(news_id):
+    if request.method == 'GET':
+        news = News.query.filter_by(id=news_id).first()
+
+        news_result = []
+        json = news.to_json_format()
+        json['image_url'] = 'https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg'
+        news_result.append(json)
+        return jsonify(news=news_result)
 
 @app.route('/retrieveSideviews', methods=['GET'])
 @crossdomain(origin='*')
