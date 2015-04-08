@@ -253,7 +253,8 @@ def generalPage():
 @app.route('/news/<int:news_id>')
 def getNewsWithId(news_id):
     news = News.query.filter_by(id=news_id).first()
-    return render_template('NewsArticle.html', news=news)
+    image = 'https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg'
+    return render_template('NewsArticle.html', news=news, image=image)
 
 #@app.route('/about')
 # def aboutGeneral():

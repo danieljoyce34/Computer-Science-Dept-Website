@@ -77,10 +77,10 @@ class News(db.Model):
         return json
 
     def __repr__(self):
-        return ('<News id %i, start_date %f, end_date %f, headline %s, intro %s,'
-                ' article %s, post_date %f, image_id %i>'
-                % (self.id, self.start_date, self.end_date, self.headline,
-                    self.intro, self.article, self.post_date, self.image_id))
+        return ('<News id %i, start_date %s, end_date %s, headline %s, intro %s,'
+                ' article %s, post_date %s, image_id %i>'
+                % (self.id, str(self.start_date), str(self.end_date), self.headline,
+                    self.intro, self.article, str(self.post_date), self.image_id))
 
 
 class Alert(db.Model):
@@ -106,10 +106,11 @@ class Alert(db.Model):
         return json
 
     def __repr__(self):
-        return ('<Alert id %i, content %s, user_id %i, category %s, post_date %f,'
-                ' location %s, start_date %f, end_date %f>'
+        return ('<Alert id %i, content %s, user_id %i, category %s, post_date %s,'
+                ' location %s, start_date %s, end_date %s>'
                 % (self.id, self.content, self.user_id, self.category,
-                    self.post_date, self.location, self.start_date, self.end_date))
+                    str(self.post_date), self.location, str(self.start_date),
+                    str(self.end_date)))
 
 
 class User(db.Model):
