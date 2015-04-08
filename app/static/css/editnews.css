@@ -1,39 +1,43 @@
-.news-list{
-	width: 100%;
-	height: 100%;
+#news-list{
+	position: absolute;
+	top: 40px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: auto;
+	padding: 10px;
 }
 
 .news-container{
 	position: relative;
 	width: 100%;
-	height: 50px;
-	clear: both;
+	height: 54px;
+	float: left;
 	margin-bottom: 10px;
+	overflow: hidden;
 }
 
-.edit-button{
+.news-edit-button{
 	position: absolute;
-	top: 17px;
+	top: 18px;
 	left: 5px;
 }
 
-.news-image{
+.news-content{
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	left: 75px;
-	width: 50px;
-	background: url(https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg);
-	background-size: cover;
+	left: 60px;
+	right: 0;
+	padding: 5px;
 }
 
 .news-title{
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 130px;
-	right: 0;
-	line-height: 50px;
+	clear: both;
+}
+
+.news-intro{
+	clear: both;
 }
 
 .news-container:hover{
@@ -42,4 +46,8 @@
 
 .news-id{
 	display: none;
+}
+
+#edit-news-filters{
+	margin-left: 70px;
 }
