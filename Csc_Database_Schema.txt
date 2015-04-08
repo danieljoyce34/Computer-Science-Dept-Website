@@ -571,7 +571,7 @@
 <datatype>MEDIUMTEXT</datatype>
 <default>NULL</default><comment>Please give suggestions for improving the CSC program:</comment>
 </row>
-<row name="other_comments" null="1" autoincrement="0">
+<row name="job_other_comments" null="1" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
 <default>NULL</default><comment>any comments that user wants to present</comment>
 </row>
