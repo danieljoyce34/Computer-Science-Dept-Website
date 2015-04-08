@@ -1,4 +1,4 @@
-from flask import render_template, request, jsonify
+from flask import render_template, request, jsonify, make_response
 from app import app, db
 from .models import Image, Sideview, News, Alert
 
