@@ -4,6 +4,21 @@
 	<script type="text/javascript" src="static/js/jquery-2.1.1.min.js"></script>
 {% endblock %}
 
-<div id="news-list"></div>
+<div id="news-list">
+	{% for n in news %}
+		<div class="news-container">
+			<button class="edit-button">Edit</button>
+			<div class="news-image"></div>
+			<div class="news-title">{{ n.headline }}</div>
+			<div class="news-id">{{ n.id }}</div>
+		</div>
+	{% endfor %}
+</div>
 
-<script type="text/javascript" src="static/js/editnews.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(document).on('click', 'button.edit-button', function(){
+			window.location = 'http://127.0.0.1:5000/editNews/' + $(this).parent().find('div.news-id').text();
+		});
+	});
+</script>

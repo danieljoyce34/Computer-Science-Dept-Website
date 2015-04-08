@@ -87,16 +87,6 @@ def newsAjax():
 			news_result.append(json)
 		return jsonify(news=news_result)
 
-@app.route('/retrieveNews/<int:news_id>', methods=['GET'])
-def newsIdAjax(news_id):
-	if request.method == 'GET':
-		news = News.query.filter_by(id=news_id).first()
-		news_result = []
-		json = news.to_json_format()
-		json['image_url'] = 'https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg'
-		news_result.append(json)
-		return jsonify(news=news_result)
-
 @app.route('/retrieveAlerts/<int:alert_id>', methods=['GET'])
 def alertsIdAjax(alert_id):
 	if request.method == 'GET':
@@ -129,7 +119,7 @@ def addNews():
 	return "News entry was successfully added."
 
 @app.route('/editNews/<int:news_id>', methods=['POST'])
-def editNews():
+def editNewsWithId():
 	#if not session.get('logged_in'):
 	#	abort(401)
 	news = News.query.filter_by(id=news_id).first()
@@ -197,5 +187,6 @@ def generalPage():
 # 	return render_template('pageTemplate.html', content="academics")
 
 @app.route('/editNews')
-def editNewsList():
-	return render_template('editnews.html')
+def editNews():
+	news = News.query.all()
+	return render_template('editnews.html', news=news)
