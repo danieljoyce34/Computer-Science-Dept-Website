@@ -250,6 +250,11 @@ def generalPage():
     e = request.args['content']
     return render_template('pageTemplate.html', content=e)
 
+@app.route('/news/<int:news_id>')
+def getNewsWithId():
+    news = News.query.filter_by(id=news_id).first()
+    return render_template('NewsArticle.html', news=news)
+
 #@app.route('/about')
 # def aboutGeneral():
 # return render_template('pageTemplate.html', content="about")
