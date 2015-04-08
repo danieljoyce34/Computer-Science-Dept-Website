@@ -21,13 +21,14 @@ $(document).ready(function () {
 		var max = images.length;                     
 		setInterval(function () { 
 			i++;
-			
+
 			if (i > (max - 1))
 				i = 0;
 			
 			$("#carousel-item-" + (i + 1)).prop('checked', true);
 			swapImage(images[i]['image_url']);
 			swapTitle(images[i]['headline'], images[i]['intro']);
+			console.log("moving to i");
 		}, 10000);
 	}
 
