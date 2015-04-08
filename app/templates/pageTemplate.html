@@ -14,11 +14,14 @@
 
     <div id="content-wrapper">
       <div id="content">
-		  	{% if content %}
-		  		{% include "%s.html"%content %}
-		  	{% endif %}
+        {% if content %}
+          {{content}}
+        {% else %}
+          <b>Lacking Correct Path</b>
+        {% endif %}
       </div> 
     </div>
-
+    
+    <script src="static/js/page-logic.js"></script>
   </body>
 </html>
