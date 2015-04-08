@@ -96,11 +96,12 @@ def editNews():
 def addAlert():
 	#if not session.get('logged_in'):
 	#	abort(401)
-	news = News(headline=request.form['headline'], intro=request.form['intro'], 
-		article=request.form['article'])
-	db.session.add(news)
+	alert = Alert(content=request.form['content'], 
+		category=request.form['category'], location=request.form['location'], 
+		start_date=request.form['start_date'], end_date=request.form['end_date'])
+	db.session.add(alert)
 	db.session.commit()
-	return "News entry was successfully added."
+	return "Alert entry was successfully added."
 
 @app.route('/editAlert/<int:alert_id>', methods=['POST'])
 def editAlert():
@@ -113,7 +114,7 @@ def editAlert():
 	alert.start_date = request.form['start_date']
 	alert.end_date = request.form['end_date']
 	db.session.commit()
-	return "News entry was successfully edited."
+	return "Alert entry was successfully edited."
 
 @app.route('/carousel')
 def carousel():
