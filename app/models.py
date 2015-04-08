@@ -283,9 +283,9 @@ class OfficeHours(db.Model):
         return json
 
     def __repr__(self):
-        return ('<OfficeHours id %i, start_time %f, end_time %f, days %s,'
+        return ('<OfficeHours id %i, start_time %s, end_time %s, days %s,'
                 ' apntmnt_msg %s, user_id %i, term_id %i>'
-                % (self.id, self.start_time, self.end_time, self.days,
+                % (self.id, str(self.start_time), str(self.end_time), self.days,
                     self.apntmnt_msg, self.user_id, self.term_id))
 
 
@@ -310,8 +310,9 @@ class Term(db.Model):
         return json
 
     def __repr__(self):
-        return ('<Term id %i, semester %s, year %i, start_date %i, end_date %i>'
-                % (self.id, self.semester, self.year, self.start_date, self.end_date))
+        return ('<Term id %i, semester %s, year %i, start_date %s, end_date %s>'
+                % (self.id, self.semester, self.year, str(self.start_date),
+                   str(self.end_date)))
 
 
 class Faculty(db.Model):
@@ -549,8 +550,8 @@ class CourseTimes(db.Model):
         return json
 
     def __repr__(self):
-        return ('<id %i, days %s, start_time %f, end_time %f>'
-                % (self.id, self.days, self.start_time, self.end_time))
+        return ('<id %i, days %s, start_time %s, end_time %s>'
+                % (self.id, self.days, str(self.start_time), str(self.end_time)))
 
 
 class CourseSection(db.Model):
