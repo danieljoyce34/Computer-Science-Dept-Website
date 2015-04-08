@@ -103,3 +103,7 @@ def generalPage():
 # @app.route('/academics')
 # def aboutGeneral():
 # 	return render_template('pageTemplate.html', content="academics")
+
+@app.route('/testEditNews')
+def testEditNews():
+	return render_template('editnews.html')
