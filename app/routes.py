@@ -62,7 +62,6 @@ def index():
 #	return render_template('manageAlerts.html')
 
 @app.route('/retrieveAlerts', methods = ['GET'])
-@crossdomain(origin='*')
 def alertsAjax():
 	if request.method == 'GET':
 		alerts = Alert.query.all()
@@ -77,6 +76,7 @@ def alertsAjax():
 					sideviews=sideview_result)
 
 @app.route('/retrieveNews', methods = ['GET'])
+@crossdomain(origin='*')
 def newsAjax():
 	if request.method == 'GET':
 		news = News.query.all()
@@ -196,6 +196,6 @@ def generalPage():
 # def aboutGeneral():
 # 	return render_template('pageTemplate.html', content="academics")
 
-@app.route('/testEditNews')
-def testEditNews():
+@app.route('/editNews')
+def editNewsList():
 	return render_template('editnews.html')

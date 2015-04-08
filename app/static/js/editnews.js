@@ -14,6 +14,10 @@ $(document).ready(function(){
 				displayNews(response.news[i]);
 		}
 	});
+
+	$(document).on('click', 'button.edit-button', function(){
+		window.location = baseURL + "editNews/" + $(this).parent().find('div.news-id').text();
+	});
 });
 
 function displayNews(news){
