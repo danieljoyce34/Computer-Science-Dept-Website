@@ -18,9 +18,10 @@ $(document).ready(function(){
 
 function displayNews(news){
 	$('#news-list').append($('<div class="' + ncontainer + '">' )
+		.append($('<button class="edit-button">').text('Edit'))
 		.append($('<div class="' + nimg + '">').css('background-image', 'url(https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg)'))
 		.append($('<div class="' + ntitle + '">').text(news.headline))
-		.append($('<button class="edit-button">').text('Edit'))
+		.append($('<div class="news-id">').text(news.id))
 	);
 }
 

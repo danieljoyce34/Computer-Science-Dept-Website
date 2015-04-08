@@ -4,30 +4,42 @@
 }
 
 .news-container{
+	position: relative;
 	width: 100%;
 	height: 50px;
 	clear: both;
-	margin: 10px;
-}
-
-.news-image{
-	height: 50px;
-	width: 50px;
-	background: url(https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg);
-	background-size: cover;
-	float: left;
-}
-
-.news-title{
-	float: left;
-	line-height: 50px;
+	margin-bottom: 10px;
 }
 
 .edit-button{
-	margin-top: 15px;
-	float: right;
+	position: absolute;
+	top: 17px;
+	left: 5px;
+}
+
+.news-image{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 75px;
+	width: 50px;
+	background: url(https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg);
+	background-size: cover;
+}
+
+.news-title{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 130px;
+	right: 0;
+	line-height: 50px;
 }
 
 .news-container:hover{
 	background: lightgrey;
+}
+
+.news-id{
+	display: none;
 }
