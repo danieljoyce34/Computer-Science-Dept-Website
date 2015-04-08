@@ -1,5 +1,16 @@
 <div>
-	<img id="news_image" src="">
-	<h2 id="news_title"></h2>	
+	<img id="news_image" src={{image}}>
+	<h2 id="news_title">{{ news['headline'] }} </h2>	
 	<h6 id="news_date"></h6>
+	<p id="">
+		{{ news['intro'] }}
+	</p>
+
+	<p> 
+		Debugging : 
+	</p>
+
+	<p> 
+		{{ news.to_json_format() }}
+	</p>
 </div>
