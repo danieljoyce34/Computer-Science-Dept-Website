@@ -564,10 +564,6 @@
 <datatype>TINYINT</datatype>
 <default>NULL</default><comment>current database this is a boolean </comment>
 </row>
-<row name="form_completed" null="1" autoincrement="0">
-<datatype>TINYINT</datatype>
-<default>NULL</default><comment>on current db this is a boolean value</comment>
-</row>
 <row name="term_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -579,7 +575,7 @@
 <datatype>MEDIUMTEXT</datatype>
 <default>NULL</default><comment>any comments that user wants to present</comment>
 </row>
-<row name="sufficient_info" null="1" autoincrement="0">
+<row name="sufficient_info_for_future" null="1" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
 <default>NULL</default><comment>Were you provided sufficient information and help as you made your plans for the future?</comment>
 </row>
@@ -587,6 +583,16 @@
 <datatype>MEDIUMTEXT</datatype>
 <default>NULL</default><comment>What were the most valuable aspects of the CSC program?</comment>
 </row>
+<row name="language_proficiency" null="1" autoincrement="0">
+<datatype>CHAR</datatype>
+<default>NULL</default><comment>comments on What computer language or languages are you proficient with</comment>
+</row>
+<row name="curriculum_comment" null="1" autoincrement="0">
+<datatype>CHAR</datatype>
+<default>NULL</default></row>
+<row name="general_course_comment" null="1" autoincrement="0">
+<datatype>CHAR</datatype>
+<default>NULL</default></row>
 <row name="creation_date" null="1" autoincrement="0">
 <datatype>DATE</datatype>
 <default>NULL</default></row>
@@ -608,16 +614,9 @@
 <datatype>VARCHAR</datatype>
 <default>NULL</default><comment>Did not take, poor, ok, good</comment>
 </row>
-<row name="program_lang" null="1" autoincrement="0">
+<row name="course_comment" null="1" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
-<default>NULL</default><comment>comments on What computer language or languages are you proficient with</comment>
-</row>
-<row name="curriculum_comments" null="1" autoincrement="0">
-<datatype>MEDIUMTEXT</datatype>
-<default>NULL</default></row>
-<row name="course_comments" null="1" autoincrement="0">
-<datatype>MEDIUMTEXT</datatype>
-<default>NULL</default><comment> Comments on courses:</comment>
+<default>NULL</default><comment>comment on a specific course</comment>
 </row>
 <key type="PRIMARY" name="">
 <part>id</part>
@@ -627,7 +626,7 @@
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="name" null="1" autoincrement="0">
+<row name="grad_school_name" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default><comment>name of grad school</comment>
 </row>
