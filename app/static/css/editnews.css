@@ -66,5 +66,14 @@
 }
 #edit-news-form > input:last-child{
 	width: auto;
-	margin: 0;
+	margin: 10px 0 0 0;
+	clear: both;
+}
+#edit-news-form > textarea{
+	width: 100%;
+	height: 200px;
+	margin: 10px 0;
+}
+input#edit-news-start, input#edit-news-end{
+	width: auto;
 }
