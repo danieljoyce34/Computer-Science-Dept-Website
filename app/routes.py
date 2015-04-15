@@ -1,9 +1,9 @@
-from flask import render_template, request, jsonify, make_response, request, current_app
+from flask import render_template, request, json, jsonify, make_response, request, current_app
 from app import app
 from .models import Image, Sideview, News, Alert, Faculty, User, Staff, Education
 from .models import FacultyServices, FacultyInterests, CommitteeMembers, Committee
 import util
-
+import os
 from datetime import timedelta
 from functools import update_wrapper
 
@@ -243,3 +243,7 @@ def loadJson():
 	j = open(os.path.join(os.path.dirname(__file__), 'static/json-data/about-page.json'), 'r')
 	data = json.load(j)
 	return jsonify(data)
+
+@app.route('/loadPerson')
+def loadPerson():
+    return render_template('person.html')
