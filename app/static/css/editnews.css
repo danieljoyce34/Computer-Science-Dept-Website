@@ -48,6 +48,12 @@
 	display: none;
 }
 
+.news-add-button {
+	position: absolute;
+	top: 12px;
+	right: 40px;
+}
+
 #edit-news-filters{
 	margin-left: 70px;
 }

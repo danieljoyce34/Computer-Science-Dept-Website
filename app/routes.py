@@ -107,9 +107,15 @@ def sideviewsAjax():
 			sideview_result.append(json)
 		return jsonify(sideviews=sideview_result)
 
-#TODO return statements
-@app.route('/addNews', methods=['POST'])
+
+@app.route('/addNews')
 def addNews():
+	#if not session.get('logged_in'):
+	#	abort(401)
+	return "Adding News Form"
+
+@app.route('/submitNews', methods=['POST'])
+def submitNews():
 	#if not session.get('logged_in'):
 	#	abort(401)
 	news = News(headline=request.form['headline'], intro=request.form['intro'], 
@@ -152,10 +158,22 @@ def addAlert():
 		start_date=request.form['start_date'], end_date=request.form['end_date'])
 	db.session.add(alert)
 	db.session.commit()
-	return "Alert entry was successfully added."
+	return "Alert was successfully added."
 
-@app.route('/editAlert/<int:alert_id>', methods=['POST'])
-def editAlert():
+@app.route('/editAlerts')
+def editAlerts():
+	alerts = Alert.query.all()
+	return render_template('editalerts.html', alerts=alerts)
+
+@app.route('/editAlerts/<int:alert_id>')
+def editAlertsWithId(alert_id):
+	#if not session.get('logged_in'):
+	#	abort(401)
+	alerts = Alert.query.filter_by(id=alert_id).first()
+	return render_template('editalertsform.html', alerts=alerts)
+
+@app.route('/submitAlertEdits/<int:alert_id>', methods=['POST'])
+def submitAlertEdits(alert_id):
 	#if not session.get('logged_in'):
 	#	abort(401)
 	alert = Alert.query.filter_by(id=alert_id).first()
@@ -165,7 +183,8 @@ def editAlert():
 	alert.start_date = request.form['start_date']
 	alert.end_date = request.form['end_date']
 	db.session.commit()
-	return "Alert entry was successfully edited."
+	return "Alert was successfully edited."
+
 
 @app.route('/carousel')
 def carousel():
