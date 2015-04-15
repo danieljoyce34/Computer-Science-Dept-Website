@@ -1,13 +1,14 @@
 {% block head %}
 	<title>Edit News</title>
+	<meta charset=utf-8 />
 	<link rel="stylesheet" type="text/css" href="../static/css/editnews.css">
 {% endblock %}
 
-<form id="edit-news-form" action="/submitNewsEdits/{{ news.id }}" method="POST">
-	<input type="text" id="edit-news-headline" value="{{ news.headline }}">
-	<input type="text" id="edit-news-intro" value="{{ news.intro }}">
-	<input type="text" id="edit-news-article" value="{{ news.article }}">
-	<input type="text" id="edit-news-start" value="{{ news.start_date }}">
-	<input type="text" id="edit-news-end" value="{{ news.end_date }}">
+<form id="edit-news-form" action="/submitNewsEdits/{{ news.id }}" method="post">
+	<input type="text" id="edit-news-headline" name="edit-news-headline" value="{{ news.headline }}">
+	<input type="text" id="edit-news-intro" name="edit-news-intro" value="{{ news.intro }}">
+	<input type="text" id="edit-news-article" name="edit-news-article" value="{{ news.article }}">
+	<input type="text" id="edit-news-start" name="edit-news-start" value="{{ news.start_date }}">
+	<input type="text" id="edit-news-end" name="edit-news-end" value="{{ news.end_date }}">
 	<input type="submit" value="Submit">
 </form>

@@ -130,7 +130,7 @@ def editNewsWithId(news_id):
 	news = News.query.filter_by(id=news_id).first()
 	return render_template('editnewsform.html', news=news)
 
-@app.route('/submitNewsEdits/<int:news_id>')
+@app.route('/submitNewsEdits/<int:news_id>', methods=['POST'])
 def submitNewsEdits(news_id):
 	#if not session.get('logged_in'):
 	#	abort(401)
