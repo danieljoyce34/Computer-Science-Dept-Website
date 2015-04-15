@@ -112,14 +112,14 @@ def sideviewsAjax():
 def addNews():
 	#if not session.get('logged_in'):
 	#	abort(401)
-	return "Adding News Form"
+	return render_template('addnewsform.html')
 
 @app.route('/submitNews', methods=['POST'])
 def submitNews():
 	#if not session.get('logged_in'):
 	#	abort(401)
-	news = News(headline=request.form['headline'], intro=request.form['intro'], 
-		article=request.form['article'])
+	news = News(headline=request.form['edit-news-headline'], intro=request.form['edit-news-intro'], 
+		article=request.form['edit-news-article'])
 	db.session.add(news)
 	db.session.commit()
 	return "News entry was successfully added."

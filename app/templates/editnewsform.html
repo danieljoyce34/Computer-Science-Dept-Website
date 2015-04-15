@@ -5,10 +5,16 @@
 {% endblock %}
 
 <form id="edit-news-form" action="/submitNewsEdits/{{ news.id }}" method="post">
+	Headline<br>
 	<input type="text" id="edit-news-headline" name="edit-news-headline" value="{{ news.headline }}">
+	Intro<br>
 	<input type="text" id="edit-news-intro" name="edit-news-intro" value="{{ news.intro }}">
-	<input type="text" id="edit-news-article" name="edit-news-article" value="{{ news.article }}">
-	<input type="text" id="edit-news-start" name="edit-news-start" value="{{ news.start_date }}">
-	<input type="text" id="edit-news-end" name="edit-news-end" value="{{ news.end_date }}">
+	Article<br>
+	<textarea rows="4" cols="50" id="edit-news-article" name="edit-news-article" form="edit-news-form">{{ news.article }}</textarea>
+	<!--<input type="text" id="edit-news-article" name="edit-news-article" value="{{ news.article }}">-->
+	<br>Start Date <br>
+	<input type="datetime" id="edit-news-start" name="edit-news-start" value="{{ news.start_date }}">
+	End Date<br>
+	<input type="datetime" id="edit-news-end" name="edit-news-end" value="{{ news.end_date }}">
 	<input type="submit" value="Submit">
 </form>

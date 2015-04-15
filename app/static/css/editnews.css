@@ -59,21 +59,12 @@
 }
 
 /* Edit News Form */
-#edit-news-headline{
-	width: 100%;
-}
 
-#edit-news-intro{
+#edit-news-form > input{
 	width: 100%;
+	margin: 5px 0 5px 0;
 }
-
-#edit-news-article{
-	width: 100%;
-}
-
-#edit-news-start{
-	width: 100%;
-}
-#edit-news-end{
-	width: 100%;
+#edit-news-form > input:last-child{
+	width: auto;
+	margin: 0;
 }
