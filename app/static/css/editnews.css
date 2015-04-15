@@ -51,3 +51,23 @@
 #edit-news-filters{
 	margin-left: 70px;
 }
+
+/* Edit News Form */
+#edit-news-headline{
+	width: 100%;
+}
+
+#edit-news-intro{
+	width: 100%;
+}
+
+#edit-news-article{
+	width: 100%;
+}
+
+#edit-news-start{
+	width: 100%;
+}
+#edit-news-end{
+	width: 100%;
+}

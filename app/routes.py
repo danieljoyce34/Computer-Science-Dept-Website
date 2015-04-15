@@ -118,14 +118,28 @@ def addNews():
 	db.session.commit()
 	return "News entry was successfully added."
 
-@app.route('/editNews/<int:news_id>', methods=['POST'])
-def editNewsWithId():
+@app.route('/editNews')
+def editNews():
+	news = News.query.all()
+	return render_template('editnews.html', news=news)
+
+@app.route('/editNews/<int:news_id>')
+def editNewsWithId(news_id):
 	#if not session.get('logged_in'):
 	#	abort(401)
 	news = News.query.filter_by(id=news_id).first()
-	news.headline = request.form['headline']
-	news.intro = request.form['intro']
-	news.article = request.form['article']
+	return render_template('editnewsform.html', news=news)
+
+@app.route('/submitNewsEdits/<int:news_id>')
+def submitNewsEdits(news_id):
+	#if not session.get('logged_in'):
+	#	abort(401)
+	news = News.query.filter_by(id=news_id).first()
+	news.headline = request.form['edit-news-headline']
+	news.intro = request.form['edit-news-intro']
+	news.article = request.form['edit-news-article']
+	news.start_date = request.form['edit-news-start']
+	news.end_date = request.form['edit-news-end']
 	db.session.commit()
 	return "News entry was successfully edited."
 
@@ -185,8 +199,3 @@ def generalPage():
 # @app.route('/academics')
 # def aboutGeneral():
 # 	return render_template('pageTemplate.html', content="academics")
-
-@app.route('/editNews')
-def editNews():
-	news = News.query.all()
-	return render_template('editnews.html', news=news)
