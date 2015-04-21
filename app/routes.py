@@ -112,7 +112,7 @@ def sideviewsAjax():
 def addNews():
 	#if not session.get('logged_in'):
 	#	abort(401)
-	return render_template('addnewsform.html')
+	return render_template('editnewsform.html')
 
 @app.route('/submitNews', methods=['POST'])
 def submitNews():

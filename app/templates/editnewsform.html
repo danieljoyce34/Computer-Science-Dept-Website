@@ -1,9 +1,15 @@
 {% block head %}
-	<title>Edit News</title>
+	{% if news %}
+		<title>Edit News</title>
+	{% else %}
+		<title>Add News</title>
+	{% endif %}
 	<meta charset=utf-8 />
 	<link rel="stylesheet" type="text/css" href="../static/css/editnews.css">
 {% endblock %}
 
+<!-- Edit news form -->
+{% if news %}
 <form id="edit-news-form" action="/submitNewsEdits/{{ news.id }}" method="post">
 	Headline<br>
 	<input type="text" id="edit-news-headline" name="edit-news-headline" value="{{ news.headline }}">
@@ -18,3 +24,22 @@
 	<input type="date" id="edit-news-end" name="edit-news-end" value="{{ news.end_date }}"><br>
 	<input type="submit" value="Submit">
 </form>
+
+<!-- Add news form -->
+{% else %}
+<form id="edit-news-form" action="/submitNews" method="post">
+	Headline<br>
+	<input type="text" id="edit-news-headline" name="edit-news-headline" value="">
+	Intro<br>
+	<input type="text" id="edit-news-intro" name="edit-news-intro" value="">
+	Article<br>
+	<textarea rows="4" cols="50" id="edit-news-article" name="edit-news-article" form="edit-news-form"></textarea>
+	<!--<input type="text" id="edit-news-article" name="edit-news-article" value="">-->
+	<br>Start Date<br>
+	<input type="date" id="edit-news-start" name="edit-news-start" value="">
+	<br>End Date<br>
+	<input type="date" id="edit-news-end" name="edit-news-end" value=""><br>
+	<input type="submit" value="Submit">
+</form>
+
+{% endif %}
