@@ -567,13 +567,10 @@ class CourseSection(db.Model):
     __tablename__ = 'exit_interview'
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer)
-    course_evaluation_id = db.Column(db.Integer)
     job_id = db.Column(db.Integer, db.ForeignKey('exit_interview_job.id'))
     grad_school_id = db.Column(db.Integer, db.ForeignKey('exit_interview_grad_school.id'))
     face_interview = db.Column(db.Integer) # should be a tinyint 
-    term_id = db.Column(db.Integer)
     cs_improvement_suggestions = db.Column(db.Text)
-    job_other_comments = db.Column(db.Text)
     sufficient_info_for_future = db.Column(db.Text)
     valueable_aspects = db.Column(db.Text)
     language_proficiency = db.Column(db.Text)
@@ -586,13 +583,10 @@ class CourseSection(db.Model):
      def to_json_format(self):
         json = {'id': self.id,
                 'user_id': self.user_id,
-                'course_evaluation_id': self.course_evaluation_id,
                 'job_id': self.job_id,
                 'grad_school_id': self.grad_school_id,
                 'face_interview': self.face_interview,
-                'term_id': self.term_id,
                 'cs_improvement_suggestions': self.cs_improvement_suggestions,
-                'job_other_comments': self.job_other_comments,
                 'sufficient_info_for_future': self.sufficient_info_for_future,
                 'valueable_aspects': self.valueable_aspects,
                 'language_proficiency': self.language_proficiency,
@@ -602,14 +596,14 @@ class CourseSection(db.Model):
         return json
 
     def __repr__(self):
-        return ('<id %i, user_id %i, course_evaluation_id %i, job_id %s, grad_school_id %f,'
-                ' face_interview %f, term_id %s, cs_improvement_suggestions %s, '
-                'job_other_comments %s,  sufficient_info_for_future %s, valueable_aspects %s, language_proficiency %s, '
+        return ('<id %i, user_id %i, job_id %s, grad_school_id %f,'
+                ' face_interview %f, cs_improvement_suggestions %s, '
+                'sufficient_info_for_future %s, valueable_aspects %s, language_proficiency %s, '
                 'curriculum_comment %s, general_course_comment %s creation_date %f>'
-                % (self.id, self.user_id, self.course_evaluation_id, self.job_id,
-                    self.grad_school_id, self.face_interview, self.term_id, 
-                    self.cs_improvement_suggestions, self.job_other_comments, self.sufficient_info_for_future, 
-                    self.valueable_aspects, self.language_proficiency, self.curriculum_comment, self.general_course_comment self.creation_date))
+                % (self.id, self.user_id, self.job_id, self.grad_school_id, 
+                    self.face_interview, self.cs_improvement_suggestions, 
+                    self.sufficient_info_for_future, self.valueable_aspects, self.language_proficiency, 
+                    self.curriculum_comment, self.general_course_comment self.creation_date))
 
 
 class ExitInterviewJob(db.Model):
@@ -622,6 +616,7 @@ class ExitInterviewJob(db.Model):
     salary = db.Column(db.String(8))
     reasons_joined = db.Column(db.Text)
     other_offers = db.Column(db.String(32))
+    comments = db.Column(db.Text)
 
     def to_json_format(self):
         json = {'id': self.id,
@@ -631,14 +626,15 @@ class ExitInterviewJob(db.Model):
                 'job_title': self.job_title,
                 'salary': self.salary,
                 'reasons_joined': self.reasons_joined
-                'other_offers': self.other_offers}
+                'other_offers': self.other_offers
+                'comments': self.comments}
         return json
 
     def __repr__(self):
         return ('<id %i, job_found %i, company_name %s, job_location %s, job_title %s,'
-                ' salary %s, reasons_joined %s, other_offers %s>'
+                ' salary %s, reasons_joined %s, other_offers %s, comments %s>'
                 % (self.id, self.job_found, self.company_name, self.job_location, self.job_title,
-                    self.salary, self.reasons_joined, other_offers))
+                    self.salary, self.reasons_joined, other_offers, self.comments))
 
 class ExitInterviewCourseEvaluation(db.Model):
     __tablename__ = 'exit_interview_course_evaluation'
