@@ -8,14 +8,16 @@
 {% block content %}
 <div id="edit-news-filters">
 	<input type="text" id="news-search-filter" placeholder="Title Search">
-	<button type="button" id="filter-clear">Clear</button>
-	<button type="button" class="news-add-button">Add News</button>
+	<input type="submit" value="x" class="filter-clear">
+	<!--<button type="button" id="filter-clear" class="edit-button">Clear</button>-->
+
+	<button type="button" class="news-add-button edit-button">+</button>
 </div>
 
 <div id="news-list">
 	{% for n in news %}
 		<div class="news-container">
-			<button class="news-edit-button">Edit</button>
+			<button class="news-edit-button edit-button">Edit</button>
 			<div class="news-content">
 				<div class="news-title">{{ n.headline }}</div>
 				<div class="news-intro">{{ n.intro }}</div>
@@ -43,7 +45,7 @@
 			});
 		});
 
-		$('#filter-clear').click(function(){
+		$('.filter-clear').click(function(){
 			$('#news-search-filter').val('');
 			$('#news-list').find('.news-container').show();
 		});
