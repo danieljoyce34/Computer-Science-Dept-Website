@@ -549,9 +549,6 @@
 <row name="user_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="course_evaluation_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
 <row name="job_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="exit_interview_job" row="id" />
@@ -564,16 +561,9 @@
 <datatype>TINYINT</datatype>
 <default>NULL</default><comment>current database this is a boolean </comment>
 </row>
-<row name="term_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
 <row name="cs_improvment_suggestions" null="1" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
 <default>NULL</default><comment>Please give suggestions for improving the CSC program:</comment>
-</row>
-<row name="job_other_comments" null="1" autoincrement="0">
-<datatype>MEDIUMTEXT</datatype>
-<default>NULL</default><comment>any comments that user wants to present</comment>
 </row>
 <row name="sufficient_info_for_future" null="1" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
@@ -672,6 +662,10 @@
 <row name="other_offers" null="1" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
 <default>NULL</default><comment>other job offer company names</comment>
+</row>
+<row name="comments " null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default><comment>Once Job button is clicked this question is asked: Do you have any other comments?</comment>
 </row>
 <key type="PRIMARY" name="">
 <part>id</part>
