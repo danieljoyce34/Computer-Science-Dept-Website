@@ -269,7 +269,6 @@ class OfficeHours(db.Model):
     days = db.Column(db.String(5))
     apntmnt_msg = db.Column(db.String(128))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    term_id = db.Column(db.Integer, db.ForeignKey('term.id'))
 
     def to_json_format(self):
         json = {'id': self.id,
@@ -277,15 +276,14 @@ class OfficeHours(db.Model):
                 'end_time': self.end_time,
                 'days': self.days,
                 'apntmnt_msg': self.apntmnt_msg,
-                'user_id': self.user_id,
-                'term_id': self.term_id}
+                'user_id': self.user_id}
         return json
 
     def __repr__(self):
         return ('<OfficeHours id %i, start_time %f, end_time %f, days %s,'
-                ' apntmnt_msg %s, user_id %i, term_id %i>'
+                ' apntmnt_msg %s, user_id %i>'
                 % (self.id, self.start_time, self.end_time, self.days,
-                    self.apntmnt_msg, self.user_id, self.term_id))
+                    self.apntmnt_msg, self.user_id))
 
 
 class Term(db.Model):
@@ -295,8 +293,6 @@ class Term(db.Model):
     year = db.Column(db.Integer)
     start_date = db.Column(db.DateTime)
     end_date = db.Column(db.DateTime)
-    office_hours = db.relationship('OfficeHours',
-                                   backref=db.backref('term'))
     courses = db.relationship('Course',
                               backref=db.backref('term'))
 
