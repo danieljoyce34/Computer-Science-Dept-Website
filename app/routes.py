@@ -251,17 +251,17 @@ def aboutUs():
     return render_template('about/index.html')
 
 @app.route('/academics')
-def aboutUs():
+def academics():
     return render_template('academics/index.html')
 
 @app.route('/research')
-def aboutUs():
+def research():
     return render_template('research/index.html')
 
 @app.route('/opportunites')
-def aboutUs():
+def opportunites():
     return render_template('opportunites/index.html')
 
 @app.route('/events')
-def aboutUs():
+def events():
     return render_template('events/index.html')
