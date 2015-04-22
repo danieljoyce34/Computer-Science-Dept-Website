@@ -258,9 +258,9 @@ def academics():
 def research():
     return render_template('research/index.html')
 
-@app.route('/opportunites')
+@app.route('/opportunities')
 def opportunites():
-    return render_template('opportunites/index.html')
+    return render_template('opportunities/index.html')
 
 @app.route('/events')
 def events():
