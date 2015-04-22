@@ -130,9 +130,6 @@
 <row name="end_date" null="1" autoincrement="0">
 <datatype>DATE</datatype>
 <default>NULL</default></row>
-<row name="location" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
 <row name="start_date" null="1" autoincrement="0">
 <datatype>DATE</datatype>
 <default>NULL</default></row>
