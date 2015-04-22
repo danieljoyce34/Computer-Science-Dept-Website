@@ -1,25 +1,17 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link href="static/css/style.css" rel="stylesheet" type="text/css"/>
-    <script src="static/js/jquery-2.1.1.min.js"></script>
-    <meta charset=utf-8 />
-    <title>Villanova Computer Science</title>
-  </head>
-  <body>
-  	<div id="header">
-      <div id="banner">{% include "header.html" %}</div>
-      <div id="nav-wrapper">{% include "navigation.html" %}</div>
-    </div>
+{% extends "pageFrameTemplate.html" %}
+{% block title %}Computer Science Department{% endblock %}
+{% block head %} {{ super() }} {% endblock %}
+{% block header %} {{ super() }} {% endblock %}
 
-    <div id="content-wrapper">
-      <div id="content">
-        <div id="profile-header"></div>
+{% block content %}
+    <div id="content">
+        <div id="profile"></div>
 
         <div id="profile-body"></div>
-      </div>
     </div>
+{% endblock %}
 
+{% block footer %}
+    {{ super() }}
     <script src="static/js/person-logic.js"></script>
-  </body>
-</html>
+{% endblock %}

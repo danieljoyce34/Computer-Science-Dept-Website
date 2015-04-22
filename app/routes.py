@@ -244,6 +244,7 @@ def loadJson():
 	data = json.load(j)
 	return jsonify(data)
 
-@app.route('/loadPerson')
-def loadPerson():
-    return render_template('person.html')
+@app.route('/loadProfile', methods=['GET'])
+def loadProfile():
+    e = request.args['id']
+    return render_template('person.html', profileID=e)
