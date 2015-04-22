@@ -144,8 +144,7 @@ office_hour = models.OfficeHours(start_time=datetime.datetime(2014, 9, 1, 11, 30
                                  end_time=datetime.datetime(2014, 9, 1, 14),
                                  apntmnt_msg='email beforehand',
                                  days='MWF',
-                                 user=prof,
-                                 term=term_fall)
+                                 user=prof)
 
 faculty = models.Faculty(salutation='Dr.',
                          secondary_email='joyce@fakemail.com',
