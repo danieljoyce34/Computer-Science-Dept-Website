@@ -4,12 +4,11 @@
 	<script type="text/javascript" src="static/js/jquery-2.1.1.min.js"></script>
 {% endblock %}
 
+{% extends "base.html" %}
+{% block content %}
 <div id="edit-news-filters">
 	<input type="text" id="news-search-filter" placeholder="Title Search">
 	<button type="button" id="filter-clear">Clear</button>
-</div>
-
-<div id="add-news">
 	<button type="button" class="news-add-button">Add News</button>
 </div>
 
@@ -50,3 +49,4 @@
 		});
 	});
 </script>
+{% endblock %}

@@ -1,9 +1,9 @@
 #news-list{
 	position: absolute;
 	top: 40px;
-	right: 0;
 	bottom: 0;
 	left: 0;
+	right: 0;
 	overflow: auto;
 	padding: 10px;
 }
@@ -49,16 +49,25 @@
 }
 
 .news-add-button {
-	position: absolute;
-	top: 12px;
-	right: 40px;
+	float: right;
+}
+
+#news-search-filter, #filter-clear{
+	float: left;
+	margin-right: 5px;
 }
 
 #edit-news-filters{
-	margin-left: 70px;
+	margin-top: 10px;
+	height: 20px;
+	width: 100%;
 }
 
 /* Edit News Form */
+
+#edit-news-form{
+	margin-top: 10px;
+}
 
 #edit-news-form > input{
 	width: 100%;
