@@ -232,7 +232,6 @@ def article():
 def getArticleNumber():
     return 12
 
-
 @app.route('/general', methods=['POST', 'GET'])
 def generalPage():
     e = request.args['content']
@@ -243,3 +242,26 @@ def loadJson():
 	j = open(os.path.join(os.path.dirname(__file__), 'static/json-data/about-page.json'), 'r')
 	data = json.load(j)
 	return jsonify(data)
+
+
+###STATIC ROUTES SERVIN' UP SOME GOOD OL' FASHIONED HTML PAGES###
+
+@app.route('/aboutUs')
+def aboutUs():
+    return render_template('about/index.html')
+
+@app.route('/academics')
+def aboutUs():
+    return render_template('academics/index.html')
+
+@app.route('/research')
+def aboutUs():
+    return render_template('research/index.html')
+
+@app.route('/opportunites')
+def aboutUs():
+    return render_template('opportunites/index.html')
+
+@app.route('/events')
+def aboutUs():
+    return render_template('events/index.html')
