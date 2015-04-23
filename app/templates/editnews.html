@@ -1,53 +1,71 @@
 {% block head %}
 	<title>Edit News</title>
 	<link rel="stylesheet" type="text/css" href="static/css/editnews.css">
+	<link rel="stylesheet" type="text/css" href="../static/bower_components/ionicons/css/ionicons.min.css">
 	<script type="text/javascript" src="static/js/jquery-2.1.1.min.js"></script>
 {% endblock %}
 
 {% extends "base.html" %}
 {% block content %}
-<div id="edit-news-filters">
-	<input type="text" id="news-search-filter" placeholder="Title Search">
-	<input type="submit" value="x" class="filter-clear">
-	<!--<button type="button" id="filter-clear" class="edit-button">Clear</button>-->
 
-	<button type="button" class="news-add-button edit-button">+</button>
-</div>
+<div id="news-editor">
+	<div id="news-editor-options">
+		<input type="text" id="news-editor-search" placeholder="Title Search">
+		<input type="submit" value="x" id="news-editor-clear">
+		<button type="button" id="news-editor-add" title="add"><i class="icon ion-android-add"></i></button>
+		<button type="button" id="news-editor-edit" title="edit" disabled><i class="icon ion-edit"></i></button>
+	</div>
 
-<div id="news-list">
-	{% for n in news %}
-		<div class="news-container">
-			<button class="news-edit-button edit-button">Edit</button>
-			<div class="news-content">
-				<div class="news-title">{{ n.headline }}</div>
-				<div class="news-intro">{{ n.intro }}</div>
+	<div id="news-editor-list">
+		{% for n in news %}
+			<div class="editor-news-container">
+				<!--<button class="editor-news-edit">Edit</button>-->
+				<div class="editor-news-content">
+					<div class="editor-news-title">{{ n.headline }}</div>
+					<!--<div class="editor-news-intro">{{ n.intro }}</div>-->
+					<div class="editor-news-id">{{ n.id }}</div>
+					<div class="editor-news-article">{{ n.article }}</div>
+				</div>
 			</div>
-			
-			<div class="news-id">{{ n.id }}</div>
-		</div>
-	{% endfor %}
+		{% endfor %}
+	</div>
+
+	<div id="news-editor-preview"></div>
+	<div id="news-editor-selected"></div>
 </div>
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		$(document).on('click', 'button.news-edit-button', function(){
-			window.location = 'http://127.0.0.1:5000/editNews/' + $(this).parent().find('div.news-id').text();
+		$('#news-editor-edit').click(function(){
+			window.location = 'http://127.0.0.1:5000/editNews/' + $('#news-editor-selected').text();
 		});
 
-		$(document).on('click', 'button.news-add-button', function(){
+		$(document).on('click', 'button.editor-news-edit', function(){
+			window.location = 'http://127.0.0.1:5000/editNews/' + $(this).parent().find('div.editor-news-id').text();
+		});
+
+		$(document).on('click', '#news-editor-add', function(){
 			window.location = 'http://127.0.0.1:5000/addNews';
 		});
 
-		$('#news-search-filter').keyup(function(){
+		$('#news-editor-search').keyup(function(){
 			var search = $(this).val().toLowerCase();
-			$('#news-list>div.news-container').each(function(){
-				$(this).find('.news-title').text().toLowerCase().indexOf(search) >= 0 ? $(this).show() : $(this).hide();
+			$('#news-editor-list>div.editor-news-container').each(function(){
+				$(this).find('.editor-news-title').text().toLowerCase().indexOf(search) >= 0 ? $(this).show() : $(this).hide();
 			});
 		});
 
-		$('.filter-clear').click(function(){
-			$('#news-search-filter').val('');
-			$('#news-list').find('.news-container').show();
+		$('#news-editor-clear').click(function(){
+			$('#news-editor-search').val('');
+			$('#news-editor-list').find('.editor-news-container').show();
+		});
+
+		$(document).on('click', '.editor-news-container', function(){
+			$('#news-editor-preview').text($(this).find('div.editor-news-article').text());
+			$(this).css('background','#3cb0fd');
+			$(this).siblings().css('background','white');
+			$('#news-editor-selected').text($(this).find('div.editor-news-id').text());
+			$('#news-editor-edit').prop('disabled',false);
 		});
 	});
 </script>
