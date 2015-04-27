@@ -127,6 +127,7 @@ def allPeopleAjax():
             json = {'id': staff.id,
                     'name': staff.user.fname + ' ' + staff.user.lname,
                     'person_type': 'staff',
+                    'job_title': staff.position,
                     'image_url': 'https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg'}
             people_result.append(json)
         return jsonify(people=people_result)
@@ -276,13 +277,14 @@ def generalPage():
     e = request.args['content']
     return render_template('pageTemplate.html', content=e)
 
-<<<<<<< HEAD
+
 @app.route('/loadJSON', methods=['POST', 'GET'])
 def loadJson():
 	j = open(os.path.join(os.path.dirname(__file__), 'static/json-data/about-page.json'), 'r')
 	data = json.load(j)
 	return jsonify(data)
-=======
+
+
 @app.route('/news/<int:news_id>')
 def getNewsWithId(news_id):
     news = News.query.filter_by(id=news_id).first()
@@ -296,4 +298,3 @@ def getNewsWithId(news_id):
 # @app.route('/academics')
 # def aboutGeneral():
 # 	return render_template('pageTemplate.html', content="academics")
->>>>>>> carousel-improved
