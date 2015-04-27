@@ -117,6 +117,7 @@ def allPeopleAjax():
             json = {'id': staff.id,
                     'name': staff.user.fname + ' ' + staff.user.lname,
                     'person_type': 'staff',
+                    'job_title': staff.position,
                     'image_url': 'https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg'}
             people_result.append(json)
         return jsonify(people=people_result)
