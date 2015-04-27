@@ -216,6 +216,10 @@ def facultyIdAjax(faculty_id):
 def carousel():
     return render_template('carousel.html')
 
+@app.routes('/professors')
+def professorsPages():
+    return render_template('professors.html')
+
 
 @app.route('/article', methods=['POST', 'GET'])
 def article():
