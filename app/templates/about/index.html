@@ -5,7 +5,69 @@
 
 {% block content %}
     <div id="content">
-        About us
+    	<div id="overview">	
+			<h3>About Us</h3>
+				<p>The Villanova Department of Computing Sciences exists to support education and research across the broad spectrum of computing. The history of our department highlights the evolution of our vision and mission.</p>
+
+				<p>ACM TableWe currently have 12 full time, tenured, faculty members, approximately 20 active adjunct faculty members, and 4 full time staff members. Our departmental student body is made up of approximately 200 students, split evenly between undergraduate and graduate studies.</p>
+
+				<p>In a typical semester, we average approximately 20 students in each of our course sections. Classes are always taught by faculty members.</p>
+
+				<p>About 30 percent of our graduate students take classes part time while working full time at local industry. Many of the remaining graduate students are supported with assistantships.</p>
+
+				<p>Undergraduate academic advising is accomplished by assigning a team of faculty advisors to each incoming class of students. That team continues to work with those students throughout their undergraduate years at Villanova, which allows the advisors to thoroughly understand each students situation. Graduate students are advised by the Graduate Program Director, with support from the department's graduate committee.</p>
+
+				<p>We offer and support a variety of academic programs leading to various degrees, minors, concentrations, and certificates. We use various assessment techniques to ensure a high level of quality.</p>
+
+				<p>Our undergraduate Computer Science program is accredited by the Computing Accreditation Commission of ABET, http://www.abet.org.</p>
+
+				<p>The department administration is supported by a variety of committees. Our faculty members also perform many other professional services at a variety of levels.</p>
+		</div>
+
+		<div id="mission">
+			<h3>CSC Mission and Goals<h3>
+
+			<h4>Mission</h4> 
+			<p>The Department of Computing Sciences at Villanova University seeks to provide outstanding education, to advance scholarship, and to engage in activities that benefit society as a whole, in accordance to the University mission. The Department aims to equip students with a solid foundation in computing theory, and to prepare them for lifelong independent learning and innovative thinking in a constantly changing discipline. Its faculty members strive to maintain professional currency, and to involve students and colleagues in their research investigations. These endeavors support the University mission to transmit, pursue, and discover knowledge in an atmosphere of collegiality in the university community. Supported by a liberal arts education, the Department seeks to develop the total person, sensitive to social and ethical concerns impacted by the computing discipline, and committed to addressing the needs of a diverse modern society.</p>
+
+			<h4>Mission Goals</h4>
+			<p>These goals serve to solidify our vision. We will</p>
+
+			<ol id="mission-list">
+				<li>Continue to offer an accredited BSCS program, which successfully prepares its graduates for careers in industry, graduate education, and life-long learning.</li>
+				<li>Maintain rigor and high standards in the MSCS program, seeking to meet the needs of both part-time and full-time students.</li>
+				<li>Advance our current program, create new programs, and promote interactions with other departments and programs to reflect the changing nature of computing.</li>
+				<li>Introduce non major students to the fundamental ideas of computer science and its social relevance.</li>
+				<li>Maintain pedagogical excellence in teaching and advising.</li>
+				<li>Ensure that all faculty members remain current in our rapidly changing discipline.</li>
+				<li>Pursue theoretical and applied research to enhance the knowledge of computing, and involve undergraduate and graduate students in our research effort.</li>
+				<li>Support the Department, the College, the University, the profession, and the local community through leadership and participation in committees, conferences, and organizations.</li>
+				<li>Pursue inter-disciplinary projects in research and teaching.</li>
+				<li>Strive to expand and diversify our enrollments.</li>
+			</ol>
+		</div>
+
+		<div id="enroll-stats">
+			<h3>Annual Student Enrollment & Graduation data BSCS</h3>
+
+			<p>Currently we have 99 undergraduate majors and 38 minors!</p>
+
+			{% if enrollment %}
+				<table id="stats">
+					<tr>
+						<th>Year</th>
+						<th># of Students</th>
+					</tr>
+					{% for data in enrollment %}
+						<tr>
+							<td>{{data['season']}}</td>
+							<td>{{data['number']}}</td>
+						</tr>
+					{% endfor %}
+				</table>	
+			{% endif %}
+
+		</div>
     </div>
 {% endblock %}
 
