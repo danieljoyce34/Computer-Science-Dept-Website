@@ -89,7 +89,6 @@ class Alert(db.Model):
     content = db.Column(db.Text)
     category = db.Column(db.String(64))
     post_date = db.Column(db.DateTime, default=datetime.date.today())
-    location = db.Column(db.String(64))
     start_date = db.Column(db.DateTime, default=datetime.date.today())
     end_date = db.Column(db.DateTime, default=util._next_month())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
@@ -100,16 +99,15 @@ class Alert(db.Model):
                 'user_id': self.user_id,
                 'category': self.category,
                 'post_date': self.post_date,
-                'location': self.location,
                 'start_date': self.start_date,
                 'end_date': self.end_date}
         return json
 
     def __repr__(self):
         return ('<Alert id %i, content %s, user_id %i, category %s, post_date %s,'
-                ' location %s, start_date %s, end_date %s>'
+                ' start_date %s, end_date %s>'
                 % (self.id, self.content, self.user_id, self.category,
-                    str(self.post_date), self.location, str(self.start_date),
+                    str(self.post_date), str(self.start_date),
                     str(self.end_date)))
 
 
