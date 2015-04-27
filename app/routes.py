@@ -98,6 +98,30 @@ def sideviewsAjax():
             sideview_result.append(json)
         return jsonify(sideviews=sideview_result)
 
+@app.route('/retrievePeople', methods=['GET'])
+def allPeopleAjax():
+    if request.method == 'GET':
+        faculties = Faculty.query.all()
+
+        people_result = []
+        for faculty in faculties:
+            json = {'id': faculty.id,
+                    'name': faculty.user.fname + ' ' + faculty.user.lname,
+                    'person_type': faculty.faculty_type,
+                    'job_title': faculty.faculty_rank,
+                    'image_url': 'https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg'}
+            people_result.append(json)
+
+        staffs = Staff.query.all()
+        for staff in staffs:
+            json = {'id': staff.id,
+                    'name': staff.user.fname + ' ' + staff.user.lname,
+                    'person_type': 'staff',
+                    'image_url': 'https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg'}
+            people_result.append(json)
+        return jsonify(people=people_result)
+
+
 @app.route('/retrieveFullTimeFaculty', methods=['GET'])
 def fullTimeFacultyAjax():
     if request.method == 'GET':
