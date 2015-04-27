@@ -18,30 +18,35 @@ $(document).ready(function () {
 	});
 
 	function cycleImages (images) {
-		var max = images.length;                     
+		var max = images.length; 
+		console.log(images);                    
 		setInterval(function () { 
 			i++;
-			
+
 			if (i > (max - 1))
 				i = 0;
 			
 			$("#carousel-item-" + (i + 1)).prop('checked', true);
-			swapImage(images[i]['image_url']);
+			swapImage(images[i]['image_url'], images[i]['id']);
 			swapTitle(images[i]['headline'], images[i]['intro']);
+			
 		}, 10000);
 	}
 
-	function swapImage (url) {
+	function swapImage (url, id) {
 		url = "url(" + url + ")"; 
 		image_container.css('background-image', url);
+		current_title.click(function () {
+			window.location.pathname = "/news/" + id;
+		});
 	}
 
 	// could break with new data
 	$("input[name='carousel-dots']").click(function (e) {
 		var news_id = Number(this.id.substring(14)) - 1; // get the array id from the number
 		i = news_id;
-		swapImage(data_container[news_id]['image_url']);
-		swapTitle(data_container[news_id]['headline'], data_container[i]['intro']);
+		swapImage(data_container[news_id]['image_url'], data_container[news_id]['id']);
+		swapTitle(data_container[news_id]['headline'], data_container[news_id]['intro']);
 	});
 
 	function swapTitle (title, subtitle) {

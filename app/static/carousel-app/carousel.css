@@ -3,7 +3,11 @@
 	height: 100%;
 }
 
-.active-image{
+.active-title {
+	cursor: pointer;
+}
+
+.active-image {
 	height: 100%;
 	width: 100%;
 	background: url(http://www.livoniakc.com/photos/ShibaInu/b957cc9a56da0ca66c0035e22cdee829.jpg);
@@ -15,7 +19,7 @@
 	border-radius: 3px;
 }
 
-.active-image p{
+.active-image p {
 	position: absolute;
 	background-color: rgba(0, 0, 0, 0.4);
 	padding: 10px 0 10px 0;

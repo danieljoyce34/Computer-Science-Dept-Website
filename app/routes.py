@@ -85,6 +85,16 @@ def newsAjax():
             news_result.append(json)
         return jsonify(news=news_result)
 
+@app.route('/retrieveNews/<int:news_id>', methods=['GET'])
+def newsIdAjax(news_id):
+    if request.method == 'GET':
+        news = News.query.filter_by(id=news_id).first()
+
+        news_result = []
+        json = news.to_json_format()
+        json['image_url'] = 'https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg'
+        news_result.append(json)
+        return jsonify(news=news_result)
 
 @app.route('/retrieveSideviews', methods=['GET'])
 @crossdomain(origin='*')
@@ -238,8 +248,24 @@ def generalPage():
     e = request.args['content']
     return render_template('pageTemplate.html', content=e)
 
+<<<<<<< HEAD
 @app.route('/loadJSON', methods=['POST', 'GET'])
 def loadJson():
 	j = open(os.path.join(os.path.dirname(__file__), 'static/json-data/about-page.json'), 'r')
 	data = json.load(j)
 	return jsonify(data)
+=======
+@app.route('/news/<int:news_id>')
+def getNewsWithId(news_id):
+    news = News.query.filter_by(id=news_id).first()
+    image = 'https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg'
+    return render_template('NewsArticle.html', news=news, image=image)
+
+#@app.route('/about')
+# def aboutGeneral():
+# return render_template('pageTemplate.html', content="about")
+
+# @app.route('/academics')
+# def aboutGeneral():
+# 	return render_template('pageTemplate.html', content="academics")
+>>>>>>> carousel-improved
