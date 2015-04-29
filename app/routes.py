@@ -1,4 +1,4 @@
-from flask import render_template, request, jsonify, make_response, request, current_app
+from flask import render_template, request, jsonify, make_response, request, current_app, url_for
 from app import app
 from .models import Image, Sideview, News, Alert, Faculty, User, Staff, Education
 from .models import FacultyServices, FacultyInterests, CommitteeMembers, Committee
@@ -242,19 +242,63 @@ def article():
 def getArticleNumber():
     return 12
 
-
 @app.route('/general', methods=['POST', 'GET'])
 def generalPage():
     e = request.args['content']
     return render_template('pageTemplate.html', content=e)
 
-<<<<<<< HEAD
+
 @app.route('/loadJSON', methods=['POST', 'GET'])
 def loadJson():
 	j = open(os.path.join(os.path.dirname(__file__), 'static/json-data/about-page.json'), 'r')
 	data = json.load(j)
 	return jsonify(data)
-=======
+
+
+
+###STATIC ROUTES SERVIN' UP SOME GOOD OL' FASHIONED HTML###
+##MMMmmm MM good ol fashioned cooking!##
+
+@app.route('/aboutUs', defaults={'pagename':None})
+@app.route('/aboutUs:<path:pagename>')
+def aboutUs(pagename):
+    if pagename is not None:
+        uri = 'about/%s'%pagename + '.html'
+        return render_template(uri)
+    else:
+        return render_template('/about/index.html')
+
+@app.route('/academics')
+def academics():
+    return render_template('academics/index.html')
+
+@app.route('/research')
+def research():
+    return render_template('research/index.html')
+
+@app.route('/opportunities')
+def opportunites():
+    return render_template('opportunities/index.html')
+
+@app.route('/events')
+def events():
+    return render_template('events/index.html')
+
+# @app.route('/support/')
+
+##URLS are silly in flask, need to use a colon to separate the page, else if there's a trailing slash everything breaks###
+@app.route('/support', defaults={'pagename':None})
+@app.route('/support:<path:pagename>')
+def support(pagename):
+    if pagename is not None:
+        uri = 'support/%s'%pagename + '.html'
+        return render_template(uri)
+    else:
+        return render_template('/support/index.html')
+
+
+
+
 @app.route('/news/<int:news_id>')
 def getNewsWithId(news_id):
     news = News.query.filter_by(id=news_id).first()
@@ -268,4 +312,4 @@ def getNewsWithId(news_id):
 # @app.route('/academics')
 # def aboutGeneral():
 # 	return render_template('pageTemplate.html', content="academics")
->>>>>>> carousel-improved
+

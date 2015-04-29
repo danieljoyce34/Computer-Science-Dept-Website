@@ -8,16 +8,16 @@
 <ul id="nav">
 
   <li class="nav-item">
-    <a href="/general?content=About">About Us</a>
+    <a href="/aboutUs">About Us</a>
     <ul class="subnav">
-      <li class="subnav-item"><a href="#">Prospective Students</a></li>
-      <li class="subnav-item"><a href='#'>Faculty</a></li>
-      <li class="subnav-item"><a href="#">Support</a></li>
+      <li class="subnav-item"><a href="/aboutUs:prospective">Prospective Students</a></li>
+      <li class="subnav-item"><a href="#">Faculty</a></li>
+      <li class="subnav-item"><a href="/support">Support</a></li>
     </ul>
   </li>
 
   <li class="nav-item">
-    <a href="/general?content=Academics">Academics</a>
+    <a href="/academics">Academics</a>
     <ul class="subnav">
       <li class="subnav-item"><a href='#'>Undergrad</a></li>
       <li class="subnav-item"><a href='#'>Graduate</a></li>
@@ -26,7 +26,7 @@
   </li>
 
   <li class="nav-item">
-    <a href="/general?content=Research">Research</a>
+    <a href="/research">Research</a>
     <ul class="subnav">
       <li class="subnav-item"><a href='#'>Projects</a></li>
       <li class="subnav-item"><a href='#'>Undergrad Research</a></li>
@@ -36,7 +36,7 @@
   </li>
 
   <li class="nav-item">
-    <a href="/general?content=Opportunities">Opportunities</a>
+    <a href="/opportunities">Opportunities</a>
     <ul class="subnav">
       <li class="subnav-item"><a href="#">Jobs</a></li>
       <li class="subnav-item"><a href="#">Scholarships</a></li>
@@ -44,14 +44,21 @@
   </li>
 
   <li class="nav-item">
-    <a href="/general?content=Events">Events</a>
+    <a href="/events">Events</a>
     <ul class="subnav">
-      <li class="subnav-item"><a href="#">Alumni</a></li>
+      <li class="subnav-item"><a href='#'>News</a></li>
       <li class="subnav-item"><a href='#'>Colloquia</a></li>
       <li class="subnav-item"><a href="#">Student Activities</a></li>
+      <li class="subnav-item"><a href="#">Alumni</a></li>
       <li class="subnav-item"><a href="#">Images</a></li>
     </ul>
   </li>
 </ul>
 
+
+{% block footer %}
 <script type="text/javascript" src="{{ url_for('static', filename='js/navigation.js') }}"></script>
+{% endblock %}
+
+
+
