@@ -109,7 +109,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="73" y="621" name="alerts">
+<table x="59" y="602" name="alerts">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -222,7 +222,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="264" y="677" name="phone_number">
+<table x="236" y="644" name="phone_number">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -243,7 +243,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="278" y="446" name="address">
+<table x="241" y="436" name="address">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -309,7 +309,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="511" y="1162" name="term">
+<table x="43" y="1306" name="term">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -348,7 +348,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="853" y="617" name="committee">
+<table x="850" y="622" name="committee">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -421,7 +421,7 @@
 </key>
 <comment>Do not implement right now</comment>
 </table>
-<table x="98" y="534" name="user_role">
+<table x="59" y="520" name="user_role">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -433,7 +433,7 @@
 </key>
 <comment>UG,G,Faculty,Staff and WebTeam</comment>
 </table>
-<table x="670" y="1074" name="courses">
+<table x="202" y="1218" name="courses">
 <row name="id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -465,7 +465,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="510" y="1075" name="department">
+<table x="42" y="1219" name="department">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -476,7 +476,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1058" y="1034" name="textbook">
+<table x="590" y="1178" name="textbook">
 <row name="id" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -502,7 +502,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="870" y="1076" name="course_sections">
+<table x="402" y="1220" name="course_sections">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -531,7 +531,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1060" y="1231" name="course_times">
+<table x="592" y="1375" name="course_times">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -548,7 +548,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="277" y="842" name="exit_interview">
+<table x="523" y="590" name="exit_interview">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="exit_interview_course_evaluation" row="exit_interview_id" />
@@ -598,7 +598,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="619" y="915" name="exit_interview_course_evaluation">
+<table x="852" y="759" name="exit_interview_course_evaluation">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -620,7 +620,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="14" y="907" name="exit_interview_grad_school">
+<table x="240" y="803" name="exit_interview_grad_school">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -644,7 +644,7 @@
 </key>
 <comment>information about students attending grad school after graduation </comment>
 </table>
-<table x="619" y="1072" name="exit_interview_job">
+<table x="616" y="903" name="exit_interview_job">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
