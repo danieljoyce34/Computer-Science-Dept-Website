@@ -1,4 +1,4 @@
-from flask import render_template, request, json, jsonify, make_response, request, current_app
+from flask import render_template, request, json, jsonify, make_response, current_app, Response
 from app import app
 from .models import Image, Sideview, News, Alert, Faculty, User, Staff, Education
 from .models import FacultyServices, FacultyInterests, CommitteeMembers, Committee
@@ -244,7 +244,64 @@ def loadJson():
 	data = json.load(j)
 	return jsonify(data)
 
-@app.route('/loadProfile', methods=['GET'])
+@app.route('/loadProfile', methods=['POST', 'GET'])
 def loadProfile():
-    e = request.args['id']
-    return render_template('person.html', profileID=e)
+    faculty_id = request.args['id']
+    if request.method == 'GET':
+        faculty = Faculty.query.filter_by(id=faculty_id).first()
+
+        faculty_result = []
+        faculty_dict = faculty.to_json_format()
+        user_dict = faculty.user.to_json_format()
+        json = util._merge_two_dicts(user_dict, faculty_dict)
+
+        educations = faculty.educations
+        edu_list = []
+        for edu in educations:
+            edu_list.append(edu.to_json_format())
+        json = util._append_to_dict(json, edu_list, 'educations')
+
+        faculty_services = faculty.faculty_services
+        service_list = []
+        for service in faculty_services:
+            service_list.append(service.name)
+        json = util._append_to_dict(json, service_list, 'services')
+
+        faculty_interests = faculty.faculty_interests
+        interest_list = []
+        for interest in faculty_interests:
+            interest_list.append(interest.interest)
+        json = util._append_to_dict(json, interest_list, 'interests')
+
+        faculty_committee_members = faculty.committee_members
+        department_committee = []
+        college_committee = []
+        university_committee = []
+        inter_department_committee = []
+        professional_committee = []
+        for member in faculty_committee_members:
+            committee = member.committee
+            if committee.category == 'department':
+                department_committee.append(committee.name)
+            elif committee.category == 'college':
+                college_committee.append(committee.name)
+            elif committee.category == 'university':
+                university_committee.append(committee.name)
+            elif committee.category == 'professional':
+                professional_committee.append(committee.name)
+            else:
+                inter_department_committee.append(committee.name)
+        json = util._append_to_dict(json, department_committee,
+                                    'department_committee')
+        json = util._append_to_dict(
+            json, college_committee, 'college_committee')
+        json = util._append_to_dict(json, university_committee,
+                                    'university_committee')
+        json = util._append_to_dict(json, inter_department_committee,
+                                    'inter_department_committee')
+        json = util._append_to_dict(json, professional_committee,
+                                    'professional_committee')
+
+        faculty_result.append(json)
+        # return jsonify(faculty=faculty_result)
+        return render_template("profile.html", data=faculty_result[0])

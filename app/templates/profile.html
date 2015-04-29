@@ -1,0 +1,115 @@
+{% extends "pageFrameTemplate.html" %}
+{% block title %}Computer Science Department{% endblock %}
+{% block head %} {{ super() }} {% endblock %}
+{% block header %} {{ super() }} {% endblock %}
+
+{% block content %}
+    <div id="content">
+        	{% if data %}
+        		<div id="profile">
+	        		<div class="name">{{ data['salutation'] }} {{ data['fname'] }} {{data['minit']}} {{data['lname'] }} </div>
+	        		<div class="title"><b>Title: </b> {{ data['faculty_rank'] }} </div>
+	        		<div class="type"><b>Type: </b> {{ data['faculty_type'] }} </div>
+	        		<div class="office_loc"><b>Office: </b> {{ data['office_loc'] }} </div>
+	        		<div class="email"><b>Email: </b> {{ data['email'] }} </div>
+
+	        		{% if data['secondary_email'] %}
+	        			<div class="email-alt"><b>Alternate Email: </b> {{ data['secondary_email'] }} </div>
+	        		{% endif %}
+	        		<div class="web-page"><a href="{{ data['wesbite_url'] }} ">Personal Website</a></div>
+        		</div>
+
+       			 <div id="body">
+
+		        	{% if data['educations'] %}
+		        		<div id="education"> Education
+				        	<ul id="degree-list">
+				        		{% for i in data['educations'] %}
+						        	<li class="list-item"> {{ i['degree'] }}   {{ i['discipline'] }}  {{ i['school'] }} </li>
+					        	{% endfor %}
+			        		</ul>
+		        		</div>
+		        	{% endif %}
+
+		        	{% if data['interests'] %}
+		        		<div id="interests"> Interests
+				        	<ul id="list">
+				        		{% for i in data['interests'] %}
+						        	<li class="list-item"> {{i}} </li>
+					        	{% endfor %}
+			        		</ul>
+		        		</div>
+		        	{% endif %}
+
+		        	{% if data['services'] %}
+		        		<div id="services"> Services
+				        	<ul id="list">
+				        		{% for i in data['services'] %}
+						        	<li class="list-item"> {{i}} </li>
+					        	{% endfor %}
+			        		</ul>
+		        		</div>
+		        	{% endif %}
+
+		        	{% if data['university_committee'] %}
+		        		<div id="committees"> Committes
+				        	<ul id="list">
+				        		{% for i in data['university_committee'] %}
+						        	<li class="list-item"> {{i}} </li>
+					        	{% endfor %}
+			        		</ul>
+		        		</div>
+		        	{% endif %}
+
+		        	{% if data['inter_department_committee'] %}
+		        		<div id="inter_department_committee"> Inter Department Committees
+				        	<ul id="list">
+				        		{% for i in data['inter_department_committee'] %}
+						        	<li class="list-item"> {{i}} </li>
+					        	{% endfor %}
+			        		</ul>
+		        		</div>
+		        	{% endif %}
+
+		        	{% if data['inter_department_committee'] %}
+		        		<div id="inter_department_committee"> Inter Department Committees
+				        	<ul id="list">
+				        		{% for i in data['inter_department_committee'] %}
+						        	<li class="list-item"> {{i}} </li>
+					        	{% endfor %}
+			        		</ul>
+		        		</div>
+		        	{% endif %}
+
+		        	{% if data['professional_committee'] %}
+		        		<div id="iprofessional_committee"> Professional Committees
+				        	<ul id="list">
+				        		{% for i in data['professional_committee'] %}
+						        	<li class="list-item"> {{i}} </li>
+					        	{% endfor %}
+			        		</ul>
+		        		</div>
+		        	{% endif %}
+
+		        	{% if data['college_committee'] %}
+		        		<div id="college_committee"> College Committee
+				        	<ul id="list">
+				        		{% for i in data['college_committee'] %}
+						        	<li class="list-item"> {{i}} </li>
+					        	{% endfor %}
+			        		</ul>
+		        		</div>
+		        	{% endif %}
+
+        		</div>
+
+        	{% else %}
+        		<div>Fetch Request failed</div>
+        	{% endif %}
+    </div>
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+    <script src="static/js/profile-logic.js"></script>
+{% endblock %}
