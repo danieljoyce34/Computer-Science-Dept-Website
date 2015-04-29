@@ -46,22 +46,13 @@ body{
 }
 
 .staff-container{
-	width: 275px;
+	width: 190px;
 	height: 125px;
-	margin: 10px;
-	background: lightgrey;
+	margin: 25px;
+	margin-bottom: 35px;
+	background: white;
 	display: inline-block;
 	position: relative;
-}
-
-.staff-image{
-	position: absolute;
-	top: 7px;
-	bottom: 7px;
-	left: 5px;
-	width: 90px;
-	background: white;
-	line-height: 115px;
 }
 
 .staff-info{
@@ -75,7 +66,7 @@ body{
 
 .staff-name, .staff-position, .staff-email{
 	width: 100%;
-	text-align: left;
+	text-align: center;
 	padding-left: 5px;
 }
 

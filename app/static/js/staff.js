@@ -40,9 +40,14 @@ var staff = [
 	}
 ];
 
-$(document).ready(function(){
-	getTypes();
-	getStaff('all');
+$(document).ready(function () {
+
+	$.get('/retrievePeople', function (api_staff) {
+			console.log(api_staff);
+			staff = api_staff.people;
+			getTypes();
+			getStaff('all');
+	});
 
 	$('#type-filter').change(function(){
 		$('#staff-list').find('div.staff-container').remove();
@@ -65,23 +70,21 @@ $(document).ready(function(){
 
 });
 
-function getTypes(){
+function getTypes() {
 	for(var i=0; i<types.length; i++)
 		$('#type-filter').append($('<option>').attr("value", types[i]).text(types[i]));
 }
 
-function getStaff(type){
+function getStaff (type) {
 	$('#staff-list').find('.staff-container').remove();
-	for(var i=0; i<staff.length; i++){
+	for(var i = 0; i < staff.length; i++){
 		if(type == 'all' || type == staff[i].type){
+			console.log(staff[i].image_url);
 			$('#staff-list').append($('<div class="staff-container">')
-				.append($('<div class="staff-image">').text("image"))
-				.append($('<div class="staff-info">')
 					.append($('<div class="staff-name">').text(staff[i].name))
-					.append($('<div class="staff-position">').text(staff[i].position))
-					.append($('<div class="staff-email">').text(staff[i].email))
-				)
-			);
+					.append($('<div class="staff-position">').text(staff[i].job_title))
+					.append($('<div class="staff-email">').text(staff[i].person_type))
+					.prepend($('<div class="profile_image">').css('background-image', 'url(' + staff[i].image_url + ')').css('height', 111)));
 		}
 	}
 }

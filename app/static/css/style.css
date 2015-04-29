@@ -195,6 +195,20 @@ body {
   /*padding: 15px; */
 }
 
+.staff_container {
+  width: 200px !important;
+  background-color: white;
+}
+
+.profile_image {
+  height: 100px !important;
+  width: 100px !important;
+  background-size: 100px 100px;
+  background-position: center;
+  border-radius: 150px;
+  margin: auto;
+}
+
 #sidebar .side-image {
   float: left;
   width: 6em;
