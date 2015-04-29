@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!-- SQL XML created by WWW SQL Designer, http://code.google.com/p/wwwsqldesigner/ -->
+<!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
 <!-- Active URL: http://ondras.zarovi.cz/sql/demo/ -->
 <sql>
 <datatypes db="mysql">
@@ -541,14 +541,15 @@
 <part>id</part>
 </key>
 </table>
-<table x="415" y="1049" name="exit_interview">
+<table x="277" y="842" name="exit_interview">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="exit_interview_course_evaluation" row="exit_interview_id" />
 </row>
 <row name="user_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default></row>
+<default>NULL</default><relation table="user" row="id" />
+</row>
 <row name="job_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="exit_interview_job" row="id" />
@@ -590,7 +591,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="701" y="981" name="exit_interview_course_evaluation">
+<table x="619" y="915" name="exit_interview_course_evaluation">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -612,7 +613,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="68" y="1136" name="exit_interview_grad_school">
+<table x="14" y="907" name="exit_interview_grad_school">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -636,7 +637,7 @@
 </key>
 <comment>information about students attending grad school after graduation </comment>
 </table>
-<table x="733" y="1199" name="exit_interview_job">
+<table x="619" y="1072" name="exit_interview_job">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
