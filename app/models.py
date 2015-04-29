@@ -139,6 +139,9 @@ class User(db.Model):
                                 uselist=False)
     alerts = db.relationship('Alert',
                              backref=db.backref('user'))
+    exit_interview = db.relationship('ExitInterview',
+                                     backref=db.backref('user'),
+                                     uselist=False)
 
     def to_json_format(self):
         json = {'id': self.id,
@@ -574,3 +577,134 @@ class CourseSection(db.Model):
                 ' course_time_id %i, room %s, section_type %s>'
                 % (self.id, self.course_id, self.faculty_id, self.textbook_id,
                     self.course_time_id, self.room, self.section_type))
+
+
+class ExitInterview(db.Model):
+    __tablename__ = 'exit_interview'
+    id = db.Column(db.Integer, primary_key=True)
+    face_interview = db.Column(db.Integer)  # should be a tinyint
+    cs_improvement_suggestions = db.Column(db.Text)
+    sufficient_info_for_future = db.Column(db.Text)
+    valueable_aspects = db.Column(db.Text)
+    language_proficiency = db.Column(db.Text)
+    curriculum_comment = db.Column(db.Text)
+    general_course_comment = db.Column(db.Text)
+    creation_date = db.Column(db.DateTime, default=datetime.datetime.now())
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    job_id = db.Column(db.Integer, db.ForeignKey('exit_interview_job.id'))
+    grad_school_id = db.Column(
+        db.Integer, db.ForeignKey('exit_interview_grad_school.id'))
+    exit_interview_course_evaluation = db.relationship('ExitInterviewCourseEvaluation',
+                                                       backref=db.backref('exit_interview_course_evaluation'))
+
+    def to_json_format(self):
+        json = {'id': self.id,
+                'user_id': self.user_id,
+                'job_id': self.job_id,
+                'grad_school_id': self.grad_school_id,
+                'face_interview': self.face_interview,
+                'cs_improvement_suggestions': self.cs_improvement_suggestions,
+                'sufficient_info_for_future': self.sufficient_info_for_future,
+                'valueable_aspects': self.valueable_aspects,
+                'language_proficiency': self.language_proficiency,
+                'curriculum_comment': self.curriculum_comment,
+                'general_course_comment': self.general_course_comment,
+                'creation_date': self.creation_date}
+        return json
+
+    def __repr__(self):
+        return ('<id %i, user_id %i, job_id %s, grad_school_id %f,'
+                ' face_interview %f, cs_improvement_suggestions %s,'
+                ' sufficient_info_for_future %s, valueable_aspects %s,'
+                ' language_proficiency %s, curriculum_comment %s,'
+                ' general_course_comment %s creation_date %f>'
+                % (self.id, self.user_id, self.job_id, self.grad_school_id,
+                    self.face_interview, self.cs_improvement_suggestions,
+                    self.sufficient_info_for_future, self.valueable_aspects,
+                    self.language_proficiency, self.curriculum_comment,
+                    self.general_course_comment, str(self.creation_date)))
+
+
+class ExitInterviewJob(db.Model):
+    __tablename__ = 'exit_interview_job'
+    id = db.Column(db.Integer, primary_key=True)
+    job_found = db.Column(db.Integer)
+    company_name = db.Column(db.String(128))
+    job_location = db.Column(db.String(128))
+    job_title = db.Column(db.String(128))
+    salary = db.Column(db.String(8))
+    reasons_joined = db.Column(db.Text)
+    other_offers = db.Column(db.Text)
+    comments = db.Column(db.Text)
+    exit_interview = db.relationship('ExitInterview',
+                                     backref=db.backref('exit_interview_job'),
+                                     uselist=False)
+
+    def to_json_format(self):
+        json = {'id': self.id,
+                'job_found': self.job_found,
+                'company_name': self.company_name,
+                'job_location': self.job_location,
+                'job_title': self.job_title,
+                'salary': self.salary,
+                'reasons_joined': self.reasons_joined,
+                'other_offers': self.other_offers,
+                'comments': self.comments}
+        return json
+
+    def __repr__(self):
+        return ('<id %i, job_found %i, company_name %s, job_location %s, job_title %s,'
+                ' salary %s, reasons_joined %s, other_offers %s, comments %s>'
+                % (self.id, self.job_found, self.company_name, self.job_location,
+                    self.job_title, self.salary, self.reasons_joined, other_offers,
+                    self.comments))
+
+
+class ExitInterviewCourseEvaluation(db.Model):
+    __tablename__ = 'exit_interview_course_evaluation'
+    id = db.Column(db.Integer, primary_key=True)
+    course_id = db.Column(db.Integer)
+    course_rating = db.Column(db.String(32))
+    course_comment = db.Column(db.Text)
+    exit_interview_id = db.Column(
+        db.Integer, db.ForeignKey('exit_interview.id'))
+
+    def to_json_format(self):
+        json = {'id': self.id,
+                'exit_interview_id': self.exit_interview_id,
+                'course_id': self.course_id,
+                'course_rating': self.course_rating,
+                'course_comment': self.course_comment}
+        return json
+
+    def __repr__(self):
+        return ('<id %i, exit_interview_id %i, course_id %i, course_rating %s,'
+                ' course_comment %s>'
+                % (self.id, self.exit_interview_id,  self.course_id,
+                    self.course_rating, self.course_comment))
+
+
+class ExitInterviewGradSchool(db.Model):
+    __tablename__ = 'exit_interview_grad_school'
+    id = db.Column(db.Integer, primary_key=True)
+    grad_school_name = db.Column(db.String(256))
+    field_of_study = db.Column(db.String(128))
+    acceptance = db.Column(db.Integer)
+    aid = db.Column(db.String(128))
+    exit_interview = db.relationship('ExitInterview',
+                                     backref=db.backref(
+                                         'exit_interview_grad_school'),
+                                     uselist=False)
+
+    def to_json_format(self):
+        json = {'id': self.id,
+                'grad_school_name': self.grad_school_name,
+                'field_of_study': self.field_of_study,
+                'acceptance': self.acceptance,
+                'aid': self.aid}
+        return json
+
+    def __repr__(self):
+        return ('<id %i, grad_school_name %s, field_of_study %s, acceptance %i aid %s>'
+                % (self.id, self.grad_school_name, self.field_of_study,
+                    self.acceptance, self.aid))
