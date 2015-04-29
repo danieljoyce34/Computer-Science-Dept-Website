@@ -1,4 +1,4 @@
-from flask import render_template, request, jsonify, make_response, request, current_app
+from flask import render_template, request, jsonify, make_response, request, current_app, url_for
 from app import app
 from .models import Image, Sideview, News, Alert, Faculty, User, Staff, Education
 from .models import FacultyServices, FacultyInterests, CommitteeMembers, Committee
@@ -247,9 +247,14 @@ def loadJson():
 ###STATIC ROUTES SERVIN' UP SOME GOOD OL' FASHIONED HTML###
 ##MMMmmm MM good ol fashioned cooking!##
 
-@app.route('/aboutUs')
-def aboutUs():
-    return render_template('about/index.html')
+@app.route('/aboutUs', defaults={'pagename':None})
+@app.route('/aboutUs:<path:pagename>')
+def aboutUs(pagename):
+    if pagename is not None:
+        uri = 'about/%s'%pagename + '.html'
+        return render_template(uri)
+    else:
+        return render_template('/about/index.html')
 
 @app.route('/academics')
 def academics():
@@ -266,3 +271,18 @@ def opportunites():
 @app.route('/events')
 def events():
     return render_template('events/index.html')
+
+# @app.route('/support/')
+
+##URLS are silly in flask, need to use a colon to separate the page, else if there's a trailing slash everything breaks###
+@app.route('/support', defaults={'pagename':None})
+@app.route('/support:<path:pagename>')
+def support(pagename):
+    if pagename is not None:
+        uri = 'support/%s'%pagename + '.html'
+        return render_template(uri)
+    else:
+        return render_template('/support/index.html')
+
+
+
