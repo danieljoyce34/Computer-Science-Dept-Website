@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!-- SQL XML created by WWW SQL Designer, http://code.google.com/p/wwwsqldesigner/ -->
+<!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
 <!-- Active URL: http://ondras.zarovi.cz/sql/demo/ -->
 <sql>
 <datatypes db="mysql">
@@ -309,7 +309,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="446" y="591" name="term">
+<table x="511" y="1162" name="term">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -348,7 +348,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1093" y="482" name="committee">
+<table x="853" y="617" name="committee">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -433,7 +433,7 @@
 </key>
 <comment>UG,G,Faculty,Staff and WebTeam</comment>
 </table>
-<table x="613" y="602" name="courses">
+<table x="670" y="1074" name="courses">
 <row name="id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -465,7 +465,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="610" y="829" name="department">
+<table x="510" y="1075" name="department">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -476,7 +476,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1119" y="232" name="textbook">
+<table x="1058" y="1034" name="textbook">
 <row name="id" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -491,8 +491,7 @@
 <default>NULL</default></row>
 <row name="author_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="faculty" row="id" />
-</row>
+<default>NULL</default></row>
 <row name="publisher_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -503,7 +502,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="847" y="616" name="course_sections">
+<table x="870" y="1076" name="course_sections">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -513,8 +512,7 @@
 </row>
 <row name="faculty_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="faculty" row="id" />
-</row>
+<default>NULL</default></row>
 <row name="room" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
@@ -533,7 +531,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1052" y="860" name="course_times">
+<table x="1060" y="1231" name="course_times">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
