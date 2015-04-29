@@ -161,7 +161,6 @@ input#edit-news-start, input#edit-news-end{
 	display: none;
 }
 
-
 #news-editing-options{
 	display: none;
 	position: absolute;
@@ -177,7 +176,6 @@ input#edit-news-start, input#edit-news-end{
 	margin: 10px 5px;
 }
 
-
 @media screen and (max-width: 630px){
 	#news-editor-list{
 		right: 280px;
@@ -187,6 +185,5 @@ input#edit-news-start, input#edit-news-end{
 
 	#news-editor-side{
 		left: auto;
-		width: 250px;
 	}
 }
