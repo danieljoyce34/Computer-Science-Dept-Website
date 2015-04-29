@@ -72,7 +72,7 @@ class News(db.Model):
                 'headline': self.headline,
                 'intro': self.intro,
                 'article': self.article,
-                'post_date': self.post_date,
+                'post_date': self.post_date, 
                 'image_id': self.image_id}
         return json
 
