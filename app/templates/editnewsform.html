@@ -10,6 +10,7 @@
 
 {% extends "base.html" %}
 {% block content %}
+	<!-- if a news article is passed, it becomes the edit form, otherwise its the add form -->
 	{% if news %}
 	<form id="edit-news-form" action="/submitNewsEdits/{{ news.id }}" method="post">
 	{% else %}
@@ -18,9 +19,9 @@
 
 		Headline<br>
 		<input type="text" id="edit-news-headline" name="edit-news-headline" value="{% if news %}{{ news.headline }}{% endif %}">
-	Intro<br>
+		Intro<br>
 		<input type="text" id="edit-news-intro" name="edit-news-intro" value="{% if news %}{{ news.intro }}{% endif %}">
-	Article<br>
+		Article<br>
 		<textarea rows="4" cols="50" id="edit-news-article" name="edit-news-article" form="edit-news-form">{% if news %}{{ news.article }}{% endif %}</textarea>
 		<br>Start Date <br>
 		<input type="date" id="edit-news-start" name="edit-news-start" value="{% if news %}{{ news.start_date }}{% endif %}">

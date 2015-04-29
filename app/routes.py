@@ -1,4 +1,4 @@
-from flask import render_template, request, jsonify, make_response, current_app
+from flask import render_template, request, jsonify, make_response, current_app, redirect, url_for
 from app import app, db
 from .models import Image, Sideview, News, Alert, Faculty, User, Staff, Education
 from .models import FacultyServices, FacultyInterests, CommitteeMembers, Committee
@@ -122,7 +122,9 @@ def submitNews():
 		article=request.form['edit-news-article'])
 	db.session.add(news)
 	db.session.commit()
-	return "News entry was successfully added."
+	news = News.query.all()
+	#return render_template('editnews.html', news=news)
+	return redirect(url_for('editNews'))
 
 @app.route('/editNews')
 def editNews():
@@ -147,7 +149,9 @@ def submitNewsEdits(news_id):
 	news.start_date = request.form['edit-news-start']
 	news.end_date = request.form['edit-news-end']
 	db.session.commit()
-	return "News entry was successfully edited."
+	news = News.query.all()
+	#return render_template('editnews.html', news=news)
+	return redirect(url_for('editNews'))
 
 @app.route('/addAlert', methods=['POST'])
 def addAlert():

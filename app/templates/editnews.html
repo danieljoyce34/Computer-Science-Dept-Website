@@ -1,14 +1,15 @@
 {% block head %}
 	<title>Edit News</title>
-	<link rel="stylesheet" type="text/css" href="static/css/editnews.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/editnews.css">
 	<link rel="stylesheet" type="text/css" href="../static/bower_components/ionicons/css/ionicons.min.css">
-	<script type="text/javascript" src="static/js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../static/js/jquery-2.1.1.min.js"></script>
 {% endblock %}
 
 {% extends "base.html" %}
 {% block content %}
 
 <div id="news-editor">
+	<!-- Editor options: search filter, add button, edit button -->
 	<div id="news-editor-options">
 		<input type="text" id="news-editor-search" placeholder="Title Search">
 		<input type="submit" value="x" id="news-editor-clear">
@@ -16,57 +17,46 @@
 		<button type="button" id="news-editor-edit" title="edit" disabled><i class="icon ion-edit"></i></button>
 	</div>
 
+	<!-- News Editor List: list of all news articles -->
 	<div id="news-editor-list">
 		{% for n in news %}
 			<div class="editor-news-container">
-				<!--<button class="editor-news-edit">Edit</button>-->
-				<div class="editor-news-content">
-					<div class="editor-news-title">{{ n.headline }}</div>
-					<!--<div class="editor-news-intro">{{ n.intro }}</div>-->
-					<div class="editor-news-id">{{ n.id }}</div>
-					<div class="editor-news-article">{{ n.article }}</div>
-				</div>
+				<div class="editor-news-title">{{ n.headline }}</div>
+				<div class="editor-news-intro">{{ n.intro }}</div>
+				<div class="editor-news-id">{{ n.id }}</div>
+				<div class="editor-news-article">{{ n.article }}</div>
+				<div class="editor-news-start">{{ n.start_date }}</div>
+				<div class="editor-news-end">{{ n.end_date }}</div>
 			</div>
 		{% endfor %}
 	</div>
 
-	<div id="news-editor-preview"></div>
+	<!-- Side panel - preview + edit/add form -->
+	<div id="news-editor-side">
+		<div id="news-editor-preview"></div>
+		<form id="news-editor-editing" method="post">
+			Headline<br>
+			<input type="text" name="edit-news-headline" id="edit-news-headline">
+			<br>Intro<br>
+			<input type="text" name="edit-news-intro" id="edit-news-intro">
+			<br>Article<br>
+			<textarea rows="4" cols="50" name="edit-news-article" form="news-editor-editing" id="edit-news-article"></textarea>
+			<br>Start Date <br>
+			<input type="date" name="edit-news-start" id="edit-news-start">
+			<br>End Date <br>
+			<input type="date" name="edit-news-end" id="edit-news-end">
+		</form>
+	</div>
+	
+	<!-- Hidden field for selected news article id -->
 	<div id="news-editor-selected"></div>
+
+	<div id="news-editing-options">
+		<input type="submit" value="Submit" form="news-editor-editing" id="submit-edits">
+		<button type="button" id="cancel-edits">Cancel</button>
+	</div>
+	
+
 </div>
-
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('#news-editor-edit').click(function(){
-			window.location = 'http://127.0.0.1:5000/editNews/' + $('#news-editor-selected').text();
-		});
-
-		$(document).on('click', 'button.editor-news-edit', function(){
-			window.location = 'http://127.0.0.1:5000/editNews/' + $(this).parent().find('div.editor-news-id').text();
-		});
-
-		$(document).on('click', '#news-editor-add', function(){
-			window.location = 'http://127.0.0.1:5000/addNews';
-		});
-
-		$('#news-editor-search').keyup(function(){
-			var search = $(this).val().toLowerCase();
-			$('#news-editor-list>div.editor-news-container').each(function(){
-				$(this).find('.editor-news-title').text().toLowerCase().indexOf(search) >= 0 ? $(this).show() : $(this).hide();
-			});
-		});
-
-		$('#news-editor-clear').click(function(){
-			$('#news-editor-search').val('');
-			$('#news-editor-list').find('.editor-news-container').show();
-		});
-
-		$(document).on('click', '.editor-news-container', function(){
-			$('#news-editor-preview').text($(this).find('div.editor-news-article').text());
-			$(this).css('background','#3cb0fd');
-			$(this).siblings().css('background','white');
-			$('#news-editor-selected').text($(this).find('div.editor-news-id').text());
-			$('#news-editor-edit').prop('disabled',false);
-		});
-	});
-</script>
+<script type="text/javascript" src="../static/js/newsEditor.js"></script>
 {% endblock %}
