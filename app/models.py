@@ -77,10 +77,10 @@ class News(db.Model):
         return json
 
     def __repr__(self):
-        return ('<News id %i, start_date %f, end_date %f, headline %s, intro %s,'
-                ' article %s, post_date %f, image_id %i>'
-                % (self.id, self.start_date, self.end_date, self.headline,
-                    self.intro, self.article, self.post_date, self.image_id))
+        return ('<News id %i, start_date %s, end_date %s, headline %s, intro %s,'
+                ' article %s, post_date %s, image_id %i>'
+                % (self.id, str(self.start_date), str(self.end_date), self.headline,
+                    self.intro, self.article, str(self.post_date), self.image_id))
 
 
 class Alert(db.Model):
@@ -89,7 +89,6 @@ class Alert(db.Model):
     content = db.Column(db.Text)
     category = db.Column(db.String(64))
     post_date = db.Column(db.DateTime, default=datetime.date.today())
-    location = db.Column(db.String(64))
     start_date = db.Column(db.DateTime, default=datetime.date.today())
     end_date = db.Column(db.DateTime, default=util._next_month())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
@@ -100,16 +99,17 @@ class Alert(db.Model):
                 'user_id': self.user_id,
                 'category': self.category,
                 'post_date': self.post_date,
-                'location': self.location,
                 'start_date': self.start_date,
                 'end_date': self.end_date}
         return json
 
     def __repr__(self):
-        return ('<Alert id %i, content %s, user_id %i, category %s, post_date %f,'
-                ' location %s, start_date %f, end_date %f>'
+        return ('<Alert id %i, content %s, user_id %i, category %s, post_date %s,'
+                ' start_date %s, end_date %s>'
                 % (self.id, self.content, self.user_id, self.category,
-                    self.post_date, self.location, self.start_date, self.end_date))
+                    str(self.post_date), str(self.start_date),
+                    str(self.end_date)))
+
 
 
 class User(db.Model):
@@ -269,7 +269,6 @@ class OfficeHours(db.Model):
     days = db.Column(db.String(5))
     apntmnt_msg = db.Column(db.String(128))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    term_id = db.Column(db.Integer, db.ForeignKey('term.id'))
 
     def to_json_format(self):
         json = {'id': self.id,
@@ -277,14 +276,13 @@ class OfficeHours(db.Model):
                 'end_time': self.end_time,
                 'days': self.days,
                 'apntmnt_msg': self.apntmnt_msg,
-                'user_id': self.user_id,
-                'term_id': self.term_id}
+                'user_id': self.user_id}
         return json
 
     def __repr__(self):
-        return ('<OfficeHours id %i, start_time %f, end_time %f, days %s,'
+        return ('<OfficeHours id %i, start_time %s, end_time %s, days %s,'
                 ' apntmnt_msg %s, user_id %i, term_id %i>'
-                % (self.id, self.start_time, self.end_time, self.days,
+                % (self.id, str(self.start_time), str(self.end_time), self.days,
                     self.apntmnt_msg, self.user_id, self.term_id))
 
 
@@ -295,8 +293,6 @@ class Term(db.Model):
     year = db.Column(db.Integer)
     start_date = db.Column(db.DateTime)
     end_date = db.Column(db.DateTime)
-    office_hours = db.relationship('OfficeHours',
-                                   backref=db.backref('term'))
     courses = db.relationship('Course',
                               backref=db.backref('term'))
 
@@ -309,8 +305,9 @@ class Term(db.Model):
         return json
 
     def __repr__(self):
-        return ('<Term id %i, semester %s, year %i, start_date %i, end_date %i>'
-                % (self.id, self.semester, self.year, self.start_date, self.end_date))
+        return ('<Term id %i, semester %s, year %i, start_date %s, end_date %s>'
+                % (self.id, self.semester, self.year, str(self.start_date),
+                   str(self.end_date)))
 
 
 class Faculty(db.Model):
@@ -548,8 +545,8 @@ class CourseTimes(db.Model):
         return json
 
     def __repr__(self):
-        return ('<id %i, days %s, start_time %f, end_time %f>'
-                % (self.id, self.days, self.start_time, self.end_time))
+        return ('<id %i, days %s, start_time %s, end_time %s>'
+                % (self.id, self.days, str(self.start_time), str(self.end_time)))
 
 
 class CourseSection(db.Model):

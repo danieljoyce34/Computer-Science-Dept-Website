@@ -66,32 +66,26 @@ user_graduate = models.User(fname='Peter',
 
 alert_1 = models.Alert(content='Software Engineering cancelled this week',
                        category='Class',
-                       location='MSC-168',
                        user=prof)
 
 alert_2 = models.Alert(content='Colloquium this Monday',
                        category='Colloquium',
-                       location='MSC-168',
                        user=prof)
 
 alert_3 = models.Alert(content='Senior Project cancelled this week',
                        category='Class',
-                       location='MSC-168',
                        user=prof)
 
 alert_4 = models.Alert(content='Colloquium this Tuesday',
                        category='Colloquium',
-                       location='MSC-168',
                        user=prof)
 
 alert_5 = models.Alert(content='Programming team meeting cancelled this week',
                        category='Class',
-                       location='MSC-168',
                        user=prof)
 
 alert_6 = models.Alert(content='Colloquium this Thursday',
                        category='Colloquium',
-                       location='MSC-168',
                        user=prof)
 
 staff = models.Staff(position='PC LAND Administrator',
@@ -144,8 +138,7 @@ office_hour = models.OfficeHours(start_time=datetime.datetime(2014, 9, 1, 11, 30
                                  end_time=datetime.datetime(2014, 9, 1, 14),
                                  apntmnt_msg='email beforehand',
                                  days='MWF',
-                                 user=prof,
-                                 term=term_fall)
+                                 user=prof)
 
 faculty = models.Faculty(salutation='Dr.',
                          secondary_email='joyce@fakemail.com',

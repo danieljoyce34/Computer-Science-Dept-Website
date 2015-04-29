@@ -130,9 +130,6 @@
 <row name="end_date" null="1" autoincrement="0">
 <datatype>DATE</datatype>
 <default>NULL</default></row>
-<row name="location" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
 <row name="start_date" null="1" autoincrement="0">
 <datatype>DATE</datatype>
 <default>NULL</default></row>
@@ -305,10 +302,6 @@
 <row name="days" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
-<row name="term_id" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="term" row="id" />
-</row>
 <row name="apntmnt_msg" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
