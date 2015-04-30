@@ -215,3 +215,14 @@ body {
   height: 6em;
   margin: 1px 5px 5px 0px;
 }
+
+#footer-wrapper{
+  position: relative;
+  padding: 0 10%;
+  overflow: auto;
+  right: 15%;
+  width: 125%;
+  background-color: rgb(31, 54, 100);
+  font-size: 12px;
+  color: white;
+}
