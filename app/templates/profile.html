@@ -18,20 +18,21 @@
         		</div>
 
         		<div id="profile-info">
-        			<div id="info-office"><b>Office: </b> {{ data['office_loc'] }} </div>
-        			<div id="info-email"><b>Email: </b> {{ data['email'] }}</div>
+        			<div id="info-office"><div class="title">Office:</div> {{ data['office_loc'] }} </div>
+        			<div id="info-email"><div class="title">Email:</div> {{ data['email'] }}</div>
         			{% if data['secondary_email'] %}
-        				<div id="info-email-alt"><b>Alternate Email: </b> {{ data['secondary_email'] }}</div>
+        				<div id="info-email-alt"><div class="title">Alternate Email: </div> {{ data['secondary_email'] }}</div>
         			{% endif %}
         			<div id="info-web-page"><a href="{{ data['wesbite_url'] }} ">Personal Website</a></div>
         		</div>
 
        		</div>
        		
-<!-- 			<div id="profile-body">
+			<div id="profile-body">
 		        	{% if data['educations'] %}
-		        		<div id="education"> Education
-				        	<ul id="degree-list">
+		        		<div class="education block">
+		        			<div class="title">Education</div>
+				        	<ul class="degree-list">
 				        		{% for i in data['educations'] %}
 						        	<li class="list-item"> {{ i['degree'] }}   {{ i['discipline'] }}  {{ i['school'] }} </li>
 					        	{% endfor %}
@@ -40,8 +41,9 @@
 		        	{% endif %}
 
 		        	{% if data['interests'] %}
-		        		<div id="interests"> Interests
-				        	<ul id="list">
+		        		<div class="interests block"> 
+		        			<div class="title">Interests</div>
+				        	<ul class="list">
 				        		{% for i in data['interests'] %}
 						        	<li class="list-item"> {{i}} </li>
 					        	{% endfor %}
@@ -50,8 +52,9 @@
 		        	{% endif %}
 
 		        	{% if data['services'] %}
-		        		<div id="services"> Services
-				        	<ul id="list">
+		        		<div class="services block"> 
+		        			<div class="title">Services</div>
+				        	<ul class="list">
 				        		{% for i in data['services'] %}
 						        	<li class="list-item"> {{i}} </li>
 					        	{% endfor %}
@@ -59,13 +62,14 @@
 		        		</div>
 		        	{% endif %}
 
-		        	{% if (data['university_committee'] or data['inter_department_committee'] or data ['department_committee'] or 
+<!-- 		        	{% if (data['university_committee'] or data['inter_department_committee'] or data ['department_committee'] or 
 		        		data['professional_committee'] or data['college_committee']) %}
 		        		
-			        		<div id="committees">Committees:
+			        		<div id="committees" class="block">
+			        			<div class="title">Committees:</div>
 					        	{% if data['professional_committee'] %}
-					        		<div id="professional_committee"> Professional
-							        	<ul id="list">
+					        		<div class="professional committee"> Professional
+							        	<ul class="list">
 							        		{% for i in data['professional_committee'] %}
 									        	<li class="list-item"> {{i}} </li>
 								        	{% endfor %}
@@ -75,8 +79,9 @@
 
 
 					        	{% if data['university_committee'] %}
-					        		<div id="university_committees"> University
-							        	<ul id="list">
+					        		<div class="university committee"> 
+					        			<div class="title">University</div>
+							        	<ul class="list">
 							        		{% for i in data['university_committee'] %}
 									        	<li class="list-item"> {{i}} </li>
 								        	{% endfor %}
@@ -85,8 +90,9 @@
 					        	{% endif %}
 
 					        	{% if data['college_committee'] %}
-					        		<div id="college_committee"> College
-							        	<ul id="list">
+					        		<div class="college committee"> 
+					        			<div class="title">College</div>
+							        	<ul class="list">
 							        		{% for i in data['college_committee'] %}
 									        	<li class="list-item"> {{i}} </li>
 								        	{% endfor %}
@@ -95,8 +101,9 @@
 					        	{% endif %}
 
 					        	{% if data['department_committee'] %}
-					        		<div id="department_committee"> Department
-							        	<ul id="list">
+					        		<div class="department committee"> 
+					        			<div class="title">Department</div>
+							        	<ul class="list">
 							        		{% for i in data['department_committee'] %}
 									        	<li class="list-item"> {{i}} </li>
 								        	{% endfor %}
@@ -105,8 +112,9 @@
 					        	{% endif %}
 
 					        	{% if data['inter_department_committee'] %}
-					        		<div id="inter_department_committee"> Inter Department
-							        	<ul id="list">
+					        		<div class="inter_department committee"> 
+					        			<div class="title">Inter Department</div>
+							        	<ul class="list">
 							        		{% for i in data['inter_department_committee'] %}
 									        	<li class="list-item"> {{i}} </li>
 								        	{% endfor %}
@@ -115,8 +123,8 @@
 					        	{% endif %}
 
 				        </div>
-			        {% endif %}
-        	</div> -->
+			        {% endif %} -->
+        	</div>
 			
         	{% else %}
         		<div>Fetch Request failed</div>

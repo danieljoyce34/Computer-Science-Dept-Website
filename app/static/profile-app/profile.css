@@ -3,7 +3,8 @@
 	width: 100%;
 	background: orange;
 	margin-bottom: 20px;
-
+	display: flex;
+	flex-direction: column;
 	/*
 	margin: 1em;
 	margin-left: 2em;
@@ -103,4 +104,28 @@
 	margin: 1em;
 	margin-right: 2em;
 	position: relative;
+	/*display: block;*/
+	display: flex;
+	flex-direction: column;
+	float:left;
+	margin-left: 25%;
+}
+
+.block {
+	float: left;
+	/*flex-direction: column;*/
+/*	margin-left: 5em;
+	margin: 2em;*/
+}
+
+.block .title {
+	font-weight: bold;
+	font-size: 1.25em;
+	font-variant: small-caps;
+}
+
+.title {
+	font-weight: bold;
+	/*font-size: 1.25em;*/
+	/*font-variant: small-caps;*/
 }
