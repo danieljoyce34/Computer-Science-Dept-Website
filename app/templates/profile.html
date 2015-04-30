@@ -16,7 +16,8 @@
         			<div id="profile-name">{{ data['salutation'] }} {{ data['fname'] }} {{data['minit']}} {{data['lname'] }}</div>
         			<div id="profile-position">{{ data['faculty_rank'] }}, {{ data['faculty_type'] }}</div>
         		</div>
-
+        		
+        	
         		<div id="profile-info">
         			<div id="info-office"><b>Office: </b> {{ data['office_loc'] }} </div>
         			<div id="info-email"><b>Email: </b> {{ data['email'] }}</div>
@@ -26,93 +27,95 @@
         			<div id="info-web-page"><a href="{{ data['wesbite_url'] }} ">Personal Website</a></div>
         		</div>
 
+        		<div id="profile-hours">
+        			Office Hours
+        		</div>
        		</div>
+
        		<!--
-			<div id="profile-body">
-		        	{% if data['educations'] %}
-		        		<div id="education"> Education
-				        	<ul id="degree-list">
-				        		{% for i in data['educations'] %}
-						        	<li class="list-item"> {{ i['degree'] }}   {{ i['discipline'] }}  {{ i['school'] }} </li>
-					        	{% endfor %}
-			        		</ul>
-		        		</div>
-		        	{% endif %}
+       		<div id="info-block">
+       			{% if data['educations'] %}
+		       		<div id="education" class="block"> Education
+			        	{% for i in data['educations'] %}
+					       	<div class="block-item"> {{ i['degree'] }}   {{ i['discipline'] }}  {{ i['school'] }} </div>
+				        {% endfor %}
+		        	</div>
+		        {% endif %}
+       			
+		        {% if data['interests'] %}
+		        	<div id="interests" class="block"> Interests
+				       	<ul id="list">
+				       		{% for i in data['interests'] %}
+					        	<li class="list-item"> {{i}} </li>
+				        	{% endfor %}
+			       		</ul>
+		        	</div>
+		        {% endif %}
 
-		        	{% if data['interests'] %}
-		        		<div id="interests"> Interests
-				        	<ul id="list">
-				        		{% for i in data['interests'] %}
-						        	<li class="list-item"> {{i}} </li>
-					        	{% endfor %}
-			        		</ul>
-		        		</div>
-		        	{% endif %}
+		        {% if data['services'] %}
+		        	<div id="services" class="block"> Services
+				       	<ul id="list">
+				       		{% for i in data['services'] %}
+					        	<li class="list-item"> {{i}} </li>
+					       	{% endfor %}
+			        	</ul>
+		        	</div>
+		        {% endif %}
 
-		        	{% if data['services'] %}
-		        		<div id="services"> Services
-				        	<ul id="list">
-				        		{% for i in data['services'] %}
-						        	<li class="list-item"> {{i}} </li>
-					        	{% endfor %}
-			        		</ul>
-		        		</div>
-		        	{% endif %}
+		        {% if data['university_committee'] %}
+		        	<div id="committees" class="block"> Committes
+				       	<ul id="list">
+				       		{% for i in data['university_committee'] %}
+					        	<li class="list-item"> {{i}} </li>
+					       	{% endfor %}
+			        	</ul>
+		        	</div>
+		        {% endif %}
+       		
+		        {% if data['inter_department_committee'] %}
+		       		<div id="inter_department_committee"> Inter Department Committees
+				       	<ul id="list">
+				       		{% for i in data['inter_department_committee'] %}
+					        	<li class="list-item"> {{i}} </li>
+				        	{% endfor %}
+			       		</ul>
+		        	</div>
+		        {% endif %}
 
-		        	{% if data['university_committee'] %}
-		        		<div id="committees"> Committes
-				        	<ul id="list">
-				        		{% for i in data['university_committee'] %}
-						        	<li class="list-item"> {{i}} </li>
-					        	{% endfor %}
-			        		</ul>
-		        		</div>
-		        	{% endif %}
+		        {% if data['inter_department_committee'] %}
+		        	<div id="inter_department_committee"> Inter Department Committees
+				       	<ul id="list">
+				       		{% for i in data['inter_department_committee'] %}
+					        	<li class="list-item"> {{i}} </li>
+				        	{% endfor %}
+			       		</ul>
+		        	</div>
+		        {% endif %}
 
-		        	{% if data['inter_department_committee'] %}
-		        		<div id="inter_department_committee"> Inter Department Committees
-				        	<ul id="list">
-				        		{% for i in data['inter_department_committee'] %}
-						        	<li class="list-item"> {{i}} </li>
-					        	{% endfor %}
-			        		</ul>
-		        		</div>
-		        	{% endif %}
+		        {% if data['professional_committee'] %}
+		        	<div id="iprofessional_committee"> Professional Committees
+				       	<ul id="list">
+				       		{% for i in data['professional_committee'] %}
+					        	<li class="list-item"> {{i}} </li>
+				        	{% endfor %}
+			       		</ul>
+		        	</div>
+		        {% endif %}
 
-		        	{% if data['inter_department_committee'] %}
-		        		<div id="inter_department_committee"> Inter Department Committees
-				        	<ul id="list">
-				        		{% for i in data['inter_department_committee'] %}
-						        	<li class="list-item"> {{i}} </li>
-					        	{% endfor %}
-			        		</ul>
-		        		</div>
-		        	{% endif %}
+		        {% if data['college_committee'] %}
+		        	<div id="college_committee"> College Committee
+				       	<ul id="list">
+				       		{% for i in data['college_committee'] %}
+					        	<li class="list-item"> {{i}} </li>
+				        	{% endfor %}
+			       		</ul>
+		        	</div>
+		        {% endif %}
+       		</div>-->
 
-		        	{% if data['professional_committee'] %}
-		        		<div id="iprofessional_committee"> Professional Committees
-				        	<ul id="list">
-				        		{% for i in data['professional_committee'] %}
-						        	<li class="list-item"> {{i}} </li>
-					        	{% endfor %}
-			        		</ul>
-		        		</div>
-		        	{% endif %}
-
-		        	{% if data['college_committee'] %}
-		        		<div id="college_committee"> College Committee
-				        	<ul id="list">
-				        		{% for i in data['college_committee'] %}
-						        	<li class="list-item"> {{i}} </li>
-					        	{% endfor %}
-			        		</ul>
-		        		</div>
-		        	{% endif %}
-        	</div>
-			-->
-        	{% else %}
-        		<div>Fetch Request failed</div>
-        	{% endif %}
+        {% else %}
+        	<div>Fetch Request failed</div>
+        {% endif %}
     </div>
 {% endblock %}
 
