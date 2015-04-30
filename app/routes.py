@@ -381,6 +381,7 @@ def loadJson():
 ##MMMmmm MM good ol fashioned cooking!##
 
 @app.route('/aboutUs', defaults={'subpage':None})
+@app.route('/aboutUs/', defaults={'subpage':None})
 @app.route('/aboutUs/<subpage>')
 def aboutUs(subpage):
     if subpage is not None:
@@ -413,11 +414,15 @@ def events():
 
 ##URLS are silly in flask, need to use a colon to separate the page, else if there's a trailing slash everything breaks###
 @app.route('/support', defaults={'subpage':None})
+@app.route('/support/', defaults={'subpage':None})
 @app.route('/support/<subpage>')
 def support(subpage):
     if subpage is not None:
-        uri = 'support/%s'%subpage + '.html'
-        return render_template(uri)
+        uri = 'support/%s' % subpage + '.html'
+        try:
+            return render_template(uri)
+        except TemplateNotFound:
+            abort(404)
     else:
         return render_template('/support/index.html')
 
