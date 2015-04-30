@@ -1,4 +1,5 @@
 <body>
+
   <div id="header">
     <div id="banner">
     	{% include "header.html" %}
@@ -7,9 +8,8 @@
     	{% include "navigation.html" %}
     </div>
   </div>
-  <div></div>
 
-	<div id="content-wrapper">
+  <div id="content-wrapper">
 		<img id="news_image" src={{image}}>
 		<h1 id="news_title">{{ news['headline'] }} </h1>	
 		<h4 id="news_date">{{ news['post_date'] }}</h6>

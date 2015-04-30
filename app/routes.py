@@ -77,6 +77,13 @@ def alertsIdAjax(alert_id):
 		alert_result.append(json)
 		return jsonify(alert=alert_result)
 
+@app.route('/news/<int:news_id>')
+def getNewsWithId(news_id):
+    news = News.query.filter_by(id=news_id).first()
+    image = 'https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg'
+    return render_template('NewsArticle.html', news=news, image=image)
+
+
 @app.route('/retrieveNews', methods=['GET'])
 @crossdomain(origin='*')
 def newsAjax():
@@ -113,6 +120,31 @@ def sideviewsAjax():
             json = sideview.to_json_format()
             sideview_result.append(json)
         return jsonify(sideviews=sideview_result)
+
+@app.route('/retrievePeople', methods=['GET'])
+def allPeopleAjax():
+    if request.method == 'GET':
+        faculties = Faculty.query.all()
+
+        people_result = []
+        for faculty in faculties:
+            json = {'id': faculty.id,
+                    'name': faculty.user.fname + ' ' + faculty.user.lname,
+                    'person_type': faculty.faculty_type,
+                    'job_title': faculty.faculty_rank,
+                    'image_url': 'https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg'}
+            people_result.append(json)
+
+        staffs = Staff.query.all()
+        for staff in staffs:
+            json = {'id': staff.id,
+                    'name': staff.user.fname + ' ' + staff.user.lname,
+                    'person_type': 'staff',
+                    'job_title': staff.position,
+                    'image_url': 'https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg'}
+            people_result.append(json)
+        return jsonify(people=people_result)
+
 
 @app.route('/retrieveFullTimeFaculty', methods=['GET'])
 def fullTimeFacultyAjax():
@@ -227,8 +259,6 @@ def facultyIdAjax(faculty_id):
         faculty_result.append(json)
         return jsonify(faculty=faculty_result)
 
-
-
 @app.route('/addNews')
 def addNews():
 	#if not session.get('logged_in'):
@@ -315,6 +345,10 @@ def submitAlertEdits(alert_id):
 def carousel():
     return render_template('carousel.html')
 
+@app.route('/professors')
+def professorsPages():
+    return render_template('professors.html')
+
 
 @app.route('/article', methods=['POST', 'GET'])
 def article():
@@ -342,7 +376,6 @@ def loadJson():
 	j = open(os.path.join(os.path.dirname(__file__), 'static/json-data/about-page.json'), 'r')
 	data = json.load(j)
 	return jsonify(data)
-
 
 
 ###STATIC ROUTES SERVIN' UP SOME GOOD OL' FASHIONED HTML###
@@ -385,15 +418,6 @@ def support(pagename):
     else:
         return render_template('/support/index.html')
 
-
-
-
-@app.route('/news/<int:news_id>')
-def getNewsWithId(news_id):
-    news = News.query.filter_by(id=news_id).first()
-    image = 'https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg'
-    return render_template('NewsArticle.html', news=news, image=image)
-
 #@app.route('/about')
 # def aboutGeneral():
 # return render_template('pageTemplate.html', content="about")
@@ -401,4 +425,3 @@ def getNewsWithId(news_id):
 # @app.route('/academics')
 # def aboutGeneral():
 # 	return render_template('pageTemplate.html', content="academics")
-
