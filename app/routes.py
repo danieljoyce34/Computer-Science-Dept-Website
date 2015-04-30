@@ -1,8 +1,11 @@
-from flask import render_template, request, jsonify, make_response, request, current_app, redirect, url_for
+from flask import render_template, request, jsonify, make_response, request
+from flask import current_app, redirect, url_for, abort
 from app import app, db
 from .models import Image, Sideview, News, Alert, Faculty, User, Staff, Education
 from .models import FacultyServices, FacultyInterests, CommitteeMembers, Committee
 import util
+import jinja2
+from jinja2 import TemplateNotFound
 
 from datetime import timedelta
 from functools import update_wrapper
@@ -382,7 +385,10 @@ def loadJson():
 def aboutUs(subpage):
     if subpage is not None:
         uri = 'about/%s' % subpage + '.html'
-        return render_template(uri)
+        try:
+            return render_template(uri)
+        except TemplateNotFound:
+            abort(404)
     else:
         return render_template('/about/index.html')
 
