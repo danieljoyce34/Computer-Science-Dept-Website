@@ -1,26 +1,34 @@
 {% extends "pageFrameTemplate.html" %}
 {% block title %}Computer Science Department{% endblock %}
-{% block head %} {{ super() }} {% endblock %}
+{% block head %} 
+	{{ super() }} 
+	<link rel="stylesheet" type="text/css" href="../static/profile-app/profile.css">
+{% endblock %}
 {% block header %} {{ super() }} {% endblock %}
 
 {% block content %}
     <div id="content">
-        	{% if data %}
-        		<div id="profile">
-	        		<div class="name">{{ data['salutation'] }} {{ data['fname'] }} {{data['minit']}} {{data['lname'] }} </div>
-	        		<div class="title"><b>Title: </b> {{ data['faculty_rank'] }} </div>
-	        		<div class="type"><b>Type: </b> {{ data['faculty_type'] }} </div>
-	        		<div class="office_loc"><b>Office: </b> {{ data['office_loc'] }} </div>
-	        		<div class="email"><b>Email: </b> {{ data['email'] }} </div>
+    	{% if data %}
 
-	        		{% if data['secondary_email'] %}
-	        			<div class="email-alt"><b>Alternate Email: </b> {{ data['secondary_email'] }} </div>
-	        		{% endif %}
-	        		<div class="web-page"><a href="{{ data['wesbite_url'] }} ">Personal Website</a></div>
+        	<div id="profile">
+        		<div id="profile-basics">
+        			<div id="profile-image"></div>
+        			<div id="profile-name">{{ data['salutation'] }} {{ data['fname'] }} {{data['minit']}} {{data['lname'] }}</div>
+        			<div id="profile-position">{{ data['faculty_rank'] }}, {{ data['faculty_type'] }}</div>
         		</div>
 
-       			 <div id="body">
+        		<div id="profile-info">
+        			<div id="info-office"><b>Office: </b> {{ data['office_loc'] }} </div>
+        			<div id="info-email"><b>Email: </b> {{ data['email'] }}</div>
+        			{% if data['secondary_email'] %}
+        				<div id="info-email-alt"><b>Alternate Email: </b> {{ data['secondary_email'] }}</div>
+        			{% endif %}
+        			<div id="info-web-page"><a href="{{ data['wesbite_url'] }} ">Personal Website</a></div>
+        		</div>
 
+       		</div>
+       		<!--
+			<div id="profile-body">
 		        	{% if data['educations'] %}
 		        		<div id="education"> Education
 				        	<ul id="degree-list">
@@ -100,9 +108,8 @@
 			        		</ul>
 		        		</div>
 		        	{% endif %}
-
-        		</div>
-
+        	</div>
+			-->
         	{% else %}
         		<div>Fetch Request failed</div>
         	{% endif %}
@@ -111,5 +118,5 @@
 
 {% block footer %}
     {{ super() }}
-    <script src="static/js/profile-logic.js"></script>
+    <script src="static/profile-app/profile-logic.js"></script>
 {% endblock %}
