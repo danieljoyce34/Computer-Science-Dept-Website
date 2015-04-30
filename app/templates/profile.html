@@ -32,33 +32,33 @@
 		        	{% if data['educations'] %}
 		        		<div class="education block">
 		        			<div class="title">Education</div>
-				        	<ul class="degree-list">
+				        	<div class="list">
 				        		{% for i in data['educations'] %}
-						        	<li class="list-item"> {{ i['degree'] }}   {{ i['discipline'] }}  {{ i['school'] }} </li>
+						        	<div class="list-item"> {{ i['degree'] }}   {{ i['discipline'] }}  {{ i['school'] }} </div>
 					        	{% endfor %}
-			        		</ul>
+			        		</div>
 		        		</div>
 		        	{% endif %}
 
 		        	{% if data['interests'] %}
 		        		<div class="interests block"> 
 		        			<div class="title">Interests</div>
-				        	<ul class="list">
+				        	<div class="list">
 				        		{% for i in data['interests'] %}
-						        	<li class="list-item"> {{i}} </li>
+						        	<div class="list-item"> {{i}} </div>
 					        	{% endfor %}
-			        		</ul>
+			        		</div>
 		        		</div>
 		        	{% endif %}
 
 		        	{% if data['services'] %}
 		        		<div class="services block"> 
 		        			<div class="title">Services</div>
-				        	<ul class="list">
+				        	<div class="list">
 				        		{% for i in data['services'] %}
-						        	<li class="list-item"> {{i}} </li>
+						        	<div class="list-item"> {{i}} </div>
 					        	{% endfor %}
-			        		</ul>
+			        		</div>
 		        		</div>
 		        	{% endif %}
 
@@ -69,11 +69,11 @@
 			        			<div class="title">Committees:</div>
 					        	{% if data['professional_committee'] %}
 					        		<div class="professional committee"> Professional
-							        	<ul class="list">
+							        	<div class="list">
 							        		{% for i in data['professional_committee'] %}
-									        	<li class="list-item"> {{i}} </li>
+									        	<div class="list-item"> {{i}} </div>
 								        	{% endfor %}
-						        		</ul>
+						        		</div>
 					        		</div>
 					        	{% endif %}
 
@@ -81,44 +81,44 @@
 					        	{% if data['university_committee'] %}
 					        		<div class="university committee"> 
 					        			<div class="title">University</div>
-							        	<ul class="list">
+							        	<div class="list">
 							        		{% for i in data['university_committee'] %}
-									        	<li class="list-item"> {{i}} </li>
+									        	<div class="list-item"> {{i}} </div>
 								        	{% endfor %}
-						        		</ul>
+						        		</div>
 					        		</div>
 					        	{% endif %}
 
 					        	{% if data['college_committee'] %}
 					        		<div class="college committee"> 
 					        			<div class="title">College</div>
-							        	<ul class="list">
+							        	<div class="list">
 							        		{% for i in data['college_committee'] %}
-									        	<li class="list-item"> {{i}} </li>
+									        	<div class="list-item"> {{i}} </div>
 								        	{% endfor %}
-						        		</ul>
+						        		</div>
 					        		</div>
 					        	{% endif %}
 
 					        	{% if data['department_committee'] %}
 					        		<div class="department committee"> 
 					        			<div class="title">Department</div>
-							        	<ul class="list">
+							        	<div class="list">
 							        		{% for i in data['department_committee'] %}
-									        	<li class="list-item"> {{i}} </li>
+									        	<div class="list-item"> {{i}} </div>
 								        	{% endfor %}
-						        		</ul>
+						        		</div>
 					        		</div>
 					        	{% endif %}
 
 					        	{% if data['inter_department_committee'] %}
 					        		<div class="inter_department committee"> 
 					        			<div class="title">Inter Department</div>
-							        	<ul class="list">
+							        	<div class="list">
 							        		{% for i in data['inter_department_committee'] %}
-									        	<li class="list-item"> {{i}} </li>
+									        	<div class="list-item"> {{i}} </div>
 								        	{% endfor %}
-						        		</ul>
+						        		</div>
 					        		</div>
 					        	{% endif %}
 
