@@ -345,10 +345,6 @@ def submitAlertEdits(alert_id):
 def carousel():
     return render_template('carousel.html')
 
-@app.route('/professors')
-def professorsPages():
-    return render_template('professors.html')
-
 
 @app.route('/article', methods=['POST', 'GET'])
 def article():
@@ -381,14 +377,15 @@ def loadJson():
 ###STATIC ROUTES SERVIN' UP SOME GOOD OL' FASHIONED HTML###
 ##MMMmmm MM good ol fashioned cooking!##
 
-@app.route('/aboutUs', defaults={'pagename':None})
-@app.route('/aboutUs:<path:pagename>')
-def aboutUs(pagename):
-    if pagename is not None:
-        uri = 'about/%s'%pagename + '.html'
+@app.route('/aboutUs', defaults={'subpage':None})
+@app.route('/aboutUs/<subpage>')
+def aboutUs(subpage):
+    if subpage is not None:
+        uri = 'about/%s' % subpage + '.html'
         return render_template(uri)
     else:
         return render_template('/about/index.html')
+
 
 @app.route('/academics')
 def academics():
@@ -409,11 +406,11 @@ def events():
 # @app.route('/support/')
 
 ##URLS are silly in flask, need to use a colon to separate the page, else if there's a trailing slash everything breaks###
-@app.route('/support', defaults={'pagename':None})
-@app.route('/support:<path:pagename>')
-def support(pagename):
-    if pagename is not None:
-        uri = 'support/%s'%pagename + '.html'
+@app.route('/support', defaults={'subpage':None})
+@app.route('/support/<subpage>')
+def support(subpage):
+    if subpage is not None:
+        uri = 'support/%s'%subpage + '.html'
         return render_template(uri)
     else:
         return render_template('/support/index.html')
