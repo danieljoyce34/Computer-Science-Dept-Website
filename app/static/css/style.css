@@ -7,6 +7,7 @@ body {
   font-family: "Helvetica", "Arial", sans-serif;
 }
 
+/* Header components */
 #header{
   position: fixed;
   top: 0;
@@ -16,7 +17,7 @@ body {
   background: #1F3664;
   z-index: 1;
 }
-/* Header Style */
+
 #banner{
   position: relative;
   width: 70%;
@@ -42,9 +43,7 @@ body {
   font-family: italic;
   font-variant: small-caps;
 }
-/* End Header Style */
 
-/* Centers the nav menu and sets the menu width/height */
 #nav-wrapper{
   position: relative;
   height: 40px;
@@ -52,24 +51,101 @@ body {
   min-width: 780px;
   margin: 0 auto;
 }
+/* End Header components */
 
-#content-wrapper{
-  position: fixed;
+
+/* Content components */
+
+/* content - all space under header */
+#content{
+  position: absolute;
   top: 140px;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
-  padding: 0 10%;
   overflow: auto;
+  background: #D8D8D8;
 }
 
-/*
-#content{
-  width: 100%;
+/* Wraps and centers main content*/
+#content-wrapper{
+  position: relative;
+  width: 80%;
   min-width: 780px;
-  height: 100%;
+  height: auto;
   margin: 0 auto;
-}*/
+  background: #fff;
+}
+/* Required to give wrapper a height */
+#content-wrapper:after{
+  clear: both;
+  content: "";
+  display: block;
+}
+/* End Content components */
+
+/* Footer */
+#footer-wrapper{
+  width: 80%;
+  background-color: rgb(31, 54, 100);
+  font-size: 11px;
+  color: white;
+  padding: 0 10%;
+}
+
+/* Overrides navigation js changes to the content's left/right values */
+@media screen and (min-width: 781px){
+  #content{
+    left: 0 !important;
+    right: 0 !important;
+  }
+}
+
+@media screen and (max-width: 780px){
+  #header{ 
+    height: auto;
+    bottom: 0; 
+  }
+
+  #banner{
+    width: 100%;
+    min-width: 200px;
+    height: 65px;
+  }
+
+  #nav-wrapper{
+    width: 200px;
+    min-width: 0;
+    height: auto;
+    position: absolute;
+    top: 65px;
+    bottom: 0;
+    float: left;
+  }
+
+  #content{
+    top: 105px;
+    z-index: 2;
+    background: #fff;
+  }
+
+  #content-wrapper{
+    width: 100%;
+    margin: 0;
+    min-width: 0;
+    z-index: 2;
+  }  
+}
+
+
+
+
+
+
+
+
+
+
 
 /* 
   Added fixed heights for cards for now since the cards do not have content
@@ -104,21 +180,20 @@ body {
   overflow: auto;
 }
 
-@media screen and (min-width: 830px){
-  /*
-  #content{
-    padding: 0 10px;
-  }*/
+/* Stacks cards on top of each other */
+@media screen and (max-width: 780px){
+  .alert-card, .sidebar-card{ width: 100%; }
+  .sidebar-card{ height: auto; }
+  .alert-card{ height: 300px; }
 }
 
+/*
 @media screen and (min-width: 781px){
   #content-wrapper{
     left: 0 !important;
     right: 0 !important;
   }
 }
-
-/* Header text responsiveness */
 @media screen and (max-width: 1275px){
   #header-text{
     font-size: 2.5em;
@@ -136,16 +211,6 @@ body {
     padding: 0 5%;
   }
 }
-@media screen and (max-width: 900px){
-  .alert-card{
-    width: 100%;
-  }
-
-  .sidebar-card{
-    width: 100%;
-    height: auto;
-  }
-}
 
 @media screen and (max-width: 780px){
   #header{
@@ -157,10 +222,7 @@ body {
     width: 100%;
     min-width: 0
   }
-
-  #banner{
-    height: 65px;
-  }
+  #banner{height: 65px;}
 
   #nav-wrapper{
     width: 200px;
@@ -178,7 +240,8 @@ body {
     background: #fff;
     padding: 0;
   }
-}
+
+}*/
 
 #sidebar {
   padding: 5%;
@@ -214,15 +277,4 @@ body {
   width: 6em;
   height: 6em;
   margin: 1px 5px 5px 0px;
-}
-
-#footer-wrapper{
-  position: relative;
-  padding: 0 10%;
-  overflow: auto;
-  right: 15%;
-  width: 125%;
-  background-color: rgb(31, 54, 100);
-  font-size: 11px;
-  color: white;
 }

@@ -1,28 +1,6 @@
 $(document).ready(function(){
-
 	// Resonsive navigation button - shows/hides side navbar
-	$('#nav-switch').click(function(){
-		if($('#nav').css('display') == 'none'){
-			$('#nav').show();
-			$('#content-wrapper').children().css('pointer-events', 'none');
-			// Slide animation for the responsive navigation bar
-			$('#content-wrapper').animate({
-				left: 200,
-				right: -200
-			}, 200, function(){
-			});
-		}
-		else{
-			// Slide animation for the responsive navigation bar
-			$('#content-wrapper').animate({
-				left: 0,
-				right: 0
-			}, 200, function(){
-				$('#nav').hide();
-				$('#content-wrapper').children().css('pointer-events', 'auto');
-			});
-		}
-	});
+	$('#nav-switch').click(function(){ $('#nav').css('display') == 'none' ? showNav() : hideNav(); });
 
 	// For Mobile devices - shows the submenu options when a menu item is swiped down
 	$('.nav-item').on('swiperight', function(){
@@ -31,21 +9,36 @@ $(document).ready(function(){
 	});
 
 	// Hides the responsive sidenav bar when the page content is clicked
-	$('#content-wrapper').click(function(){
-		if($(this).css('left') == '200px'){
-			$(this).animate({
-				left: 0,
-				right: 0
-			}, 200, function(){
-				$('#nav').hide();
-				$('#content-wrapper').children().css('pointer-events', 'auto');
-			});
-		}
+	$('#content').click(function(){
+		if($(this).css('left') == '200px')
+			hideNav();
 	});
 
 	// Slide transition for displaying submenu options on hover
 	$('.nav-item').hover(
-		function(){ $(this).children('.subnav').slideDown(125); },
-		function(){ $(this).children('.subnav').slideUp(125); }
+		function(){ $(this).children('.subnav').slideDown(100); },
+		function(){ $(this).children('.subnav').slideUp(100); }
 	);
 });
+
+// Shows the responsive navigation menu
+function showNav(){
+	$('#nav').show();
+	$('#content').children().css('pointer-events', 'none');
+	// Responsive nav menu slide animation
+	$('#content').animate({
+		left: 200,
+		right: -200
+	}, 200, function(){});
+}
+
+// Hides the responsive navigation menu
+function hideNav(){
+	$('#content').animate({
+		left: 0,
+		right: 0
+	}, 200, function(){
+		$('#nav').hide();
+		$('#content').children().css('pointer-events', 'auto');
+	});
+}
