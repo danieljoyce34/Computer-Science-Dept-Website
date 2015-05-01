@@ -148,3 +148,7 @@
 	text-align: center;
 	font-size: 1.25em;
 }
+
+.committee > .title {
+	text-align: center;
+}
