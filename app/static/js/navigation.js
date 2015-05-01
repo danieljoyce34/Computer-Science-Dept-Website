@@ -9,7 +9,7 @@ $(document).ready(function(){
 	});
 
 	// Hides the responsive sidenav bar when the page content is clicked
-	$('#content').click(function(){
+	$('#page-content').click(function(){
 		if($(this).css('left') == '200px')
 			hideNav();
 	});
@@ -24,9 +24,9 @@ $(document).ready(function(){
 // Shows the responsive navigation menu
 function showNav(){
 	$('#nav').show();
-	$('#content').children().css('pointer-events', 'none');
+	$('#page-content').children().css('pointer-events', 'none');
 	// Responsive nav menu slide animation
-	$('#content').animate({
+	$('#page-content').animate({
 		left: 200,
 		right: -200
 	}, 200, function(){});
@@ -34,11 +34,11 @@ function showNav(){
 
 // Hides the responsive navigation menu
 function hideNav(){
-	$('#content').animate({
+	$('#page-content').animate({
 		left: 0,
 		right: 0
 	}, 200, function(){
 		$('#nav').hide();
-		$('#content').children().css('pointer-events', 'auto');
+		$('#page-content').children().css('pointer-events', 'auto');
 	});
 }

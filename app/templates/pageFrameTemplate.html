@@ -6,6 +6,7 @@
 			    <!-- <link href="static/profile-app/profile.css" rel="stylesheet" type="text/css"/> -->
 			    <script src="static/js/jquery-2.1.1.min.js"></script>
 			    <meta charset=utf-8 />
+		        <meta name="viewport" content="width=device-width" />
 			    <title>
 			    	{% block title %}Computer Science Department of Villanova{% endblock %}
 			    </title>
@@ -19,12 +20,9 @@
 			{% endblock %}
 		</div>
 
-		<div id="content-wrapper">{% block content %}{% endblock %}</div>
-
-		<div id="footer">
-			{% block footer %}
-				{% include "footer.html" %}
-			{% endblock %}
+		<div id="page-content">
+			<div id="content-wrapper">{% block content %}{% endblock %}</div>
+			<div id="footer-wrapper">{% include "footer.html" %}</div>
 		</div>
 	</body>
 </html>

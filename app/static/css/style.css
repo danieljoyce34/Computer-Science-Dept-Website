@@ -57,7 +57,7 @@ body {
 /* Content components */
 
 /* content - all space under header */
-#content{
+#page-content{
   position: absolute;
   top: 140px;
   right: 0;
@@ -95,7 +95,7 @@ body {
 
 /* Overrides navigation js changes to the content's left/right values */
 @media screen and (min-width: 781px){
-  #content{
+  #page-content{
     left: 0 !important;
     right: 0 !important;
   }
@@ -123,7 +123,7 @@ body {
     float: left;
   }
 
-  #content{
+  #page-content{
     top: 105px;
     z-index: 2;
     background: #fff;

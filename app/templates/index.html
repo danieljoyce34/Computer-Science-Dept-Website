@@ -1,25 +1,11 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset=utf-8 />
-    <meta name="viewport" content="width=device-width" />
-    <title>Villanova Computer Science</title>
-  </head>
+<!-- Home Page -->
+{% extends "pageFrameTemplate.html" %}
+{% block title %}Villanova Computer Science{% endblock %}
+{% block head %} {{ super() }} {% endblock %}
+{% block header %} {{ super() }} {% endblock %}
 
-  <body>
-    <div id="header">
-      <div id="banner">{% include "header.html" %}</div>
-      <div id="nav-wrapper">{% include "navigation.html" %}</div>
-    </div>
-
-    <div id="content">
-      <div id="content-wrapper">
-        <div class="news-card card">{% include "carousel.html" %}</div>
-        <div class="alert-card card">{% include "alerts.html" %}</div>
-        <div class="sidebar-card card">{% include "sidebar.html" %}</div> 
-      </div>
-      <div id="footer-wrapper"> {% include "footer.html" %} </div>
-    </div>
-    
-  </body>
-</html>
+{% block content %}
+<div class="news-card card">{% include "carousel.html" %}</div>
+<div class="alert-card card">{% include "alerts.html" %}</div>
+<div class="sidebar-card card">{% include "sidebar.html" %}</div> 
+{% endblock %}
