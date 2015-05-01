@@ -1,22 +1,11 @@
-<body>
+{% extends "pageFrameTemplate.html" %}
+{% block title %}{{ news['headline'] }}{% endblock %}
+{% block head %} {{ super() }} {% endblock %}
+{% block header %} {{ super() }} {% endblock %}
 
-  <div id="header">
-    <div id="banner">
-    	{% include "header.html" %}
-    </div>
-    <div id="nav-wrapper">
-    	{% include "navigation.html" %}
-    </div>
-  </div>
-
-  <div id="content-wrapper">
-		<img id="news_image" src={{image}}>
-		<h1 id="news_title">{{ news['headline'] }} </h1>	
-		<h4 id="news_date">{{ news['post_date'] }}</h6>
-		<p id="">
-			{{ news['article'] }}
-		</p>
-
-	</div>
-
-</body>
+{% block content %}
+  <img id="news_image" src={{image}}>
+  <h1 id="news_title">{{ news['headline'] }} </h1>  
+  <h4 id="news_date">{{ news['post_date'] }}</h6>
+  <p id="">{{ news['article'] }}</p>
+{% endblock %}

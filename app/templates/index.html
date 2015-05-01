@@ -1,7 +1,10 @@
 <!-- Home Page -->
 {% extends "pageFrameTemplate.html" %}
 {% block title %}Villanova Computer Science{% endblock %}
-{% block head %} {{ super() }} {% endblock %}
+{% block head %} 
+	{{ super() }} 
+	<link rel="stylesheet" type="text/css" href="static/css/home.css">
+{% endblock %}
 {% block header %} {{ super() }} {% endblock %}
 
 {% block content %}

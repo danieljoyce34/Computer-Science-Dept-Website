@@ -137,63 +137,7 @@ body {
   }  
 }
 
-
-
-
-
-
-
-
-
-
-
-/* 
-  Added fixed heights for cards for now since the cards do not have content
-  The cards will need to have some sort of fixed height and width in the end
-  to normalize content --DS
-*/
-.card {
-  margin: 5px 0;
-  display: inline-block;
-  border-radius: 3px;
-  position: relative;
-} 
-
-.news-card {
-  width: 100%;
-  height: 400px;
-}
-
-.alert-card {
-  background-color: lightgrey;
-  width: 66%;
-  height: 400px;
-  float: left;
-  overflow: auto;
-}
-
-.sidebar-card {
-  background-color: #94C8D9;
-  width: 33%;
-  height: 400px;
-  float: right;
-  overflow: auto;
-}
-
-/* Stacks cards on top of each other */
-@media screen and (max-width: 780px){
-  .alert-card, .sidebar-card{ width: 100%; }
-  .sidebar-card{ height: auto; }
-  .alert-card{ height: 300px; }
-}
-
 /*
-@media screen and (min-width: 781px){
-  #content-wrapper{
-    left: 0 !important;
-    right: 0 !important;
-  }
-}
 @media screen and (max-width: 1275px){
   #header-text{
     font-size: 2.5em;
@@ -207,62 +151,10 @@ body {
     bottom: 1em;
     left: 5.5em;
   }
-  #content-wrapper{
-    padding: 0 5%;
-  }
 }
+*/
 
-@media screen and (max-width: 780px){
-  #header{
-    height: auto;
-    bottom: 0;
-  }
-
-  #content, #banner{
-    width: 100%;
-    min-width: 0
-  }
-  #banner{height: 65px;}
-
-  #nav-wrapper{
-    width: 200px;
-    min-width: 0;
-    height: auto;
-    position: absolute;
-    top: 65px;
-    bottom: 0;
-    float: left;
-  }
-
-  #content-wrapper{
-    top: 105px;
-    z-index: 2;
-    background: #fff;
-    padding: 0;
-  }
-
-}*/
-
-#sidebar {
-  padding: 5%;
-  width: 90%;
-}
-
-#sidebar .side-title {
-  font-variant: small-caps;
-  font-size: 1em;
-  font: Garamond;
-}
-
-#sidebar .side-content { 
-  /*padding: 15px; */
-}
-
-.staff_container {
-  width: 200px !important;
-  background-color: white;
-}
-
+/* Not sure what this is and why it's here -Will */
 .profile_image {
   height: 100px !important;
   width: 100px !important;
@@ -270,11 +162,4 @@ body {
   background-position: center;
   border-radius: 150px;
   margin: auto;
-}
-
-#sidebar .side-image {
-  float: left;
-  width: 6em;
-  height: 6em;
-  margin: 1px 5px 5px 0px;
 }
