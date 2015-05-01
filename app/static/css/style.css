@@ -27,12 +27,22 @@ body {
 }
 
 #logo {
-  position: absolute;
   width: auto;
+  float: left;
   margin-right: 10px;
   height: 100%;
 }
 
+#header-text{
+  height: 100%;
+  line-height: 100px;
+  color: #fff;
+  font-size: 3em;
+  font: Garamond, Book;
+  font-family: italic;
+  font-variant: small-caps;
+}
+/*
 #header-text {
   position: absolute;
   bottom: 0.5em;
@@ -42,7 +52,7 @@ body {
   font: Garamond, Book;
   font-family: italic;
   font-variant: small-caps;
-}
+}*/
 
 #nav-wrapper{
   position: relative;
@@ -134,25 +144,33 @@ body {
     margin: 0;
     min-width: 0;
     z-index: 2;
-  }  
+  } 
+
+  #header-text{
+    line-height: 65px;
+  }
 }
 
-/*
-@media screen and (max-width: 1275px){
+@media screen and (max-width: 1219px){
   #header-text{
     font-size: 2.5em;
-    bottom: 0.75em;
-    left: 4.5em;
   }
 }
-@media screen and (max-width: 1085px){
+@media screen and (max-width: 1045px){
   #header-text{
     font-size: 2em;
-    bottom: 1em;
-    left: 5.5em;
   }
 }
-*/
+@media screen and (max-width: 872px){
+  #header-text{
+    font-size: 1.5em;
+  }
+}
+@media screen and (max-width: 454px){
+  #header-text{
+    font-size: 1.25em;
+  }
+}
 
 /* Not sure what this is and why it's here -Will */
 .profile_image {
