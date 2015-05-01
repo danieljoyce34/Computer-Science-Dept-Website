@@ -1,104 +1,53 @@
 #profile {
 	position: relative;
 	width: 100%;
-	background: orange;
-	margin-bottom: 20px;
-	display: flex;
-	flex-direction: column;
+	height: auto;
+	margin: 10px auto;
 	font-family: helvetica;
-	/*
-	margin: 1em;
-	margin-left: 2em;
-	position: relative;
-	border: solid;*/
+}
+/* Needed for giving a height to profile div */
+#profile:after{
+	clear: both;
+	content: "";
+	display: block;
+}
+
+#profile > div{
+	float: left;
+	margin: 20px;
 }
 
 #profile-basics{
-	float: left;
-	height: auto;
 	width: 200px;
-	height: 300px;
+}
+
+#profile-basics	> div{
+	text-align: center;
 }
 
 #profile-image{
-	width: 150px;
-	height: 150px;
-	clear: both;
+	width: 200px;
+	height: 200px;
 	margin: 0 auto;
 	background-image: url('https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/000/2c8/24c/039e2a7.jpg');
 	background: url('https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/000/2c8/24c/039e2a7.jpg');
-	background-size: 150px 150px;
+	background-size: 200px 200px;
 	background-position: center; 
 	border-radius: 150px;
 }
 
-#profile-basics > div{
-	text-align: center;
+#profile-info{
+	padding-top: 40px;
+	background: white;
 }
 
-#profile-info{
-	float: left;
-}
 #profile-info > div{
 	clear: both;
 }
 
-/*
-.profile_image {
-  height: 100px !important;
-  width: 100px !important;
-  background-size: 100px 100px;
-  background-position: center;
-  border-radius: 150px;
-  margin: auto;
-}
-*/
-/*.profile-image {
-	height: 9em;
-	width: 9em;
-	border-radius: 4.5em;
-	-webkit-border-radius: 4.5em;
-	-moz-border-radius: 4.5em;
-	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-	/*margin: 4em;*/
-	/*position: relative; */
-
-}
-/* This makes a nice circle */
-
-
-.profile-image2 {
-	height: 9em;
-	width: 9em;
-	border-radius: 3em;
-	-webkit-border-radius: 3em;
-	-moz-border-radius: 3em;
-	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-}
-
-/* don't use the css columns, it's bad */
-
-.id {
-	margin: 1em;
-	position: inherit;
-	border: solid;
-	width: 25em;
-	float: left;
-	display: inline;
-}
-
-.bio {
-	margin: 1em;
-	position: inherit;
-	border: solid;
-	width: 25em;
-	/*left: 30em;*/
-	float: left;
-	display: inline;
+#profile-hours{
+	height: 150px;
+	width: 200px;
 }
 
 #profile-body {
@@ -131,13 +80,17 @@
 	font-family: helvetica;
 }
 
-.title {
+#profile-body .title {
 	font-weight: bold;
 	display: left;
 	/*margin-left: 5em;*/
 	margin: 1em;
 	/*font-size: 1.25em;*/
 	/*font-variant: small-caps;*/
+}
+
+#profile-info .title{
+	font-weight: bold;
 }
 
 .list {

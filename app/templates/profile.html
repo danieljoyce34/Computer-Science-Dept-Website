@@ -10,22 +10,26 @@
     <div id="content">
     	{% if data %}
 
-        	<div id="profile">
+        	<div id="profile" class="block">
         		<div id="profile-basics">
         			<div id="profile-image"></div>
         			<div id="profile-name">{{ data['salutation'] }} {{ data['fname'] }} {{data['minit']}} {{data['lname'] }}</div>
         			<div id="profile-position">{{ data['faculty_rank'] }}, {{ data['faculty_type'] }}</div>
         		</div>
-
+        		
+        	
         		<div id="profile-info">
-        			<div id="info-office"><div class="title">Office:</div> {{ data['office_loc'] }} </div>
-        			<div id="info-email"><div class="title">Email:</div> {{ data['email'] }}</div>
+        			<div id="info-office"><span class="title">Office:</span> {{ data['office_loc'] }} </div>
+        			<div id="info-email"><span class="title">Email:</span> {{ data['email'] }}</div>
         			{% if data['secondary_email'] %}
-        				<div id="info-email-alt"><div class="title">Alternate Email: </div> {{ data['secondary_email'] }}</div>
+        				<div id="info-email-alt"><span class="title">Alternate Email: </span> {{ data['secondary_email'] }}</div>
         			{% endif %}
         			<div id="info-web-page"><a href="{{ data['wesbite_url'] }} ">Personal Website</a></div>
         		</div>
 
+        		<div id="profile-hours">
+        			Office Hours
+        		</div>
        		</div>
        		
 			<div id="profile-body">
