@@ -171,13 +171,3 @@ body {
     font-size: 1.25em;
   }
 }
-
-/* Not sure what this is and why it's here -Will */
-.profile_image {
-  height: 100px !important;
-  width: 100px !important;
-  background-size: 100px 100px;
-  background-position: center;
-  border-radius: 150px;
-  margin: auto;
-}

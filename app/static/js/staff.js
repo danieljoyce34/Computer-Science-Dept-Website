@@ -79,12 +79,18 @@ function getStaff (type) {
 	$('#staff-list').find('.staff-container').remove();
 	for(var i = 0; i < staff.length; i++){
 		if(type == 'all' || type == staff[i].type){
-			console.log(staff[i].image_url);
+			//console.log(staff[i].image_url);
+			//$('#staff-list').append($('<div class="staff-container">')
+			//		.append($('<div class="staff-name">').text(staff[i].name))
+			//		.append($('<div class="staff-position">').text(staff[i].job_title))
+			//		.append($('<div class="staff-email">').text(staff[i].person_type))
+			//		.prepend($('<div class="profile_image">').css('background-image', 'url(' + staff[i].image_url + ')').css('height', 111)));
 			$('#staff-list').append($('<div class="staff-container">')
-					.append($('<div class="staff-name">').text(staff[i].name))
-					.append($('<div class="staff-position">').text(staff[i].job_title))
-					.append($('<div class="staff-email">').text(staff[i].person_type))
-					.prepend($('<div class="profile_image">').css('background-image', 'url(' + staff[i].image_url + ')').css('height', 111)));
+				.append($('<img src="' + staff[i].image_url + '" class="profile_image">'))
+				.append($('<div class="staff-name">').text(staff[i].name))
+				.append($('<div class="staff-position">').text(staff[i].job_title))
+				.append($('<div class="staff-email">').text(staff[i].person_type))
+			);
 		}
 	}
 }
