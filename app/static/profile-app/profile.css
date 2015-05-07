@@ -1,0 +1,107 @@
+#profile {
+	position: relative;
+	width: 100%;
+	height: auto;
+	margin: 10px auto;
+	font-family: helvetica;
+}
+/* Needed for giving a height to profile div */
+#profile:after{
+	clear: both;
+	content: "";
+	display: block;
+}
+
+#profile > div{
+	margin: 20px;
+}
+
+#profile-basics{
+	width: 200px;
+	float: left;
+}
+
+#profile-basics	> div{
+	text-align: center;
+}
+
+#profile-image{
+	width: 200px;
+	height: 200px;
+	margin: 0 auto;
+	background-image: url('https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/000/2c8/24c/039e2a7.jpg');
+	background: url('https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/000/2c8/24c/039e2a7.jpg');
+	background-size: 200px 200px;
+	background-position: center; 
+	border-radius: 150px;
+}
+
+#profile-info{
+	padding-top: 40px;
+	background: white;
+	float: left;
+}
+
+#profile-info > div{
+	clear: both;
+}
+
+#profile-hours{
+	height: 150px;
+}
+
+#profile-body {
+	margin: 1em 0;
+	position: relative;
+	/*display: block;*/
+	display: flex;
+	flex-direction: column;
+	/*float:left;*/
+	/*margin-left: 25%;*/
+}
+
+.block {
+	/*float: left;*/
+	/*flex-direction: column;*/
+/*	margin-left: 5em;
+	margin: 2em;*/
+	font-family: helvetica;
+	margin: 1em 0;
+	-webkit-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.3);
+	box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.3);
+
+}
+
+.block .title {
+	font-weight: bold;
+	font-size: 1.25em;
+	font-family: helvetica;
+}
+
+#profile-body .title {
+	font-weight: bold;
+	display: left;
+	/*margin-left: 5em;*/
+	margin: 1em;
+	/*font-size: 1.25em;*/
+	/*font-variant: small-caps;*/
+}
+
+#profile-info .title{
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.list {
+	margin: 1em;
+}
+
+.list .list-item {
+	text-align: center;
+	font-size: 1.25em;
+}
+
+.committee > .title {
+	text-align: center;
+}
