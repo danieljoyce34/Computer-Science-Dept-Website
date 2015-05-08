@@ -33,7 +33,7 @@ body {
   height: 100%;
 }
 
-#header-text{
+#header-text, #header-text-responsive{
   height: 100%;
   line-height: 100px;
   color: #fff;
@@ -41,6 +41,9 @@ body {
   font: Garamond, Book;
   font-family: italic;
   font-variant: small-caps;
+}
+#header-text-responsive{
+  display: none;
 }
 /*
 #header-text {
@@ -167,6 +170,10 @@ body {
 }
 @media screen and (max-width: 454px){
   #header-text{
+    display: none;
+  }
+  #header-text-responsive{
     font-size: 1.25em;
+    display: block;
   }
 }
