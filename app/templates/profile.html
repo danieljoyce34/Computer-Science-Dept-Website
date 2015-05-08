@@ -37,7 +37,6 @@
 		   	{% if data['educations'] %}
 		   		<div class="education block">
 		   			<div class="title">Education</div>
-		   			<hr>
 		        	<div class="list">
 		        		{% for i in data['educations'] %}
 				        	<div class="list-item"> {{ i['degree'] }}   {{ i['discipline'] }}  {{ i['school'] }} </div>
@@ -49,7 +48,6 @@
 		    {% if data['interests'] %}
 		    	<div class="interests block"> 
 		    		<div class="title">Interests</div>
-		    		<hr>
 			       	<div class="list">
 			       		{% for i in data['interests'] %}
 				        	<div class="list-item"> {{i}} </div>
@@ -61,7 +59,6 @@
 		    {% if data['services'] %}
 		    	<div class="services block"> 
 		    		<div class="title">Services</div>
-		    		<hr>
 			       	<div class="list">
 			       		{% for i in data['services'] %}
 				        	<div class="list-item"> {{i}} </div>
@@ -75,7 +72,6 @@
 		        		
 			    <div id="committees" class="block">
 			        <div class="title">Committees</div>
-			        <hr>
 				    {% if data['professional_committee'] %}
 				        <div class="professional committee"> Professional
 						    <div class="list">
@@ -107,7 +103,7 @@
 			        		</div>
 		        		</div>
 		        	{% endif %}
-
+		        	
 		        	{% if data['department_committee'] %}
 		        		<div class="department committee"> 
 		        			<div class="title">Department</div>
