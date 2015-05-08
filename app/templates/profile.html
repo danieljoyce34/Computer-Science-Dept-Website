@@ -7,133 +7,135 @@
 {% block header %} {{ super() }} {% endblock %}
 
 {% block content %}
-    <div id="content">
-    	{% if data %}
-
-        	<div id="profile" class="block">
-        		<div id="profile-basics">
-        			<div id="profile-image"></div>
-        			<div id="profile-name">{{ data['salutation'] }} {{ data['fname'] }} {{data['minit']}} {{data['lname'] }}</div>
-        			<div id="profile-position">{{ data['faculty_rank'] }}</div>
-        		</div>
+	{% if data %}
+        <div id="profile" class="block">
+        	<div id="profile-basics">
+        		<div id="profile-image"></div>
+        		<div id="profile-name">{{ data['salutation'] }} {{ data['fname'] }} {{data['minit']}} {{data['lname'] }}</div>
+        		<div id="profile-position">{{ data['faculty_rank'] }}</div>
+        	</div>
         		
         	
-        		<div id="profile-info">
-        			<div id="info-office"><span class="title">Office:</span> {{ data['office_loc'] }} </div>
-        			<div id="info-email"><span class="title">Email:</span> {{ data['email'] }}</div>
-        			{% if data['secondary_email'] %}
-        				<div id="info-email-alt"><span class="title">Alternate Email: </span> {{ data['secondary_email'] }}</div>
+        	<div id="profile-info">
+        		<div id="info-office"><span class="title">Office:</span> {{ data['office_loc'] }} </div>
+        		<div id="info-email"><span class="title">Email:</span> {{ data['email'] }}</div>
+        		{% if data['secondary_email'] %}
+        			<div id="info-email-alt"><span class="title">Alternate Email: </span> {{ data['secondary_email'] }}</div>
         			{% endif %}
-        			<div id="info-web-page"><a href="{{ data['wesbite_url'] }} ">Personal Website</a></div>
-        		</div>
-
-        		<div id="profile-hours">
-        			Office Hours
-        		</div>
-       		</div>
-       		
-			<div id="profile-body">
-		        	{% if data['educations'] %}
-		        		<div class="education block">
-		        			<div class="title">Education</div>
-				        	<div class="list">
-				        		{% for i in data['educations'] %}
-						        	<div class="list-item"> {{ i['degree'] }}   {{ i['discipline'] }}  {{ i['school'] }} </div>
-					        	{% endfor %}
-			        		</div>
-		        		</div>
-		        	{% endif %}
-
-		        	{% if data['interests'] %}
-		        		<div class="interests block"> 
-		        			<div class="title">Interests</div>
-				        	<div class="list">
-				        		{% for i in data['interests'] %}
-						        	<div class="list-item"> {{i}} </div>
-					        	{% endfor %}
-			        		</div>
-		        		</div>
-		        	{% endif %}
-
-		        	{% if data['services'] %}
-		        		<div class="services block"> 
-		        			<div class="title">Services</div>
-				        	<div class="list">
-				        		{% for i in data['services'] %}
-						        	<div class="list-item"> {{i}} </div>
-					        	{% endfor %}
-			        		</div>
-		        		</div>
-		        	{% endif %}
-
-		        	{% if (data['university_committee'] or data['inter_department_committee'] or data ['department_committee'] or 
-		        		data['professional_committee'] or data['college_committee']) %}
-		        		
-			        		<div id="committees" class="block">
-			        			<div class="title">Committees</div>
-					        	{% if data['professional_committee'] %}
-					        		<div class="professional committee"> Professional
-							        	<div class="list">
-							        		{% for i in data['professional_committee'] %}
-									        	<div class="list-item"> {{i}} </div>
-								        	{% endfor %}
-						        		</div>
-					        		</div>
-					        	{% endif %}
-
-
-					        	{% if data['university_committee'] %}
-					        		<div class="university committee"> 
-					        			<div class="title">University</div>
-							        	<div class="list">
-							        		{% for i in data['university_committee'] %}
-									        	<div class="list-item"> {{i}} </div>
-								        	{% endfor %}
-						        		</div>
-					        		</div>
-					        	{% endif %}
-
-					        	{% if data['college_committee'] %}
-					        		<div class="college committee"> 
-					        			<div class="title">College</div>
-							        	<div class="list">
-							        		{% for i in data['college_committee'] %}
-									        	<div class="list-item"> {{i}} </div>
-								        	{% endfor %}
-						        		</div>
-					        		</div>
-					        	{% endif %}
-
-					        	{% if data['department_committee'] %}
-					        		<div class="department committee"> 
-					        			<div class="title">Department</div>
-							        	<div class="list">
-							        		{% for i in data['department_committee'] %}
-									        	<div class="list-item"> {{i}} </div>
-								        	{% endfor %}
-						        		</div>
-					        		</div>
-					        	{% endif %}
-
-					        	{% if data['inter_department_committee'] %}
-					        		<div class="inter_department committee"> 
-					        			<div class="title">Inter Department</div>
-							        	<div class="list">
-							        		{% for i in data['inter_department_committee'] %}
-									        	<div class="list-item"> {{i}} </div>
-								        	{% endfor %}
-						        		</div>
-					        		</div>
-					        	{% endif %}
-
-				        </div>
-			        {% endif %}
+        		<div id="info-web-page"><a href="{{ data['wesbite_url'] }} ">Personal Website</a></div>
         	</div>
+
+        	<div id="profile-hours">
+        		Office Hours<br>
+        		Monday: 1:00PM - 3:00PM<br>
+        		Wednesday: 12:00AM - 11:59PM<br>
+        		Friday: 10:00AM - 1:00PM
+        	</div>
+       	</div>
+       		
+		<div id="profile-body">
+		   	{% if data['educations'] %}
+		   		<div class="education block">
+		   			<div class="title">Education</div>
+		   			<hr>
+		        	<div class="list">
+		        		{% for i in data['educations'] %}
+				        	<div class="list-item"> {{ i['degree'] }}   {{ i['discipline'] }}  {{ i['school'] }} </div>
+			        	{% endfor %}
+		       		</div>
+		   		</div>
+		   	{% endif %}
+
+		    {% if data['interests'] %}
+		    	<div class="interests block"> 
+		    		<div class="title">Interests</div>
+		    		<hr>
+			       	<div class="list">
+			       		{% for i in data['interests'] %}
+				        	<div class="list-item"> {{i}} </div>
+			        	{% endfor %}
+			   		</div>
+		    	</div>
+		    {% endif %}
+
+		    {% if data['services'] %}
+		    	<div class="services block"> 
+		    		<div class="title">Services</div>
+		    		<hr>
+			       	<div class="list">
+			       		{% for i in data['services'] %}
+				        	<div class="list-item"> {{i}} </div>
+			        	{% endfor %}
+			   		</div>
+		    	</div>
+		    {% endif %}
+
+		    {% if (data['university_committee'] or data['inter_department_committee'] or data ['department_committee'] or 
+		        data['professional_committee'] or data['college_committee']) %}
+		        		
+			    <div id="committees" class="block">
+			        <div class="title">Committees</div>
+			        <hr>
+				    {% if data['professional_committee'] %}
+				        <div class="professional committee"> Professional
+						    <div class="list">
+						        {% for i in data['professional_committee'] %}
+								    <div class="list-item"> {{i}} </div>
+							   	{% endfor %}
+					       	</div>
+				       	</div>
+				    {% endif %}
+
+			       	{% if data['university_committee'] %}
+			       		<div class="university committee"> 
+			       			<div class="title">University</div>
+				        	<div class="list">
+				        		{% for i in data['university_committee'] %}
+						        	<div class="list-item"> {{i}} </div>
+					        	{% endfor %}
+			        		</div>
+			       		</div>
+			       	{% endif %}
+			       	
+		        	{% if data['college_committee'] %}
+		        		<div class="college committee"> 
+		        			<div class="title">College</div>
+				        	<div class="list">
+				        		{% for i in data['college_committee'] %}
+						        	<div class="list-item"> {{i}} </div>
+					        	{% endfor %}
+			        		</div>
+		        		</div>
+		        	{% endif %}
+
+		        	{% if data['department_committee'] %}
+		        		<div class="department committee"> 
+		        			<div class="title">Department</div>
+				        	<div class="list">
+				        		{% for i in data['department_committee'] %}
+						        	<div class="list-item"> {{i}} </div>
+					        	{% endfor %}
+			        		</div>
+		        		</div>
+		        	{% endif %}
+
+		        	{% if data['inter_department_committee'] %}
+			       		<div class="inter_department committee"> 
+			       			<div class="title">Inter Department</div>
+				        	<div class="list">
+				        		{% for i in data['inter_department_committee'] %}
+						        	<div class="list-item"> {{i}} </div>
+					        	{% endfor %}
+			        		</div>
+			       		</div>
+		        	{% endif %}
+			    </div>
+		    {% endif %}
+    	</div>
 			
-        	{% else %}
-        		<div>Fetch Request failed</div>
-        	{% endif %}
-    </div>
+    {% else %}
+       	<div>Fetch Request failed</div>
+    {% endif %}
 {% endblock %}
 
 {% block footer %}

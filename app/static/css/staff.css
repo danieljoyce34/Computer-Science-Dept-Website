@@ -26,12 +26,11 @@
 	margin: 15px 5px 0 10px;
 }
 
-
-
 #staff-list{
 	position: relative;
 	width: 100%;
 	text-align: center;
+	background: #fff;
 }
 
 .staff-container{

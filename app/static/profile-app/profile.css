@@ -1,9 +1,16 @@
+#content-wrapper{
+	background: #D8D8D8;
+}
+
 #profile {
 	position: relative;
 	width: 100%;
 	height: auto;
 	margin: 10px auto;
 	font-family: helvetica;
+	background: #fff;
+	min-width: 300px;
+	text-align: center;
 }
 /* Needed for giving a height to profile div */
 #profile:after{
@@ -14,16 +21,16 @@
 
 #profile > div{
 	margin: 20px;
+	display: inline-block;
+	vertical-align: middle;
 }
 
 #profile-basics{
 	width: 200px;
-	float: left;
+	height: auto;
 }
 
-#profile-basics	> div{
-	text-align: center;
-}
+#profile-basics	> div{ text-align: center; }
 
 #profile-image{
 	width: 200px;
@@ -37,9 +44,9 @@
 }
 
 #profile-info{
-	padding-top: 40px;
 	background: white;
-	float: left;
+	min-width: 300px;
+	text-align: left;
 }
 
 #profile-info > div{
@@ -47,7 +54,10 @@
 }
 
 #profile-hours{
-	height: 150px;
+	min-width: 300px;
+	width: auto;
+	height: auto;
+	text-align: left;
 }
 
 #profile-body {
@@ -58,6 +68,7 @@
 	flex-direction: column;
 	/*float:left;*/
 	/*margin-left: 25%;*/
+	background: #D8D8D8;
 }
 
 .block {
@@ -70,20 +81,22 @@
 	-webkit-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.3);
 	-moz-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.3);
 	box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.3);
-
+	background: #fff;
 }
 
 .block .title {
+	width: 100%;
 	font-weight: bold;
 	font-size: 1.25em;
 	font-family: helvetica;
+	text-align: center;
+	margin: 10px auto;
 }
 
 #profile-body .title {
 	font-weight: bold;
 	display: left;
 	/*margin-left: 5em;*/
-	margin: 1em;
 	/*font-size: 1.25em;*/
 	/*font-variant: small-caps;*/
 }
@@ -94,12 +107,14 @@
 }
 
 .list {
-	margin: 1em;
+	width: auto;
+	height: auto;
+	margin: 0 auto;
 }
 
 .list .list-item {
 	text-align: center;
-	font-size: 1.25em;
+	font-size: 1.1em;
 }
 
 .committee > .title {

@@ -84,7 +84,6 @@ body {
   min-width: 780px;
   height: auto;
   margin: 0 auto;
-  background: #fff;
 }
 /* Required to give wrapper a height */
 #content-wrapper:after{
