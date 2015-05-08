@@ -1,4 +1,5 @@
-// Needs some kind of form validation
+// TODO: Needs some kind of form validation
+// TODO: Fix date formatting
 
 var baseURL = "http://127.0.0.1:5000/"
 
@@ -69,7 +70,7 @@ function showNewsForm(){
 	$('#news-editor-preview').hide();
 	$('#news-editor-edit').prop('disabled',true);
 	$('#news-editor-add').prop('disabled',true);
-	/*
+	/* Animation removed due to responsive issues
 	$('#news-editor-side').animate({
 		left: 5,
 		right: 5
@@ -91,7 +92,7 @@ function hideNewsForm(){
 	$('#news-editor-add').prop('disabled',false);
 	
 	//alert($('body').innerWidth());
-	/*
+	/* Animation removed due to responsive issues
 	$('#news-editor-side').animate({
 		left: 350
 	}, 200, function(){
