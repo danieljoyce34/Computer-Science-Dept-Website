@@ -55,34 +55,6 @@ $(document).ready(function(){
 	});
 });
 
-// Unecessary
-/*
-	function getNewsList(){
-	$.ajax({
-		url: baseURL + "retrieveNews",
-		type: 'GET',
-		dataType: 'json',
-		error: function(xhr, status, error){console.log(xhr + " " + status + " " + error);},
-		success: function(response){
-			$('#news-editor-list').children().remove();
-			$.each(response.news, function(){
-				$('#news-editor-list').append($('<div class="editor-news-container">')
-					.append($('<div class="editor-news-title">').text($(this)[0].headline))
-					.append($('<div class="editor-news-intro">').text($(this)[0].intro))
-					.append($('<div class="editor-news-id">').text($(this)[0].id))
-					.append($('<div class="editor-news-article">').text($(this)[0].article))
-					.append($('<div class="editor-news-start">').text($(this)[0].start_date))
-					.append($('<div class="editor-news-end">').text($(this)[0].end_date))
-				);
-			});
-			$('#news-editor-preview').text("");
-			$('#news-editor-selected').text("");
-			$('#news-editor-edit').prop('disabled',true);
-		}
-	})
-	}
-*/
-
 // Clears the form
 function clearNewsForm(){
 	$('#edit-news-headline').val("");
@@ -97,12 +69,18 @@ function showNewsForm(){
 	$('#news-editor-preview').hide();
 	$('#news-editor-edit').prop('disabled',true);
 	$('#news-editor-add').prop('disabled',true);
+	/*
 	$('#news-editor-side').animate({
-		left: 5
+		left: 5,
+		right: 5
 	}, 200, function(){
 		$('#news-editor-editing').show();
 		$('#news-editing-options').show();
-	});
+	});*/
+
+	$('#news-editor-side').removeClass("news-editor-side-small").addClass("news-editor-side-extended");
+	$('#news-editor-editing').show();
+	$('#news-editing-options').show();
 }
 
 // Hides the form
@@ -111,11 +89,17 @@ function hideNewsForm(){
 	if($('#news-editor-selected').text())
 		$('#news-editor-edit').prop('disabled',false);
 	$('#news-editor-add').prop('disabled',false);
+	
+	//alert($('body').innerWidth());
+	/*
 	$('#news-editor-side').animate({
 		left: 350
 	}, 200, function(){
 		$('#news-editing-options').hide();
 		$('#news-editor-preview').show();
-	});
+	});*/
+	$('#news-editor-side').removeClass("news-editor-side-extended").addClass("news-editor-side-small");
+	$('#news-editing-options').hide();
+	$('#news-editor-preview').show();
 }
 
