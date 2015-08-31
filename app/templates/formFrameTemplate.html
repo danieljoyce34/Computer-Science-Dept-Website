@@ -1,6 +1,4 @@
-<!-- Can be replaced with pageFrameTemplate 
-  Keeping it temporarily because it works better with the news editor page since there is no footer
--->
+<!-- Form template - similar to pageFrameTemplate but leaves out the footer for style reasons -->
 
 <!DOCTYPE html>
 <html>
@@ -13,8 +11,8 @@
 
   <body>
     <div id="header">
-      <div id="banner">{% include "header.html" %}</div>
-      <div id="nav-wrapper">{% include "navigation.html" %}</div>
+      <div id="banner">{% include "components/header.html" %}</div>
+      <div id="nav-wrapper">{% include "components/navigation.html" %}</div>
     </div>
 
     <div id="page-content">

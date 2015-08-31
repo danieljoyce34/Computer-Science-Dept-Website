@@ -261,11 +261,10 @@ def facultyIdAjax(faculty_id):
         faculty_result.append(json)
         return jsonify(faculty=faculty_result)
 
-@app.route('/addNews')
-def addNews():
-	#if not session.get('logged_in'):
-	#	abort(401)
-	return render_template('editnewsform.html')
+@app.route('/newsEditor')
+def newsEditor():
+    news = News.query.all()
+    return render_template('news/newsEditor.html', news=news)
 
 @app.route('/submitNews', methods=['POST'])
 def submitNews():
@@ -277,19 +276,7 @@ def submitNews():
 	db.session.commit()
 	news = News.query.all()
 	#return render_template('editnews.html', news=news)
-	return redirect(url_for('editNews'))
-
-@app.route('/editNews')
-def editNews():
-	news = News.query.all()
-	return render_template('editnews.html', news=news)
-
-@app.route('/editNews/<int:news_id>')
-def editNewsWithId(news_id):
-	#if not session.get('logged_in'):
-	#	abort(401)
-	news = News.query.filter_by(id=news_id).first()
-	return render_template('editnewsform.html', news=news)
+	return redirect(url_for('newsEditor'))
 
 @app.route('/submitNewsEdits/<int:news_id>', methods=['POST'])
 def submitNewsEdits(news_id):
@@ -304,7 +291,7 @@ def submitNewsEdits(news_id):
 	db.session.commit()
 	news = News.query.all()
 	#return render_template('editnews.html', news=news)
-	return redirect(url_for('editNews'))
+	return redirect(url_for('newsEditor'))
 
 @app.route('/addAlert', methods=['POST'])
 def addAlert():
@@ -346,18 +333,6 @@ def submitAlertEdits(alert_id):
 @app.route('/carousel')
 def carousel():
     return render_template('carousel.html')
-
-
-@app.route('/article', methods=['POST', 'GET'])
-def article():
-
-    # QUERY DATABASE HERE
-    results = {}
-    results['articleImage'] = '120003'
-    results['articleHeader'] = 'There is some data'
-    results['articleContent'] = 'We have contempt for our content'
-    return render_template('article.html', data=results)
-
 
 @app.route('/getArticleNumber')
 def getArticleNumber():
@@ -492,4 +467,4 @@ def loadProfile():
 
         faculty_result.append(json)
         # return jsonify(faculty=faculty_result)
-        return render_template("profile.html", data=faculty_result[0])
+        return render_template("about/profile.html", data=faculty_result[0])

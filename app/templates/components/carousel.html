@@ -1,0 +1,29 @@
+{% block head %}
+	<title>Carousel</title>
+	<link rel="stylesheet" type="text/css" href="static/css/carousel.css">
+{% endblock %}
+
+<div class="carousel-container">
+	<div class="active-image">
+		<p class="active-title">
+				Villanova, UNICEF Partner Up for Doge
+			<br><i class="active-description">Very Augustinian. Volunteering. Much Wow.</i>
+		</p>			
+
+		<div id="dot-container">
+			<!-- Dynamically generate these later -->
+			<input id="carousel-item-1" type="radio" name="carousel-dots">
+			<label for="carousel-item-1">Go to item 1</label>
+
+			<input id="carousel-item-2" type="radio" name="carousel-dots">
+			<label for="carousel-item-2">Go to item 2</label>
+
+			<input id="carousel-item-3" type="radio" name="carousel-dots"> 
+			<label for="carousel-item-3">Go to item 3</label>
+
+			<input id="carousel-item-4" type="radio" name="carousel-dots">
+			<label for="carousel-item-4">Go to item 4</label>
+		</div>
+	</div>
+</div>
+<script src="static/js/carousel.js"></script>

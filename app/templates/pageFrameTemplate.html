@@ -18,14 +18,14 @@
 	<body>
 		<div id="header">
 			{% block header %}
-				<div id="banner">{% include "header.html" %}</div>
-				<div id="nav-wrapper">{% include "navigation.html" %}</div>
+				<div id="banner">{% include "components/header.html" %}</div>
+				<div id="nav-wrapper">{% include "components/navigation.html" %}</div>
 			{% endblock %}
 		</div>
 
 		<div id="page-content">
 			<div id="content-wrapper">{% block content %}{% endblock %}</div>
-			<div id="footer-wrapper">{% include "footer.html" %}</div>
+			<div id="footer-wrapper">{% include "components/footer.html" %}</div>
 		</div>
 	</body>
 </html>
