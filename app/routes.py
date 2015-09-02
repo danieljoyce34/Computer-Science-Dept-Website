@@ -261,14 +261,6 @@ def facultyIdAjax(faculty_id):
         faculty_result.append(json)
         return jsonify(faculty=faculty_result)
 
-@app.route('/login')
-def login():
-    return render_template('login/login.html')
-
-@app.route('/submitLogin', methods=['POST'])
-def submitLogin():
-    return redirect(url_for("index"))
-
 @app.route('/newsEditor')
 def newsEditor():
     news = News.query.all()
