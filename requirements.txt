@@ -1,4 +1,4 @@
-flask
-SQLAlchemy
-flask-sqlalchemy
-mysql-python
+flask==0.10.1
+SQLAlchemy==0.9.8
+flask-sqlalchemy==2.0
+mysql-python==1.2.5
