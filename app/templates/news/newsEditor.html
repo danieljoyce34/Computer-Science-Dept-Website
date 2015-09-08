@@ -1,8 +1,8 @@
 <!-- Needs to inherit pageFrameTemplate, extends base for now because the pageFrameTemplate footer looks kind of weird on the news editor -->
 
 {% block head %}
-	<title>Edit News</title>
-	<link rel="stylesheet" type="text/css" href="../static/css/editnews.css">
+	<title>News Editor</title>
+	<link rel="stylesheet" type="text/css" href="../static/css/newsEditor.css">
 	<link rel="stylesheet" type="text/css" href="../static/bower_components/ionicons/css/ionicons.min.css">
 	<script type="text/javascript" src="../static/js/jquery-2.1.1.min.js"></script>
 {% endblock %}
@@ -11,53 +11,50 @@
 {% block content %}
 
 <div id="news-editor">
-	<!-- Editor options: search filter, add button, edit button -->
-	<div id="news-editor-options">
-		<input type="text" id="news-editor-search" placeholder="Title Search">
-		<input type="submit" value="x" id="news-editor-clear">
-		<button type="button" id="news-editor-add" title="add"><i class="icon ion-android-add"></i></button>
-		<button type="button" id="news-editor-edit" title="edit" disabled><i class="icon ion-edit"></i></button>
+	<div id="ne-options">
+		<input type="text" id="ne-search" placeholder="Search by Title">
+		<input type="submit" value="x" id="ne-search-clear">
+		<!--//TODO: Implement delete option + add icon -->
+		<!--<button type="button" id="ne-delete" title="delete" disabled>x</button>-->
+		<button type="button" id="ne-edit" title="edit" disabled><i class="icon ion-edit"></i></button>
+		<button type="button" id="ne-add" title="add"><i class="icon ion-android-add"></i></button>
 	</div>
 
-	<!-- News Editor List: list of all news articles -->
-	<div id="news-editor-list">
+	<div id="ne-list">
 		{% for n in news %}
-			<div class="editor-news-container">
-				<div class="editor-news-title">{{ n.headline }}</div>
-				<div class="editor-news-intro">{{ n.intro }}</div>
-				<div class="editor-news-id">{{ n.id }}</div>
-				<div class="editor-news-article">{{ n.article }}</div>
-				<div class="editor-news-start">{{ n.start_date }}</div>
-				<div class="editor-news-end">{{ n.end_date }}</div>
+			<div class="ne-news-container">		
+				<div class="ne-container-title">{{ n.headline }}</div>
+				<div class="ne-container-intro">{{ n.intro }}</div>
+				<div class="ne-container-id">{{ n.id }}</div>
+				<div class="ne-container-article">{{ n.article }}</div>
+				<div class="ne-container-start">{{ n.start_date }}</div>
+				<div class="ne-container-end">{{ n.end_date }}</div>
+				<!--//TODO: Add div for image url -->
 			</div>
 		{% endfor %}
 	</div>
 
-	<!-- Side panel - preview + edit/add form -->
-	<div id="news-editor-side" class="news-editor-side-small">
-		<div id="news-editor-preview"></div>
-		<form id="news-editor-editing" method="post">
-			Headline<br>
-			<input type="text" name="edit-news-headline" id="edit-news-headline">
-			<br>Intro<br>
-			<input type="text" name="edit-news-intro" id="edit-news-intro">
-			<br>Article<br>
-			<textarea rows="4" cols="50" name="edit-news-article" form="news-editor-editing" id="edit-news-article"></textarea>
-			<br>Start Date <br>
-			<input type="date" name="edit-news-start" id="edit-news-start">
-			<br>End Date <br>
-			<input type="date" name="edit-news-end" id="edit-news-end">
-		</form>
-	</div>
-	
-	<!-- Hidden field for selected news article id -->
-	<div id="news-editor-selected"></div>
+	<form id="ne-side" method="post">
+		<div id="ne-side-title"></div>
+		<div class="ne-side-label">Headline</div>
+		<input type="text" name="ne-title-edit" id="ne-title-edit">
+		<div class="ne-side-label">Intro</div>
+		<input type="text" name="ne-intro-edit" id="ne-intro-edit">
+		<div id="ne-side-article"></div>
+		<div class="ne-side-label">Article</div>
+		<textarea rows="4" cols="50" name="ne-article-edit" form="ne-side" id="ne-article-edit"></textarea>
+		<div class="ne-side-label">Image</div>
+		<input type='file' onchange="readURL(this);" id="ne-img-edit">
+		<div class="ne-side-label">Start Date</div>
+		<input type="date" name="ne-sdate-edit" id="ne-sdate-edit">
+		<div class="ne-side-label">End Date</div>
+		<input type="date" name="ne-edate-edit" id="ne-edate-edit">
+	</form>
 
-	<div id="news-editing-options">
-		<input type="submit" value="Submit" form="news-editor-editing" id="submit-edits">
-		<button type="button" id="cancel-edits">Cancel</button>
+	<div id="ne-edit-options">
+		<input type="submit" value="Save" form="ne-side" id="ne-save">
+		<input type="submit" value="Cancel" id="ne-cancel">
 	</div>
-	
 
 </div>
 <script type="text/javascript" src="../static/js/newsEditor.js"></script>
