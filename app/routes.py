@@ -283,11 +283,11 @@ def submitNewsEdits(news_id):
 	#if not session.get('logged_in'):
 	#	abort(401)
 	news = News.query.filter_by(id=news_id).first()
-	news.headline = request.form['edit-news-headline']
-	news.intro = request.form['edit-news-intro']
-	news.article = request.form['edit-news-article']
-	news.start_date = request.form['edit-news-start']
-	news.end_date = request.form['edit-news-end']
+	news.headline = request.form['ne-title-edit']
+	news.intro = request.form['ne-intro-edit']
+	news.article = request.form['ne-article-edit']
+	news.start_date = request.form['ne-sdate-edit']
+	news.end_date = request.form['ne-edate-edit']
 	db.session.commit()
 	news = News.query.all()
 	#return render_template('editnews.html', news=news)
