@@ -14,7 +14,7 @@
 	<div id="ne-options">
 		<input type="text" id="ne-search" placeholder="Search by Title">
 		<input type="submit" value="x" id="ne-search-clear">
-		<!--//TODO: Implement delete option + add icon -->
+		<!--//TODO: Implement delete option + find icon -->
 		<!--<button type="button" id="ne-delete" title="delete" disabled>x</button>-->
 		<button type="button" id="ne-edit" title="edit" disabled><i class="icon ion-edit"></i></button>
 		<button type="button" id="ne-add" title="add"><i class="icon ion-android-add"></i></button>
@@ -37,18 +37,18 @@
 	<form id="ne-side" method="post">
 		<div id="ne-side-title"></div>
 		<div class="ne-side-label">Headline</div>
-		<input type="text" name="ne-title-edit" id="ne-title-edit">
+		<input type="text" name="ne-title-edit" id="ne-title-edit" required>
 		<div class="ne-side-label">Intro</div>
 		<input type="text" name="ne-intro-edit" id="ne-intro-edit">
 		<div id="ne-side-article"></div>
 		<div class="ne-side-label">Article</div>
-		<textarea rows="4" cols="50" name="ne-article-edit" form="ne-side" id="ne-article-edit"></textarea>
+		<textarea rows="4" cols="50" name="ne-article-edit" form="ne-side" id="ne-article-edit" required></textarea>
 		<div class="ne-side-label">Image</div>
 		<input type='file' onchange="readURL(this);" id="ne-img-edit">
 		<div class="ne-side-label">Start Date</div>
-		<input type="date" name="ne-sdate-edit" id="ne-sdate-edit">
+		<input type="date" name="ne-sdate-edit" id="ne-sdate-edit" required>
 		<div class="ne-side-label">End Date</div>
-		<input type="date" name="ne-edate-edit" id="ne-edate-edit">
+		<input type="date" name="ne-edate-edit" id="ne-edate-edit" required>
 	</form>
 
 	<div id="ne-edit-options">
