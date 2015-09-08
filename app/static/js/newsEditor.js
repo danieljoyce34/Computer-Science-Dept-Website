@@ -119,7 +119,7 @@ function showEdit(){
 function extendSideEdit(){
 	if($('#ne-side').css('display') != 'none'){
 		$('#ne-list').animate({
-			left: '-30%'
+			left: '-60%'
 		},300);
 		$('#ne-side').animate({
 			left: '5'
