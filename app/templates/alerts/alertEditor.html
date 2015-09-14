@@ -4,6 +4,7 @@
 {% block head %}
 	{{ super() }}
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/alertEditor.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bower_components/ionicons/css/ionicons.min.css') }}">
 {% endblock %}
 
 {% block content %}
@@ -11,7 +12,11 @@
 <div id="ae-list">
 	{% for a in alerts %}
 		<div class="ae-container">
-			<div>{{ a.content }}</div>
+			<div class="ae-container-content">{{ a.content }}</div>
+			<div class="ae-container-header">
+				<a href="#">Edit</a> 
+				<span>Posted by: {{ a.user_id }} on {{ a.post_date }}</span>
+			</div>
 		</div>
 	{% endfor %}
 </div>
