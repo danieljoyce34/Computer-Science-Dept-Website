@@ -2,8 +2,8 @@
 {% extends "pageFrameTemplate.html" %}
 {% block title %}Villanova Computer Science{% endblock %}
 {% block head %} 
-	{{ super() }} 
-	<link rel="stylesheet" type="text/css" href="static/css/home.css">
+	{{ super() }}
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
 {% endblock %}
 {% block header %} {{ super() }} {% endblock %}
 

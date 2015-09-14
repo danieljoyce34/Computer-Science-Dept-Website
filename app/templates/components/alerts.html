@@ -1,8 +1,8 @@
 {% block head %}
 	<title>Alerts App</title>
-	<script src="static/js/jquery-2.1.1.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="static/css/alerts.css">
-	<link rel="stylesheet" href="/static/bower_components/ionicons/css/ionicons.min.css">
+	<script src="{{ url_for('static', filename='js/jquery-2.1.1.min.js') }}"></script>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/alerts.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bower_components/ionicons/css/ionicons.min.css') }}">
 {% endblock %}
 
 <div class="alert-container"></div>
