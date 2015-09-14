@@ -8,7 +8,10 @@
 {% endblock %}
 
 {% block content %}
-<div id="ae-creator"></div>
+<div id="ae-creator">
+	<textarea id="ae-new-content"></textarea>
+</div>
+
 <div id="ae-list">
 	{% for a in alerts %}
 		<div class="ae-container">
