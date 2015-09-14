@@ -6,8 +6,7 @@
 <div class="carousel-container">
 	<div class="active-image">
 		<p class="active-title">
-				Villanova, UNICEF Partner Up for Doge
-			<br><i class="active-description">Very Augustinian. Volunteering. Much Wow.</i>
+			<br><i class="active-description"></i>
 		</p>			
 
 		<div id="dot-container">
@@ -27,3 +26,7 @@
 	</div>
 </div>
 <script src="{{ url_for('static', filename='js/carousel.js') }}"></script>
+<script type="text/javascript">
+	var data_container = {{carouselNews|tojson|safe}};
+	cycleImages(data_container);
+</script>

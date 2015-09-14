@@ -59,7 +59,15 @@ def index():
 
     alerts = Alert.query.all()
 
-    return render_template('index.html', sideview=sideview, alerts=alerts)
+    news = News.query.limit(4).all()
+    carouselNews = []
+    for new in news:
+        json = new.to_json_format()
+        json['image_url'] = 'https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg'
+        carouselNews.append(json)
+
+    return render_template('index.html', sideview=sideview, alerts=alerts,
+                            carouselNews=carouselNews)
 
 @app.route('/retrieveAlerts', methods=['GET'])
 @crossdomain(origin='*')
@@ -89,14 +97,14 @@ def alertsIdAjax(alert_id):
 def getNewsWithId(news_id):
     news = News.query.filter_by(id=news_id).first()
     image = 'https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg'
-    return render_template('NewsArticle.html', news=news, image=image)
+    return render_template('news/NewsArticle.html', news=news, image=image)
 
 
 @app.route('/retrieveNews', methods=['GET'])
 @crossdomain(origin='*')
 def newsAjax():
     if request.method == 'GET':
-        news = News.query.all()
+        news = News.query.limit(4).all()
 
         news_result = []
         for new in news:
