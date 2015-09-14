@@ -56,7 +56,10 @@ def crossdomain(origin=None, methods=None, headers=None, max_age=21600, attach_t
 def index():
     sideviews = Sideview.query.all()
     sideview = sideviews[random.randint(0, len(sideviews) - 1)]
-    return render_template('index.html', sideview=sideview)
+
+    alerts = Alert.query.all()
+
+    return render_template('index.html', sideview=sideview, alerts=alerts)
 
 @app.route('/retrieveAlerts', methods=['GET'])
 @crossdomain(origin='*')
@@ -112,19 +115,6 @@ def newsIdAjax(news_id):
         json['image_url'] = 'https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg'
         news_result.append(json)
         return jsonify(news=news_result)
-
-
-@app.route('/retrieveSideviews', methods = ['GET'])
-@crossdomain(origin='*')
-def sideviewsAjax():
-    if request.method == 'GET':
-        sideviews = Sideview.query.all()
-
-        sideview_result = []
-        for sideview in sideviews:
-            json = sideview.to_json_format()
-            sideview_result.append(json)
-        return jsonify(sideviews=sideview_result)
 
 @app.route('/retrievePeople', methods=['GET'])
 def allPeopleAjax():

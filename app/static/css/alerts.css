@@ -19,7 +19,7 @@
 	float: left;
 	margin-left: 35px;
 	padding-left: 10px;
-	border-left: 1px black solid;
+	border-left: none;
 	line-height: 30px;
 }
 
