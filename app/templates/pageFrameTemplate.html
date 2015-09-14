@@ -4,9 +4,6 @@
 		{% block head %}
 		<!-- url_for fixes when a sub page attempts to inherit css/js -->
 			<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-			<!--<link href="static/css/style.css" rel="stylesheet" type="text/css"/>-->
-			<!-- <link href="static/profile-app/profile.css" rel="stylesheet" type="text/css"/> -->
-			<!--<script src="static/js/jquery-2.1.1.min.js"></script>-->
 			<script src="{{ url_for('static', filename='js/jquery-2.1.1.min.js') }}"></script>
 			<meta charset=utf-8 />
 		    <meta name="viewport" content="width=device-width" />

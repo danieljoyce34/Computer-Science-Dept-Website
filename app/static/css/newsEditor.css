@@ -135,10 +135,13 @@
 	bottom: 5px;
 	right: 5px;
 	left: 30%;
+	box-sizing: border-box;
 	padding: 10px;
 	background: #fff;
 	opacity: 0;
 	border-radius: 4px;
+	margin-bottom: 0;
+	
 }
 
 .ne-side-label{

@@ -3,10 +3,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="../static/css/style.css" rel="stylesheet" type="text/css"/>
-    <!--<script src="static/js/jquery-2.1.1.min.js"></script>-->
-    <meta charset=utf-8 />
-    <meta name="viewport" content="width=device-width" />
+    {% block head %}
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+      <script src="{{ url_for('static', filename='js/jquery-2.1.1.min.js') }}"></script>
+      <meta charset=utf-8 />
+      <meta name="viewport" content="width=device-width" />
+      <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
   </head>
 
   <body>
