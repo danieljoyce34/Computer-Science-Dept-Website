@@ -286,6 +286,11 @@ def submitNewsEdits(news_id):
 	#return render_template('editnews.html', news=news)
 	return redirect(url_for('newsEditor'))
 
+@app.route('/alertEditor')
+def alertEditor():
+    alerts = Alert.query.all()
+    return render_template('alerts/alertEditor.html', alerts=alerts)
+
 @app.route('/addAlert', methods=['POST'])
 def addAlert():
 	#if not session.get('logged_in'):

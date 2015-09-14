@@ -1,0 +1,18 @@
+
+{% extends "formFrameTemplate.html" %}
+{% block title %}Alerts Editor{% endblock %}
+{% block head %}
+	{{ super() }}
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/alertEditor.css') }}">
+{% endblock %}
+
+{% block content %}
+<div id="ae-creator"></div>
+<div id="ae-list">
+	{% for a in alerts %}
+		<div class="ae-container">
+			<div>{{ a.content }}</div>
+		</div>
+	{% endfor %}
+</div>
+{% endblock %}
