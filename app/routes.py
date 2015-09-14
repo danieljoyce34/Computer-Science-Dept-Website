@@ -7,6 +7,7 @@ import util
 import jinja2
 from jinja2 import TemplateNotFound
 import os
+import random
 
 from datetime import timedelta
 from functools import update_wrapper
@@ -53,7 +54,9 @@ def crossdomain(origin=None, methods=None, headers=None, max_age=21600, attach_t
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html')
+    sideviews = Sideview.query.all()
+    sideview = sideviews[random.randint(0, len(sideviews) - 1)]
+    return render_template('index.html', sideview=sideview)
 
 @app.route('/retrieveAlerts', methods=['GET'])
 @crossdomain(origin='*')

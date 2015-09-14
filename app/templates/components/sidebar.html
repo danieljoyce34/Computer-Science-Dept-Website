@@ -1,24 +1,9 @@
 <div id="sidebar">
 
-	<h3 class="side-title">Nova Site Redesign Commence</h3>
+	<h3 class="side-title">{{ sideview['title'] }}</h3>
 
 	<img class="side-image" src="{{ url_for('static', filename='images/Graph-Logo.001.png') }}"/>
 
-	<div class="side-content"></div>
+	<div class="side-content">{{ sideview['content'] }}</div>
 
-	<script type="text/javascript">
-		$.ajax({
-			url: 'http://localhost:5000/retrieveSideviews',
-			type: 'GET',
-			dataType: 'json',
-			success: function (data) {
-				var story = data.sideviews[0];
-				$('.side-title').text(story.title);
-				$('.side-content').text(story.content);
-			},
-			error: function (err) {
-				console.log(err);
-			}
-		});
-	</script>
 </div>
