@@ -1,24 +1,28 @@
-<form name="htmlform" method="post" action="html_form_send.php">
-<table width="450px">
-</tr>
-<tr>
-    <input type="checkbox" name="grad school" > Do you plan on attending Graduate School?<br>
-	<input type="checkbox" name="Job" > Did you find a job?<br>
-</tr>
- 
-<tr>
- <td valign="top"">
- <br> <label for="last_name">Were you provided sufficient information and help as you made your plans for the future </label>
- </td>
- <td valign="top">
-  <textarea  name="Sufficient_info" maxlength="1000" cols="25" rows="6"></textarea><br>
- </td>
-</tr>
+{% block head %}
+	<title>Exit Form 1</title>
+	<link rel="stylesheet" type="text/css" href="../static/css/exitForm.css">
+	<link rel="stylesheet" type="text/css" href="../static/bower_components/ionicons/css/ionicons.min.css">
+	<script type="text/javascript" src="../static/js/jquery-2.1.1.min.js"></script>
+{% endblock %}
 
- 
-</tr>
-<tr>
- <td colspan="2" style="text-align:center">
-  <input type="submit" value="Submit">   
- </td>
-</tr>
+{% extends "formFrameTemplate.html" %}
+{% block content %}
+	<div class = "exit_form frame">
+		<form class="exit_form1" method="post" action="/submitExitForm">
+		 <h1> Exit Interview Form Part 1 </h1>
+		 <label for="grad school">Do you plan on attending Graduate School?</label>
+		 <br>
+		 <input type="checkbox" name="grad school" >Yes</input>
+		 <br>
+		 <label for="Job">Did you find a job?</label>
+		 <br>
+		 <input type="checkbox" name="Job">Yes</input>
+		 <br> 
+		 <label for="Sufficient_info">Were you provided sufficient information and help as you made your plans for the future?</label>
+		 <br>
+		 <textarea  name="Sufficient_info" maxlength="1000" cols="25" rows="6"></textarea>
+		 <br>
+		 <button type="submit" class="exit_form-submit">Next</button>   
+		</form>
+	</div>
+{% endblock %}

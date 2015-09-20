@@ -61,6 +61,14 @@ def index():
 
     return render_template('index.html', sideview=sideview, alerts=alerts)
 
+@app.route('/submitExitForm1', methods=['POST'])
+def submitExitForm1():
+    return redirect(url_for('submitExitForm2'))
+
+@app.route('/submitExitForm2', methods=['POST'])
+def submitExitForm2():
+    return redirect(url_for('index'))
+
 @app.route('/retrieveAlerts', methods=['GET'])
 @crossdomain(origin='*')
 def alertsAjax():
