@@ -11,6 +11,7 @@ import random
 
 from datetime import timedelta
 from functools import update_wrapper
+from sqlalchemy import desc
 
 @app.route('/')
 @app.route('/index')
@@ -18,7 +19,7 @@ def index():
     sideviews = Sideview.query.all()
     sideview = sideviews[random.randint(0, len(sideviews) - 1)]
 
-    alerts = Alert.query.all()
+    alerts = Alert.query.order_by(desc(Alert.id)).all()
 
     news = News.query.limit(4).all()
     carouselNews = []
@@ -30,58 +31,11 @@ def index():
     return render_template('index.html', sideview=sideview, alerts=alerts,
                             carouselNews=carouselNews)
 
-@app.route('/retrieveAlerts', methods=['GET'])
-def alertsAjax():
-    if request.method == 'GET':
-        alerts = Alert.query.all()
-
-        alert_result = []
-        image_result = []
-        sideview_result = []
-        for alert in alerts:
-            json = alert.to_json_format()
-            alert_result.append(json)
-        return jsonify(alerts=alert_result, images=image_result,
-                       sideviews=sideview_result)
-
-@app.route('/retrieveAlerts/<int:alert_id>', methods=['GET'])
-def alertsIdAjax(alert_id):
-	if request.method == 'GET':
-		alert = Alert.query.filter_by(id=alert_id).first()
-		alert_result = []
-		json = alert.to_json_format()
-		alert_result.append(json)
-		return jsonify(alert=alert_result)
-
 @app.route('/news/<int:news_id>')
 def getNewsWithId(news_id):
     news = News.query.filter_by(id=news_id).first()
     image = '/static/images/image1.jpg'
     return render_template('news/NewsArticle.html', news=news, image=image)
-
-
-@app.route('/retrieveNews', methods=['GET'])
-def newsAjax():
-    if request.method == 'GET':
-        news = News.query.limit(4).all()
-
-        news_result = []
-        for new in news:
-            json = new.to_json_format()
-            json['image_url'] = '/static/images/image1.jpg'
-            news_result.append(json)
-        return jsonify(news=news_result)
-
-@app.route('/retrieveNews/<int:news_id>', methods=['GET'])
-def newsIdAjax(news_id):
-    if request.method == 'GET':
-        news = News.query.filter_by(id=news_id).first()
-
-        news_result = []
-        json = news.to_json_format()
-        json['image_url'] = '/static/images/image1.jpg'
-        news_result.append(json)
-        return jsonify(news=news_result)
 
 @app.route('/retrievePeople', methods=['GET'])
 def allPeopleAjax():
