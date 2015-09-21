@@ -1,0 +1,1339 @@
+{% block head %}
+	<title>Exit Form Part 2</title>
+	<link rel="stylesheet" type="text/css" href="../static/css/exitForm.css">
+	<link rel="stylesheet" type="text/css" href="../static/bower_components/ionicons/css/ionicons.min.css">
+	<script type="text/javascript" src="../static/js/jquery-2.1.1.min.js"></script>
+{% endblock %}
+
+{% extends "formFrameTemplate.html" %}
+{% block content %}
+	<div class = "exit_form frame">
+		<form class="exit_form1" id="exit_form2" method="post" action="/submitExitForm2">
+		 <h1> Exit Interview Form Part 2 </h1>
+		 <h2> CSC Courses and Curriculum </h2>
+		 <p>Make one choice per line. Use comment box at bottom of this 
+		 section to elaborate. In particular, if you marked any course as 'Poor', please expand 
+		 on your reasons.</p>
+		 <br>
+			<table>
+			  <tr>
+		        <th>Course</th>
+		        <th colspan="4">Course Rating</th>
+		      </tr>
+		      <tr>
+		        <td></td>
+		        <td>Didn't take</td>
+		        <td>Poor</td>
+		        <td>Ok</td>
+		        <td>Great</td>
+		      </tr>
+		    	
+		        <tr>
+		          <td>CSC 1000 : The Practice of Computing</td>
+		          <td><input checked="checked" id="curriculum_course_90_rating_didnottake" name="curriculum[course_90_rating]" onclick="$('course_90_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_90_rating_poor" name="curriculum[course_90_rating]" onclick="$('course_90_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_90_rating_ok" name="curriculum[course_90_rating]" onclick="$('course_90_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_90_rating_great" name="curriculum[course_90_rating]" onclick="$('course_90_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_90_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_90_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_90_comments" name="curriculum[course_90_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 1043 : Laptop Instrument</td>
+		          <td><input checked="checked" id="curriculum_course_113_rating_didnottake" name="curriculum[course_113_rating]" onclick="$('course_113_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_113_rating_poor" name="curriculum[course_113_rating]" onclick="$('course_113_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_113_rating_ok" name="curriculum[course_113_rating]" onclick="$('course_113_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_113_rating_great" name="curriculum[course_113_rating]" onclick="$('course_113_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_113_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_113_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_113_comments" name="curriculum[course_113_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 1045 : Algorithms, Cartoons, and Animation</td>
+		          <td><input checked="checked" id="curriculum_course_101_rating_didnottake" name="curriculum[course_101_rating]" onclick="$('course_101_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_101_rating_poor" name="curriculum[course_101_rating]" onclick="$('course_101_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_101_rating_ok" name="curriculum[course_101_rating]" onclick="$('course_101_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_101_rating_great" name="curriculum[course_101_rating]" onclick="$('course_101_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_101_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_101_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_101_comments" name="curriculum[course_101_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 1051 : Algorithms and Data Structures I</td>
+		          <td><input checked="checked" id="curriculum_course_4_rating_didnottake" name="curriculum[course_4_rating]" onclick="$('course_4_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_4_rating_poor" name="curriculum[course_4_rating]" onclick="$('course_4_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_4_rating_ok" name="curriculum[course_4_rating]" onclick="$('course_4_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_4_rating_great" name="curriculum[course_4_rating]" onclick="$('course_4_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_4_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_4_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_4_comments" name="curriculum[course_4_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 1052 : Algorithms and Data Structures II</td>
+		          <td><input checked="checked" id="curriculum_course_42_rating_didnottake" name="curriculum[course_42_rating]" onclick="$('course_42_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_42_rating_poor" name="curriculum[course_42_rating]" onclick="$('course_42_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_42_rating_ok" name="curriculum[course_42_rating]" onclick="$('course_42_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_42_rating_great" name="curriculum[course_42_rating]" onclick="$('course_42_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_42_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_42_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_42_comments" name="curriculum[course_42_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 1200 : Computer Organization</td>
+		          <td><input checked="checked" id="curriculum_course_95_rating_didnottake" name="curriculum[course_95_rating]" onclick="$('course_95_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_95_rating_poor" name="curriculum[course_95_rating]" onclick="$('course_95_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_95_rating_ok" name="curriculum[course_95_rating]" onclick="$('course_95_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_95_rating_great" name="curriculum[course_95_rating]" onclick="$('course_95_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_95_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_95_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_95_comments" name="curriculum[course_95_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 1300 : Discrete Structures</td>
+		          <td><input checked="checked" id="curriculum_course_44_rating_didnottake" name="curriculum[course_44_rating]" onclick="$('course_44_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_44_rating_poor" name="curriculum[course_44_rating]" onclick="$('course_44_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_44_rating_ok" name="curriculum[course_44_rating]" onclick="$('course_44_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_44_rating_great" name="curriculum[course_44_rating]" onclick="$('course_44_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_44_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_44_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_44_comments" name="curriculum[course_44_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 1600 : Operating Systems</td>
+		          <td><input checked="checked" id="curriculum_course_45_rating_didnottake" name="curriculum[course_45_rating]" onclick="$('course_45_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_45_rating_poor" name="curriculum[course_45_rating]" onclick="$('course_45_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_45_rating_ok" name="curriculum[course_45_rating]" onclick="$('course_45_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_45_rating_great" name="curriculum[course_45_rating]" onclick="$('course_45_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_45_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_45_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_45_comments" name="curriculum[course_45_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 1700 : Analysis of Algorithms</td>
+		          <td><input checked="checked" id="curriculum_course_46_rating_didnottake" name="curriculum[course_46_rating]" onclick="$('course_46_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_46_rating_poor" name="curriculum[course_46_rating]" onclick="$('course_46_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_46_rating_ok" name="curriculum[course_46_rating]" onclick="$('course_46_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_46_rating_great" name="curriculum[course_46_rating]" onclick="$('course_46_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_46_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_46_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_46_comments" name="curriculum[course_46_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 1800 : Organization of Programming Languages</td>
+		          <td><input checked="checked" id="curriculum_course_5_rating_didnottake" name="curriculum[course_5_rating]" onclick="$('course_5_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_5_rating_poor" name="curriculum[course_5_rating]" onclick="$('course_5_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_5_rating_ok" name="curriculum[course_5_rating]" onclick="$('course_5_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_5_rating_great" name="curriculum[course_5_rating]" onclick="$('course_5_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_5_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_5_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_5_comments" name="curriculum[course_5_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 1930 : Explorations in Computing</td>
+		          <td><input checked="checked" id="curriculum_course_102_rating_didnottake" name="curriculum[course_102_rating]" onclick="$('course_102_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_102_rating_poor" name="curriculum[course_102_rating]" onclick="$('course_102_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_102_rating_ok" name="curriculum[course_102_rating]" onclick="$('course_102_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_102_rating_great" name="curriculum[course_102_rating]" onclick="$('course_102_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_102_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_102_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_102_comments" name="curriculum[course_102_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 1990 : Enrichment Seminar in Computing</td>
+		          <td><input checked="checked" id="curriculum_course_85_rating_didnottake" name="curriculum[course_85_rating]" onclick="$('course_85_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_85_rating_poor" name="curriculum[course_85_rating]" onclick="$('course_85_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_85_rating_ok" name="curriculum[course_85_rating]" onclick="$('course_85_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_85_rating_great" name="curriculum[course_85_rating]" onclick="$('course_85_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_85_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_85_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_85_comments" name="curriculum[course_85_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 2014 : Java Bootcamp</td>
+		          <td><input checked="checked" id="curriculum_course_110_rating_didnottake" name="curriculum[course_110_rating]" onclick="$('course_110_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_110_rating_poor" name="curriculum[course_110_rating]" onclick="$('course_110_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_110_rating_ok" name="curriculum[course_110_rating]" onclick="$('course_110_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_110_rating_great" name="curriculum[course_110_rating]" onclick="$('course_110_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_110_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_110_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_110_comments" name="curriculum[course_110_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 2020 : Web Development & Technologies I</td>
+		          <td><input checked="checked" id="curriculum_course_98_rating_didnottake" name="curriculum[course_98_rating]" onclick="$('course_98_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_98_rating_poor" name="curriculum[course_98_rating]" onclick="$('course_98_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_98_rating_ok" name="curriculum[course_98_rating]" onclick="$('course_98_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_98_rating_great" name="curriculum[course_98_rating]" onclick="$('course_98_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_98_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_98_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_98_comments" name="curriculum[course_98_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 2025 : Web Development & Technologies II</td>
+		          <td><input checked="checked" id="curriculum_course_99_rating_didnottake" name="curriculum[course_99_rating]" onclick="$('course_99_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_99_rating_poor" name="curriculum[course_99_rating]" onclick="$('course_99_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_99_rating_ok" name="curriculum[course_99_rating]" onclick="$('course_99_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_99_rating_great" name="curriculum[course_99_rating]" onclick="$('course_99_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_99_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_99_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_99_comments" name="curriculum[course_99_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 2053 : Platform Based Computing</td>
+		          <td><input checked="checked" id="curriculum_course_47_rating_didnottake" name="curriculum[course_47_rating]" onclick="$('course_47_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_47_rating_poor" name="curriculum[course_47_rating]" onclick="$('course_47_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_47_rating_ok" name="curriculum[course_47_rating]" onclick="$('course_47_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_47_rating_great" name="curriculum[course_47_rating]" onclick="$('course_47_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_47_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_47_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_47_comments" name="curriculum[course_47_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 2300 : Statistics for Computer Science</td>
+		          <td><input checked="checked" id="curriculum_course_111_rating_didnottake" name="curriculum[course_111_rating]" onclick="$('course_111_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_111_rating_poor" name="curriculum[course_111_rating]" onclick="$('course_111_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_111_rating_ok" name="curriculum[course_111_rating]" onclick="$('course_111_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_111_rating_great" name="curriculum[course_111_rating]" onclick="$('course_111_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_111_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_111_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_111_comments" name="curriculum[course_111_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 2400 : Computing Systems I</td>
+		          <td><input checked="checked" id="curriculum_course_87_rating_didnottake" name="curriculum[course_87_rating]" onclick="$('course_87_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_87_rating_poor" name="curriculum[course_87_rating]" onclick="$('course_87_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_87_rating_ok" name="curriculum[course_87_rating]" onclick="$('course_87_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_87_rating_great" name="curriculum[course_87_rating]" onclick="$('course_87_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_87_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_87_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_87_comments" name="curriculum[course_87_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 2405 : Computing Systems II</td>
+		          <td><input checked="checked" id="curriculum_course_88_rating_didnottake" name="curriculum[course_88_rating]" onclick="$('course_88_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_88_rating_poor" name="curriculum[course_88_rating]" onclick="$('course_88_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_88_rating_ok" name="curriculum[course_88_rating]" onclick="$('course_88_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_88_rating_great" name="curriculum[course_88_rating]" onclick="$('course_88_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_88_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_88_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_88_comments" name="curriculum[course_88_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 2993 : Internship in Computing</td>
+		          <td><input checked="checked" id="curriculum_course_48_rating_didnottake" name="curriculum[course_48_rating]" onclick="$('course_48_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_48_rating_poor" name="curriculum[course_48_rating]" onclick="$('course_48_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_48_rating_ok" name="curriculum[course_48_rating]" onclick="$('course_48_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_48_rating_great" name="curriculum[course_48_rating]" onclick="$('course_48_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_48_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_48_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_48_comments" name="curriculum[course_48_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 3080 : Information Security and Protection</td>
+		          <td><input checked="checked" id="curriculum_course_80_rating_didnottake" name="curriculum[course_80_rating]" onclick="$('course_80_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_80_rating_poor" name="curriculum[course_80_rating]" onclick="$('course_80_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_80_rating_ok" name="curriculum[course_80_rating]" onclick="$('course_80_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_80_rating_great" name="curriculum[course_80_rating]" onclick="$('course_80_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_80_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_80_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_80_comments" name="curriculum[course_80_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 3400 : Information Retrieval</td>
+		          <td><input checked="checked" id="curriculum_course_7_rating_didnottake" name="curriculum[course_7_rating]" onclick="$('course_7_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_7_rating_poor" name="curriculum[course_7_rating]" onclick="$('course_7_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_7_rating_ok" name="curriculum[course_7_rating]" onclick="$('course_7_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_7_rating_great" name="curriculum[course_7_rating]" onclick="$('course_7_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_7_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_7_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_7_comments" name="curriculum[course_7_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 3990 : Computing Research Topics</td>
+		          <td><input checked="checked" id="curriculum_course_93_rating_didnottake" name="curriculum[course_93_rating]" onclick="$('course_93_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_93_rating_poor" name="curriculum[course_93_rating]" onclick="$('course_93_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_93_rating_ok" name="curriculum[course_93_rating]" onclick="$('course_93_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_93_rating_great" name="curriculum[course_93_rating]" onclick="$('course_93_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_93_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_93_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_93_comments" name="curriculum[course_93_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 4140 : Theory of Information</td>
+		          <td><input checked="checked" id="curriculum_course_8_rating_didnottake" name="curriculum[course_8_rating]" onclick="$('course_8_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_8_rating_poor" name="curriculum[course_8_rating]" onclick="$('course_8_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_8_rating_ok" name="curriculum[course_8_rating]" onclick="$('course_8_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_8_rating_great" name="curriculum[course_8_rating]" onclick="$('course_8_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_8_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_8_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_8_comments" name="curriculum[course_8_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 4170 : Theory of Computation</td>
+		          <td><input checked="checked" id="curriculum_course_51_rating_didnottake" name="curriculum[course_51_rating]" onclick="$('course_51_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_51_rating_poor" name="curriculum[course_51_rating]" onclick="$('course_51_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_51_rating_ok" name="curriculum[course_51_rating]" onclick="$('course_51_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_51_rating_great" name="curriculum[course_51_rating]" onclick="$('course_51_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_51_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_51_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_51_comments" name="curriculum[course_51_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 4181 : Compiler Construction</td>
+		          <td><input checked="checked" id="curriculum_course_9_rating_didnottake" name="curriculum[course_9_rating]" onclick="$('course_9_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_9_rating_poor" name="curriculum[course_9_rating]" onclick="$('course_9_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_9_rating_ok" name="curriculum[course_9_rating]" onclick="$('course_9_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_9_rating_great" name="curriculum[course_9_rating]" onclick="$('course_9_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_9_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_9_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_9_comments" name="curriculum[course_9_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 4200 : Advanced Algorithms and Complexity</td>
+		          <td><input checked="checked" id="curriculum_course_52_rating_didnottake" name="curriculum[course_52_rating]" onclick="$('course_52_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_52_rating_poor" name="curriculum[course_52_rating]" onclick="$('course_52_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_52_rating_ok" name="curriculum[course_52_rating]" onclick="$('course_52_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_52_rating_great" name="curriculum[course_52_rating]" onclick="$('course_52_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_52_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_52_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_52_comments" name="curriculum[course_52_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 4280 : Parallel Algorithms and Architecture</td>
+		          <td><input checked="checked" id="curriculum_course_53_rating_didnottake" name="curriculum[course_53_rating]" onclick="$('course_53_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_53_rating_poor" name="curriculum[course_53_rating]" onclick="$('course_53_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_53_rating_ok" name="curriculum[course_53_rating]" onclick="$('course_53_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_53_rating_great" name="curriculum[course_53_rating]" onclick="$('course_53_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_53_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_53_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_53_comments" name="curriculum[course_53_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 4300 : Computer Graphics</td>
+		          <td><input checked="checked" id="curriculum_course_10_rating_didnottake" name="curriculum[course_10_rating]" onclick="$('course_10_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_10_rating_poor" name="curriculum[course_10_rating]" onclick="$('course_10_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_10_rating_ok" name="curriculum[course_10_rating]" onclick="$('course_10_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_10_rating_great" name="curriculum[course_10_rating]" onclick="$('course_10_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_10_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_10_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_10_comments" name="curriculum[course_10_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 4380 : Information Visualization</td>
+		          <td><input checked="checked" id="curriculum_course_11_rating_didnottake" name="curriculum[course_11_rating]" onclick="$('course_11_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_11_rating_poor" name="curriculum[course_11_rating]" onclick="$('course_11_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_11_rating_ok" name="curriculum[course_11_rating]" onclick="$('course_11_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_11_rating_great" name="curriculum[course_11_rating]" onclick="$('course_11_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_11_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_11_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_11_comments" name="curriculum[course_11_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 4480 : Principles of Database Systems</td>
+		          <td><input checked="checked" id="curriculum_course_12_rating_didnottake" name="curriculum[course_12_rating]" onclick="$('course_12_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_12_rating_poor" name="curriculum[course_12_rating]" onclick="$('course_12_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_12_rating_ok" name="curriculum[course_12_rating]" onclick="$('course_12_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_12_rating_great" name="curriculum[course_12_rating]" onclick="$('course_12_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_12_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_12_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_12_comments" name="curriculum[course_12_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 4490 : Data Warehousing and Mining</td>
+		          <td><input checked="checked" id="curriculum_course_54_rating_didnottake" name="curriculum[course_54_rating]" onclick="$('course_54_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_54_rating_poor" name="curriculum[course_54_rating]" onclick="$('course_54_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_54_rating_ok" name="curriculum[course_54_rating]" onclick="$('course_54_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_54_rating_great" name="curriculum[course_54_rating]" onclick="$('course_54_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_54_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_54_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_54_comments" name="curriculum[course_54_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 4500 : Artificial Intelligence</td>
+		          <td><input checked="checked" id="curriculum_course_13_rating_didnottake" name="curriculum[course_13_rating]" onclick="$('course_13_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_13_rating_poor" name="curriculum[course_13_rating]" onclick="$('course_13_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_13_rating_ok" name="curriculum[course_13_rating]" onclick="$('course_13_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_13_rating_great" name="curriculum[course_13_rating]" onclick="$('course_13_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_13_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_13_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_13_comments" name="curriculum[course_13_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 4510 : Machine Learning</td>
+		          <td><input checked="checked" id="curriculum_course_86_rating_didnottake" name="curriculum[course_86_rating]" onclick="$('course_86_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_86_rating_poor" name="curriculum[course_86_rating]" onclick="$('course_86_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_86_rating_ok" name="curriculum[course_86_rating]" onclick="$('course_86_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_86_rating_great" name="curriculum[course_86_rating]" onclick="$('course_86_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_86_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_86_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_86_comments" name="curriculum[course_86_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 4550 : Expert and Knowledge Systems</td>
+		          <td><input checked="checked" id="curriculum_course_55_rating_didnottake" name="curriculum[course_55_rating]" onclick="$('course_55_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_55_rating_poor" name="curriculum[course_55_rating]" onclick="$('course_55_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_55_rating_ok" name="curriculum[course_55_rating]" onclick="$('course_55_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_55_rating_great" name="curriculum[course_55_rating]" onclick="$('course_55_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_55_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_55_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_55_comments" name="curriculum[course_55_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 4600 : Distributed Processing Systems</td>
+		          <td><input checked="checked" id="curriculum_course_56_rating_didnottake" name="curriculum[course_56_rating]" onclick="$('course_56_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_56_rating_poor" name="curriculum[course_56_rating]" onclick="$('course_56_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_56_rating_ok" name="curriculum[course_56_rating]" onclick="$('course_56_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_56_rating_great" name="curriculum[course_56_rating]" onclick="$('course_56_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_56_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_56_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_56_comments" name="curriculum[course_56_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 4630 : Software Development and Systems</td>
+		          <td><input checked="checked" id="curriculum_course_14_rating_didnottake" name="curriculum[course_14_rating]" onclick="$('course_14_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_14_rating_poor" name="curriculum[course_14_rating]" onclick="$('course_14_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_14_rating_ok" name="curriculum[course_14_rating]" onclick="$('course_14_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_14_rating_great" name="curriculum[course_14_rating]" onclick="$('course_14_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_14_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_14_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_14_comments" name="curriculum[course_14_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 4700 : Software Engineering</td>
+		          <td><input checked="checked" id="curriculum_course_57_rating_didnottake" name="curriculum[course_57_rating]" onclick="$('course_57_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_57_rating_poor" name="curriculum[course_57_rating]" onclick="$('course_57_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_57_rating_ok" name="curriculum[course_57_rating]" onclick="$('course_57_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_57_rating_great" name="curriculum[course_57_rating]" onclick="$('course_57_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_57_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_57_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_57_comments" name="curriculum[course_57_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 4730 : Human Computer Interaction</td>
+		          <td><input checked="checked" id="curriculum_course_15_rating_didnottake" name="curriculum[course_15_rating]" onclick="$('course_15_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_15_rating_poor" name="curriculum[course_15_rating]" onclick="$('course_15_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_15_rating_ok" name="curriculum[course_15_rating]" onclick="$('course_15_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_15_rating_great" name="curriculum[course_15_rating]" onclick="$('course_15_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_15_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_15_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_15_comments" name="curriculum[course_15_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 4790 : Senior Projects</td>
+		          <td><input checked="checked" id="curriculum_course_58_rating_didnottake" name="curriculum[course_58_rating]" onclick="$('course_58_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_58_rating_poor" name="curriculum[course_58_rating]" onclick="$('course_58_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_58_rating_ok" name="curriculum[course_58_rating]" onclick="$('course_58_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_58_rating_great" name="curriculum[course_58_rating]" onclick="$('course_58_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_58_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_58_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_58_comments" name="curriculum[course_58_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 4797 : Information Systems Capstone</td>
+		          <td><input checked="checked" id="curriculum_course_83_rating_didnottake" name="curriculum[course_83_rating]" onclick="$('course_83_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_83_rating_poor" name="curriculum[course_83_rating]" onclick="$('course_83_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_83_rating_ok" name="curriculum[course_83_rating]" onclick="$('course_83_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_83_rating_great" name="curriculum[course_83_rating]" onclick="$('course_83_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_83_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_83_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_83_comments" name="curriculum[course_83_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 4800 : Web Application Development</td>
+		          <td><input checked="checked" id="curriculum_course_16_rating_didnottake" name="curriculum[course_16_rating]" onclick="$('course_16_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_16_rating_poor" name="curriculum[course_16_rating]" onclick="$('course_16_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_16_rating_ok" name="curriculum[course_16_rating]" onclick="$('course_16_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_16_rating_great" name="curriculum[course_16_rating]" onclick="$('course_16_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_16_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_16_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_16_comments" name="curriculum[course_16_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 4900 : Computer Networks</td>
+		          <td><input checked="checked" id="curriculum_course_17_rating_didnottake" name="curriculum[course_17_rating]" onclick="$('course_17_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_17_rating_poor" name="curriculum[course_17_rating]" onclick="$('course_17_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_17_rating_ok" name="curriculum[course_17_rating]" onclick="$('course_17_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_17_rating_great" name="curriculum[course_17_rating]" onclick="$('course_17_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_17_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_17_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_17_comments" name="curriculum[course_17_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 5900 : Seminar in Computing</td>
+		          <td><input checked="checked" id="curriculum_course_59_rating_didnottake" name="curriculum[course_59_rating]" onclick="$('course_59_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_59_rating_poor" name="curriculum[course_59_rating]" onclick="$('course_59_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_59_rating_ok" name="curriculum[course_59_rating]" onclick="$('course_59_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_59_rating_great" name="curriculum[course_59_rating]" onclick="$('course_59_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_59_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_59_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_59_comments" name="curriculum[course_59_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 5930 : Topics in Computer Science</td>
+		          <td><input checked="checked" id="curriculum_course_18_rating_didnottake" name="curriculum[course_18_rating]" onclick="$('course_18_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_18_rating_poor" name="curriculum[course_18_rating]" onclick="$('course_18_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_18_rating_ok" name="curriculum[course_18_rating]" onclick="$('course_18_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_18_rating_great" name="curriculum[course_18_rating]" onclick="$('course_18_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_18_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_18_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_18_comments" name="curriculum[course_18_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 5940 : Topics in Information Science</td>
+		          <td><input checked="checked" id="curriculum_course_60_rating_didnottake" name="curriculum[course_60_rating]" onclick="$('course_60_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_60_rating_poor" name="curriculum[course_60_rating]" onclick="$('course_60_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_60_rating_ok" name="curriculum[course_60_rating]" onclick="$('course_60_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_60_rating_great" name="curriculum[course_60_rating]" onclick="$('course_60_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_60_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_60_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_60_comments" name="curriculum[course_60_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 5993 : Independent Study</td>
+		          <td><input checked="checked" id="curriculum_course_61_rating_didnottake" name="curriculum[course_61_rating]" onclick="$('course_61_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_61_rating_poor" name="curriculum[course_61_rating]" onclick="$('course_61_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_61_rating_ok" name="curriculum[course_61_rating]" onclick="$('course_61_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_61_rating_great" name="curriculum[course_61_rating]" onclick="$('course_61_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_61_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_61_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_61_comments" name="curriculum[course_61_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 7000 : Algorithms and Programming</td>
+		          <td><input checked="checked" id="curriculum_course_20_rating_didnottake" name="curriculum[course_20_rating]" onclick="$('course_20_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_20_rating_poor" name="curriculum[course_20_rating]" onclick="$('course_20_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_20_rating_ok" name="curriculum[course_20_rating]" onclick="$('course_20_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_20_rating_great" name="curriculum[course_20_rating]" onclick="$('course_20_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_20_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_20_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_20_comments" name="curriculum[course_20_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 7100 : Computer Systems</td>
+		          <td><input checked="checked" id="curriculum_course_21_rating_didnottake" name="curriculum[course_21_rating]" onclick="$('course_21_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_21_rating_poor" name="curriculum[course_21_rating]" onclick="$('course_21_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_21_rating_ok" name="curriculum[course_21_rating]" onclick="$('course_21_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_21_rating_great" name="curriculum[course_21_rating]" onclick="$('course_21_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_21_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_21_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_21_comments" name="curriculum[course_21_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8000 : Foundations of Algorithms and Data Structures</td>
+		          <td><input checked="checked" id="curriculum_course_25_rating_didnottake" name="curriculum[course_25_rating]" onclick="$('course_25_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_25_rating_poor" name="curriculum[course_25_rating]" onclick="$('course_25_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_25_rating_ok" name="curriculum[course_25_rating]" onclick="$('course_25_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_25_rating_great" name="curriculum[course_25_rating]" onclick="$('course_25_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_25_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_25_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_25_comments" name="curriculum[course_25_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8100 : Technology for Human Organizations</td>
+		          <td><input checked="checked" id="curriculum_course_63_rating_didnottake" name="curriculum[course_63_rating]" onclick="$('course_63_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_63_rating_poor" name="curriculum[course_63_rating]" onclick="$('course_63_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_63_rating_ok" name="curriculum[course_63_rating]" onclick="$('course_63_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_63_rating_great" name="curriculum[course_63_rating]" onclick="$('course_63_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_63_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_63_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_63_comments" name="curriculum[course_63_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8301 : Design and Analysis of Algorithms</td>
+		          <td><input checked="checked" id="curriculum_course_22_rating_didnottake" name="curriculum[course_22_rating]" onclick="$('course_22_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_22_rating_poor" name="curriculum[course_22_rating]" onclick="$('course_22_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_22_rating_ok" name="curriculum[course_22_rating]" onclick="$('course_22_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_22_rating_great" name="curriculum[course_22_rating]" onclick="$('course_22_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_22_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_22_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_22_comments" name="curriculum[course_22_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8310 : Linguistics of Programming Languages</td>
+		          <td><input checked="checked" id="curriculum_course_23_rating_didnottake" name="curriculum[course_23_rating]" onclick="$('course_23_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_23_rating_poor" name="curriculum[course_23_rating]" onclick="$('course_23_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_23_rating_ok" name="curriculum[course_23_rating]" onclick="$('course_23_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_23_rating_great" name="curriculum[course_23_rating]" onclick="$('course_23_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_23_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_23_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_23_comments" name="curriculum[course_23_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8400 : Computer Systems</td>
+		          <td><input checked="checked" id="curriculum_course_24_rating_didnottake" name="curriculum[course_24_rating]" onclick="$('course_24_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_24_rating_poor" name="curriculum[course_24_rating]" onclick="$('course_24_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_24_rating_ok" name="curriculum[course_24_rating]" onclick="$('course_24_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_24_rating_great" name="curriculum[course_24_rating]" onclick="$('course_24_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_24_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_24_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_24_comments" name="curriculum[course_24_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8410 : Operating Systems Concepts</td>
+		          <td><input checked="checked" id="curriculum_course_26_rating_didnottake" name="curriculum[course_26_rating]" onclick="$('course_26_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_26_rating_poor" name="curriculum[course_26_rating]" onclick="$('course_26_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_26_rating_ok" name="curriculum[course_26_rating]" onclick="$('course_26_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_26_rating_great" name="curriculum[course_26_rating]" onclick="$('course_26_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_26_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_26_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_26_comments" name="curriculum[course_26_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8470 : Computer Graphics</td>
+		          <td><input checked="checked" id="curriculum_course_27_rating_didnottake" name="curriculum[course_27_rating]" onclick="$('course_27_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_27_rating_poor" name="curriculum[course_27_rating]" onclick="$('course_27_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_27_rating_ok" name="curriculum[course_27_rating]" onclick="$('course_27_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_27_rating_great" name="curriculum[course_27_rating]" onclick="$('course_27_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_27_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_27_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_27_comments" name="curriculum[course_27_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8490 : Database Systems</td>
+		          <td><input checked="checked" id="curriculum_course_28_rating_didnottake" name="curriculum[course_28_rating]" onclick="$('course_28_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_28_rating_poor" name="curriculum[course_28_rating]" onclick="$('course_28_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_28_rating_ok" name="curriculum[course_28_rating]" onclick="$('course_28_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_28_rating_great" name="curriculum[course_28_rating]" onclick="$('course_28_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_28_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_28_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_28_comments" name="curriculum[course_28_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8491 : Data Mining and Data Base Programming</td>
+		          <td><input checked="checked" id="curriculum_course_94_rating_didnottake" name="curriculum[course_94_rating]" onclick="$('course_94_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_94_rating_poor" name="curriculum[course_94_rating]" onclick="$('course_94_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_94_rating_ok" name="curriculum[course_94_rating]" onclick="$('course_94_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_94_rating_great" name="curriculum[course_94_rating]" onclick="$('course_94_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_94_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_94_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_94_comments" name="curriculum[course_94_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8500 : Formal Grammars and Programming Language Theory</td>
+		          <td><input checked="checked" id="curriculum_course_64_rating_didnottake" name="curriculum[course_64_rating]" onclick="$('course_64_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_64_rating_poor" name="curriculum[course_64_rating]" onclick="$('course_64_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_64_rating_ok" name="curriculum[course_64_rating]" onclick="$('course_64_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_64_rating_great" name="curriculum[course_64_rating]" onclick="$('course_64_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_64_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_64_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_64_comments" name="curriculum[course_64_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8505 : Compiler Construction</td>
+		          <td><input checked="checked" id="curriculum_course_65_rating_didnottake" name="curriculum[course_65_rating]" onclick="$('course_65_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_65_rating_poor" name="curriculum[course_65_rating]" onclick="$('course_65_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_65_rating_ok" name="curriculum[course_65_rating]" onclick="$('course_65_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_65_rating_great" name="curriculum[course_65_rating]" onclick="$('course_65_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_65_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_65_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_65_comments" name="curriculum[course_65_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8510 : Theory of Computability</td>
+		          <td><input checked="checked" id="curriculum_course_29_rating_didnottake" name="curriculum[course_29_rating]" onclick="$('course_29_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_29_rating_poor" name="curriculum[course_29_rating]" onclick="$('course_29_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_29_rating_ok" name="curriculum[course_29_rating]" onclick="$('course_29_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_29_rating_great" name="curriculum[course_29_rating]" onclick="$('course_29_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_29_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_29_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_29_comments" name="curriculum[course_29_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8520 : Artificial Intelligence</td>
+		          <td><input checked="checked" id="curriculum_course_66_rating_didnottake" name="curriculum[course_66_rating]" onclick="$('course_66_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_66_rating_poor" name="curriculum[course_66_rating]" onclick="$('course_66_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_66_rating_ok" name="curriculum[course_66_rating]" onclick="$('course_66_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_66_rating_great" name="curriculum[course_66_rating]" onclick="$('course_66_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_66_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_66_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_66_comments" name="curriculum[course_66_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8530 : Distributed Systems</td>
+		          <td><input checked="checked" id="curriculum_course_30_rating_didnottake" name="curriculum[course_30_rating]" onclick="$('course_30_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_30_rating_poor" name="curriculum[course_30_rating]" onclick="$('course_30_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_30_rating_ok" name="curriculum[course_30_rating]" onclick="$('course_30_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_30_rating_great" name="curriculum[course_30_rating]" onclick="$('course_30_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_30_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_30_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_30_comments" name="curriculum[course_30_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8540 : Software Engineering</td>
+		          <td><input checked="checked" id="curriculum_course_31_rating_didnottake" name="curriculum[course_31_rating]" onclick="$('course_31_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_31_rating_poor" name="curriculum[course_31_rating]" onclick="$('course_31_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_31_rating_ok" name="curriculum[course_31_rating]" onclick="$('course_31_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_31_rating_great" name="curriculum[course_31_rating]" onclick="$('course_31_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_31_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_31_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_31_comments" name="curriculum[course_31_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8541 : Requirements Engineering</td>
+		          <td><input checked="checked" id="curriculum_course_91_rating_didnottake" name="curriculum[course_91_rating]" onclick="$('course_91_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_91_rating_poor" name="curriculum[course_91_rating]" onclick="$('course_91_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_91_rating_ok" name="curriculum[course_91_rating]" onclick="$('course_91_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_91_rating_great" name="curriculum[course_91_rating]" onclick="$('course_91_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_91_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_91_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_91_comments" name="curriculum[course_91_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8542 : Software Design and Evolution</td>
+		          <td><input checked="checked" id="curriculum_course_92_rating_didnottake" name="curriculum[course_92_rating]" onclick="$('course_92_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_92_rating_poor" name="curriculum[course_92_rating]" onclick="$('course_92_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_92_rating_ok" name="curriculum[course_92_rating]" onclick="$('course_92_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_92_rating_great" name="curriculum[course_92_rating]" onclick="$('course_92_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_92_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_92_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_92_comments" name="curriculum[course_92_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8550 : Concepts of Data Communications</td>
+		          <td><input checked="checked" id="curriculum_course_67_rating_didnottake" name="curriculum[course_67_rating]" onclick="$('course_67_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_67_rating_poor" name="curriculum[course_67_rating]" onclick="$('course_67_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_67_rating_ok" name="curriculum[course_67_rating]" onclick="$('course_67_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_67_rating_great" name="curriculum[course_67_rating]" onclick="$('course_67_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_67_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_67_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_67_comments" name="curriculum[course_67_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8560 : Computer Networks</td>
+		          <td><input checked="checked" id="curriculum_course_32_rating_didnottake" name="curriculum[course_32_rating]" onclick="$('course_32_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_32_rating_poor" name="curriculum[course_32_rating]" onclick="$('course_32_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_32_rating_ok" name="curriculum[course_32_rating]" onclick="$('course_32_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_32_rating_great" name="curriculum[course_32_rating]" onclick="$('course_32_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_32_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_32_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_32_comments" name="curriculum[course_32_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8570 : User/System Interface Design</td>
+		          <td><input checked="checked" id="curriculum_course_68_rating_didnottake" name="curriculum[course_68_rating]" onclick="$('course_68_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_68_rating_poor" name="curriculum[course_68_rating]" onclick="$('course_68_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_68_rating_ok" name="curriculum[course_68_rating]" onclick="$('course_68_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_68_rating_great" name="curriculum[course_68_rating]" onclick="$('course_68_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_68_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_68_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_68_comments" name="curriculum[course_68_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8580 : Network Management and Performance</td>
+		          <td><input checked="checked" id="curriculum_course_33_rating_didnottake" name="curriculum[course_33_rating]" onclick="$('course_33_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_33_rating_poor" name="curriculum[course_33_rating]" onclick="$('course_33_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_33_rating_ok" name="curriculum[course_33_rating]" onclick="$('course_33_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_33_rating_great" name="curriculum[course_33_rating]" onclick="$('course_33_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_33_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_33_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_33_comments" name="curriculum[course_33_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8590 : Advanced Software Engineering</td>
+		          <td><input checked="checked" id="curriculum_course_69_rating_didnottake" name="curriculum[course_69_rating]" onclick="$('course_69_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_69_rating_poor" name="curriculum[course_69_rating]" onclick="$('course_69_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_69_rating_ok" name="curriculum[course_69_rating]" onclick="$('course_69_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_69_rating_great" name="curriculum[course_69_rating]" onclick="$('course_69_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_69_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_69_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_69_comments" name="curriculum[course_69_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8600 : Object-Oriented Design and Programming</td>
+		          <td><input checked="checked" id="curriculum_course_34_rating_didnottake" name="curriculum[course_34_rating]" onclick="$('course_34_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_34_rating_poor" name="curriculum[course_34_rating]" onclick="$('course_34_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_34_rating_ok" name="curriculum[course_34_rating]" onclick="$('course_34_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_34_rating_great" name="curriculum[course_34_rating]" onclick="$('course_34_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_34_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_34_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_34_comments" name="curriculum[course_34_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8610 : Multimedia Technology</td>
+		          <td><input checked="checked" id="curriculum_course_70_rating_didnottake" name="curriculum[course_70_rating]" onclick="$('course_70_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_70_rating_poor" name="curriculum[course_70_rating]" onclick="$('course_70_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_70_rating_ok" name="curriculum[course_70_rating]" onclick="$('course_70_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_70_rating_great" name="curriculum[course_70_rating]" onclick="$('course_70_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_70_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_70_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_70_comments" name="curriculum[course_70_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8700 : System Programming in UNIX and C</td>
+		          <td><input checked="checked" id="curriculum_course_35_rating_didnottake" name="curriculum[course_35_rating]" onclick="$('course_35_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_35_rating_poor" name="curriculum[course_35_rating]" onclick="$('course_35_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_35_rating_ok" name="curriculum[course_35_rating]" onclick="$('course_35_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_35_rating_great" name="curriculum[course_35_rating]" onclick="$('course_35_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_35_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_35_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_35_comments" name="curriculum[course_35_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8710 : Advanced System Programming</td>
+		          <td><input checked="checked" id="curriculum_course_71_rating_didnottake" name="curriculum[course_71_rating]" onclick="$('course_71_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_71_rating_poor" name="curriculum[course_71_rating]" onclick="$('course_71_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_71_rating_ok" name="curriculum[course_71_rating]" onclick="$('course_71_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_71_rating_great" name="curriculum[course_71_rating]" onclick="$('course_71_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_71_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_71_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_71_comments" name="curriculum[course_71_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8720 : System Administration Concepts</td>
+		          <td><input checked="checked" id="curriculum_course_72_rating_didnottake" name="curriculum[course_72_rating]" onclick="$('course_72_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_72_rating_poor" name="curriculum[course_72_rating]" onclick="$('course_72_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_72_rating_ok" name="curriculum[course_72_rating]" onclick="$('course_72_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_72_rating_great" name="curriculum[course_72_rating]" onclick="$('course_72_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_72_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_72_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_72_comments" name="curriculum[course_72_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8750 : Expert Systems</td>
+		          <td><input checked="checked" id="curriculum_course_73_rating_didnottake" name="curriculum[course_73_rating]" onclick="$('course_73_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_73_rating_poor" name="curriculum[course_73_rating]" onclick="$('course_73_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_73_rating_ok" name="curriculum[course_73_rating]" onclick="$('course_73_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_73_rating_great" name="curriculum[course_73_rating]" onclick="$('course_73_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_73_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_73_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_73_comments" name="curriculum[course_73_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8800 : Applied Computer Science I</td>
+		          <td><input checked="checked" id="curriculum_course_36_rating_didnottake" name="curriculum[course_36_rating]" onclick="$('course_36_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_36_rating_poor" name="curriculum[course_36_rating]" onclick="$('course_36_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_36_rating_ok" name="curriculum[course_36_rating]" onclick="$('course_36_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_36_rating_great" name="curriculum[course_36_rating]" onclick="$('course_36_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_36_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_36_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_36_comments" name="curriculum[course_36_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8810 : Applied Computer Science II</td>
+		          <td><input checked="checked" id="curriculum_course_62_rating_didnottake" name="curriculum[course_62_rating]" onclick="$('course_62_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_62_rating_poor" name="curriculum[course_62_rating]" onclick="$('course_62_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_62_rating_ok" name="curriculum[course_62_rating]" onclick="$('course_62_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_62_rating_great" name="curriculum[course_62_rating]" onclick="$('course_62_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_62_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_62_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_62_comments" name="curriculum[course_62_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8820 : Applied Computer Science III</td>
+		          <td><input checked="checked" id="curriculum_course_37_rating_didnottake" name="curriculum[course_37_rating]" onclick="$('course_37_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_37_rating_poor" name="curriculum[course_37_rating]" onclick="$('course_37_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_37_rating_ok" name="curriculum[course_37_rating]" onclick="$('course_37_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_37_rating_great" name="curriculum[course_37_rating]" onclick="$('course_37_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_37_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_37_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_37_comments" name="curriculum[course_37_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8990 : Graduate Computing Practicum</td>
+		          <td><input checked="checked" id="curriculum_course_77_rating_didnottake" name="curriculum[course_77_rating]" onclick="$('course_77_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_77_rating_poor" name="curriculum[course_77_rating]" onclick="$('course_77_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_77_rating_ok" name="curriculum[course_77_rating]" onclick="$('course_77_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_77_rating_great" name="curriculum[course_77_rating]" onclick="$('course_77_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_77_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_77_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_77_comments" name="curriculum[course_77_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 8991 : Graduate Computing Practicum Continuation</td>
+		          <td><input checked="checked" id="curriculum_course_89_rating_didnottake" name="curriculum[course_89_rating]" onclick="$('course_89_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_89_rating_poor" name="curriculum[course_89_rating]" onclick="$('course_89_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_89_rating_ok" name="curriculum[course_89_rating]" onclick="$('course_89_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_89_rating_great" name="curriculum[course_89_rating]" onclick="$('course_89_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_89_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_89_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_89_comments" name="curriculum[course_89_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 9000 : Guided Study</td>
+		          <td><input checked="checked" id="curriculum_course_43_rating_didnottake" name="curriculum[course_43_rating]" onclick="$('course_43_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_43_rating_poor" name="curriculum[course_43_rating]" onclick="$('course_43_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_43_rating_ok" name="curriculum[course_43_rating]" onclick="$('course_43_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_43_rating_great" name="curriculum[course_43_rating]" onclick="$('course_43_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_43_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_43_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_43_comments" name="curriculum[course_43_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 9010 : Special Topics</td>
+		          <td><input checked="checked" id="curriculum_course_38_rating_didnottake" name="curriculum[course_38_rating]" onclick="$('course_38_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_38_rating_poor" name="curriculum[course_38_rating]" onclick="$('course_38_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_38_rating_ok" name="curriculum[course_38_rating]" onclick="$('course_38_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_38_rating_great" name="curriculum[course_38_rating]" onclick="$('course_38_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_38_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_38_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_38_comments" name="curriculum[course_38_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 9020 : Independent Study</td>
+		          <td><input checked="checked" id="curriculum_course_74_rating_didnottake" name="curriculum[course_74_rating]" onclick="$('course_74_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_74_rating_poor" name="curriculum[course_74_rating]" onclick="$('course_74_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_74_rating_ok" name="curriculum[course_74_rating]" onclick="$('course_74_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_74_rating_great" name="curriculum[course_74_rating]" onclick="$('course_74_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_74_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_74_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_74_comments" name="curriculum[course_74_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 9021 : Independent Study Continuation</td>
+		          <td><input checked="checked" id="curriculum_course_75_rating_didnottake" name="curriculum[course_75_rating]" onclick="$('course_75_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_75_rating_poor" name="curriculum[course_75_rating]" onclick="$('course_75_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_75_rating_ok" name="curriculum[course_75_rating]" onclick="$('course_75_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_75_rating_great" name="curriculum[course_75_rating]" onclick="$('course_75_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_75_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_75_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_75_comments" name="curriculum[course_75_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 9025 : Grand Challenges of Computing</td>
+		          <td><input checked="checked" id="curriculum_course_103_rating_didnottake" name="curriculum[course_103_rating]" onclick="$('course_103_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_103_rating_poor" name="curriculum[course_103_rating]" onclick="$('course_103_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_103_rating_ok" name="curriculum[course_103_rating]" onclick="$('course_103_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_103_rating_great" name="curriculum[course_103_rating]" onclick="$('course_103_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_103_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_103_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_103_comments" name="curriculum[course_103_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 9030 : Thesis</td>
+		          <td><input checked="checked" id="curriculum_course_76_rating_didnottake" name="curriculum[course_76_rating]" onclick="$('course_76_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_76_rating_poor" name="curriculum[course_76_rating]" onclick="$('course_76_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_76_rating_ok" name="curriculum[course_76_rating]" onclick="$('course_76_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_76_rating_great" name="curriculum[course_76_rating]" onclick="$('course_76_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_76_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_76_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_76_comments" name="curriculum[course_76_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>CSC 9080 : Thesis Continuation</td>
+		          <td><input checked="checked" id="curriculum_course_39_rating_didnottake" name="curriculum[course_39_rating]" onclick="$('course_39_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_39_rating_poor" name="curriculum[course_39_rating]" onclick="$('course_39_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_39_rating_ok" name="curriculum[course_39_rating]" onclick="$('course_39_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_39_rating_great" name="curriculum[course_39_rating]" onclick="$('course_39_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_39_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_39_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_39_comments" name="curriculum[course_39_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>ECE 7428 : Computer Comm Networks</td>
+		          <td><input checked="checked" id="curriculum_course_104_rating_didnottake" name="curriculum[course_104_rating]" onclick="$('course_104_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_104_rating_poor" name="curriculum[course_104_rating]" onclick="$('course_104_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_104_rating_ok" name="curriculum[course_104_rating]" onclick="$('course_104_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_104_rating_great" name="curriculum[course_104_rating]" onclick="$('course_104_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_104_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_104_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_104_comments" name="curriculum[course_104_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>ECE 8429 : Topics in Intelligent Systems</td>
+		          <td><input checked="checked" id="curriculum_course_50_rating_didnottake" name="curriculum[course_50_rating]" onclick="$('course_50_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_50_rating_poor" name="curriculum[course_50_rating]" onclick="$('course_50_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_50_rating_ok" name="curriculum[course_50_rating]" onclick="$('course_50_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_50_rating_great" name="curriculum[course_50_rating]" onclick="$('course_50_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_50_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_50_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_50_comments" name="curriculum[course_50_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>ECE 8471 : Software Reliability</td>
+		          <td><input checked="checked" id="curriculum_course_49_rating_didnottake" name="curriculum[course_49_rating]" onclick="$('course_49_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_49_rating_poor" name="curriculum[course_49_rating]" onclick="$('course_49_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_49_rating_ok" name="curriculum[course_49_rating]" onclick="$('course_49_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_49_rating_great" name="curriculum[course_49_rating]" onclick="$('course_49_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_49_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_49_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_49_comments" name="curriculum[course_49_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>ECE 8482 : Semantic Web</td>
+		          <td><input checked="checked" id="curriculum_course_105_rating_didnottake" name="curriculum[course_105_rating]" onclick="$('course_105_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_105_rating_poor" name="curriculum[course_105_rating]" onclick="$('course_105_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_105_rating_ok" name="curriculum[course_105_rating]" onclick="$('course_105_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_105_rating_great" name="curriculum[course_105_rating]" onclick="$('course_105_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_105_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_105_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_105_comments" name="curriculum[course_105_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>HON 1503 : The Laptop Instrument</td>
+		          <td><input checked="checked" id="curriculum_course_107_rating_didnottake" name="curriculum[course_107_rating]" onclick="$('course_107_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_107_rating_poor" name="curriculum[course_107_rating]" onclick="$('course_107_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_107_rating_ok" name="curriculum[course_107_rating]" onclick="$('course_107_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_107_rating_great" name="curriculum[course_107_rating]" onclick="$('course_107_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_107_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_107_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_107_comments" name="curriculum[course_107_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>HON 4100 : Algorithms and Puzzles</td>
+		          <td><input checked="checked" id="curriculum_course_108_rating_didnottake" name="curriculum[course_108_rating]" onclick="$('course_108_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_108_rating_poor" name="curriculum[course_108_rating]" onclick="$('course_108_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_108_rating_ok" name="curriculum[course_108_rating]" onclick="$('course_108_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_108_rating_great" name="curriculum[course_108_rating]" onclick="$('course_108_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_108_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_108_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_108_comments" name="curriculum[course_108_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>MAT 4310 : Statistical Methods</td>
+		          <td><input checked="checked" id="curriculum_course_79_rating_didnottake" name="curriculum[course_79_rating]" onclick="$('course_79_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_79_rating_poor" name="curriculum[course_79_rating]" onclick="$('course_79_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_79_rating_ok" name="curriculum[course_79_rating]" onclick="$('course_79_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_79_rating_great" name="curriculum[course_79_rating]" onclick="$('course_79_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_79_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_79_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_79_comments" name="curriculum[course_79_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>MSE 2000 : Evolution and Learning in Computational and Robotic Agents</td>
+		          <td><input checked="checked" id="curriculum_course_106_rating_didnottake" name="curriculum[course_106_rating]" onclick="$('course_106_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_106_rating_poor" name="curriculum[course_106_rating]" onclick="$('course_106_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_106_rating_ok" name="curriculum[course_106_rating]" onclick="$('course_106_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_106_rating_great" name="curriculum[course_106_rating]" onclick="$('course_106_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_106_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_106_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_106_comments" name="curriculum[course_106_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>PHI 2180 : Computer Ethics</td>
+		          <td><input checked="checked" id="curriculum_course_78_rating_didnottake" name="curriculum[course_78_rating]" onclick="$('course_78_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_78_rating_poor" name="curriculum[course_78_rating]" onclick="$('course_78_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_78_rating_ok" name="curriculum[course_78_rating]" onclick="$('course_78_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_78_rating_great" name="curriculum[course_78_rating]" onclick="$('course_78_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_78_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_78_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_78_comments" name="curriculum[course_78_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		        
+		        <tr>
+		          <td>PHY 2601 : Computational Phy Lab I</td>
+		          <td><input checked="checked" id="curriculum_course_109_rating_didnottake" name="curriculum[course_109_rating]" onclick="$('course_109_comments').hide()" type="radio" value="didNotTake" /></td>
+		          <td><input id="curriculum_course_109_rating_poor" name="curriculum[course_109_rating]" onclick="$('course_109_comments').show()" type="radio" value="Poor" /></td>
+		          <td><input id="curriculum_course_109_rating_ok" name="curriculum[course_109_rating]" onclick="$('course_109_comments').show()" type="radio" value="Ok" /></td>
+		          <td><input id="curriculum_course_109_rating_great" name="curriculum[course_109_rating]" onclick="$('course_109_comments').show()" type="radio" value="Great" /></td>
+		        </tr>
+		        <tr id='course_109_comments' style='display:none;'><td colspan='5'>
+		            <label for='curriculum[course_109_comments]'>Do you have any specific comments about this course?</label>
+		            <input class="fullLength" id="curriculum_course_109_comments" name="curriculum[course_109_comments]" size="30" type="text" />
+		        </td></tr>
+		      
+		    </table>
+
+		    <br />
+		    <label for="curriculum[courses_comments]">Comments on courses:</label>
+		    <br>
+		    <textarea class="fullLength" cols="40" id="curriculum_courses_comments" name="curriculum[courses_comments]" rows="4"></textarea>
+		    <br>
+		    <label for="curriculum[languages]">What computer language or languages are you proficient with?</label>
+		    <br>
+		    <textarea class="fullLength" cols="40" id="curriculum_languages" name="curriculum[languages]" rows="4"></textarea>
+		    <br>
+		    <label for="curriculum[curriculum_comments]">Other comments on the curriculum --- 
+		      Do you think it provides a good foundation? 
+		      Do you believe it has 'holes' in it? 
+		      Does the prerequisite structure make sense? 
+		    Is there material that is repeated across different courses unnecessarily? etc.:</label>
+		    <br>
+		    <textarea class="fullLength" cols="40" id="curriculum_curriculum_comments" name="curriculum[curriculum_comments]" rows="4"></textarea>
+			<br>
+			<button type="submit" class="exit_form-submit">Next</button>   
+		</form>
+	</div>
+{% endblock %}

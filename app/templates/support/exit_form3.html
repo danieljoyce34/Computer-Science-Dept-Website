@@ -1,0 +1,34 @@
+{% block head %}
+	<title>Exit Form Part 3</title>
+	<link rel="stylesheet" type="text/css" href="../static/css/exitForm.css">
+	<link rel="stylesheet" type="text/css" href="../static/bower_components/ionicons/css/ionicons.min.css">
+	<script type="text/javascript" src="../static/js/jquery-2.1.1.min.js"></script>
+{% endblock %}
+
+{% extends "formFrameTemplate.html" %}
+{% block content %}
+	<div class = "exit_form frame">
+		<form class="exit_form1" id="exit_form3" method="post" action="/submitExitForm3">
+		 <h1> Exit Interview Form Part 3 </h1>
+		 <h2> General Comments </h2>
+		 <p>Please use this section to tell us anything else you think might be appropriate. For example, comment on the lab facilities, advising process, office staff, etc.</p>
+
+		 <label for="general[valuable_aspects]">What were the most valuable aspects of the CSC program? </label>
+		 <br>
+	     <textarea class="fullLength" cols="40" id="general_valuable_aspects" name="general[valuable_aspects]" rows="4"></textarea>
+		 
+		 <br>
+	     <label for="general[suggestions]">Please give suggestions for improving the CSC program:</label>
+	     <br>
+	     <textarea class="fullLength" cols="40" id="general_suggestions" name="general[suggestions]" rows="4"></textarea>
+		 
+		 <br>
+	     <label for="general[other_comments]">Other Comments:</label>
+	     <br>
+	     <textarea class="fullLength" cols="40" id="general_other_comments" name="general[other_comments]" rows="4"></textarea>
+
+	     <br>
+		 <button type="submit" class="exit_form-submit">Next</button>   
+		</form>
+	</div>
+{% endblock %}

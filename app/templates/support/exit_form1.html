@@ -1,5 +1,5 @@
 {% block head %}
-	<title>Exit Form 1</title>
+	<title>Exit Form Part 1</title>
 	<link rel="stylesheet" type="text/css" href="../static/css/exitForm.css">
 	<link rel="stylesheet" type="text/css" href="../static/bower_components/ionicons/css/ionicons.min.css">
 	<script type="text/javascript" src="../static/js/jquery-2.1.1.min.js"></script>
@@ -8,19 +8,21 @@
 {% extends "formFrameTemplate.html" %}
 {% block content %}
 	<div class = "exit_form frame">
-		<form class="exit_form1" method="post" action="/submitExitForm">
+		<form class="exit_form1" id="exit_form" method="post" action="/submitExitForm1">
 		 <h1> Exit Interview Form Part 1 </h1>
-		 <label for="grad school">Do you plan on attending Graduate School?</label>
+		 <h2> Post Graduation Plan </h2>
+		 <p>Please complete each of the following subsections that pertain to your near future plans.</p>
+		 <label for="Grad-School">Do you plan on attending Graduate School?</label>
 		 <br>
-		 <input type="checkbox" name="grad school" >Yes</input>
+		 <input type="checkbox" name="Grad-School" >Yes</input>
 		 <br>
 		 <label for="Job">Did you find a job?</label>
 		 <br>
 		 <input type="checkbox" name="Job">Yes</input>
 		 <br> 
-		 <label for="Sufficient_info">Were you provided sufficient information and help as you made your plans for the future?</label>
+		 <label for="Sufficient-Info">Were you provided sufficient information and help as you made your plans for the future?</label>
 		 <br>
-		 <textarea  name="Sufficient_info" maxlength="1000" cols="25" rows="6"></textarea>
+		 <textarea  name="Sufficient-Info" maxlength="1000" cols="25" rows="6" form="exit_form"></textarea>
 		 <br>
 		 <button type="submit" class="exit_form-submit">Next</button>   
 		</form>

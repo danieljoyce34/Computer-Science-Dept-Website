@@ -3,14 +3,13 @@
 .exit_form1 {
     margin:auto;
     margin-top: 30px;
+    margin-bottom: 30px;
     width: 80%;
     background: #D2E9FF;
     padding: 20px;
     font: 12px Arial, Helvetica, sans-serif;
     color: #666;
-    border-width: 4px;	
-    border-style: groove;
-    border-color: #00BFFF; 
+    
 }
 
 .exit_form1 h1 {
@@ -23,9 +22,40 @@
     font-weight: bold;
 }
 
+.exit_form1 h2 {
+    font: 15px "Trebuchet MS", Arial, Helvetica, sans-serif;
+    padding: 7px 10px 10px 20px;
+    display: block;
+    background: #C0E1FF;
+    border-bottom: 1px solid #B8DDFF;
+    margin: -20px -20px 15px;
+    font-weight: bold;
+}
+
+.exit_form1 p {
+    font: 12px "Trebuchet MS", Arial, Helvetica, sans-serif;
+    padding: 0px 10px 20px 20px;
+    display: block;
+    margin: 0px -20px;
+    font-style: italic;
+}
+
+.exit_form1 table {
+    width: 90%;
+}
+
+.exit_form1 table, th, td {
+    font: 15px "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border: 1px solid #3b4754;
+    border-collapse: collapse;
+    border-width: 2px;
+    margin: 0 auto;
+    padding: 5px 5px 5px 5px;
+}
+
 .exit_form1 label {
     display: block;
-    margin: 0px 0px 2px;
+    margin: 0 auto;
     font-weight: bold;
 }
 
@@ -46,9 +76,6 @@
     padding: 5px 0px 0px 5px;
     margin-bottom: 10px;
     width: 100%;
-    border-width: 2px;
-    border-style: groove;
-    border-color: #00BFFF
 }
 
 .exit_form-submit{

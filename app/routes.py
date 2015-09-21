@@ -67,6 +67,10 @@ def submitExitForm1():
 
 @app.route('/submitExitForm2', methods=['POST'])
 def submitExitForm2():
+    return redirect(url_for('submitExitForm3'))
+
+@app.route('/submitExitForm3', methods=['POST'])
+def submitExitForm3():
     return redirect(url_for('index'))
 
 @app.route('/retrieveAlerts', methods=['GET'])
