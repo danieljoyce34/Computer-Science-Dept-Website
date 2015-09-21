@@ -9,7 +9,31 @@
 
 {% block content %}
 <div id="ae-creator">
-	<textarea id="ae-new-content"></textarea>
+	<textarea id="ae-new-content" placeholder="Enter Alert Text" maxlength="175"></textarea>
+
+	<div id="ae-new-details">
+		<select>	
+			<option value="" disabled selected style='display:none;'>Select a Category	</option>
+			<option value="General">General</option>
+			<option value="Warning">Warning</option>
+			<option value="Colloquium">Colloquium</option>
+			<option value="Class">Class</option>
+			<option value="Meeting">Meeting</option>
+			<option value="Club">Club</option>
+		</select>
+		<div>
+			<span>Start Date</span>
+			<input type="date" id="ae-new-start">
+		</div>
+		<div>
+			<span>End Date</span>
+			<input type="date" id="ae-new-end">
+		</div>
+	</div>
+
+	<div id="ae-new-buttons">
+		<button type="button" id="ae-new-submit">Submit</button>
+	</div>
 </div>
 
 <div id="ae-list">
