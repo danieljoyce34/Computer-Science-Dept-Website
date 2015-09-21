@@ -30,7 +30,6 @@
 	border-radius: 4px;
 }
 
-
 #ae-new-details{
 	position: relative;
 	height: auto;
@@ -52,8 +51,9 @@
 	height: 25px;
 	width: 100%;
 }
-#ae-new-submit{
+#ae-new-submit, #ae-new-reset{
 	float: right;
+	margin: 0 5px;
 }
 
 #ae-list{
@@ -75,6 +75,11 @@
 	box-shadow: 5px 5px 5px #888888;
 	border-radius: 3px;
 }
+.ae-container:after{
+  clear: both;
+  content: "";
+  display: block;
+}
 
 .ae-container-content{
 	width: 100%;
@@ -90,5 +95,39 @@
 
 .ae-container-header > a{
 	margin-right: 10px;
+}
+
+.ae-container-content-edit{
+	width: 100%;
+	height: 50px;
+	box-sizing:border-box;
+	display: none;
+}
+
+.ae-container-edits{
+	width: 100%;
+	display: none;
+}
+.ae-container-edits:after{
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.ae-container-edits div, .ae-container-edits select{
+	float: left;
+	margin: 10px 15px 10px 0;
+}
+
+.ae-edit-buttons{
+	float: left;
+	position: relative;
+	height: 25px;
+	width: 100%;
+	display: none;
+}
+.ae-edit-submit, .ae-edit-cancel{
+	float: right;
+	margin: 0 5px;
 }
 
