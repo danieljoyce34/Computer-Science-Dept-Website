@@ -1,7 +1,8 @@
 
 
 $(document).ready(function(){
-	$('.ae-container-edit-button').on('click', function(){
+
+	$(document).on("click", ".ae-container-edit-button", function(){
 		container = $(this).parent().parent();
 		container.find('.ae-container-content').hide();
 		container.find('.ae-container-content-edit').show();
@@ -22,7 +23,7 @@ $(document).ready(function(){
 		container.siblings().find('.ae-edit-cancel').click();
 	});
 
-	$('.ae-edit-cancel').on('click', function(){
+	$(document).on("click", ".ae-edit-cancel", function(){
 		container = $(this).parent().parent();
 		container.find('.ae-container-content').show();
 		container.find('.ae-container-content-edit').hide();
@@ -89,9 +90,46 @@ function submitAlert(){
         dataType: 'json',
         success: function(result) {
             console.log(result);
+            addNewAlert(JSON.parse(data));
         },
         error: function(data, textStatus, jqXHR){
         	console.log("Error");
         }
     });
 }
+
+function addNewAlert(data){
+	//prepend to #ae-list
+	// Replace "user_id" and "post_date"
+	// Replace hidden-id text with actual ID
+	$('#ae-list').prepend($('<div class="ae-container">')
+		.append($('<div class="ae-container-content">').text(data['content']))
+		.append($('<textarea class="ae-container-content-edit" maxlength="175">'))
+		.append($('<div class="ae-container-header">')
+			.append($('<a href="#" class="ae-container-edit-button">').text("Edit"))
+			.append($('<span>').text("Posted by: " + "user_id" + " on " + "post_date")))
+		.append($('<div class="ae-container-edits">')
+			.append($('<select class="ae-edit-category">')
+				.append($('<option value="General">').text("General"))
+				.append($('<option value="Warning">').text("Warning"))
+				.append($('<option value="Colloquium">').text("Colloquium"))
+				.append($('<option value="Class">').text("Class"))
+				.append($('<option value="Meeting">').text("Meeting"))
+				.append($('<option value="Club">').text("Club")))
+			.append($('<div>')
+				.append($('<span>').text("Start Date"))
+				.append($('<input type="date" class="ae-edit-start">')))
+			.append($('<div>')
+				.append($('<span>').text("End Date"))
+				.append($('<input type="date" class="ae-edit-end">'))))
+		.append($('<div class="ae-edit-buttons">')
+			.append($('<button type="button" class="ae-edit-cancel">').text("Cancel"))
+			.append($('<button type="button" class="ae-edit-submit">').text("Submit")))
+		.append($('<div style="display:none;" class="ae-hidden-id">').text("ID"))
+		.append($('<div style="display:none;" class="ae-hidden-start">').text(data.start_date))
+		.append($('<div style="display:none;" class="ae-hidden-end">').text(data.end_date))
+		.append($('<div style="display:none;" class="ae-hidden-cat">').text(data.category)));
+}
+
+
+
