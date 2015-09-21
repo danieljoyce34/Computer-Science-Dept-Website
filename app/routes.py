@@ -267,8 +267,18 @@ def login():
 
 @app.route('/submitLogin', methods=['POST'])
 def submitLogin():
-    username = request.form['login-username']
-    password = request.form['login-password']
+    username = request.form['username']
+    password = request.form['password']
+    if username == 'admin':
+        print(username)
+    if username == 'undergrad':
+        print(username)
+    if username == 'grad':
+        print(username)
+    if username == 'faculty':
+        print(username)
+    if username == 'webteam':
+        print(username)
     print(username)
     print(password)
     return redirect(url_for("index"))
