@@ -221,6 +221,28 @@ def facultyIdAjax(faculty_id):
         faculty_result.append(json)
         return jsonify(faculty=faculty_result)
 
+@app.route('/login')
+def login():
+    return render_template('login/login.html')
+
+@app.route('/submitLogin', methods=['POST'])
+def submitLogin():
+    username = request.form['username']
+    password = request.form['password']
+    if username == 'admin':
+        print(username)
+    if username == 'undergrad':
+        print(username)
+    if username == 'grad':
+        print(username)
+    if username == 'faculty':
+        print(username)
+    if username == 'webteam':
+        print(username)
+    print(username)
+    print(password)
+    return redirect(url_for("index"))
+
 @app.route('/newsEditor')
 def newsEditor():
     news = News.query.all()
