@@ -267,6 +267,10 @@ def login():
 
 @app.route('/submitLogin', methods=['POST'])
 def submitLogin():
+    username = request.form['login-username']
+    password = request.form['login-password']
+    print(username)
+    print(password)
     return redirect(url_for("index"))
 
 @app.route('/newsEditor')
