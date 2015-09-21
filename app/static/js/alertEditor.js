@@ -75,22 +75,23 @@ function submitAlert(){
 	var aCategory = $('#ae-new-category option:selected').val();
 	var aStart = $('#ae-new-start').val();
 	var aEnd = $('#ae-new-end').val();
-
+	var data = {
+    	'content' : aContent,
+    	'category' : aCategory,
+    	'start_date' : aStart,
+    	'end_date' : aEnd,
+	};
 	$.ajax({
-        type : "POST",
+        type : 'POST',
         url : "/addAlert",
-        data: {
-        	content: JSON.stringify(aContent),
-        	category: JSON.stringify(aCategory),
-        	start_date: JSON.stringify(aStart),
-        	end_date: JSON.stringify(aEnd)
-        },
-        contentType: 'application/json;charset=UTF-8',
+        data: JSON.stringify(data),
+        contentType: 'application/json; charset=UTF-8',
+        dataType: 'json',
         success: function(result) {
             console.log(result);
         },
         error: function(data, textStatus, jqXHR){
-        	console.log(data.error + "\n " + textStatus + "\n " + jqXHR);
+        	console.log("Error");
         }
     });
 }
