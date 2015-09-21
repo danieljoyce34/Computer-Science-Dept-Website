@@ -56,7 +56,7 @@ def alertsIdAjax(alert_id):
 @app.route('/news/<int:news_id>')
 def getNewsWithId(news_id):
     news = News.query.filter_by(id=news_id).first()
-    image = 'https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg'
+    image = '/static/images/image1.jpg'
     return render_template('news/NewsArticle.html', news=news, image=image)
 
 
@@ -68,7 +68,7 @@ def newsAjax():
         news_result = []
         for new in news:
             json = new.to_json_format()
-            json['image_url'] = 'https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg'
+            json['image_url'] = '/static/images/image1.jpg'
             news_result.append(json)
         return jsonify(news=news_result)
 
@@ -79,7 +79,7 @@ def newsIdAjax(news_id):
 
         news_result = []
         json = news.to_json_format()
-        json['image_url'] = 'https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg'
+        json['image_url'] = '/static/images/image1.jpg'
         news_result.append(json)
         return jsonify(news=news_result)
 
@@ -94,7 +94,7 @@ def allPeopleAjax():
                     'name': faculty.user.fname + ' ' + faculty.user.lname,
                     'person_type': faculty.faculty_type,
                     'job_title': faculty.faculty_rank,
-                    'image_url': 'https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg'}
+                    'image_url': '/static/images/image1.jpg'}
             people_result.append(json)
 
         staffs = Staff.query.all()
@@ -103,7 +103,7 @@ def allPeopleAjax():
                     'name': staff.user.fname + ' ' + staff.user.lname,
                     'person_type': 'staff',
                     'job_title': staff.position,
-                    'image_url': 'https://media.licdn.com/mpr/mpr/shrink_500_500/p/3/000/2c8/24c/039e2a7.jpg'}
+                    'image_url': '/static/images/image1.jpg'}
             people_result.append(json)
         return jsonify(people=people_result)
 
