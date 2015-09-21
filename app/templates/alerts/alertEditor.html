@@ -1,0 +1,79 @@
+
+{% extends "formFrameTemplate.html" %}
+{% block title %}Alerts Editor{% endblock %}
+{% block head %}
+	{{ super() }}
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/alertEditor.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bower_components/ionicons/css/ionicons.min.css') }}">
+{% endblock %}
+
+{% block content %}
+<div id="ae-creator">
+	<textarea id="ae-new-content" placeholder="Enter Alert Text" maxlength="175"></textarea>
+
+	<div id="ae-new-details">
+		<select id="ae-new-category">	
+			<option value="" disabled selected style='display:none;'>Select a Category	</option>
+			<option value="General">General</option>
+			<option value="Warning">Warning</option>
+			<option value="Colloquium">Colloquium</option>
+			<option value="Class">Class</option>
+			<option value="Meeting">Meeting</option>
+			<option value="Club">Club</option>
+		</select>
+		<div>
+			<span>Start Date</span>
+			<input type="date" id="ae-new-start">
+		</div>
+		<div>
+			<span>End Date</span>
+			<input type="date" id="ae-new-end">
+		</div>
+	</div>
+
+	<div id="ae-new-buttons">
+		<button type="button" id="ae-new-submit">Submit</button>
+		<button type="button" id="ae-new-reset">Reset</button>
+	</div>
+</div>
+
+<div id="ae-list">
+	{% for a in alerts %}
+		<div class="ae-container">
+			<div class="ae-container-content">{{ a.content }}</div>
+			<textarea class="ae-container-content-edit" maxlength="175">{{ a.content }}</textarea>
+			<div class="ae-container-header">
+				<a href="#" class="ae-container-edit-button">Edit</a> 
+				<span>Posted by: {{ a.user_id }} on {{ a.post_date }}</span>
+			</div>
+			<div class="ae-container-edits">
+				<select class="ae-edit-category">	
+					<option value="General">General</option>
+					<option value="Warning">Warning</option>
+					<option value="Colloquium">Colloquium</option>
+					<option value="Class">Class</option>
+					<option value="Meeting">Meeting</option>
+					<option value="Club">Club</option>
+				</select>
+				<div>
+					<span>Start Date</span>
+					<input type="date" class="ae-edit-start">
+				</div>
+				<div>
+					<span>End Date</span>
+					<input type="date" class="ae-edit-end">
+				</div>
+			</div>
+			<div class="ae-edit-buttons">
+				<button type="button" class="ae-edit-cancel">Cancel</button>
+				<button type="button" class="ae-edit-submit">Submit</button>
+			</div>
+
+			<div style="display:none;" class="ae-hidden-start">{{ a.start_date }}</div>
+			<div style="display:none;" class="ae-hidden-end">{{ a.end_date }}</div>
+			<div style="display:none;" class="ae-hidden-cat">{{ a.category }}</div>
+		</div>
+	{% endfor %}
+	<script type="text/javascript" src="{{ url_for('static', filename='js/alertEditor.js') }}"></script>
+</div>
+{% endblock %}

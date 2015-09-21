@@ -275,16 +275,22 @@ def submitNewsEdits(news_id):
 	#return render_template('editnews.html', news=news)
 	return redirect(url_for('newsEditor'))
 
-@app.route('/addAlert', methods=['POST'])
+@app.route('/alertEditor')
+def alertEditor():
+    alerts = Alert.query.all()
+    return render_template('alerts/alertEditor.html', alerts=alerts)
+
+@app.route('/addAlert', methods=['POST', 'GET'])
 def addAlert():
-	#if not session.get('logged_in'):
-	#	abort(401)
-	alert = Alert(content=request.form['content'], 
-		category=request.form['category'], location=request.form['location'], 
-		start_date=request.form['start_date'], end_date=request.form['end_date'])
-	db.session.add(alert)
-	db.session.commit()
-	return "Alert was successfully added."
+    content = request.json['content']
+    category = request.json['category']
+    start_date = request.json['start_date']
+    end_date = request.json['end_date']
+    alert = Alert(content=content, category=category, start_date=start_date, end_date=end_date, user_id=1)
+    db.session.add(alert)
+    db.session.commit()
+    print start_date + content + end_date + category
+    return json.dumps({'status' : 'OK'})
 
 @app.route('/editAlerts')
 def editAlerts():
