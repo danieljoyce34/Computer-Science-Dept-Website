@@ -153,6 +153,25 @@ body {
   }
 }
 
+#loginbar{
+  position: absolute;
+  right: 5%;
+  top: 10px;
+}
+
+#loginbar button{
+  padding: 5px 15px 5px 15px;
+  background: #00BFFF;
+  border: none;
+  color: #FFF;
+  box-shadow: 1px 1px 1px #4C6E91;
+  text-shadow: 1px 1px 1px #5079A3;
+}
+
+#loginbar button:hover{
+    background: #3EB1DD;
+}
+
 @media screen and (max-width: 1219px){
   #header-text{
     font-size: 2.5em;
