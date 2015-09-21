@@ -295,9 +295,12 @@ def alertEditor():
 def addAlert():
 	#if not session.get('logged_in'):
 	#	abort(401)
-	alert = Alert(content=request.form['content'], 
-		category=request.form['category'], location=request.form['location'], 
-		start_date=request.form['start_date'], end_date=request.form['end_date'])
+	alert = Alert(
+        content=request.form['content'], 
+		category=request.form['category'], 
+		start_date=request.form['start_date'], 
+        end_date=request.form['end_date']
+    )
 	db.session.add(alert)
 	db.session.commit()
 	return "Alert was successfully added."

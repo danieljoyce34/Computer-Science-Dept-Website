@@ -1,4 +1,5 @@
 
+
 $(document).ready(function(){
 	$('.ae-container-edit-button').on('click', function(){
 		container = $(this).parent().parent();
@@ -40,7 +41,7 @@ $(document).ready(function(){
 
 	$('#ae-new-submit').click(function(){
 		if(validAlert()){
-			alert('alert submitted');
+			submitAlert();
 		}
 	});
 });
@@ -50,7 +51,7 @@ function validAlert(){
 		alert('Alert text is required');
 		return false;
 	}
-	else if($('#ae-new-details option:selected').val() == ""){
+	else if($('#ae-new-category option:selected').val() == ""){
 		alert('Alert category is required');
 		return false;
 	}
@@ -67,4 +68,29 @@ function validAlert(){
 		return false;
 	}
 	return true;
+}
+
+function submitAlert(){
+	var aContent = $('#ae-new-content').val();
+	var aCategory = $('#ae-new-category option:selected').val();
+	var aStart = $('#ae-new-start').val();
+	var aEnd = $('#ae-new-end').val();
+
+	$.ajax({
+        type : "POST",
+        url : "/addAlert",
+        data: {
+        	content: JSON.stringify(aContent),
+        	category: JSON.stringify(aCategory),
+        	start_date: JSON.stringify(aStart),
+        	end_date: JSON.stringify(aEnd)
+        },
+        contentType: 'application/json;charset=UTF-8',
+        success: function(result) {
+            console.log(result);
+        },
+        error: function(data, textStatus, jqXHR){
+        	console.log(data.error + "\n " + textStatus + "\n " + jqXHR);
+        }
+    });
 }
