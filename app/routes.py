@@ -61,13 +61,25 @@ def index():
 
     return render_template('index.html', sideview=sideview, alerts=alerts)
 
+@app.route('/exitForm1')
+def exitForm1():
+    return render_template('support/exit_form1.html')
+
 @app.route('/submitExitForm1', methods=['POST'])
 def submitExitForm1():
-    return redirect(url_for('submitExitForm2'))
+    return redirect(url_for('exitForm2'))
+
+@app.route('/exitForm2')
+def exitForm2():
+    return render_template('support/exit_form2.html')
 
 @app.route('/submitExitForm2', methods=['POST'])
 def submitExitForm2():
-    return redirect(url_for('submitExitForm3'))
+    return redirect(url_for('exitForm3'))
+
+@app.route('/exitForm3')
+def exitForm3():
+    return render_template('support/exit_form3.html')
 
 @app.route('/submitExitForm3', methods=['POST'])
 def submitExitForm3():
