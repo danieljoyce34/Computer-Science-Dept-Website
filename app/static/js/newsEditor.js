@@ -1,30 +1,28 @@
-//TODO: Needs some kind of form validation
-//TODO: Fix date formatting
-//TODO: Add delete feature
 //TODO: Fix image file selection
 //TODO: Switch to using AJAX calls for adding/editing
-
-var baseURL = "http://127.0.0.1:5000/"
 
 $(document).ready(function(){
 
 	// Title search filter 
 	$('#ne-search').keyup(function(){
 		var search = $(this).val().toLowerCase();
+		// Hide/show news articles based on search terms
 		$('.ne-news-container').each(function(){
 			$(this).find('.ne-container-title').text().toLowerCase().indexOf(search) >= 0 ? $(this).show() : $(this).hide();
 		});
+		// Hide/show preview based on it's visibility
 		checkSelected();
 	});
 
 	// Clear button for search filter
 	$('#ne-search-clear').click(function(){
 		$('#ne-search').val('');
+		// Show all news articles
 		$('.ne-news-container').show();
 		checkSelected();
 	});
 
-	// Container selection
+	// News article container selection
 	$(document).on('click', '.ne-news-container', function(){
 		// Set selected class
 		$(this).siblings().removeClass("ne-selected");
@@ -40,20 +38,32 @@ $(document).ready(function(){
 	// Add news button
 	$('#ne-add').click(function(){
 		clearSide();
+		$('#ne-submit').show();
+		$('#ne-save').hide();
 		showEdit();
 		extendSideEdit();
-		$('#ne-side').prop('action', '/submitNews');
 	});
 
 	// Edit news button
 	$('#ne-edit').click(function(){
+		$('#ne-submit').hide();
+		$('#ne-save').show();
 		showEdit();
 		extendSideEdit();
-		$('#ne-side').prop('action', '/submitNewsEdits/' + $('.ne-selected .ne-container-id').text());
 	});
 
 	// Cancel edits button
-	$('#ne-cancel').click(function(){ hideEditForm(); });
+	$('#ne-cancel').click(function(){ hideEditForm(function(){}); });
+
+	$('#ne-submit').click(function(){
+		if(validNewsInput())
+			saveNews(-1);
+	});
+
+	$('#ne-save').click(function(){
+		if(validNewsInput())
+			saveNews($('.ne-selected .ne-container-id').text());
+	})
 });
 
 // Checks if an article is selected from the list
@@ -79,9 +89,6 @@ function setPreview(article){
 	var end = new Date(article.find('.ne-container-end').text());
 	var eDate = end.getFullYear() + "-" + ("0" + (end.getMonth() + 1)).slice(-2) + "-" + ("0" + end.getDate()).slice(-2);
 	$('#ne-edate-edit').val(eDate);
-
-	$('#ne-side').prop('action', '/submitNewsEdits/' + $('.ne-selected .ne-container-id').text());
-
 }
 
 // Shows the preview fields
@@ -109,13 +116,14 @@ function clearSide(){
 	$('#ne-article-edit, #ne-side input').val('');
 }
 
-
+// Shows news edit fields
 function showEdit(){
 	$('#ne-side-title, #ne-side-article').hide();
 	$('.ne-side-label').show();
 	$('#ne-title-edit, #ne-intro-edit, #ne-article-edit, #ne-img-edit, #ne-sdate-edit, #ne-edate-edit').show();
 }
 
+// Side edit display slide animation
 function extendSideEdit(){
 	if($('#ne-side').css('display') != 'none'){
 		$('#ne-list').animate({
@@ -140,7 +148,8 @@ function extendSideEdit(){
 	$('#ne-edit-options').show();
 }
 
-function hideEditForm(){
+// Side edit hide slide animation
+function hideEditForm(callback){
 	$('#ne-edit-options').hide();
 	if($('#ne-list').find('.ne-selected').length == 0){
 		$('#ne-list').css('opacity', '1');
@@ -151,6 +160,7 @@ function hideEditForm(){
 			$('#ne-side').hide();
 			showPreview();
 			$('#ne-add').prop('disabled',false);
+			callback();
 		});
 	}
 	else{
@@ -163,6 +173,99 @@ function hideEditForm(){
 			showPreview();
 			$('#ne-options button').prop('disabled', false);
 			checkSelected();
+			callback();
 		});
 	}
 }
+
+// Checks if news edit field input is valid
+function validNewsInput(){
+	// Check for title
+	if($('#ne-title-edit').val().trim() == ""){
+		alert('Headline is required');
+		return false;
+	}
+	// Check for intro
+	else if($('#ne-intro-edit').val().trim() == ""){
+		alert('Intro is required');
+		return false;
+	}
+	else if($('#ne-article-edit').val().trim() == ""){
+		alert('Article text is required');
+		return false;
+	}
+	else if($('#ne-sdate-edit').val() == ""){
+		alert("A start date is required");
+		return false;
+	}
+	else if($('#ne-edate-edit').val() == ""){
+		alert("An end date is required");
+		return false;
+	}
+	else if(new Date($('#ne-sdate-edit').val()) >= new Date($('#ne-edate-edit').val())){
+		alert('The start date must be before the end date');
+		return false;
+	}
+	return true;
+}
+
+// Adds news to the db
+function saveNews(id){
+	var title = $('#ne-title-edit').val();
+	var intro = $('#ne-intro-edit').val();
+	var article = $('#ne-article-edit').val();
+	var image = $('#ne-img-edit').val();
+	var start = $('#ne-sdate-edit').val();
+	var end = $('#ne-edate-edit').val();
+	var data = {
+		'headline' : title,
+		'intro' : intro,
+		'article' : article,
+		'image' : image,
+		'start_date' : start,
+		'end_date' : end,
+	};
+	url = '/addNews';
+	if(id != -1)
+		url = '/editNews/' + id;
+	$.ajax({
+		type: 'POST',
+		url: url,
+		data: JSON.stringify(data),
+		contentType: 'application/json; charset=UTF-8',
+        dataType: 'json',
+        success: function(result) {
+            //addNewsContainer(data);
+           	hideEditForm(function(){ (id == -1) ? addNewsContainer(data) : updateNewsContainer(data); });
+        },
+        error: function(data, textStatus, jqXHR){
+        	alert("Unable to save the news article. Please try again later.");
+        }
+	})
+}
+
+// Adds a new news container
+function addNewsContainer(news){
+	//TODO: get ID
+	//TODO: add div for image when that gets implemented
+	$('#ne-list').prepend($('<div class="ne-news-container">')
+		.append($('<div class="ne-container-title">').text(news.headline))
+		.append($('<div class="ne-container-intro">').text(news.intro))
+		.append($('<div class="ne-container-id">').text("ID"))
+		.append($('<div class="ne-container-article">').text(news.article))
+		.append($('<div class="ne-container-start">').text(news.start_date))
+		.append($('<div class="ne-container-end">').text(news.end_date)));
+	
+	$('#ne-list .ne-news-container').first().click();
+}
+
+function updateNewsContainer(data){
+	news = $('#ne-list .ne-selected');
+	news.find('.ne-container-title').text(data.headline);
+	news.find('.ne-container-intro').text(data.intro);
+	news.find('.ne-container-article').text(data.article);
+	news.find('.ne-container-start').text(data.start_date);
+	news.find('.ne-container-end').text(data.end_date);
+	$('#ne-list .ne-selected').click();
+}
+
