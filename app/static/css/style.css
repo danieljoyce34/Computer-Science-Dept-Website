@@ -197,3 +197,8 @@ body {
     display: block;
   }
 }
+
+.content {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
