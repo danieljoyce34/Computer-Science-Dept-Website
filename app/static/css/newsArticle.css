@@ -1,0 +1,22 @@
+#news-content{
+	width: 100%;
+	position: relative;
+	background: #E4E9E8;
+	padding: 20px 10px;
+	box-sizing: border-box;
+}
+
+#news-title{
+	margin: 5px 10px;
+}
+
+#news-date{
+	float: right;
+	margin: 0;
+}
+
+#news-image{
+	display: block;
+	max-width: 100%;
+	margin: 0 auto;
+}
