@@ -198,7 +198,8 @@ body {
   }
 }
 
-.content {
-  margin-top: 20px;
-  margin-bottom: 20px;
+#content {
+  background: #E4E9E8;
+  padding: 20px 10px;
+  box-sizing: border-box;
 }
