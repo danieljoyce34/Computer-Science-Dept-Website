@@ -277,7 +277,7 @@ def submitNewsEdits(news_id):
 
 @app.route('/alertEditor')
 def alertEditor():
-    alerts = Alert.query.all()
+    alerts = Alert.query.order_by(desc(Alert.id)).all()
     return render_template('alerts/alertEditor.html', alerts=alerts)
 
 @app.route('/addAlert', methods=['POST', 'GET'])
