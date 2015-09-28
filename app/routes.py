@@ -227,7 +227,7 @@ def editNews(news_id):
 
 @app.route('/alertEditor')
 def alertEditor():
-    alerts = Alert.query.all()
+    alerts = Alert.query.order_by(desc(Alert.id)).all()
     return render_template('alerts/alertEditor.html', alerts=alerts)
 
 @app.route('/addAlert', methods=['POST', 'GET'])
@@ -242,31 +242,15 @@ def addAlert():
     print start_date + content + end_date + category
     return json.dumps({'status' : 'OK'})
 
-@app.route('/editAlerts')
-def editAlerts():
-	alerts = Alert.query.all()
-	return render_template('editalerts.html', alerts=alerts)
-
-@app.route('/editAlerts/<int:alert_id>')
-def editAlertsWithId(alert_id):
-	#if not session.get('logged_in'):
-	#	abort(401)
-	alerts = Alert.query.filter_by(id=alert_id).first()
-	return render_template('editalertsform.html', alerts=alerts)
-
-@app.route('/submitAlertEdits/<int:alert_id>', methods=['POST'])
+@app.route('/editAlert/<int:alert_id>', methods=['POST'])
 def submitAlertEdits(alert_id):
-	#if not session.get('logged_in'):
-	#	abort(401)
-	alert = Alert.query.filter_by(id=alert_id).first()
-	alert.content = request.form['content']
-	alert.category = request.form['category']
-	alert.location = request.form['location']
-	alert.start_date = request.form['start_date']
-	alert.end_date = request.form['end_date']
-	db.session.commit()
-	return "Alert was successfully edited."
-
+    alert = Alert.query.filter_by(id=alert_id).first()
+    alert.content = request.json['content']
+    alert.category = request.json['category']
+    alert.start_date = request.json['start_date']
+    alert.end_date = request.json['end_date']
+    db.session.commit()
+    return json.dumps({'status' : 'OK'})
 
 @app.route('/carousel')
 def carousel():
