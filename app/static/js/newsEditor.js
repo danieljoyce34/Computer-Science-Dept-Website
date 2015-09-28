@@ -185,11 +185,6 @@ function validNewsInput(){
 		alert('Headline is required');
 		return false;
 	}
-	// Check for intro
-	else if($('#ne-intro-edit').val().trim() == ""){
-		alert('Intro is required');
-		return false;
-	}
 	else if($('#ne-article-edit').val().trim() == ""){
 		alert('Article text is required');
 		return false;
