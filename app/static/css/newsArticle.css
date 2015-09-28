@@ -20,3 +20,24 @@
 	max-width: 100%;
 	margin: 0 auto;
 }
+
+@media screen and (max-width: 610px){
+	#news-title{
+		font-size: 25px;
+	}
+	#news-date{
+		font-size: 14px;
+	}
+}
+
+@media screen and (max-width: 490px){
+	#news-title{
+		font-size: 15px;
+	}
+	#news-date{
+		font-size: 10px;
+	}
+	#news-article{
+		font-size: 11px;
+	}
+}
