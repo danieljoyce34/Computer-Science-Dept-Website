@@ -202,32 +202,28 @@ def newsEditor():
     news = News.query.all()
     return render_template('news/newsEditor.html', news=news)
 
-@app.route('/submitNews', methods=['POST'])
-def submitNews():
-	#if not session.get('logged_in'):
-	#	abort(401)
-	news = News(headline=request.form['edit-news-headline'], intro=request.form['edit-news-intro'], 
-		article=request.form['edit-news-article'])
-	db.session.add(news)
-	db.session.commit()
-	news = News.query.all()
-	#return render_template('editnews.html', news=news)
-	return redirect(url_for('newsEditor'))
+@app.route('/addNews', methods=['POST'])
+def addNews():
+    headline = request.json['headline']
+    intro = request.json['intro']
+    article = request.json['article']
+    start = request.json['start_date']
+    end = request.json['end_date']
+    news = News(headline = headline, intro = intro, article = article, start_date = start, end_date = end)
+    db.session.add(news)
+    db.session.commit()
+    return json.dumps({'status' : 'OK'})
 
-@app.route('/submitNewsEdits/<int:news_id>', methods=['POST'])
-def submitNewsEdits(news_id):
-	#if not session.get('logged_in'):
-	#	abort(401)
-	news = News.query.filter_by(id=news_id).first()
-	news.headline = request.form['ne-title-edit']
-	news.intro = request.form['ne-intro-edit']
-	news.article = request.form['ne-article-edit']
-	news.start_date = request.form['ne-sdate-edit']
-	news.end_date = request.form['ne-edate-edit']
-	db.session.commit()
-	news = News.query.all()
-	#return render_template('editnews.html', news=news)
-	return redirect(url_for('newsEditor'))
+@app.route('/editNews/<int:news_id>', methods=['POST'])
+def editNews(news_id):
+    news = News.query.filter_by(id=news_id).first()
+    news.headline = request.json['headline']
+    news.intro = request.json['intro']
+    news.article = request.json['article']
+    news.start_date = request.json['start_date']
+    news.end_date = request.json['end_date']
+    db.session.commit()
+    return json.dumps({'status' : 'OK'})
 
 @app.route('/alertEditor')
 def alertEditor():
