@@ -206,31 +206,24 @@ function validNewsInput(){
 
 // Adds news to the db
 function saveNews(id){
-	var title = $('#ne-title-edit').val();
-	var intro = $('#ne-intro-edit').val();
-	var article = $('#ne-article-edit').val();
-	var image = $('#ne-img-edit').val();
-	var start = $('#ne-sdate-edit').val();
-	var end = $('#ne-edate-edit').val();
 	var data = {
-		'headline' : title,
-		'intro' : intro,
-		'article' : article,
-		'image' : image,
-		'start_date' : start,
-		'end_date' : end,
+		'headline' : $('#ne-title-edit').val(),
+		'intro' : $('#ne-intro-edit').val(),
+		'article' : $('#ne-article-edit').val(),
+		'image' : $('#ne-img-edit').val(),
+		'start_date' : $('#ne-sdate-edit').val(),
+		'end_date' : $('#ne-edate-edit').val(),
 	};
+
 	url = '/addNews';
 	if(id != -1)
 		url = '/editNews/' + id;
 	$.ajax({
 		type: 'POST',
 		url: url,
-		data: JSON.stringify(data),
-		contentType: 'application/json; charset=UTF-8',
-        dataType: 'json',
+		data: $('form').serialize(),
+        contentType: "application/x-www-form-urlencoded",
         success: function(result) {
-            //addNewsContainer(data);
            	hideEditForm(function(){ (id == -1) ? addNewsContainer(data) : updateNewsContainer(data); });
         },
         error: function(data, textStatus, jqXHR){

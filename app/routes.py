@@ -204,11 +204,11 @@ def newsEditor():
 
 @app.route('/addNews', methods=['POST'])
 def addNews():
-    headline = request.json['headline']
-    intro = request.json['intro']
-    article = request.json['article']
-    start = request.json['start_date']
-    end = request.json['end_date']
+    headline = request.form['headline']
+    intro = request.form['intro']
+    article = request.form['article']
+    start = request.form['start_date']
+    end = request.form['end_date']
     news = News(headline = headline, intro = intro, article = article, start_date = start, end_date = end)
     db.session.add(news)
     db.session.commit()
@@ -217,11 +217,11 @@ def addNews():
 @app.route('/editNews/<int:news_id>', methods=['POST'])
 def editNews(news_id):
     news = News.query.filter_by(id=news_id).first()
-    news.headline = request.json['headline']
-    news.intro = request.json['intro']
-    news.article = request.json['article']
-    news.start_date = request.json['start_date']
-    news.end_date = request.json['end_date']
+    news.headline = request.form['headline']
+    news.intro = request.form['intro']
+    news.article = request.form['article']
+    news.start = request.form['start_date']
+    news.end = request.form['end_date']
     db.session.commit()
     return json.dumps({'status' : 'OK'})
 
