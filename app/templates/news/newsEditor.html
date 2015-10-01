@@ -1,6 +1,5 @@
 <!-- Needs to inherit pageFrameTemplate, extends base for now because the pageFrameTemplate footer looks kind of weird on the news editor -->
 
-<!-- TODO: page gets messed up when the extend is placed before the block head. -->
 {% extends "formFrameTemplate.html" %}
 {% block title %}News Editor{% endblock %}
 
@@ -35,24 +34,28 @@
 		{% endfor %}
 	</div>
 
-	<div id="ne-side">
+	<form id="ne-side" method="post">
 		<div id="ne-side-title"></div>
 		<div class="ne-side-label">Headline</div>
-		<input type="text" id="ne-title-edit">
+		<input type="text" id="ne-title-edit" name="ne-title-edit">
 		<div class="ne-side-label">Intro</div>
-		<input type="text" id="ne-intro-edit">
+		<input type="text" id="ne-intro-edit" name="ne-intro-edit">
 		<div id="ne-side-article"></div>
 		<div class="ne-side-label">Article</div>
-		<textarea rows="4" cols="50" id="ne-article-edit"></textarea>
+		<textarea rows="4" cols="50" id="ne-article-edit" name="ne-article-edit" form="ne-side"></textarea>
 		<div class="ne-side-label">Image</div>
-		<input type='file' onchange="readURL(this);" id="ne-img-edit">
+		<input type='file' onchange="readURL(this);" id="ne-img-edit" name="ne-img-edit">
 		<div class="ne-side-label">Start Date</div>
-		<input type="date" id="ne-sdate-edit">
+		<input type="date" id="ne-sdate-edit" name="ne-sdate-edit">
 		<div class="ne-side-label">End Date</div>
-		<input type="date" id="ne-edate-edit">
-	</div>
+		<input type="date" id="ne-edate-edit" name="ne-edate-edit">
+	</form>
 
 	<div id="ne-edit-options">
+		<!--
+		<input type="submit" value="Save" form="ne-side" id="ne-save">
+		<input type="submit" value="Add" form="ne-side" id="ne-submit">
+		-->
 		<button type="button" id="ne-submit">Add</button>
 		<button type="button" id="ne-save">Save</button>
 		<input type="submit" value="Cancel" id="ne-cancel">
