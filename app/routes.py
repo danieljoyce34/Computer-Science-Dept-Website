@@ -9,9 +9,21 @@ from jinja2 import TemplateNotFound
 import os
 import random
 
+from werkzeug import secure_filename
+
 from datetime import timedelta
 from functools import update_wrapper
 from sqlalchemy import desc
+
+# Folder path for uploading images
+UPLOAD_FOLDER = '/app/static/images'
+# File limitations for uploading images
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
+
+# Checks if a file is valid
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 @app.route('/')
 @app.route('/index')
@@ -209,6 +221,13 @@ def addNews():
     article = request.form['article']
     start = request.form['start_date']
     end = request.form['end_date']
+
+    imgfile = request.files['img']
+    print imgfile.filename
+    if imgfile and allowed_file(imgfile.filename):
+        filename = secure_filename(imgfile.filename)
+        imgfile.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
     news = News(headline = headline, intro = intro, article = article, start_date = start, end_date = end)
     db.session.add(news)
     db.session.commit()
@@ -222,6 +241,12 @@ def editNews(news_id):
     news.article = request.form['article']
     news.start = request.form['start_date']
     news.end = request.form['end_date']
+
+    imgfile = request.files['img']
+    if imgfile and allowed_file(imgfile.filename):
+        filename = secure_filename(imgfile.filename)
+        imgfile.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    
     db.session.commit()
     return json.dumps({'status' : 'OK'})
 

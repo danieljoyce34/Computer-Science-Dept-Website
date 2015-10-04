@@ -215,19 +215,26 @@ function saveNews(id){
 		'end_date' : $('#ne-edate-edit').val(),
 	};
 
+	var formData = new FormData($('#ne-side')[0]);
+
 	url = '/addNews';
 	if(id != -1)
 		url = '/editNews/' + id;
 	$.ajax({
 		type: 'POST',
 		url: url,
-		data: $('form').serialize(),
-        contentType: "application/x-www-form-urlencoded",
+		data: formData,
+		//data: $('form').serialize(),
+        //contentType: "application/x-www-form-urlencoded",
+        contentType: false,
+        processData: false,
+        cache: false,
         success: function(result) {
            	hideEditForm(function(){ (id == -1) ? addNewsContainer(data) : updateNewsContainer(data); });
         },
         error: function(data, textStatus, jqXHR){
         	alert("Unable to save the news article. Please try again later.");
+        	console.log(data.responseText + ", " + textStatus + ", " + jqXHR);
         }
 	})
 }
