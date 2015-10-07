@@ -240,7 +240,7 @@ def editNews(news_id):
     news.article = request.form['article']
     news.start = request.form['start_date']
     news.end = request.form['end_date']
-
+    # Saves image to static/image folder
     imgfile = request.files['img']
     if imgfile and allowed_file(imgfile.filename):
         filename = secure_filename(imgfile.filename)
