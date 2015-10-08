@@ -1,0 +1,33 @@
+{% extends "pageFrameTemplate.html" %}
+{% block title %}Computer Science Department{% endblock %}
+{% block head %} {{ super() }} {% endblock %}
+{% block header %} {{ super() }} {% endblock %}
+
+{% block content %}
+<h2>Employment Postings</h2>
+
+<p>The following job postings include those that are available through the
+  <a href="http://careers.villanova.edu" target="_blank">Career Services</a>
+  office, but also include opportunities that you might not find elsewhere.
+Our alumni and others often contact us directly about openings.</p>
+
+<p>The company names link to the company web sites, and the job titles
+link to further details about the position.</p>
+
+<p>If you are looking specifically for an internship, please visit our
+<a href="/support/employment/internships">internship postings</a> page.</p>
+
+<table class="lesser">
+  <tbody><tr>
+    <th>Company</th>
+    <th>Job Title</th>
+    <th class="post">Posted</th>
+    <th>Deadline</th>
+  </tr>
+  
+</tbody></table>
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+{% endblock %}
