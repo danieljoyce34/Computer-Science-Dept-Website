@@ -42,12 +42,14 @@ var staff = [
 
 $(document).ready(function () {
 
+	/*
 	$.get('/retrievePeople', function (api_staff) {
 			console.log(api_staff);
 			staff = api_staff.people;
 			getTypes();
 			getStaff('all');
 	});
+	*/
 
 	$('#type-filter').change(function(){
 		$('#staff-list').find('div.staff-container').remove();

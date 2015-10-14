@@ -59,7 +59,7 @@ def allPeopleAjax():
                     'job_title': staff.position,
                     'image_url': '/static/images/image1.jpg'}
             people_result.append(json)
-        return jsonify(people=people_result)
+        return render_template('about/faculty.html', people=people_result)
 
 
 @app.route('/retrieveFullTimeFaculty', methods=['GET'])
@@ -282,7 +282,10 @@ def aboutUs(subpage):
     if subpage is not None:
         uri = 'about/%s' % subpage + '.html'
         try:
-            return render_template(uri)
+            if subpage == 'faculty':
+                return allPeopleAjax()
+            else:
+                return render_template(uri)
         except TemplateNotFound:
             abort(404)
     else:
