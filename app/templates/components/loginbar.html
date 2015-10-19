@@ -1,6 +1,11 @@
 <div id="loginbar">
-<!-- if login is none  Fix this-->
+	{% if g.user.is_authenticated %}
+	<form method="get" action="/logout">
+    	<button type="submit">Logout</button>
+	</form>
+	{% else %}
 	<form method="get" action="/login">
     	<button type="submit">Login</button>
 	</form>
+	{% endif %}
 </div>
