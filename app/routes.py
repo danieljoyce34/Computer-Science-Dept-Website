@@ -242,6 +242,7 @@ def before_request():
     g.user = current_user
 
 @app.route('/newsEditor')
+@login_required
 def newsEditor():
     news = News.query.order_by(desc(News.id)).all()
     return render_template('news/newsEditor.html', news=news)
@@ -284,11 +285,12 @@ def editNews(news_id):
     return json.dumps({'status' : 'OK'})
 
 @app.route('/alertEditor')
+@login_required
 def alertEditor():
     alerts = Alert.query.order_by(desc(Alert.id)).all()
     return render_template('alerts/alertEditor.html', alerts=alerts)
 
-@app.route('/addAlert', methods=['POST', 'GET'])
+@app.route('/addAlert', methods=['POST'])
 def addAlert():
     content = request.json['content']
     category = request.json['category']
@@ -316,22 +318,6 @@ def submitAlertEdits(alert_id):
 @app.route('/carousel')
 def carousel():
     return render_template('carousel.html')
-
-@app.route('/getArticleNumber')
-def getArticleNumber():
-    return 12
-
-@app.route('/general', methods=['POST', 'GET'])
-def generalPage():
-    e = request.args['content']
-    return render_template('pageTemplate.html', content=e)
-
-
-@app.route('/loadJSON', methods=['POST', 'GET'])
-def loadJson():
-	j = open(os.path.join(os.path.dirname(__file__), 'static/json-data/about-page.json'), 'r')
-	data = json.load(j)
-	return jsonify(data)
 
 ###STATIC ROUTES SERVIN' UP SOME GOOD OL' FASHIONED HTML###
 ##MMMmmm MM good ol fashioned cooking!##
