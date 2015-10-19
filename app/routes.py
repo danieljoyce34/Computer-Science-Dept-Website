@@ -243,7 +243,7 @@ def before_request():
 
 @app.route('/newsEditor')
 def newsEditor():
-    news = News.query.all()
+    news = News.query.order_by(desc(News.id)).all()
     return render_template('news/newsEditor.html', news=news)
 
 @app.route('/addNews', methods=['POST'])
@@ -262,7 +262,9 @@ def addNews():
     news = News(headline = headline, intro = intro, article = article, start_date = start, end_date = end)
     db.session.add(news)
     db.session.commit()
-    return json.dumps({'status' : 'OK'})
+
+    newNews = News.query.order_by(desc(News.id)).first()
+    return json.dumps({'status' : 'OK', 'newsID' : newNews.id})
 
 @app.route('/editNews/<int:news_id>', methods=['POST'])
 def editNews(news_id):

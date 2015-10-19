@@ -230,7 +230,8 @@ function saveNews(id){
         processData: false,
         cache: false,
         success: function(result) {
-           	hideEditForm(function(){ (id == -1) ? addNewsContainer(data) : updateNewsContainer(data); });
+        	console.log(result.newsID);
+           	hideEditForm(function(){ (id == -1) ? addNewsContainer(data, result.newsID) : updateNewsContainer(data); });
         },
         error: function(data, textStatus, jqXHR){
         	alert("Unable to save the news article. Please try again later.");
@@ -240,13 +241,13 @@ function saveNews(id){
 }
 
 // Adds a new news container
-function addNewsContainer(news){
+function addNewsContainer(news, id){
 	//TODO: get ID
 	//TODO: add div for image when that gets implemented
 	$('#ne-list').prepend($('<div class="ne-news-container">')
 		.append($('<div class="ne-container-title">').text(news.headline))
 		.append($('<div class="ne-container-intro">').text(news.intro))
-		.append($('<div class="ne-container-id">').text("ID"))
+		.append($('<div class="ne-container-id">').text(id))
 		.append($('<div class="ne-container-article">').text(news.article))
 		.append($('<div class="ne-container-start">').text(news.start_date))
 		.append($('<div class="ne-container-end">').text(news.end_date)));
