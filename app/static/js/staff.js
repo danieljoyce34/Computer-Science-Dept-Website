@@ -52,8 +52,19 @@ $(document).ready(function () {
 	*/
 
 	$('#type-filter').change(function(){
-		$('#staff-list').find('div.staff-container').remove();
-		getStaff($(this).val());
+		//$('#staff-list').find('div.staff-container').remove();
+
+		var type = $(this).val().toLowerCase();
+
+		if (type == 'all') {
+			$('#staff-list>div.staff-container').show();
+		}
+		else {
+			$('#staff-list>div.staff-container').each(function(){
+				$(this).find('.staff-email').text().toLowerCase() == type ? $(this).show() : $(this).hide();
+			});
+		}
+		//getStaff($(this).val());
 	});
 
 	$('#search-filter').keyup(function(){
