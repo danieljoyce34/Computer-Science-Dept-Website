@@ -290,7 +290,7 @@ def alertEditor():
     alerts = Alert.query.order_by(desc(Alert.id)).all()
     return render_template('alerts/alertEditor.html', alerts=alerts)
 
-@app.route('/addAlert', methods=['POST', 'GET'])
+@app.route('/addAlert', methods=['POST'])
 def addAlert():
     content = request.json['content']
     category = request.json['category']
