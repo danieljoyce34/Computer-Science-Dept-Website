@@ -1,11 +1,12 @@
 from flask import render_template, request, jsonify, make_response, json
-from flask import current_app, redirect, url_for, abort, Response
-from app import app, db
+from flask import current_app, redirect, url_for, abort, Response, g, session
+from app import app, db, loginManager
 from .models import Image, Sideview, News, Alert, Faculty, User, Staff, Education
 from .models import FacultyServices, FacultyInterests, CommitteeMembers, Committee
 import util
 import jinja2
 from jinja2 import TemplateNotFound
+from flask.ext.login import login_user, logout_user, current_user, login_required
 import os
 import random
 
@@ -175,27 +176,58 @@ def facultyIdAjax(faculty_id):
         faculty_result.append(json)
         return jsonify(faculty=faculty_result)
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
+    if g.user is not None and g.user.is_authenticated:
+        return redirect(url_for('index'))
     return render_template('login/login.html')
 
 @app.route('/submitLogin', methods=['POST'])
 def submitLogin():
     username = request.form['username']
     password = request.form['password']
-    if username == 'admin':
+    # user fake user below for now
+    if username == 'admin' and password == 'password':
         print(username)
-    if username == 'undergrad':
+        user = User.query.get(int(1))
+        login_user(user, False)
+        return redirect(url_for('index'))
+    if username == 'undergrad' and password == 'password':
         print(username)
-    if username == 'grad':
+        user = User.query.get(int(2))
+        login_user(user, False)
+        return redirect(url_for('index'))
+    if username == 'grad' and password == 'password':
         print(username)
-    if username == 'faculty':
+        user = User.query.get(int(3))
+        login_user(user, False)
+        return redirect(url_for('index'))
+    if username == 'faculty' and password == 'password':
         print(username)
-    if username == 'webteam':
+        user = User.query.get(int(4))
+        login_user(user, False)
+        return redirect(url_for('index'))
+    if username == 'webteam' and password == 'password':
         print(username)
-    print(username)
-    print(password)
-    return redirect(url_for("index"))
+        user = User.query.get(int(5))
+        login_user(user, False)
+        return redirect(url_for('index'))
+    # on the machine that's whitelisted, we need to check if user already
+    # exist in our db, if not create the user
+    return redirect(url_for('login'))
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
+
+@loginManager.user_loader
+def load_user(id):
+    return User.query.get(int(id))
+
+@app.before_request
+def before_request():
+    g.user = current_user
 
 @app.route('/newsEditor')
 def newsEditor():
