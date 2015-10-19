@@ -1,0 +1,229 @@
+@media screen and (min-width: 781px){
+	#content-wrapper{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		min-width: 780px;
+		margin: 0 auto;
+	}
+}
+@media screen and (max-width: 780px){
+	#content-wrapper{
+		position: absolute !important;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+	}
+}
+
+
+#sidebar-editor{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	min-width: 270px;
+	font-family: Arial, Helvetica, sans-serif;
+	background: #DDDDDD;
+	padding-top: 5px;
+	box-sizing: border-box;
+}
+
+/* Options bar */
+
+#sbe-options{
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	right: 5px;
+	height: auto;
+	min-width: 260px;
+}
+
+#sbe-search{
+	float: left;
+	width: 25%;
+	min-width: 100px;
+	margin: 0;
+	padding: 5px 15px;
+	font-size: 14px;
+	border: 1px solid #1F3664;
+	border-right: 0px;
+	border-top-left-radius: 5px 5px;
+	border-bottom-left-radius: 5px 5px;
+}
+
+#sbe-search-clear{
+	float: left;
+	margin: 0;
+	padding: 5px 7px;	
+	font-size:14px;
+	font-weight:bold;
+	text-align: center;
+	text-decoration: none;
+	color: #ffffff;	
+	border: solid 1px #0076a3; border-right:0px;
+	border-top-right-radius: 5px 5px;
+	border-bottom-right-radius: 5px 5px;
+	outline: none;
+	background: #1F3664;
+	cursor: pointer;
+}
+#sbe-search-clear:hover{
+	text-decoration: none;
+	background: #007ead;
+	background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+	background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+}
+#sbe-search-clear::-moz-focus-inner {
+  	border: 0;
+}
+
+#sbe-add, #sbe-edit, #sbe-delete{
+	float: right;
+	width: 28px;
+	height: 28px;
+	border: none;
+	border-radius: 7px;
+	font-size: 18px;
+	margin-right: 5px;
+	outline: none;
+}
+
+#sbe-add:not([disabled]), #sbe-edit:not([disabled]), #sbe-delete:not([disabled]){
+	background: #1F3664;
+	color: #ffffff;
+}
+
+#sbe-add:not([disabled]):hover, #sbe-edit:not([disabled]):hover, #sbe-delete:not([disabled]):hover{
+	background: #007ead;
+	background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+	background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+}
+
+/* sidebar Listing */
+
+#sbe-list{
+	position: absolute;
+	top: 45px;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	box-sizing: border-box;
+	overflow: auto;
+	padding: 5px;
+	font-size: 13px;
+}
+
+.sbe-sidebar-container{
+	width: 100%;
+	height: auto;
+	box-sizing: border-box;
+	background: white;
+	border-radius: 5px;
+	border: 2px lightgrey solid;
+	overflow: hidden;
+}
+
+.sbe-container-title{
+	padding: 1.5%;
+	font-size: 1.1em;
+}
+@media screen and (max-width: 685px){
+	.sbe-container-title{
+		font-size: 0.9em;
+	}
+}
+
+.sbe-container-content, .sbe-container-id, .sbe-container-start, .sbe-container-end{
+	display: none;
+}
+
+.sbe-sidebar-container:hover, .sbe-selected{
+	background: #007ead !important;
+	background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e)) !important;
+	background: -moz-linear-gradient(top,  #0095cc,  #00678e) !important;
+	color: #fff;
+}
+
+/* Side Panel */
+
+#sbe-side{
+	display: none;
+	position: absolute;
+	overflow-y: auto;
+	top: 45px;
+	bottom: 5px;
+	right: 5px;
+	left: 30%;
+	box-sizing: border-box;
+	padding: 10px;
+	background: #fff;
+	opacity: 0;
+	border-radius: 4px;
+	margin-bottom: 0;
+	
+}
+
+.sbe-side-label{
+	position: relative;
+	width: 100%;
+	clear: both;
+	margin: 10px 0;
+	display: none;
+}
+
+#sbe-side input[type="text"]{
+	width: 100%;
+	height: auto;
+	margin: 5px 0;
+}
+
+#sbe-side textarea{
+	width: 100%;
+	height: 180px;
+	margin: 10px 0;
+}
+
+#sbe-side input[type="file"]{
+	width: auto;
+	margin: 10px 0;
+	clear: both;
+}
+
+#sbe-side input:disabled, #sbe-side textarea:disabled{
+	border: 0;
+	color: #000;
+}
+
+#sbe-title-edit, #sbe-content-edit, #sbe-img-edit{
+	display: none;
+}
+
+#sbe-side-title{
+	position: relative;
+	font-size: 1.5em;
+	width: 100%;
+	height: auto;
+	text-align: center;
+	margin: 20px 0 30px 0;
+	padding: 5px;
+}
+
+#sbe-side-content{
+	font-size: 1.1em;
+	padding: 5px;
+}
+
+/* Editing options */
+
+#sbe-edit-options{
+	display: none;
+	position: absolute;
+	bottom: 0;
+	height: 30px;
+	right: 10px;
+	width: auto;
+}

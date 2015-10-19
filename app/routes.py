@@ -241,6 +241,13 @@ def load_user(id):
 def before_request():
     g.user = current_user
 
+@app.route('/sidebarEditor')
+#@login_required
+def sidebarEditor():
+    sideviews = Sideview.query.order_by(desc(Sideview.id)).all()
+    return render_template('sidebar/sidebarEditor.html', sideviews=sideviews)
+
+
 @app.route('/newsEditor')
 @login_required
 def newsEditor():

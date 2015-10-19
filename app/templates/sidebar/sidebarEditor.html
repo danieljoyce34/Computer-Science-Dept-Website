@@ -1,0 +1,56 @@
+<!-- Needs to inherit pageFrameTemplate, extends base for now because the pageFrameTemplate footer looks kind of weird on the sidebar editor -->
+
+{% extends "formFrameTemplate.html" %}
+{% block title %}Sidebar Editor{% endblock %}
+
+{% block head %}
+	{{ super() }}
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/sidebarEditor.css') }}">
+{% endblock %}
+
+{% block content %}
+<div id="sidebar-editor">
+	<div id="sidebar-editor">
+		<input type="text" id="sbe-search" placeholder="Search by Title">
+		<input type="submit" value="x" id="sbe-search-clear">
+		<!--//TODO: Implement delete option + find icon -->
+		<!--<button type="button" id="sbe-delete" title="delete" disabled>x</button>-->
+		<button type="button" id="sbe-edit" title="edit" disabled><i class="icon ion-edit"></i></button>
+		<button type="button" id="sbe-add" title="add"><i class="icon ion-android-add"></i></button>
+	</div>
+
+	<div id="sbe-list">
+		{% for s in sideviews %}
+			<div class="sbe-sidebar-container">		
+				<div class="sbe-container-title">{{ s.title }}</div>
+				<div class="sbe-container-id">{{ s.id }}</div>
+				<div class="sbe-container-content">{{ s.content }}</div>
+				<!--//TODO: Add div for image url -->
+			</div>
+		{% endfor %}
+	</div>
+
+	<form id="sbe-side" method="post">
+		<div id="sbe-side-title"></div>
+		<div class="sbe-side-label">Title</div>
+		<input type="text" id="sbe-title-edit" name="title">
+		<div id="sbe-side-content"></div>
+		<div class="sbe-side-label">Content</div>
+		<textarea rows="4" cols="50" id="sbe-content-edit" name="content" form="sbe-side"></textarea>
+		<div class="sbe-side-label">Image</div>
+		<input type='file' id="sbe-img-edit" name="img" accept="image/*">
+	</form>
+
+	<div id="sbe-edit-options">
+		<!--
+		<input type="submit" value="Save" form="sbe-side" id="sbe-save">
+		<input type="submit" value="Add" form="sbe-side" id="sbe-submit">
+		-->
+		<button type="button" id="sbe-submit">Add</button>
+		<button type="button" id="sbe-save">Save</button>
+		<input type="submit" value="Cancel" id="sbe-cancel">
+	</div>
+
+</div>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/sidebarEditor.js') }}"></script>
+{% endblock %}
