@@ -1,5 +1,3 @@
-//TODO: Fix image file selection
-//TODO: Switch to using AJAX calls for adding/editing
 
 $(document).ready(function(){
 
@@ -224,8 +222,6 @@ function saveNews(id){
 		type: 'POST',
 		url: url,
 		data: formData,
-		//data: $('form').serialize(),
-        //contentType: "application/x-www-form-urlencoded",
         contentType: false,
         processData: false,
         cache: false,
@@ -242,7 +238,6 @@ function saveNews(id){
 
 // Adds a new news container
 function addNewsContainer(news, id){
-	//TODO: get ID
 	//TODO: add div for image when that gets implemented
 	$('#ne-list').prepend($('<div class="ne-news-container">')
 		.append($('<div class="ne-container-title">').text(news.headline))

@@ -106,7 +106,7 @@ function submitAlert(){
         contentType: 'application/json; charset=UTF-8',
         dataType: 'json',
         success: function(result) {
-            addNewAlert(data);
+            addNewAlert(data, result.alertID, new Date(result.alertPostDate), result.alertUser);
         },
         error: function(data, textStatus, jqXHR){
         	alert("Unable to save alert. Please try again later.");
@@ -115,16 +115,14 @@ function submitAlert(){
 }
 
 // Adds a new alert container to the list after successfully saving to db
-function addNewAlert(data){
+function addNewAlert(data, id, postDate, user){
 	//prepend to #ae-list
-	// Replace "user_id" and "post_date"
-	// Replace hidden-id text with actual ID
 	$('#ae-list').prepend($('<div class="ae-container">')
 		.append($('<div class="ae-container-content">').text(data.content))
 		.append($('<textarea class="ae-container-content-edit" maxlength="175">'))
 		.append($('<div class="ae-container-header">')
 			.append($('<a href="#" class="ae-container-edit-button">').text("Edit"))
-			.append($('<span>').text("Posted by: " + "user_id" + " on " + "post_date")))
+			.append($('<span>').text("Posted by: " + user + " on " + postDate)))
 		.append($('<div class="ae-container-edits">')
 			.append($('<select class="ae-edit-category">')
 				.append($('<option value="General">').text("General"))
@@ -142,7 +140,7 @@ function addNewAlert(data){
 		.append($('<div class="ae-edit-buttons">')
 			.append($('<button type="button" class="ae-edit-cancel">').text("Cancel"))
 			.append($('<button type="button" class="ae-edit-submit">').text("Submit")))
-		.append($('<div style="display:none;" class="ae-hidden-id">').text("ID"))
+		.append($('<div style="display:none;" class="ae-hidden-id">').text(id))
 		.append($('<div style="display:none;" class="ae-hidden-start">').text(data.start_date))
 		.append($('<div style="display:none;" class="ae-hidden-end">').text(data.end_date))
 		.append($('<div style="display:none;" class="ae-hidden-cat">').text(data.category)));
