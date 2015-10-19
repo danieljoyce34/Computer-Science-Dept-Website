@@ -199,22 +199,22 @@ def submitLogin():
     username = request.form['username']
     password = request.form['password']
     # user fake user below for now
-    if username == 'admin' and password == 'password':
+    if username == 'graduate' and password == 'password':
         print(username)
         user = User.query.get(int(1))
         login_user(user, False)
         return redirect(url_for('index'))
-    if username == 'undergrad' and password == 'password':
+    if username == 'faculty' and password == 'password':
         print(username)
         user = User.query.get(int(2))
         login_user(user, False)
         return redirect(url_for('index'))
-    if username == 'grad' and password == 'password':
+    if username == 'staff' and password == 'password':
         print(username)
         user = User.query.get(int(3))
         login_user(user, False)
         return redirect(url_for('index'))
-    if username == 'faculty' and password == 'password':
+    if username == 'undergrad' and password == 'password':
         print(username)
         user = User.query.get(int(4))
         login_user(user, False)
