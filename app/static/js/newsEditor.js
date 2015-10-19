@@ -230,8 +230,8 @@ function saveNews(id){
         processData: false,
         cache: false,
         success: function(result) {
-        	console.log(result.newsID);
-           	hideEditForm(function(){ (id == -1) ? addNewsContainer(data, result.newsID) : updateNewsContainer(data); });
+        	jsonObj = $.parseJSON(result);
+           	hideEditForm(function(){ (id == -1) ? addNewsContainer(data, jsonObj.newsID) : updateNewsContainer(data); });
         },
         error: function(data, textStatus, jqXHR){
         	alert("Unable to save the news article. Please try again later.");
