@@ -10,7 +10,7 @@
 
 {% block content %}
 <div id="sidebar-editor">
-	<div id="sidebar-editor">
+	<div id="sbe-options">
 		<input type="text" id="sbe-search" placeholder="Search by Title">
 		<input type="submit" value="x" id="sbe-search-clear">
 		<!--//TODO: Implement delete option + find icon -->
@@ -25,6 +25,7 @@
 				<div class="sbe-container-title">{{ s.title }}</div>
 				<div class="sbe-container-id">{{ s.id }}</div>
 				<div class="sbe-container-content">{{ s.content }}</div>
+				<div class="sbe-container-category">{{ s.category }}</div>
 				<!--//TODO: Add div for image url -->
 			</div>
 		{% endfor %}
@@ -39,6 +40,12 @@
 		<textarea rows="4" cols="50" id="sbe-content-edit" name="content" form="sbe-side"></textarea>
 		<div class="sbe-side-label">Image</div>
 		<input type='file' id="sbe-img-edit" name="img" accept="image/*">
+		<select id="sbe-category-edit">	
+			<option value="" disabled selected style='display:none;'>Select a Category	</option>
+			<option value="General">Senior Project</option>
+			<option value="Warning">Not a Senior Project</option>
+		</select>
+		<div id="sbe-active"><input type="checkbox" name="active" id="sbe-active-edit" value="1">Active</div>
 	</form>
 
 	<div id="sbe-edit-options">

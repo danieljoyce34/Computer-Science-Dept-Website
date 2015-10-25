@@ -85,7 +85,7 @@ function setPreview(content){
 function showPreview(){
 	$('#sbe-side-title, #sbe-side-content').show();
 	$('.sbe-side-label').hide();
-	$('#sbe-title-edit, #sbe-content-edit, #sbe-img-edit').hide();
+	$('#sbe-title-edit, #sbe-content-edit, #sbe-img-edit, #sbe-category-edit, #sbe-active').hide();
 }
 
 // Side preview slide animation
@@ -110,7 +110,8 @@ function clearSide(){
 function showEdit(){
 	$('#sbe-side-title, #sbe-side-content').hide();
 	$('.sbe-side-label').show();
-	$('#sbe-title-edit, #sbe-content-edit, #sbe-img-edit').show();
+	$('#sbe-title-edit, #sbe-content-edit, #sbe-img-edit, #sbe-category-edit').show();
+	$('#sbe-active').show();
 }
 
 // Side edit display slide animation
