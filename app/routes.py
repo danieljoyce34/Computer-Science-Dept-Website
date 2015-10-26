@@ -49,7 +49,12 @@ def index():
 @app.route('/news/<int:news_id>')
 def getNewsWithId(news_id):
     news = News.query.filter_by(id=news_id).first()
-    image = '/static/images/image1.jpg'
+    if news is None:
+        abort(404)
+    if news.image is None:
+        image = '/static/images/image1.jpg'
+    else:
+        image = '/static/images/news/' + news.image.image_name + '.' + news.image.image_extension
     return render_template('news/NewsArticle.html', news=news, image=image)
 
 @app.route('/retrievePeople', methods=['GET'])
@@ -257,15 +262,22 @@ def addSideview():
     active = 1 if 'active' in request.form else 0
     # Saves image to static/image folder
     imgfile = request.files['img']
-    if imgfile and allowed_file(imgfile.filename):
+    if secure_filename(imgfile.filename) == "":
+        sideview = Sideview(title = title, content = content, category = category, active = active)
+        db.session.add(sideview)
+        db.session.commit()
+        newSideview = Sideview.query.order_by(desc(Sideview.id)).first()
+    elif imgfile and allowed_file(imgfile.filename):
         filename = secure_filename(imgfile.filename)
         imgfile.save(os.path.join(app.config['SIDEBAR_UPLOAD_FOLDER'], filename))
+        filenameList = filename.split('.')
+        sideImage = Image(image_type='sidebar', image_name=filenameList[0], image_extension=filenameList[1])
+        db.session.add(sideImage)
+        sideview = Sideview(title = title, content = content, category = category, active = active, image=sideImage)
+        db.session.add(sideview)
+        db.session.commit()
 
-    sideview = Sideview(title = title, content = content, category = category, active = active)
-    db.session.add(sideview)
-    db.session.commit()
-
-    newSideview = Sideview.query.order_by(desc(Sideview.id)).first()
+        newSideview = Sideview.query.order_by(desc(Sideview.id)).first()
     return json.dumps({'status' : 'OK', 'sideviewID' : newSideview.id})
 
 @app.route('/editSidebar/<int:sidebar_id>', methods=['POST'])
@@ -277,12 +289,16 @@ def editSideview(sidebar_id):
     sideview.active = 1 if 'active' in request.form else 0
     # Saves image to static/image folder
     imgfile = request.files['img']
-    if imgfile and allowed_file(imgfile.filename):
+    if secure_filename(imgfile.filename) == "":
+        db.session.commit()
+        return json.dumps({'status' : 'OK'})
+    elif imgfile and allowed_file(imgfile.filename):
         filename = secure_filename(imgfile.filename)
         imgfile.save(os.path.join(app.config['SIDEBAR_UPLOAD_FOLDER'], filename))
     
-    db.session.commit()
-    return json.dumps({'status' : 'OK'})
+        db.session.commit()
+        return json.dumps({'status' : 'OK'})
+    return json.dumps({'status' : 'ERROR'})
 
 @app.route('/newsEditor')
 @login_required
@@ -299,16 +315,27 @@ def addNews():
     end = request.form['end_date']
     # Saves image to static/image folder
     imgfile = request.files['img']
-    if imgfile and allowed_file(imgfile.filename):
+    if secure_filename(imgfile.filename) == "":
+        news = News(headline=headline, intro=intro, article=article, start_date=start, end_date=end)
+        db.session.add(news)
+        db.session.commit()
+
+        newNews = News.query.order_by(desc(News.id)).first()
+        return json.dumps({'status' : 'OK', 'newsID' : newNews.id})
+    elif imgfile and allowed_file(imgfile.filename):
         filename = secure_filename(imgfile.filename)
         imgfile.save(os.path.join(app.config['NEWS_UPLOAD_FOLDER'], filename))
+        filenameList = filename.split('.')
+        newsImage = Image(image_type='news', image_name=filenameList[0], image_extension=filenameList[1])
+        db.session.add(newsImage)
 
-    news = News(headline = headline, intro = intro, article = article, start_date = start, end_date = end)
-    db.session.add(news)
-    db.session.commit()
+        news = News(headline=headline, intro=intro, article=article, start_date=start, end_date=end, image=newsImage)
+        db.session.add(news)
+        db.session.commit()
 
-    newNews = News.query.order_by(desc(News.id)).first()
-    return json.dumps({'status' : 'OK', 'newsID' : newNews.id})
+        newNews = News.query.order_by(desc(News.id)).first()
+        return json.dumps({'status' : 'OK', 'newsID' : newNews.id})
+    return json.dumps({'status' : 'ERROR'})
 
 @app.route('/editNews/<int:news_id>', methods=['POST'])
 def editNews(news_id):
@@ -320,12 +347,15 @@ def editNews(news_id):
     news.end = request.form['end_date']
     # Saves image to static/image folder
     imgfile = request.files['img']
+    if secure_filename(imgfile.filename) == "":
+        db.session.commit()
+        return json.dumps({'status' : 'OK'})
     if imgfile and allowed_file(imgfile.filename):
         filename = secure_filename(imgfile.filename)
         imgfile.save(os.path.join(app.config['NEWS_UPLOAD_FOLDER'], filename))
-    
-    db.session.commit()
-    return json.dumps({'status' : 'OK'})
+        db.session.commit()
+        return json.dumps({'status' : 'OK'})
+    return json.dumps({'status' : 'ERROR'})
 
 @app.route('/alertEditor')
 @login_required
