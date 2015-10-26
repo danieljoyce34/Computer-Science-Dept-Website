@@ -1,11 +1,12 @@
 <div id="loginbar">
 	{% if g.user.is_authenticated %}
 	<form method="get" action="/logout">
-    	<button type="submit">Logout</button>
+    	<button type="submit"><i class="icon ion-log-out"></i>&nbsp&nbspLogout</button>
 	</form>
 	{% else %}
 	<form method="get" action="/login">
-    	<button type="submit">Login</button>
+    	<button type="submit" id="ne-edit" title="edit">
+    		<span><i class="icon ion-log-in"></i>&nbsp&nbspLogin</span></button>
 	</form>
 	{% endif %}
 </div>
