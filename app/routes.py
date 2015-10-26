@@ -17,7 +17,9 @@ from functools import update_wrapper
 from sqlalchemy import desc
 
 # Folder path for uploading images
-UPLOAD_FOLDER = '/app/static/images'
+UPLOAD_FOLDER = '/app/static/images/'
+NEWS_UPLOAD_FOLDER = UPLOAD_FOLDER + 'news/'
+SIDEBAR_UPLOAD_FOLDER = UPLOAD_FOLDER + 'images/'
 # File limitations for uploading images
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
@@ -257,7 +259,7 @@ def addSideview():
     imgfile = request.files['img']
     if imgfile and allowed_file(imgfile.filename):
         filename = secure_filename(imgfile.filename)
-        imgfile.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        imgfile.save(os.path.join(app.config['SIDEBAR_UPLOAD_FOLDER'], filename))
 
     sideview = Sideview(title = title, content = content, category = category, active = active)
     db.session.add(sideview)
@@ -277,7 +279,7 @@ def editSideview(sidebar_id):
     imgfile = request.files['img']
     if imgfile and allowed_file(imgfile.filename):
         filename = secure_filename(imgfile.filename)
-        imgfile.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        imgfile.save(os.path.join(app.config['SIDEBAR_UPLOAD_FOLDER'], filename))
     
     db.session.commit()
     return json.dumps({'status' : 'OK'})
@@ -299,7 +301,7 @@ def addNews():
     imgfile = request.files['img']
     if imgfile and allowed_file(imgfile.filename):
         filename = secure_filename(imgfile.filename)
-        imgfile.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        imgfile.save(os.path.join(app.config['NEWS_UPLOAD_FOLDER'], filename))
 
     news = News(headline = headline, intro = intro, article = article, start_date = start, end_date = end)
     db.session.add(news)
@@ -320,7 +322,7 @@ def editNews(news_id):
     imgfile = request.files['img']
     if imgfile and allowed_file(imgfile.filename):
         filename = secure_filename(imgfile.filename)
-        imgfile.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        imgfile.save(os.path.join(app.config['NEWS_UPLOAD_FOLDER'], filename))
     
     db.session.commit()
     return json.dumps({'status' : 'OK'})
