@@ -55,33 +55,3 @@
 .login-form .login-submit:hover{
     background: #3EB1DD;
 }
-
-/* User Options Page */
-
-#options-frame {
-    margin-bottom: 30px;
-}
-
-.options-table {
-    width: 90%;
-    margin: 30px auto;
-    font-family: Verdana, Helvetica, Arial, sans-serif;
-}
-
-.options-table tbody {
-    vertical-align: middle;
-}
-
-.options-table th {
-    padding-bottom: 10px;
-}
-
-.options-table td {
-    padding: 6px;
-    text-align: center;
-}
-
-.options-table a {
-    color: #305D89;
-    text-decoration: none;
-}

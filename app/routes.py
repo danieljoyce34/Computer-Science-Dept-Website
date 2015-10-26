@@ -243,7 +243,7 @@ def before_request():
 
 @app.route('/admin')
 def userOptions():
-    return render_template('login/user_options.html')
+    return render_template('user_options.html')
 
 @app.route('/newsEditor')
 @login_required
