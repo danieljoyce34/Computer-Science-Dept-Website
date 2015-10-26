@@ -9,6 +9,7 @@ class Image(db.Model):
     image_type = db.Column(db.String(64))
     alt_text = db.Column(db.Text)
     image_extension = db.Column(db.String(64))
+    image_name = db.Column(db.Text)
     sideviews = db.relationship('Sideview',
                                 backref=db.backref('image'),
                                 uselist=False)
@@ -23,7 +24,8 @@ class Image(db.Model):
         json = {'id': self.id,
                 'image_type': self.image_type,
                 'alt_text': self.alt_text,
-                'image_extension': self.image_extension}
+                'image_extension': self.image_extension,
+                'image_name': self.image_name}
         return json
 
     def __repr__(self):

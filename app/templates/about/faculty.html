@@ -10,9 +10,11 @@
 {% block content %}
 	<div id="filters">
 		<div class="filter-field">
-			<div class="filter-label">Staff Type</div>
+			<div class="filter-label">Faculty Type</div>
 			<select class="filter-input" id="type-filter">
 				<option value="all">All</option>
+				<option value="full time">Fulltime</option>
+				<option value="staff">Staff</option>
 			</select>
 		</div>
 				
@@ -21,10 +23,16 @@
 		<button type="button" id="filter-reset">Reset</button>
 	</div>
 
-	<div id="staff-list"></div>
+	<div id="staff-list">
+		{% for p in people %}
+			<div class="staff-container">	
+				<img src="/static/images/image1.jpg" class="profile_image">	
+				<div class="staff-name">{{ p.name }}</div>
+				<div class="staff-position">{{ p.job_title }}</div>
+				<div class="staff-email">{{ p.person_type }}</div>
+			</div>
+		{% endfor %}
+	</div>
+
 	<script type="text/javascript" src="{{ url_for('static', filename='js/staff.js') }}"></script>
-{% endblock %}
-{% block footer %}
-    {{ super() }}
-    <script type="text/javascript" src="{{ url_for('static', filename='js/profile.js') }}"></script>
 {% endblock %}
