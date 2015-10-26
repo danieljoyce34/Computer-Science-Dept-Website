@@ -135,7 +135,7 @@
 	}
 }
 
-.sbe-container-content, .sbe-container-id, .sbe-container-category{
+.sbe-container-content, .sbe-container-id, .sbe-container-category, .sbe-container-active{
 	display: none;
 }
 

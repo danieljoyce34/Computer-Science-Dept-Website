@@ -247,6 +247,40 @@ def sidebarEditor():
     sideviews = Sideview.query.order_by(desc(Sideview.id)).all()
     return render_template('sidebar/sidebarEditor.html', sideviews=sideviews)
 
+@app.route('/addSidebar', methods=['POST'])
+def addSideview():
+    title = request.form['title']
+    content = request.form['content']
+    category = request.form['category']
+    active = 1 if request.form['active'] == True else 0
+    # Saves image to static/image folder
+    imgfile = request.files['img']
+    if imgfile and allowed_file(imgfile.filename):
+        filename = secure_filename(imgfile.filename)
+        imgfile.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
+    sideview = Sideview(title = title, content = content, category = category, active = active)
+    db.session.add(sideview)
+    db.session.commit()
+
+    newSideview = Sideview.query.order_by(desc(Sideview.id)).first()
+    return json.dumps({'status' : 'OK', 'sideviewID' : newSideview.id})
+
+@app.route('/editSidebar/<int:sidebar_id>', methods=['POST'])
+def editSideview(sidebar_id):
+    sideview = Sideview.query.filter_by(id=sidebar_id).first()
+    sideview.title = request.form['title']
+    sideview.content = request.form['content']
+    sideview.category = request.form['category']
+    sideview.active = 1 if 'active' in request.form else 0
+    # Saves image to static/image folder
+    imgfile = request.files['img']
+    if imgfile and allowed_file(imgfile.filename):
+        filename = secure_filename(imgfile.filename)
+        imgfile.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    
+    db.session.commit()
+    return json.dumps({'status' : 'OK'})
 
 @app.route('/newsEditor')
 @login_required

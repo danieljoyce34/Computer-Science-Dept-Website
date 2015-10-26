@@ -79,6 +79,8 @@ function setPreview(content){
 	// Edit Display
 	$('#sbe-title-edit').val(content.find('.sbe-container-title').text());
 	$('#sbe-content-edit').val(content.find('.sbe-container-content').text());
+	$('#sbe-category-edit').val(content.find('.sbe-container-category').text());
+	$('#sbe-active-edit').prop('checked', content.find('.sbe-container-active').text()==1);
 }
 
 // Shows the preview fields
@@ -180,6 +182,11 @@ function validSidebarInput(){
 		alert('Content is required');
 		return false;
 	}
+	// Check for a selected category
+	else if($('#sbe-category-edit option:selected').val() == ""){
+		alert('Alert category is required');
+		return false;
+	}
 	return true;
 }
 
@@ -189,8 +196,9 @@ function saveSidebar(id){
 		'title' : $('#sbe-title-edit').val(),
 		'content' : $('#sbe-content-edit').val(),
 		'image' : $('#sbe-img-edit').val(),
+		'category' : $('#sbe-category-edit option:selected').val(),
+		'active' : $('#sbe-active-edit').is(':checked') ? 1 : 0
 	};
-
 	var formData = new FormData($('#sbe-side')[0]);
 
 	url = '/addSidebar';
@@ -205,7 +213,7 @@ function saveSidebar(id){
         cache: false,
         success: function(result) {
         	jsonObj = $.parseJSON(result);
-           	hideEditForm(function(){ (id == -1) ? addSidebarContainer(data, jsonObj.sidebarID) : updateSidebarContainer(data); });
+           	hideEditForm(function(){ (id == -1) ? addSidebarContainer(data, jsonObj.sideviewID) : updateSidebarContainer(data); });
         },
         error: function(data, textStatus, jqXHR){
         	alert("Unable to save the sidebar content. Please try again later.");
@@ -229,6 +237,8 @@ function updateSidebarContainer(data){
 	sidebar = $('#sbe-list .sbe-selected');
 	sidebar.find('.sbe-container-title').text(data.title);
 	sidebar.find('.sbe-container-content').text(data.content);
+	sidebar.find('.sbe-container-category').text(data.category);
+	sidebar.find('.sbe-container-active').text(data.active);
 	$('#sbe-list .sbe-selected').click();
 }
 
