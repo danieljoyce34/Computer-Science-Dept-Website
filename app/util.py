@@ -1,6 +1,6 @@
 import datetime
 import calendar
-
+from app import app
 
 def _next_month():
     today = datetime.date.today()
@@ -37,3 +37,7 @@ def _merge_two_dicts(dict1, dict2):
 def _append_to_dict(origin, list_to_append, name):
     origin[name] = list_to_append
     return origin
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSIONS']

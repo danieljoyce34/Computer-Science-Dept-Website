@@ -1,0 +1,41 @@
+{% extends "pageFrameTemplate.html" %}
+{% block title %}Computer Science Department{% endblock %}
+{% block head %} {{ super() }} {% endblock %}
+{% block header %} {{ super() }} {% endblock %}
+
+{% block content %}
+<h2>Activities</h2>
+
+<p>Students in the Department of Computing Sciences are encouraged to make
+the most of the following opportunities. Follow the links to learn more.</p>
+
+<dl>
+  
+  <dt><a href="/opportunities/outreach">Community Outreach</a></dt>
+  <dd>is dedicated to various service projects happening in the department.</dd>
+
+<!--
+  <dt><a href="http://www.csc.villanova.edu/~acm/">Association for Computing Machinery (ACM)</a></dt>
+  <dd>is a student chapter of the Association for Computing Machinery</a>, an international organization of computing professionals.
+    Our chapter hosts technical and social events for students and the general computing community.</dd>
+-->
+
+  <dt><a href="/opportunities/upe">Upsilon Pi Epsilon (UPE)</a></dt>
+  <dd>is the Villanova chapter of the international honor society for the computing and information disciplines. </dd>
+
+  <dt><a href="/opportunities/aliceWorkshop">Alice Workshop </a></dt>
+  <dd>The program is a part of the series of events held by the Girls Scouts of Eastern Pennsylvania. </dd>
+
+  <dt><a href="/opportunities/programmingTeams">Programming Teams</a></dt>
+  <dd>competes in the ACM International Collegiate Programming Contest, also known as the "Battle of the Brains," which challenges
+    students to solve real-world computer programming problems under a grueling, five-hour deadline.</dd>
+
+  <dt><a href="/opportunities/studentTravel">Student Travel</a></dt>
+  <dd>Students who wish to attend conferences may be able to receive financial support for travel and conference costs.</dd> 
+</dl>
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+{% endblock %}
+    

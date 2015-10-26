@@ -143,6 +143,24 @@ class User(db.Model):
                                      backref=db.backref('user'),
                                      uselist=False)
 
+    @property
+    def is_authenticated(self):
+        return True
+
+    @property
+    def is_active(self):
+        return True
+
+    @property
+    def is_anonymous(self):
+        return False
+
+    def get_id(self):
+        try:
+            return unicode(self.id)
+        except NameError:
+            return str(self.id)
+
     def to_json_format(self):
         json = {'id': self.id,
                 'fname': self.fname,

@@ -1,5 +1,3 @@
-//TODO: Fix image file selection
-//TODO: Switch to using AJAX calls for adding/editing
 
 $(document).ready(function(){
 
@@ -206,47 +204,45 @@ function validNewsInput(){
 
 // Adds news to the db
 function saveNews(id){
-	var title = $('#ne-title-edit').val();
-	var intro = $('#ne-intro-edit').val();
-	var article = $('#ne-article-edit').val();
-	var image = $('#ne-img-edit').val();
-	var start = $('#ne-sdate-edit').val();
-	var end = $('#ne-edate-edit').val();
 	var data = {
-		'headline' : title,
-		'intro' : intro,
-		'article' : article,
-		'image' : image,
-		'start_date' : start,
-		'end_date' : end,
+		'headline' : $('#ne-title-edit').val(),
+		'intro' : $('#ne-intro-edit').val(),
+		'article' : $('#ne-article-edit').val(),
+		'image' : $('#ne-img-edit').val(),
+		'start_date' : $('#ne-sdate-edit').val(),
+		'end_date' : $('#ne-edate-edit').val(),
 	};
+
+	var formData = new FormData($('#ne-side')[0]);
+
 	url = '/addNews';
 	if(id != -1)
 		url = '/editNews/' + id;
 	$.ajax({
 		type: 'POST',
 		url: url,
-		data: JSON.stringify(data),
-		contentType: 'application/json; charset=UTF-8',
-        dataType: 'json',
+		data: formData,
+        contentType: false,
+        processData: false,
+        cache: false,
         success: function(result) {
-            //addNewsContainer(data);
-           	hideEditForm(function(){ (id == -1) ? addNewsContainer(data) : updateNewsContainer(data); });
+        	jsonObj = $.parseJSON(result);
+           	hideEditForm(function(){ (id == -1) ? addNewsContainer(data, jsonObj.newsID) : updateNewsContainer(data); });
         },
         error: function(data, textStatus, jqXHR){
         	alert("Unable to save the news article. Please try again later.");
+        	console.log(data.responseText + ", " + textStatus + ", " + jqXHR);
         }
 	})
 }
 
 // Adds a new news container
-function addNewsContainer(news){
-	//TODO: get ID
+function addNewsContainer(news, id){
 	//TODO: add div for image when that gets implemented
 	$('#ne-list').prepend($('<div class="ne-news-container">')
 		.append($('<div class="ne-container-title">').text(news.headline))
 		.append($('<div class="ne-container-intro">').text(news.intro))
-		.append($('<div class="ne-container-id">').text("ID"))
+		.append($('<div class="ne-container-id">').text(id))
 		.append($('<div class="ne-container-article">').text(news.article))
 		.append($('<div class="ne-container-start">').text(news.start_date))
 		.append($('<div class="ne-container-end">').text(news.end_date)));

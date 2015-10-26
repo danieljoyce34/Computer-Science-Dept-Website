@@ -20,7 +20,7 @@
 }
 
 
-#news-editor{
+#sidebar-editor{
 	position: relative;
 	width: 100%;
 	height: 100%;
@@ -31,7 +31,7 @@
 
 /* Options bar */
 
-#ne-options{
+#sbe-options{
 	position: absolute;
 	top: 5px;
 	left: 5px;
@@ -40,7 +40,7 @@
 	min-width: 260px;
 }
 
-#ne-search{
+#sbe-search{
 	float: left;
 	width: 25%;
 	min-width: 100px;
@@ -53,7 +53,7 @@
 	border-bottom-left-radius: 5px 5px;
 }
 
-#ne-search-clear{
+#sbe-search-clear{
 	float: left;
 	margin: 0;
 	padding: 5px 7px;	
@@ -69,17 +69,17 @@
 	background: #1F3664;
 	cursor: pointer;
 }
-#ne-search-clear:hover{
+#sbe-search-clear:hover{
 	text-decoration: none;
 	background: #007ead;
 	background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
 	background: -moz-linear-gradient(top,  #0095cc,  #00678e);
 }
-#ne-search-clear::-moz-focus-inner {
+#sbe-search-clear::-moz-focus-inner {
   	border: 0;
 }
 
-#ne-add, #ne-edit, #ne-delete{
+#sbe-add, #sbe-edit, #sbe-delete{
 	float: right;
 	width: 28px;
 	height: 28px;
@@ -90,22 +90,22 @@
 	outline: none;
 }
 
-#ne-add:not([disabled]), #ne-edit:not([disabled]), #ne-delete:not([disabled]){
+#sbe-add:not([disabled]), #sbe-edit:not([disabled]), #sbe-delete:not([disabled]){
 	background: #1F3664;
 	color: #ffffff;
 }
 
-#ne-add:not([disabled]):hover, #ne-edit:not([disabled]):hover, #ne-delete:not([disabled]):hover{
+#sbe-add:not([disabled]):hover, #sbe-edit:not([disabled]):hover, #sbe-delete:not([disabled]):hover{
 	background: #007ead;
 	background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
 	background: -moz-linear-gradient(top,  #0095cc,  #00678e);
 }
 
-/* News Listing */
+/* sidebar Listing */
 
-#ne-list{
+#sbe-list{
 	position: absolute;
-	top: 40px;
+	top: 45px;
 	bottom: 0;
 	left: 0;
 	width: 100%;
@@ -115,7 +115,7 @@
 	font-size: 13px;
 }
 
-.ne-news-container{
+.sbe-sidebar-container{
 	width: 100%;
 	height: auto;
 	box-sizing: border-box;
@@ -125,21 +125,21 @@
 	overflow: hidden;
 }
 
-.ne-container-title{
+.sbe-container-title{
 	padding: 1.5%;
 	font-size: 1.1em;
 }
 @media screen and (max-width: 685px){
-	.ne-container-title{
+	.sbe-container-title{
 		font-size: 0.9em;
 	}
 }
 
-.ne-container-intro, .ne-container-article, .ne-container-id, .ne-container-start, .ne-container-end{
+.sbe-container-content, .sbe-container-id, .sbe-container-category, .sbe-container-active{
 	display: none;
 }
 
-.ne-news-container:hover, .ne-selected{
+.sbe-sidebar-container:hover, .sbe-selected{
 	background: #007ead !important;
 	background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e)) !important;
 	background: -moz-linear-gradient(top,  #0095cc,  #00678e) !important;
@@ -148,11 +148,11 @@
 
 /* Side Panel */
 
-#ne-side{
+#sbe-side{
 	display: none;
 	position: absolute;
 	overflow-y: auto;
-	top: 40px;
+	top: 45px;
 	bottom: 5px;
 	right: 5px;
 	left: 30%;
@@ -162,10 +162,9 @@
 	opacity: 0;
 	border-radius: 4px;
 	margin-bottom: 0;
-	
 }
 
-.ne-side-label{
+.sbe-side-label{
 	position: relative;
 	width: 100%;
 	clear: both;
@@ -173,40 +172,39 @@
 	display: none;
 }
 
-#ne-side input[type="text"]{
+#sbe-side input[type="text"]{
 	width: 100%;
 	height: auto;
 	margin: 5px 0;
 }
 
-#ne-side textarea{
+#sbe-side textarea{
 	width: 100%;
 	height: 180px;
 	margin: 10px 0;
 }
 
-#ne-side input[type="date"]{
+#sbe-side input[type="file"], #sbe-side select, #sbe-active{
 	width: auto;
 	margin: 10px 0;
 	clear: both;
+	float: left;
 }
 
-#ne-side input[type="file"]{
-	width: auto;
-	margin: 10px 0;
-	clear: both;
+#sbe-active{
+	font-size: 12px;
 }
 
-#ne-side input:disabled, #ne-side textarea:disabled{
+#sbe-side input:disabled, #sbe-side textarea:disabled{
 	border: 0;
 	color: #000;
 }
 
-#ne-title-edit, #ne-intro-edit, #ne-article-edit, #ne-sdate-edit, #ne-edate-edit, #ne-img-edit{
+#sbe-title-edit, #sbe-content-edit, #sbe-img-edit, #sbe-category-edit, #sbe-active{
 	display: none;
 }
 
-#ne-side-title{
+#sbe-side-title{
 	position: relative;
 	font-size: 1.5em;
 	width: 100%;
@@ -216,14 +214,14 @@
 	padding: 5px;
 }
 
-#ne-side-article{
+#sbe-side-content{
 	font-size: 1.1em;
 	padding: 5px;
 }
 
 /* Editing options */
 
-#ne-edit-options{
+#sbe-edit-options{
 	display: none;
 	position: absolute;
 	bottom: 0;

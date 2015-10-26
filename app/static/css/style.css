@@ -26,37 +26,38 @@ body {
   background-color: #1F3664;
 }
 
-#logo {
+#banner-content{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#logo-link{
+  position: relative;
+  height: 100%;
   width: auto;
   float: left;
-  margin-right: 10px;
+}
+#logo{
   height: 100%;
+  width: auto;
 }
 
 #header-text, #header-text-responsive{
   height: 100%;
+  width: 100%;
   line-height: 100px;
   color: #fff;
   font-size: 2.5em;
-  text-align: center;
+  padding-left: 25%;
   font: Garamond, Book;
   font-family: italic;
   font-variant: small-caps;
+  box-sizing: border-box;
 }
 #header-text-responsive{
   display: none;
 }
-/*
-#header-text {
-  position: absolute;
-  bottom: 0.5em;
-  left: 4em;
-  color: #fff;
-  font-size: 3em;
-  font: Garamond, Book;
-  font-family: italic;
-  font-variant: small-caps;
-}*/
 
 #nav-wrapper{
   position: relative;
@@ -64,6 +65,31 @@ body {
   width: 70%;
   min-width: 780px;
   margin: 0 auto;
+}
+
+#loginbar{
+  position: absolute;
+  right: 2%;
+  top: 5px;
+}
+
+#loginbar button {
+    color: #888;
+    border: 1px solid #1F3664;
+    border-radius: 3px;
+    background: #FBFBFB;
+    outline: 0;
+    box-shadow: inset 0px 1px 6px #ECF3F5;
+    font: 200 15px Arial, Helvetica, sans-serif;
+    height: 30px;
+    line-height:15px;
+    margin: 2px 6px 16px 0px;
+}
+
+#loginbar button:hover { 
+    background: #3EB1DD;
+    border-color: #3EB1DD;
+    color: #FFF;
 }
 /* End Header components */
 
@@ -126,6 +152,11 @@ body {
     height: 65px;
   }
 
+  #banner-content{
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
   #nav-wrapper{
     width: 200px;
     min-width: 0;
@@ -154,47 +185,37 @@ body {
   }
 }
 
-#loginbar{
-  position: absolute;
-  right: 5%;
-  top: 10px;
-}
-
-#loginbar button{
-  padding: 5px 15px 5px 15px;
-  background: #00BFFF;
-  border: none;
-  color: #FFF;
-  box-shadow: 1px 1px 1px #4C6E91;
-  text-shadow: 1px 1px 1px #5079A3;
-}
-
-#loginbar button:hover{
-    background: #3EB1DD;
-}
-
 @media screen and (max-width: 1219px){
   #header-text{
     font-size: 2.5em;
   }
 }
-@media screen and (max-width: 1045px){
+@media screen and (max-width: 1100px){
   #header-text{
     font-size: 2em;
   }
 }
 @media screen and (max-width: 872px){
   #header-text{
-    font-size: 1.5em;
+    font-size: 1.4em;
   }
 }
-@media screen and (max-width: 454px){
+@media screen and (max-width: 600px){
+  #header-text{
+    font-size: 1.3em;
+  }
+}
+@media screen and (max-width: 525px){
   #header-text{
     display: none;
   }
   #header-text-responsive{
     font-size: 1.25em;
     display: block;
+    padding-left: 105px;
+  }
+  #loginbar button{
+    padding: 2px 7px;
   }
 }
 

@@ -1,11 +1,16 @@
 {% extends "pageFrameTemplate.html" %}
 {% block title %}{{ news['headline'] }}{% endblock %}
-{% block head %} {{ super() }} {% endblock %}
+{% block head %} 
+	{{ super() }}
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/newsArticle.css') }}">
+{% endblock %}
 {% block header %} {{ super() }} {% endblock %}
 
 {% block content %}
-  <img id="news_image" src={{image}}>
-  <h1 id="news_title">{{ news['headline'] }} </h1>  
-  <h4 id="news_date">{{ news['post_date'] }}</h6>
-  <p id="">{{ news['article'] }}</p>
+	<div id="news-content">
+		<h1 id="news-title">{{ news['headline'] }}</h1>
+		<h4 id="news-date">{{ news['post_date'] }}</h4>
+		<img id="news-image" src={{ image }}>
+		<p id="news-article">{{ news['article'] }}</p>
+	</div>
 {% endblock %}

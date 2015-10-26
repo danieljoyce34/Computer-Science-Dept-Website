@@ -1,3 +1,5 @@
+/* Add Alert Components */
+
 #ae-creator{
 	position: relative;
 	left: 0;
@@ -55,6 +57,11 @@
 	float: right;
 	margin: 0 5px;
 }
+
+/* End Add Alert Components */
+
+
+/* Alert List Components */
 
 #ae-list{
 	position: relative;
@@ -130,4 +137,6 @@
 	float: right;
 	margin: 0 5px;
 }
+
+/* End Alert List Components */
 

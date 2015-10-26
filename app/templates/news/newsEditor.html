@@ -1,15 +1,14 @@
 <!-- Needs to inherit pageFrameTemplate, extends base for now because the pageFrameTemplate footer looks kind of weird on the news editor -->
 
+{% extends "formFrameTemplate.html" %}
+{% block title %}News Editor{% endblock %}
+
 {% block head %}
-	<title>News Editor</title>
+	{{ super() }}
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/newsEditor.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bower_components/ionicons/css/ionicons.min.css') }}">
 {% endblock %}
 
-<!-- TODO: page gets messed up when the extend is placed before the block head. -->
-{% extends "formFrameTemplate.html" %}
 {% block content %}
-
 <div id="news-editor">
 	<div id="ne-options">
 		<input type="text" id="ne-search" placeholder="Search by Title">
@@ -34,24 +33,28 @@
 		{% endfor %}
 	</div>
 
-	<div id="ne-side">
+	<form id="ne-side" method="post">
 		<div id="ne-side-title"></div>
 		<div class="ne-side-label">Headline</div>
-		<input type="text" id="ne-title-edit">
+		<input type="text" id="ne-title-edit" name="headline">
 		<div class="ne-side-label">Intro</div>
-		<input type="text" id="ne-intro-edit">
+		<input type="text" id="ne-intro-edit" name="intro">
 		<div id="ne-side-article"></div>
 		<div class="ne-side-label">Article</div>
-		<textarea rows="4" cols="50" id="ne-article-edit"></textarea>
+		<textarea rows="4" cols="50" id="ne-article-edit" name="article" form="ne-side"></textarea>
 		<div class="ne-side-label">Image</div>
-		<input type='file' onchange="readURL(this);" id="ne-img-edit">
+		<input type='file' id="ne-img-edit" name="img" accept="image/*">
 		<div class="ne-side-label">Start Date</div>
-		<input type="date" id="ne-sdate-edit">
+		<input type="date" id="ne-sdate-edit" name="start_date">
 		<div class="ne-side-label">End Date</div>
-		<input type="date" id="ne-edate-edit">
-	</div>
+		<input type="date" id="ne-edate-edit" name="end_date">
+	</form>
 
 	<div id="ne-edit-options">
+		<!--
+		<input type="submit" value="Save" form="ne-side" id="ne-save">
+		<input type="submit" value="Add" form="ne-side" id="ne-submit">
+		-->
 		<button type="button" id="ne-submit">Add</button>
 		<button type="button" id="ne-save">Save</button>
 		<input type="submit" value="Cancel" id="ne-cancel">
