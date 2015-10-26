@@ -19,7 +19,7 @@ from sqlalchemy import desc
 # Folder path for uploading images
 UPLOAD_FOLDER = '/app/static/images/'
 NEWS_UPLOAD_FOLDER = UPLOAD_FOLDER + 'news/'
-SIDEBAR_UPLOAD_FOLDER = UPLOAD_FOLDER + 'images/'
+SIDEBAR_UPLOAD_FOLDER = UPLOAD_FOLDER + 'sidebar/'
 # File limitations for uploading images
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
