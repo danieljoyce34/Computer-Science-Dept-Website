@@ -213,7 +213,7 @@ def submitLogin():
         print(username)
         user = User.query.get(int(3))
         login_user(user, False)
-        return userOptions()
+        return redirect(request.args.get('next') or url_for('loggedInPage'))
     if username == 'undergrad' and password == 'password':
         print(username)
         user = User.query.get(int(4))
@@ -242,7 +242,7 @@ def before_request():
     g.user = current_user
 
 @app.route('/admin')
-def userOptions():
+def loggedInPage():
     return render_template('user_options.html')
 
 @app.route('/newsEditor')
