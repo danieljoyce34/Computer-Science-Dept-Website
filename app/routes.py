@@ -252,7 +252,7 @@ def addSideview():
     title = request.form['title']
     content = request.form['content']
     category = request.form['category']
-    active = 1 if request.form['active'] == True else 0
+    active = 1 if 'active' in request.form else 0
     # Saves image to static/image folder
     imgfile = request.files['img']
     if imgfile and allowed_file(imgfile.filename):

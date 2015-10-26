@@ -228,8 +228,9 @@ function addSidebarContainer(sidebar, id){
 	$('#sbe-list').prepend($('<div class="sbe-sidebar-container">')
 		.append($('<div class="sbe-container-title">').text(sidebar.title))
 		.append($('<div class="sbe-container-id">').text(id))
-		.append($('<div class="sbe-container-content">').text(sidebar.content)));
-	
+		.append($('<div class="sbe-container-content">').text(sidebar.content))
+		.append($('<div class="sbe-container-category">').text(sidebar.category))
+		.append($('<div class="sbe-container-active">').text(sidebar.active)));
 	$('#sbe-list .sbe-sidebar-container').first().click();
 }
 
