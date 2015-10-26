@@ -191,7 +191,7 @@ def facultyIdAjax(faculty_id):
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if g.user is not None and g.user.is_authenticated:
-        return redirect(url_for('admin'))
+        return redirect(url_for('user_options'))
     return render_template('login/login.html')
 
 @app.route('/submitLogin', methods=['POST'])
@@ -203,27 +203,27 @@ def submitLogin():
         print(username)
         user = User.query.get(int(1))
         login_user(user, False)
-        return userOptions()
+        return redirect(url_for('user_options'))
     if username == 'faculty' and password == 'password':
         print(username)
         user = User.query.get(int(2))
         login_user(user, False)
-        return userOptions()
+        return redirect(url_for('user_options'))
     if username == 'staff' and password == 'password':
         print(username)
         user = User.query.get(int(3))
         login_user(user, False)
-        return userOptions()
+        return redirect(url_for('user_options'))
     if username == 'undergrad' and password == 'password':
         print(username)
         user = User.query.get(int(4))
         login_user(user, False)
-        return userOptions()
+        return redirect(url_for('user_options'))
     if username == 'webteam' and password == 'password':
         print(username)
         user = User.query.get(int(5))
         login_user(user, False)
-        return userOptions()
+        return redirect(url_for('user_options'))
     # on the machine that's whitelisted, we need to check if user already
     # exist in our db, if not create the user
     return redirect(url_for('login'))
@@ -242,7 +242,8 @@ def before_request():
     g.user = current_user
 
 @app.route('/admin')
-def userOptions():
+@login_required
+def user_options():
     return render_template('user_options.html')
 
 @app.route('/newsEditor')
