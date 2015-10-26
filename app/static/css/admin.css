@@ -5,22 +5,30 @@
 }
 
 .options-table {
-    width: 90%;
+    width: 80%;
     margin: 30px auto;
     font-family: Verdana, Helvetica, Arial, sans-serif;
+    border: none;
+    border-collapse: collapse;
 }
 
 .options-table tbody {
     vertical-align: middle;
+    background-color: white;
+    border: solid;
+    border-width: 1px;
 }
 
 .options-table th {
     padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 .options-table td {
     padding: 6px;
     text-align: center;
+    border: none;
+    padding-bottom: 12px;
 }
 
 .options-table a {
