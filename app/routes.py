@@ -59,7 +59,7 @@ def allPeopleAjax():
 
         people_result = []
         for faculty in faculties:
-            json = {'id': faculty.id,
+            json = {'user_id': faculty.user_id,
                     'name': faculty.user.fname + ' ' + faculty.user.lname,
                     'person_type': faculty.faculty_type,
                     'job_title': faculty.faculty_rank,
@@ -68,7 +68,7 @@ def allPeopleAjax():
 
         staffs = Staff.query.all()
         for staff in staffs:
-            json = {'id': staff.id,
+            json = {'user_id': staff.user_id,
                     'name': staff.user.fname + ' ' + staff.user.lname,
                     'person_type': 'staff',
                     'job_title': staff.position,
@@ -426,7 +426,7 @@ def support(subpage):
 def loadProfile():
     faculty_id = request.args['id']
     if request.method == 'GET':
-        faculty = Faculty.query.filter_by(id=faculty_id).first()
+        faculty = Faculty.query.filter_by(user_id=faculty_id).first()
 
         faculty_result = []
         faculty_dict = faculty.to_json_format()
