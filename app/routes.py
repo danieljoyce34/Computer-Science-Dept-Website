@@ -302,13 +302,17 @@ def addNews():
     if imgfile and allowed_file(imgfile.filename):
         filename = secure_filename(imgfile.filename)
         imgfile.save(os.path.join(app.config['NEWS_UPLOAD_FOLDER'], filename))
+        filenameList = filename.split('.')
+        newsImage = Image(image_type='news', image_name=filenameList[0], image_extension=filenameList[1])
+        db.session.add(newsImagemage)
 
-    news = News(headline = headline, intro = intro, article = article, start_date = start, end_date = end)
-    db.session.add(news)
-    db.session.commit()
+        news = News(headline=headline, intro=intro, article=article, start_date=start, end_date=end, image=newsImage)
+        db.session.add(news)
+        db.session.commit()
 
-    newNews = News.query.order_by(desc(News.id)).first()
-    return json.dumps({'status' : 'OK', 'newsID' : newNews.id})
+        newNews = News.query.order_by(desc(News.id)).first()
+        return json.dumps({'status' : 'OK', 'newsID' : newNews.id})
+    return json.dumps({'status' : 'ERROR'})
 
 @app.route('/editNews/<int:news_id>', methods=['POST'])
 def editNews(news_id):
