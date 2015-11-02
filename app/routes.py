@@ -233,7 +233,7 @@ def submitLogin():
         return redirect(url_for('index'))
     # on the machine that's whitelisted, we need to check if user already
     # exist in our db, if not create the user
-    return redirect(url_for('login'))
+    return redirect(url_for('login') + '?failed=true')
 
 @app.route('/logout')
 def logout():
