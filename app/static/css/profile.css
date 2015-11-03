@@ -1,112 +1,25 @@
 #content-wrapper{
 	background: #D8D8D8;
-}
-
-#profile {
-	position: relative;
-	width: 100%;
-	height: auto;
-	margin: 10px auto;
 	font-family: helvetica;
-	background: #fff;
-	min-width: 300px;
-	text-align: center;
-}
-/* Needed for giving a height to profile div */
-#profile:after{
-	clear: both;
-	content: "";
-	display: block;
+	min-width: 270px;
 }
 
-#profile > div{
-	margin: 20px;
-	display: inline-block;
-	vertical-align: middle;
-}
-
-#profile-basics{
-	width: 200px;
-	height: auto;
-}
-
-#profile-basics	> div{ text-align: center; }
-
-#profile-image{
-	width: 200px;
-	height: 200px;
-	margin: 0 auto;
-	background-image: url('https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/000/2c8/24c/039e2a7.jpg');
-	background: url('https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/000/2c8/24c/039e2a7.jpg');
-	background-size: 200px 200px;
-	background-position: center; 
-	border-radius: 150px;
-}
-
-#profile-info{
-	background: white;
-	min-width: 300px;
-	text-align: left;
-}
-
-#profile-info > div{
-	clear: both;
-}
-
-#profile-hours{
-	min-width: 300px;
-	width: auto;
-	height: auto;
-	text-align: left;
-}
-
-#profile-body {
-	margin: 1em 0;
-	position: relative;
-	/*display: block;*/
-	display: flex;
-	flex-direction: column;
-	/*float:left;*/
-	/*margin-left: 25%;*/
-	background: #D8D8D8;
-}
-
-.block {
-	/*float: left;*/
-	/*flex-direction: column;*/
-/*	margin-left: 5em;
-	margin: 2em;*/
-	font-family: helvetica;
-	margin: 1em 0;
-	-webkit-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.3);
-	-moz-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.3);
-	box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.3);
+#content-wrapper > .block{
 	background: #fff;
 	padding: 10px;
 	box-sizing: border-box;
+	-webkit-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.3);
+	box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.3);
 }
 
-.block .title {
+.block .title{
 	clear: both;
 	font-weight: bold;
 	font-size: 1.25em;
 	font-family: helvetica;
-	padding-left: 10px;
 	text-align: left;
 	margin: 10px auto;
-}
-
-#profile-body .title {
-	font-weight: bold;
-	display: left;
-	/*margin-left: 5em;*/
-	/*font-size: 1.25em;*/
-	/*font-variant: small-caps;*/
-}
-
-#profile-info .title{
-	font-weight: bold;
-	font-size: 18px;
 }
 
 .list {
@@ -115,11 +28,128 @@
 	margin: 0 auto;
 }
 
+.list:after{
+	width: auto;
+}
+
 .list .list-item {
-	text-align: center;
+	text-align: left;
 	font-size: 1.1em;
 }
 
-.committee > .title {
+/* Profile Header */
+
+#profile-header{
+	position: relative;
+	width: 100%;
+	height: auto;
+	margin-top: 10px auto;
+	background: #fff;
+	display: flex;
+	flex-wrap: wrap;
+}
+/* Needed for giving a height to profile div */
+#profile-header:after{
+	clear: both;
+	content: "";
+	display: block;
+}
+
+#profile-header > div{
+	flex: 1;
+	height: auto;
+	min-width: 240px;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+#profile-header .title{
+	font-weight: bold;
+	font-size: 18px;
+}
+@media screen and (max-width: 400px){
+	#ph-contact, #ph-contact .title{
+		font-size: 13px !important;	
+	}
+}
+
+#ph-basics, #ph-contact{
 	text-align: center;
 }
+
+#ph-image{
+	width: 200px;
+	height: 200px;
+	margin: 0 auto;
+	/* TODO: get profile image */
+	background-image: url('https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/000/2c8/24c/039e2a7.jpg');
+	background: url('https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/000/2c8/24c/039e2a7.jpg');
+	background-size: 200px 200px;
+	background-position: center; 
+	border-radius: 150px;
+}
+
+#ph-contact-wrapper{
+	width: auto;
+	display: inline-block;
+	margin: 0 auto;
+}
+
+#ph-contact-wrapper > div{
+	clear: both;
+	text-align: left;
+}
+
+#ph-hours{
+	margin-top: 15px;
+}
+
+#profile-about {
+	margin: 1em 0;
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	background: #D8D8D8;
+}
+
+#profile-about .block{
+	min-width: 250px;
+	font-family: helvetica;
+	width: auto;
+	flex: 1;
+	border: 1px lightgrey solid;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+#profile-committees{
+	min-width: 270px;
+	width: 100%;
+	box-sizing:border-box;
+}
+
+#committees{
+	display:flex;
+	flex-wrap:wrap;
+	border: none !important;
+	padding: 0 !important;
+}
+
+#profile-committees .block{
+	min-width: 250px;
+	font-family: helvetica;
+	width: auto;
+	flex: 1;
+	border: 1px lightgrey solid;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+@media screen and (max-width: 330px){
+	#profile-about, #profile-committees{
+		font-size: 13px !important;	
+	}
+}
+

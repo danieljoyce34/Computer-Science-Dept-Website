@@ -8,33 +8,34 @@
 
 {% block content %}
 	{% if data %}
-        <div id="profile" class="block">
-        	<div id="profile-basics">
-        		<div id="profile-image"></div>
-        		<div id="profile-name">{{ data['salutation'] }} {{ data['fname'] }} {{data['minit']}} {{data['lname'] }}</div>
-        		<div id="profile-position">{{ data['faculty_rank'] }}</div>
-        	</div>
-        		
-        	
-        	<div id="profile-info">
-        		<div id="info-office"><span class="title">Office:</span> {{ data['office_loc'] }} </div>
-        		<div id="info-email"><span class="title">Email:</span> {{ data['email'] }}</div>
-        		{% if data['secondary_email'] %}
-        			<div id="info-email-alt"><span class="title">Alternate Email: </span> {{ data['secondary_email'] }}</div>
-        			{% endif %}
-        		<div id="info-web-page"><a href="{{ data['wesbite_url'] }} ">Personal Website</a></div>
-        	</div>
+		<div id="profile-header" class="block">
+			<div id="ph-basics">
+				<div id="ph-image"></div>
+				<div id="ph-name">{{ data['salutation'] }} {{ data['fname'] }} {{data['minit']}} {{data['lname'] }}</div>
+        		<div id="ph-position">{{ data['faculty_rank'] }}</div>
+			</div>
 
-        	<div id="profile-hours">
-        		Office Hours<br>
-        		Monday: 1:00PM - 3:00PM<br>
-        		Wednesday: 12:00AM - 11:59PM<br>
-        		Friday: 10:00AM - 1:00PM
-        	</div>
-       	</div>
-       		
-		<div id="profile-body">
-		   	{% if data['educations'] %}
+			<div id="ph-contact">
+				<div id="ph-contact-wrapper">
+					<div id="info-office"><span class="title">Office:</span> {{ data['office_loc'] }} </div>
+	        		<div id="info-email"><span class="title">Email:</span> {{ data['email'] }}</div>
+	        		{% if data['secondary_email'] %}
+	        			<div id="info-email-alt"><span class="title">Alternate Email: </span> {{ data['secondary_email'] }}</div>
+	        			{% endif %}
+	        		<div id="info-web-page"><a href="{{ data['wesbite_url'] }} ">Personal Website</a></div>
+
+	        		<div id="ph-hours">
+						Office Hours<br>
+	        			Monday: 1:00PM - 3:00PM<br>
+	        			Wednesday: 12:00AM - 11:59PM<br>
+	        			Friday: 10:00AM - 1:00PM
+					</div>
+				</div>
+			</div>			
+		</div>
+		
+       	<div id="profile-about" class="block">
+       		{% if data['educations'] %}
 		   		<div class="education block">
 		   			<div class="title">Education</div>
 		        	<div class="list">
@@ -66,12 +67,13 @@
 			   		</div>
 		    	</div>
 		    {% endif %}
-
-		    {% if (data['university_committee'] or data['inter_department_committee'] or data ['department_committee'] or 
+       	</div>
+       	
+       	<div id="profile-committees" class="block">
+       		{% if (data['university_committee'] or data['inter_department_committee'] or data ['department_committee'] or 
 		        data['professional_committee'] or data['college_committee']) %}
-		        		
+		        <div class="title">Committees</div>
 			    <div id="committees" class="block">
-			        <div class="title">Committees</div>
 				    {% if data['professional_committee'] %}
 				        <div class="professional committee"> Professional
 						    <div class="list">
@@ -83,7 +85,7 @@
 				    {% endif %}
 
 			       	{% if data['university_committee'] %}
-			       		<div class="university committee"> 
+			       		<div class="block university committee"> 
 			       			<div class="title">University</div>
 				        	<div class="list">
 				        		{% for i in data['university_committee'] %}
@@ -94,7 +96,7 @@
 			       	{% endif %}
 			       	
 		        	{% if data['college_committee'] %}
-		        		<div class="college committee"> 
+		        		<div class="block college committee"> 
 		        			<div class="title">College</div>
 				        	<div class="list">
 				        		{% for i in data['college_committee'] %}
@@ -105,7 +107,7 @@
 		        	{% endif %}
 		        	
 		        	{% if data['department_committee'] %}
-		        		<div class="department committee"> 
+		        		<div class="block department committee"> 
 		        			<div class="title">Department</div>
 				        	<div class="list">
 				        		{% for i in data['department_committee'] %}
@@ -116,7 +118,7 @@
 		        	{% endif %}
 
 		        	{% if data['inter_department_committee'] %}
-			       		<div class="inter_department committee"> 
+			       		<div class="block inter_department committee"> 
 			       			<div class="title">Inter Department</div>
 				        	<div class="list">
 				        		{% for i in data['inter_department_committee'] %}
@@ -127,7 +129,7 @@
 		        	{% endif %}
 			    </div>
 		    {% endif %}
-    	</div>
+       	</div>
 			
     {% else %}
        	<div>Fetch Request failed</div>
