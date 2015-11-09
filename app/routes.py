@@ -509,17 +509,9 @@ def loadProfile():
                                     'professional_committee')
 
         officeHours = OfficeHours.query.filter_by(user_id=faculty_id)
-        #for h in officeHours:
-        #    hs = util._get_time(h.start_time) + " - " + util._get_time(h.start_time) + h.days
         hours = [util._get_time(h.start_time) + "-" + util._get_time(h.start_time) + " " + h.days for h in officeHours]
-        #start_time = [util._get_time(oh.start_time) for oh in officeHours]
-        #end_time = [util._get_time(oh.end_time) for oh in officeHours]
-        #days = [oh.days for oh in officeHours]
-        #hours = {'start':start_time, 'end':end_time, 'days':days}
         json = util._append_to_dict(json, hours, 'office_hours')
-        #json = util._append_to_dict(json, start_time, 'office_hours_start')
-        #json = util._append_to_dict(json, end_time, 'office_hours_end')
-        #json = util._append_to_dict(json, days, 'office_hours_days')
+
 
         faculty_result.append(json)
         # return jsonify(faculty=faculty_result)
