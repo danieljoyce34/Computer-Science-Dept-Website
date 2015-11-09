@@ -2,7 +2,8 @@ from flask import render_template, request, jsonify, make_response, json
 from flask import current_app, redirect, url_for, abort, Response, g, session
 from app import app, db, loginManager
 from .models import Image, Sideview, News, Alert, Faculty, User, Staff, Education
-from .models import FacultyServices, FacultyInterests, CommitteeMembers, Committee, OfficeHours
+from .models import FacultyServices, FacultyInterests, CommitteeMembers, Committee
+from .models import OfficeHours, PhoneNumber
 import util
 import jinja2
 from jinja2 import TemplateNotFound
@@ -479,6 +480,9 @@ def faculty_profile(faculty_id):
         faculty_interests = faculty.faculty_interests
         interest_list = [interest.interest for interest in faculty_interests]
         json = util._append_to_dict(json, interest_list, 'interests')
+
+        faculty_phone = faculty.user.phone_number.to_json_format()
+        json = util._append_to_dict(json, faculty_phone, 'phone number')
 
         faculty_committee_members = faculty.committee_members
         department_committee = []
