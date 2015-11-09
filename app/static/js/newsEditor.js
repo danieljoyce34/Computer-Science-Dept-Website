@@ -199,6 +199,10 @@ function validNewsInput(){
 		alert('The start date must be before the end date');
 		return false;
 	}
+	else if(!$('#ne-img-edit').is('img')){
+		alert('Chosen file is not an image');
+		return false;
+	}
 	return true;
 }
 
@@ -230,6 +234,7 @@ function saveNews(id){
            	hideEditForm(function(){ (id == -1) ? addNewsContainer(data, jsonObj.newsID) : updateNewsContainer(data); });
         },
         error: function(data, textStatus, jqXHR){
+        	if ('image')
         	alert("Unable to save the news article. Please try again later.");
         	console.log(data.responseText + ", " + textStatus + ", " + jqXHR);
         }

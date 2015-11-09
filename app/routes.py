@@ -198,7 +198,7 @@ def facultyIdAjax(faculty_id):
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if g.user is not None and g.user.is_authenticated:
-        return redirect(url_for('index'))
+        return redirect(url_for('user_options'))
     return render_template('login/login.html')
 
 @app.route('/submitLogin', methods=['POST'])
@@ -210,30 +210,30 @@ def submitLogin():
         print(username)
         user = User.query.get(int(1))
         login_user(user, False)
-        return redirect(url_for('index'))
+        return redirect(request.args.get('next') or url_for('loggedInPage'))
     if username == 'faculty' and password == 'password':
         print(username)
         user = User.query.get(int(2))
         login_user(user, False)
-        return redirect(url_for('index'))
+        return redirect(request.args.get('next') or url_for('loggedInPage'))
     if username == 'staff' and password == 'password':
         print(username)
         user = User.query.get(int(3))
         login_user(user, False)
-        return redirect(url_for('index'))
+        return redirect(request.args.get('next') or url_for('loggedInPage'))
     if username == 'undergrad' and password == 'password':
         print(username)
         user = User.query.get(int(4))
         login_user(user, False)
-        return redirect(url_for('index'))
+        return redirect(request.args.get('next') or url_for('loggedInPage'))
     if username == 'webteam' and password == 'password':
         print(username)
         user = User.query.get(int(5))
         login_user(user, False)
-        return redirect(url_for('index'))
+        return redirect(request.args.get('next') or url_for('loggedInPage'))
     # on the machine that's whitelisted, we need to check if user already
     # exist in our db, if not create the user
-    return redirect(url_for('login'))
+    return redirect(url_for('login') + '?failed=true')
 
 @app.route('/logout')
 def logout():
@@ -299,6 +299,10 @@ def editSideview(sidebar_id):
         db.session.commit()
         return json.dumps({'status' : 'OK'})
     return json.dumps({'status' : 'ERROR'})
+@app.route('/admin')
+@login_required
+def loggedInPage():
+    return render_template('user_options.html')
 
 @app.route('/newsEditor')
 @login_required

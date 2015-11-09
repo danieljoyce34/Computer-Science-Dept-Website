@@ -8,6 +8,25 @@
 {% endblock %}
 
 {% block content %}
+
+{% if request.args.get('failed') == 'true' %}
+
+<div id="login-frame">
+	<div class="login-form fail-message"> Incorrect Username or Password </div>
+	<form class="login-form" method="post" action="/submitLogin">
+		<h1>Log In</h1>
+		<label>Username: </label>
+		<input type="text" name="username" id="login-username">
+		<br>
+		<label>Password: </label>
+		<input type="password" name="password" id="login-password">
+		<br><br>
+		<button type="submit" class="login-submit">Submit</button>
+	</form>
+</div>
+
+{% else %}
+
 <div id="login-frame">
 	<form class="login-form" method="post" action="/submitLogin">
 		<h1>Log In</h1>
@@ -20,4 +39,6 @@
 		<button type="submit" class="login-submit">Submit</button>
 	</form>
 </div>
+
+{% endif %}
 {% endblock %}
