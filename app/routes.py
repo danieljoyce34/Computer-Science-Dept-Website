@@ -456,11 +456,10 @@ def support(subpage):
 # def aboutGeneral():
 # 	return render_template('pageTemplate.html', content="academics")
 
-@app.route('/loadProfile', methods=['POST', 'GET'])
-def loadProfile():
-    faculty_id = request.args['id']
+@app.route('/faculty/<int:faculty_id>', methods=['GET'])
+def faculty_profile(faculty_id):
     if request.method == 'GET':
-        faculty = Faculty.query.filter_by(user_id=faculty_id).first()
+        faculty = Faculty.query.filter_by(id=faculty_id).first()
 
         faculty_result = []
         faculty_dict = faculty.to_json_format()
@@ -508,7 +507,7 @@ def loadProfile():
         json = util._append_to_dict(json, professional_committee,
                                     'professional_committee')
 
-        officeHours = OfficeHours.query.filter_by(user_id=faculty_id)
+        officeHours = OfficeHours.query.filter_by(user_id=faculty.user_id)
         hours = [util._get_time(h.start_time) + "-" + util._get_time(h.start_time) + " " + h.days for h in officeHours]
         json = util._append_to_dict(json, hours, 'office_hours')
 
