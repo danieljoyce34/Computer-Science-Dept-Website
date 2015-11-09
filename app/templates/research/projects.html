@@ -5,7 +5,8 @@
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/profile.css') }}">
 {% endblock %}
 {% block header %} {{ super() }} {% endblock %}
-
+{% block content %}
+<div>
 <h2>Current Research/Development Projects</h2>
 <p>Here are short descriptions of many of our past and present ongoing projects.
 Follow the provided links to learn more about these exciting initiatives.</p>
@@ -235,6 +236,8 @@ Follow the provided links to learn more about these exciting initiatives.</p>
   
 </p>
 <br>
+</div>
+{% endblock %}
 
 {% block footer %}
   {{ super() }}
