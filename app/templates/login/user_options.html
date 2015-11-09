@@ -1,0 +1,31 @@
+{% extends "pageFrameTemplate.html" %}
+{% block title %}Options{% endblock %}
+
+{% block head %}
+	{{ super() }}
+	<title>Options</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block content %}
+<div id="options-frame" class="options-content">
+	<h2>Administration</h2>
+	<p>Hello, below are the administrative abilities you are authorized to use: </p>
+	<table class="options-table">
+	<tbody>
+		<tr>
+			<th>Function</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td class="options-table-functions">Alerts</td>
+			<td class="options-table-descriptions"><a href="/alertEditor">Manage alerts posted on the website.</a></td>
+		</tr>
+		<tr>
+			<td class="options-table-functions">News</td>
+			<td class="options-table-descriptions"><a href="/newsEditor">Manage news postings on the website.</a></td>
+		</tr>
+	</tbody>
+	</table>
+</div>
+{% endblock %}
