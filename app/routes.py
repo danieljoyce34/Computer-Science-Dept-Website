@@ -517,3 +517,16 @@ def faculty_profile(faculty_id):
         faculty_result.append(json)
         # return jsonify(faculty=faculty_result)
         return render_template("about/profile.html", data=faculty_result[0])
+
+@app.route('/staff/<int:staff_id>', methods=['GET'])
+def staff_profile(staff_id):
+    if request.method == 'GET':
+        staff = Staff.query.filter_by(id=staff_id).first()
+
+        staff_result = []
+        staff_dict = staff.to_json_format()
+        user_dict = staff.user.to_json_format()
+        json = util._merge_two_dicts(user_dict, staff_dict)
+
+        staff_result.append(json)
+        return render_template("about/profile.html", data=staff_result[0])
