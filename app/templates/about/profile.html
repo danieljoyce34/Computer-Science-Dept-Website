@@ -21,15 +21,17 @@
 	        		<div id="info-email"><span class="title">Email:</span> {{ data['email'] }}</div>
 	        		{% if data['secondary_email'] %}
 	        			<div id="info-email-alt"><span class="title">Alternate Email: </span> {{ data['secondary_email'] }}</div>
-	        			{% endif %}
+	        		{% endif %}
 	        		<div id="info-web-page"><a href="{{ data['wesbite_url'] }} ">Personal Website</a></div>
 
+	        		{% if data['office_hours'] %}
 	        		<div id="ph-hours">
 						Office Hours<br>
-	        			Monday: 1:00PM - 3:00PM<br>
-	        			Wednesday: 12:00AM - 11:59PM<br>
-	        			Friday: 10:00AM - 1:00PM
+						{% for h in data['office_hours'] %}
+							{{ h }}<br>
+						{% endfor %}
 					</div>
+					{% endif %}
 				</div>
 			</div>			
 		</div>

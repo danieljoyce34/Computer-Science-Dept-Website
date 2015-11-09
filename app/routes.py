@@ -2,7 +2,7 @@ from flask import render_template, request, jsonify, make_response, json
 from flask import current_app, redirect, url_for, abort, Response, g, session
 from app import app, db, loginManager
 from .models import Image, Sideview, News, Alert, Faculty, User, Staff, Education
-from .models import FacultyServices, FacultyInterests, CommitteeMembers, Committee
+from .models import FacultyServices, FacultyInterests, CommitteeMembers, Committee, OfficeHours
 import util
 import jinja2
 from jinja2 import TemplateNotFound
@@ -468,21 +468,15 @@ def loadProfile():
         json = util._merge_two_dicts(user_dict, faculty_dict)
 
         educations = faculty.educations
-        edu_list = []
-        for edu in educations:
-            edu_list.append(edu.to_json_format())
+        edu_list = [e.to_json_format() for e in educations]
         json = util._append_to_dict(json, edu_list, 'educations')
 
         faculty_services = faculty.faculty_services
-        service_list = []
-        for service in faculty_services:
-            service_list.append(service.name)
+        service_list = [service.name for service in faculty_services]
         json = util._append_to_dict(json, service_list, 'services')
 
         faculty_interests = faculty.faculty_interests
-        interest_list = []
-        for interest in faculty_interests:
-            interest_list.append(interest.interest)
+        interest_list = [interest.interest for interest in faculty_interests]
         json = util._append_to_dict(json, interest_list, 'interests')
 
         faculty_committee_members = faculty.committee_members
@@ -513,6 +507,19 @@ def loadProfile():
                                     'inter_department_committee')
         json = util._append_to_dict(json, professional_committee,
                                     'professional_committee')
+
+        officeHours = OfficeHours.query.filter_by(user_id=faculty_id)
+        #for h in officeHours:
+        #    hs = util._get_time(h.start_time) + " - " + util._get_time(h.start_time) + h.days
+        hours = [util._get_time(h.start_time) + "-" + util._get_time(h.start_time) + " " + h.days for h in officeHours]
+        #start_time = [util._get_time(oh.start_time) for oh in officeHours]
+        #end_time = [util._get_time(oh.end_time) for oh in officeHours]
+        #days = [oh.days for oh in officeHours]
+        #hours = {'start':start_time, 'end':end_time, 'days':days}
+        json = util._append_to_dict(json, hours, 'office_hours')
+        #json = util._append_to_dict(json, start_time, 'office_hours_start')
+        #json = util._append_to_dict(json, end_time, 'office_hours_end')
+        #json = util._append_to_dict(json, days, 'office_hours_days')
 
         faculty_result.append(json)
         # return jsonify(faculty=faculty_result)
