@@ -483,7 +483,6 @@ def faculty_profile(faculty_id):
 
         faculty_phones = faculty.user.phone_numbers
         for p in faculty_phones:
-            #phone_list = [phone.to_json_format() for phone in faculty_phones]
             phone_list = [p.area_code + p.number + (", Ext. " + p.extension if p.extension else "") for p in faculty_phones]
         json = util._append_to_dict(json, phone_list, 'phone_number')
 
@@ -532,10 +531,11 @@ def staff_profile(staff_id):
         json = util._merge_two_dicts(user_dict, staff_dict)
 
         staff_phones = staff.user.phone_numbers
-        phone_list = [phone.to_json_format() for phone in staff_phones]
+        for p in staff_phones:
+            phone_list = [p.area_code + p.number + (", Ext. " + p.extension if p.extension else "") for p in staff_phones]
         json = util._append_to_dict(json, phone_list, 'phone_number')
 
-        json = util._merge_two_dicts(json, staff_phone, 'phone_number')
+        #json = util._merge_two_dicts(json, staff_phone, 'phone_number')
 
         staff_result.append(json)
         return render_template("about/profile.html", data=staff_result[0])
