@@ -68,7 +68,8 @@ def allPeopleAjax():
                     'name': faculty.user.fname + ' ' + faculty.user.lname,
                     'person_type': faculty.faculty_type,
                     'job_title': faculty.faculty_rank,
-                    'image_url': '/static/images/image1.jpg'}
+                    'image_url': '/static/images/image1.jpg',
+                    'profile_url': '/faculty/' + str(faculty.id)}
             people_result.append(json)
 
         staffs = Staff.query.all()
@@ -77,7 +78,8 @@ def allPeopleAjax():
                     'name': staff.user.fname + ' ' + staff.user.lname,
                     'person_type': 'staff',
                     'job_title': staff.position,
-                    'image_url': '/static/images/image1.jpg'}
+                    'image_url': '/static/images/image1.jpg',
+                    'profile_url': '/staff/' + str(staff.id)}
             people_result.append(json)
         return render_template('about/faculty.html', people=people_result)
 
