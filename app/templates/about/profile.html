@@ -11,7 +11,8 @@
 		<div id="profile-header" class="block">
 			<div id="ph-basics">
 				<div id="ph-image"></div>
-				<div id="ph-name">{{ data['salutation'] }} {{ data['fname'] }} {{data['minit']}} {{data['lname'] }}</div>
+				<div id="ph-name">
+					{{ data['salutation'] }} {{ data['fname'] }} {{data['minit']}} {{data['lname'] }}</div>
         		<div id="ph-position">{{ data['faculty_rank'] }}</div>
 			</div>
 
@@ -22,8 +23,9 @@
 	        		{% if data['secondary_email'] %}
 	        			<div id="info-email-alt"><span class="title">Alternate Email: </span> {{ data['secondary_email'] }}</div>
 	        		{% endif %}
+	        		{% if data['website_url'] %}
 	        		<div id="info-web-page"><a href="{{ data['wesbite_url'] }} ">Personal Website</a></div>
-
+	        		{% endif %}
 	        		{% if data['office_hours'] %}
 	        		<div id="ph-hours">
 						Office Hours<br>
@@ -36,6 +38,8 @@
 			</div>			
 		</div>
 		
+		{% if data['isFaculty'] %}
+
        	<div id="profile-about" class="block">
        		{% if data['educations'] %}
 		   		<div class="education block">
@@ -132,6 +136,8 @@
 			    </div>
 		    {% endif %}
        	</div>
+
+       	{% endif %}
 			
     {% else %}
        	<div>Fetch Request failed</div>

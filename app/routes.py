@@ -498,21 +498,17 @@ def faculty_profile(faculty_id):
                 professional_committee.append(committee.name)
             else:
                 inter_department_committee.append(committee.name)
-        json = util._append_to_dict(json, department_committee,
-                                    'department_committee')
-        json = util._append_to_dict(
-            json, college_committee, 'college_committee')
-        json = util._append_to_dict(json, university_committee,
-                                    'university_committee')
-        json = util._append_to_dict(json, inter_department_committee,
-                                    'inter_department_committee')
-        json = util._append_to_dict(json, professional_committee,
-                                    'professional_committee')
+        json = util._append_to_dict(json, department_committee, 'department_committee')
+        json = util._append_to_dict(json, college_committee, 'college_committee')
+        json = util._append_to_dict(json, university_committee, 'university_committee')
+        json = util._append_to_dict(json, inter_department_committee, 'inter_department_committee')
+        json = util._append_to_dict(json, professional_committee, 'professional_committee')
 
         officeHours = OfficeHours.query.filter_by(user_id=faculty.user_id)
         hours = [util._get_time(h.start_time) + "-" + util._get_time(h.start_time) + " " + h.days for h in officeHours]
         json = util._append_to_dict(json, hours, 'office_hours')
 
+        json = util._append_to_dict(json, True, "isFaculty")
 
         faculty_result.append(json)
         # return jsonify(faculty=faculty_result)
