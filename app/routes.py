@@ -532,5 +532,8 @@ def staff_profile(staff_id):
         user_dict = staff.user.to_json_format()
         json = util._merge_two_dicts(user_dict, staff_dict)
 
+        staff_phone = staff.user.phone_number.to_json_format()
+        json = util._merge_two_dicts(json, staff_phone, 'phone number')
+
         staff_result.append(json)
         return render_template("about/profile.html", data=staff_result[0])
