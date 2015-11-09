@@ -302,6 +302,7 @@ def editSideview(sidebar_id):
         db.session.commit()
         return json.dumps({'status' : 'OK'})
     return json.dumps({'status' : 'ERROR'})
+
 @app.route('/admin')
 @login_required
 def loggedInPage():
@@ -399,9 +400,6 @@ def submitAlertEdits(alert_id):
 def carousel():
     return render_template('carousel.html')
 
-###STATIC ROUTES SERVIN' UP SOME GOOD OL' FASHIONED HTML###
-##MMMmmm MM good ol fashioned cooking!##
-
 @app.route('/aboutUs', defaults={'subpage':None})
 @app.route('/aboutUs/', defaults={'subpage':None})
 @app.route('/aboutUs/<subpage>')
@@ -415,27 +413,58 @@ def aboutUs(subpage):
                 return render_template(uri)
         except TemplateNotFound:
             abort(404)
-    else:
-        return render_template('/about/index.html')
+    
+    return render_template('/about/index.html')
 
 
-@app.route('/academics')
-def academics():
+@app.route('/academics', defaults={'subpage': None})
+@app.route('/academics/<subpage>')
+def academics(subpage):
+    if subpage is not None:
+        uri = 'academics/%s' % (subpage + '.html')
+        try:
+            return render_template(uri)
+        except TemplateNotFound:
+            abort(404)
+    
     return render_template('academics/index.html')
 
-@app.route('/research')
-def research():
+@app.route('/research', defaults={'subpage': None})
+@app.route('/research/<subpage>')
+def research(subpage):
+    if subpage is not None:
+        uri = 'research/%s' % (subpage + '.html')
+        try:
+            return render_template(uri)
+        except TemplateNotFound:
+            abort(404)
+
     return render_template('research/index.html')
 
-@app.route('/opportunities')
-def opportunites():
+@app.route('/opportunities', defaults={'subpage': None})
+@app.route('/opportunities/<subpage>')
+def opportunites(subpage):
+    if subpage is not None:
+        uri = 'opportunities/%s' % (subpage + '.html')
+        try:
+            return render_template(uri)
+        except TemplateNotFound:
+            abort(404)
+
     return render_template('opportunities/index.html')
 
-@app.route('/events')
-def events():
+@app.route('/events', defaults={'subpage': None})
+@app.route('/events/<subpage>')
+def events(subpage):
+    if subpage is not None:
+        uri = 'events/%s' % (subpage + '.html')
+        try:
+            return render_template(uri)
+        except TemplateNotFound:
+            abort(404)
+
     return render_template('events/index.html')
 
-# @app.route('/support/')
 
 ##URLS are silly in flask, need to use a colon to separate the page, else if there's a trailing slash everything breaks###
 @app.route('/support', defaults={'subpage':None})

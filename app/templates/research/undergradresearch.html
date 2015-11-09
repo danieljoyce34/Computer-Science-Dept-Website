@@ -5,6 +5,7 @@
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/profile.css') }}">
 {% endblock %}
 {% block header %} {{ super() }} {% endblock %}
+{% block content %}
 <h2>Undergraduate Research Projects</h2>
 <p>Here is a sublist of our past and ongoing projects which are particularly well suited for undergraduate student participation. Please note however that in general all projects are open to all students.</p>
 
@@ -190,6 +191,7 @@
   
 </p>
 <br>
+{% endblock %}
 {% block footer %}
   {{ super() }}
   <script type="text/javascript" src="{{ url_for('static', filename='js/profile.js') }}"></script>
