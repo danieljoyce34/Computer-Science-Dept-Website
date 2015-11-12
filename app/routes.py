@@ -546,7 +546,6 @@ def faculty_profile(faculty_id):
         json = util._append_to_dict(json, True, "isFaculty")
 
         faculty_result.append(json)
-        # return jsonify(faculty=faculty_result)
         return render_template("about/profile.html", data=faculty_result[0])
 
 @app.route('/staff/<int:staff_id>', methods=['GET'])
@@ -563,8 +562,6 @@ def staff_profile(staff_id):
         for p in staff_phones:
             phone_list = [p.area_code + p.number + (", Ext. " + p.extension if p.extension else "") for p in staff_phones]
         json = util._append_to_dict(json, phone_list, 'phone_number')
-
-        #json = util._merge_two_dicts(json, staff_phone, 'phone_number')
 
         staff_result.append(json)
         return render_template("about/profile.html", data=staff_result[0])
