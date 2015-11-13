@@ -33,6 +33,8 @@ def allowed_file(filename):
 @app.route('/index')
 def index():
     sideviews = Sideview.query.all()
+    #sideviews = Sideview.query.join(Image, (Image.id == Sideview.image_id)).all()
+    print sideviews
     sideview = sideviews[random.randint(0, len(sideviews) - 1)]
 
     alerts = Alert.query.order_by(desc(Alert.id)).all()

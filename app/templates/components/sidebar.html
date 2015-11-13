@@ -2,8 +2,7 @@
 
 	<h3 class="side-title">{{ sideview['title'] }}</h3>
 
-	<img class="side-image" src="{{ url_for('static', filename='images/Graph-Logo.001.png') }}"/>
-
+	<img class="side-image" src="{{ url_for('static', filename='images/sidebar/') }}{{ sideview.image['image_name'] }}.{{ sideview.image['image_extension'] }}"
 	<div class="side-content">{{ sideview['content'] }}</div>
 
 </div>
