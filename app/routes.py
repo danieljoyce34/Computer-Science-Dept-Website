@@ -43,7 +43,8 @@ def index():
     carouselNews = []
     for new in news:
         json = new.to_json_format()
-        json['image_url'] = '/static/images/image1.jpg'
+        json['image_url'] = '/static/images/news/' + new.image.image_name + '.' + new.image.image_extension
+        #json['image_url'] = '/static/images/image1.jpg'
         carouselNews.append(json)
 
     return render_template('index.html', sideview=sideview, alerts=alerts,
