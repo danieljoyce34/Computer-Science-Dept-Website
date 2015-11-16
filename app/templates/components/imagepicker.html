@@ -1,0 +1,29 @@
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/imagepicker.css') }}">
+{% endblock %}
+
+<div class="modal" id="image-picker">
+	<div class="modal-dialog">
+		<div class="modal-header">
+			<h2>Select an Image</h2>
+			<button type="button" class="modal-btn-close">x</button>
+		</div>
+		<div class="modal-body">
+			<div id="image-list">
+				{% for i in images %}
+					<div class="image-container">
+						<img class="image-preview" src="{{ url_for('static', filename='images/') }}{{ i.image_type }}/{{ i.image_name }}.{{ i.image_extension }}"></img>
+						<div class="image-name">{{ i.image_name }}.{{ i.image_extension }}</div>
+						<div class="image-id">{{ i.id }}</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="modal-btn" id="ip-cancel-btn">Cancel</button>
+			<button type="button" class="modal-btn" id="ip-ok-btn">OK</button>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/imagepicker.js') }}"></script>

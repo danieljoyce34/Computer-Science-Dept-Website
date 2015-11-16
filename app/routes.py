@@ -258,7 +258,8 @@ def before_request():
 #@login_required
 def sidebarEditor():
     sideviews = Sideview.query.order_by(desc(Sideview.id)).all()
-    return render_template('sidebar/sidebarEditor.html', sideviews=sideviews)
+    sideimages = Image.query.filter_by(image_type='sidebar').all()
+    return render_template('sidebar/sidebarEditor.html', sideviews=sideviews, images=sideimages)
 
 @app.route('/addSidebar', methods=['POST'])
 def addSideview():

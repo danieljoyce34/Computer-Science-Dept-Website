@@ -9,6 +9,8 @@
 {% endblock %}
 
 {% block content %}
+{% include "components/imagepicker.html" %}
+
 <div id="sidebar-editor">
 	<div id="sbe-options">
 		<input type="text" id="sbe-search" placeholder="Search by Title">
@@ -40,7 +42,17 @@
 		<div class="sbe-side-label">Content</div>
 		<textarea rows="4" cols="50" id="sbe-content-edit" name="content" form="sbe-side"></textarea>
 		<div class="sbe-side-label">Image</div>
+		<div id="sbe-img-edit">
+			<div id="sbe-img-preview">
+				<div id="ip-open-btn">+</div>
+			</div>
+			<input type='file' id="sbe-img-upload" name="img" accept="image/*">
+		</div>
+		<!--
 		<input type='file' id="sbe-img-edit" name="img" accept="image/*">
+		<button type="button" class=".modal-btn" id="ip-open-btn">Select Image</button>
+		-->
+		<div class="sbe-side-label">Category</div>
 		<select id="sbe-category-edit" name="category">
 			<option value="" disabled selected style='display:none;'>Select a Category	</option>
 			<option value="Senior Project">Senior Project</option>
@@ -50,10 +62,6 @@
 	</form>
 
 	<div id="sbe-edit-options">
-		<!--
-		<input type="submit" value="Save" form="sbe-side" id="sbe-save">
-		<input type="submit" value="Add" form="sbe-side" id="sbe-submit">
-		-->
 		<button type="button" id="sbe-submit">Add</button>
 		<button type="button" id="sbe-save">Save</button>
 		<input type="submit" value="Cancel" id="sbe-cancel">

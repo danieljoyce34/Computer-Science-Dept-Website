@@ -62,6 +62,26 @@ $(document).ready(function(){
 		if(validSidebarInput())
 			saveSidebar($('.sbe-selected .sbe-container-id').text());
 	})
+
+	$('#ip-ok-btn').click(function(){
+		if($('#image-list').find('.selected-image').length){
+			//alert("Selected Image ID: " + $('.selected-image .image-id').text());
+			$('#image-picker').hide();
+			// Use image info before removing selected-image class
+
+			// Set sidebar image preview to the selected image
+			$('#sbe-img-preview').css('background-image', "url(" + $('.selected-image .image-preview').prop('src') + ")");
+			$('#sbe-img-upload').val("");
+			$('.selected-image').removeClass("selected-image");
+		}
+		else{
+			alert("Please select an image");
+		}
+	});
+	
+	$("#sbe-img-upload").change(function(){
+    	readURL(this);
+	});
 });
 
 // Checks if an content is selected from the list
@@ -87,7 +107,7 @@ function setPreview(content){
 function showPreview(){
 	$('#sbe-side-title, #sbe-side-content').show();
 	$('.sbe-side-label').hide();
-	$('#sbe-title-edit, #sbe-content-edit, #sbe-img-edit, #sbe-category-edit, #sbe-active').hide();
+	$('#sbe-title-edit, #sbe-content-edit, #sbe-img-edit, #sbe-category-edit, #sbe-active, #ip-open-btn').hide();
 }
 
 // Side preview slide animation
@@ -112,7 +132,7 @@ function clearSide(){
 function showEdit(){
 	$('#sbe-side-title, #sbe-side-content').hide();
 	$('.sbe-side-label').show();
-	$('#sbe-title-edit, #sbe-content-edit, #sbe-img-edit, #sbe-category-edit').show();
+	$('#sbe-title-edit, #sbe-content-edit, #sbe-img-edit, #sbe-category-edit, #ip-open-btn').show();
 	$('#sbe-active').show();
 }
 
@@ -243,3 +263,13 @@ function updateSidebarContainer(data){
 	$('#sbe-list .sbe-selected').click();
 }
 
+function readURL(input) {
+	if (input.files && input.files[0]) {
+	    var reader = new FileReader();
+		reader.onload = function (e) {
+	    	//$('#sbe-img-preview').attr('src', e.target.result);
+	        $('#sbe-img-preview').css('background-image', "url(" + e.target.result + ")");
+	    }
+	    reader.readAsDataURL(input.files[0]);
+  	}
+}
