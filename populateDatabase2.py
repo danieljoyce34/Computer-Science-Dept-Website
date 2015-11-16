@@ -490,11 +490,438 @@ fac_serv.append(fac_serv_beck)
 
 # Dr. Cassel
 
+users.append(models.User(fname='Lillian', 
+                   lname='Cassel',
+                   email='lillian.cassel@villanova.edu',
+                   vu_ldap='lcassel',
+                   image=fac_images[2],
+                   user_role=user_role_prof))
+
+user_phone.append(models.PhoneNumber(area_code='(610)',
+                             number='519-7341',
+                             #extension='1234',
+                             user=users[2]))
+
+'''
+user_offhour.append(models.OfficeHours(start_time=datetime.datetime(2014, 9, 1, 11, 30),
+                                 end_time=datetime.datetime(2014, 9, 1, 14),
+                                 apntmnt_msg='email beforehand',
+                                 days='MWF',
+                                 user=users[2]))
+'''
+
+faculty.append(models.Faculty(salutation='Dr.',
+                         #secondary_email='person@fakemail.com',
+                         website_url='http://what.csc.villanova.edu/~cassel',
+                         faculty_type='full time',
+                         faculty_rank='Professor and Chair',
+                         status='Active',
+                         office_loc='MSC 161-A',
+                         user=users[2]))
+
+edu_cassel = []
+
+edu_cassel.append(models.Education(degree='Ph.D.',
+                             discipline='Computer Science',
+                             school='University of Delaware',
+                             faculty=faculty[2]))
+
+edu_cassel.append(models.Education(degree='M.S.',
+                             discipline='Computer Science',
+                             school='University of Delaware',
+                             faculty=faculty[2]))
+
+fac_edu.append(edu_cassel)
+
+fac_int_cassel = []
+
+fac_int_cassel.append(models.FacultyInterests(interest='Networks',
+                                             faculty=faculty[2]))
+
+fac_int_cassel.append(models.FacultyInterests(interest='Information Retrieval',
+                                             faculty=faculty[2]))
+
+fac_int_cassel.append(models.FacultyInterests(interest='Digital Libraries',
+                                             faculty=faculty[2]))
+
+fac_int_cassel.append(models.FacultyInterests(interest='Image Management',
+                                             faculty=faculty[2]))
+
+fac_int.append(fac_int_cassel)
+
+com_mem_cassel = []
+
+com_mem_cassel.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[2],
+                                             committee=com16))
+
+com_mem_cassel.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[2],
+                                             committee=com32))
+
+com_mem_cassel.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[2],
+                                             committee=com41))
+
+com_mem_cassel.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[2],
+                                             committee=com3))
+
+com_mem_cassel.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[2],
+                                             committee=com7))
+
+com_mem_cassel.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[2],
+                                             committee=com19))
+
+com_mem_cassel.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[2],
+                                             committee=com42))
+
+com_mem_cassel.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[2],
+                                             committee=com29))
+
+com_mem_cassel.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[2],
+                                             committee=com6))
+
+com_mem_cassel.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[2],
+                                             committee=com9))
+
+com_mem_cassel.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[2],
+                                             committee=com31))
+
+com_mem_cassel.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[2],
+                                             committee=com24))
+
+fac_com_mem.append(com_mem_cassel)
+
+fac_serv_cassel = []
+
+fac_serv_cassel.append(models.FacultyServices(name='ABET CAC Team Chair',
+                                         category='professional',
+                                         faculty=faculty[2]))
+
+fac_serv_cassel.append(models.FacultyServices(name='Advising: Internships',
+                                         category='department',
+                                         faculty=faculty[2]))
+
+fac_serv_cassel.append(models.FacultyServices(name='Department Chair',
+                                         category='department',
+                                         faculty=faculty[2]))
+
+fac_serv_cassel.append(models.FacultyServices(name='Digital Library Lab Coordinator',
+                                         category='department',
+                                         faculty=faculty[2]))
+
+fac_serv.append(fac_serv_cassel)
+
 # Dr. Damian
+
+users.append(models.User(fname='Mirela',
+                   lname='Damian',
+                   email='mirela.damian@villanova.edu',
+                   vu_ldap='mdamiani',
+                   image=fac_images[3],
+                   user_role=user_role_prof))
+
+user_phone.append(models.PhoneNumber(area_code='(610)',
+                             number='519-7414',
+                             #extension='1234',
+                             user=users[3]))
+
+'''
+user_offhour.append(models.OfficeHours(start_time=datetime.datetime(2014, 9, 1, 11, 30),
+                                 end_time=datetime.datetime(2014, 9, 1, 14),
+                                 apntmnt_msg='email beforehand',
+                                 days='MWF',
+                                 user=users[3]))
+'''
+
+faculty.append(models.Faculty(salutation='Dr.',
+                         #secondary_email='person@fakemail.com',
+                         website_url='http://www.csc.villanova.edu/~mdamian',
+                         faculty_type='full time',
+                         faculty_rank='Professor',
+                         status='Active',
+                         office_loc='MSC 167-A',
+                         user=users[3]))
+
+edu_damian = []
+
+edu_damian.append(models.Education(degree='Ph.D.',
+                             discipline='Computer Science',
+                             school='University of Iowa',
+                             faculty=faculty[3]))
+
+edu_damian.append(models.Education(degree='M.S.',
+                             discipline='Computer Science',
+                             school='University of Iowa',
+                             faculty=faculty[3]))
+
+edu_damian.append(models.Education(degree='M.S.',
+                             discipline='Electrical and Computer Engineering',
+                             school='University Politechnica of Bucharest',
+                             faculty=faculty[3]))
+
+fac_edu.append(edu_damian)
+
+fac_int_damian = []
+
+fac_int_damian.append(models.FacultyInterests(interest='Computational Geometry',
+                                             faculty=faculty[3]))
+
+fac_int_damian.append(models.FacultyInterests(interest='Graph Theory',
+                                             faculty=faculty[3]))
+
+fac_int_damian.append(models.FacultyInterests(interest='Wireless Networks',
+                                             faculty=faculty[3]))
+
+fac_int.append(fac_int_damian)
+
+com_mem_damian = []
+
+com_mem_damian.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[3],
+                                             committee=com5))
+
+com_mem_damian.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[3],
+                                             committee=com11))
+
+com_mem_damian.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[3],
+                                             committee=com18))
+
+com_mem_damian.append(models.CommitteeMembers(role='Chair',
+                                             faculty=faculty[3],
+                                             committee=com20))
+
+com_mem_damian.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[3],
+                                             committee=com34))
+
+fac_com_mem.append(com_mem_damian)
+
+fac_serv_damian = []
+
+fac_serv_damian.append(models.FacultyServices(name='Advising: Class of 2016',
+                                         category='department',
+                                         faculty=faculty[3]))
+
+fac_serv_damian.append(models.FacultyServices(name='UPE Student Chapter Advisor',
+                                         category='department',
+                                         faculty=faculty[3]))
+
+fac_serv_damian.append(models.FacultyServices(name='Networks Lab Coordinator',
+                                         category='department',
+                                         faculty=faculty[3]))
+
+fac_serv.append(fac_serv_damian)
 
 # Dr. Fleischman
 
+users.append(models.User(fname='William',
+                   minit='M.',
+                   lname='Fleischman',
+                   email='william.fleischman@villanova.edu',
+                   vu_ldap='wfleisch',
+                   image=fac_images[4],
+                   user_role=user_role_prof))
+
+user_phone.append(models.PhoneNumber(area_code='(610)',
+                             number='519-4819',
+                             #extension='1234',
+                             user=users[4]))
+
+'''
+user_offhour.append(models.OfficeHours(start_time=datetime.datetime(2014, 9, 1, 11, 30),
+                                 end_time=datetime.datetime(2014, 9, 1, 14),
+                                 apntmnt_msg='email beforehand',
+                                 days='MWF',
+                                 user=users[4]))
+
+'''
+
+faculty.append(models.Faculty(salutation='Dr.',
+                         #secondary_email='person@fakemail.com',
+                         website_url='http://www.csc.villanova.edu/~fleischm',
+                         faculty_type='full time',
+                         faculty_rank='Professor',
+                         status='Active',
+                         office_loc='MSC 167-B',
+                         user=users[4]))
+
+
+edu_fleischman = []
+
+edu_fleischman.append(models.Education(degree='Ph.D.',
+                             discipline='Mathematics',
+                             school='Lehigh University',
+                             faculty=faculty[4]))
+
+fac_edu.append(edu_fleischman)
+
+
+fac_int_fleischman = []
+
+fac_int_fleischman.append(models.FacultyInterests(interest='Biological Systems Modeling',
+                                             faculty=faculty[4]))
+
+fac_int_fleischman.append(models.FacultyInterests(interest='Parallel Computing',
+                                             faculty=faculty[4]))
+
+fac_int.append(fac_int_fleischman)
+
+
+com_mem_fleischman = []
+
+com_mem_fleischman.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[4],
+                                             committee=com18))
+
+com_mem_fleischman.append(models.CommitteeMembers(role='Chair',
+                                             faculty=faculty[4],
+                                             committee=com24))
+
+com_mem_fleischman.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[4],
+                                             committee=com27))
+
+com_mem_fleischman.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[4],
+                                             committee=com30))
+
+com_mem_fleischman.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[4],
+                                             committee=com10))
+
+com_mem_fleischman.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[4],
+                                             committee=com22))
+
+fac_com_mem.append(com_mem_fleischman)
+
+
+fac_serv_fleischman = []
+
+fac_serv_fleischman.append(models.FacultyServices(name='Advising: Class of 2017',
+                                         category='department',
+                                         faculty=faculty[4]))
+
+fac_serv.append(fac_serv_fleischman)
+
 # Dr. Gehlot
+
+users.append(models.User(fname='Vijay',
+                   lname='Gehlot',
+                   email='vijay.gehlot@villanova.edu',
+                   vu_ldap='vgehlot',
+                   image=fac_images[5],
+                   user_role=user_role_prof))
+
+user_phone.append(models.PhoneNumber(area_code='(610)',
+                             number='519-5843',
+                             #extension='1234',
+                             user=users[5]))
+
+'''
+user_offhour.append(models.OfficeHours(start_time=datetime.datetime(2014, 9, 1, 11, 30),
+                                 end_time=datetime.datetime(2014, 9, 1, 14),
+                                 apntmnt_msg='email beforehand',
+                                 days='MWF',
+                                 user=users[5]))
+
+'''
+
+faculty.append(models.Faculty(salutation='Dr.',
+                         #secondary_email='person@fakemail.com',
+                         website_url='http://www.csc.villanova.edu/~gehlot',
+                         faculty_type='full time',
+                         faculty_rank='Associate Professor',
+                         status='Active',
+                         office_loc='MSC 161-B',
+                         user=users[5]))
+
+
+edu_gehlot = []
+
+edu_gehlot.append(models.Education(degree='Ph.D.',
+                             discipline='Computer and Information Science',
+                             school='University of Pennsylvania',
+                             faculty=faculty[5]))
+
+edu_gehlot.append(models.Education(degree='M.E.',
+                             discipline='Automation',
+                             school='Indian Institute of Science',
+                             faculty=faculty[5]))
+
+edu_gehlot.append(models.Education(degree='B.E.',
+                             discipline='Electrical and Electronics Engineering',
+                             school='Birla Institute of Technology and Science',
+                             faculty=faculty[5]))
+
+fac_edu.append(edu_gehlot)
+
+
+fac_int_gehlot = []
+
+fac_int_gehlot.append(models.FacultyInterests(interest='Programming Languages',
+                                             faculty=faculty[5]))
+
+fac_int_gehlot.append(models.FacultyInterests(interest='Compilation Techniques',
+                                             faculty=faculty[5]))
+
+fac_int_gehlot.append(models.FacultyInterests(interest='Systems Modeling and Analysis',
+                                             faculty=faculty[5]))
+
+fac_int_gehlot.append(models.FacultyInterests(interest='Petri Nets',
+                                             faculty=faculty[5]))
+
+fac_int_gehlot.append(models.FacultyInterests(interest='Formal Methods',
+                                             faculty=faculty[5]))
+
+fac_int.append(fac_int_gehlot)
+
+
+com_mem_gehlot = []
+
+com_mem_gehlot.append(models.CommitteeMembers(role='Chair',
+                                             faculty=faculty[5],
+                                             committee=com26))
+
+com_mem_gehlot.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[5],
+                                             committee=com5))
+
+com_mem_gehlot.append(models.CommitteeMembers(role='Chair',
+                                             faculty=faculty[5],
+                                             committee=com17))
+
+com_mem_gehlot.append(models.CommitteeMembers(role='Chair',
+                                             faculty=faculty[5],
+                                             committee=com27))
+
+fac_com_mem.append(com_mem_gehlot)
+
+
+fac_serv_gehlot = []
+
+fac_serv_gehlot.append(models.FacultyServices(name='Advising: Graduate Students',
+                                         category='department',
+                                         faculty=faculty[5]))
+
+fac_serv_gehlot.append(models.FacultyServices(name='Graduate Program Director',
+                                         category='department',
+                                         faculty=faculty[5]))
+
+fac_serv.append(fac_serv_gehlot)
+
 
 
 
