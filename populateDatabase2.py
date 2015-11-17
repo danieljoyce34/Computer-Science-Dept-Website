@@ -922,7 +922,960 @@ fac_serv_gehlot.append(models.FacultyServices(name='Graduate Program Director',
 
 fac_serv.append(fac_serv_gehlot)
 
+# Dr. Goelman
 
+users.append(models.User(fname='Don',
+                   lname='Goelman',
+                   email='don.goelman@villanova.edu',
+                   vu_ldap='dgoelman',
+                   image=fac_images[6],
+                   user_role=user_role_prof))
+
+user_phone.append(models.PhoneNumber(area_code='(610)',
+                             number='519-7346',
+                             #extension='1234',
+                             user=users[6]))
+
+'''
+user_offhour.append(models.OfficeHours(start_time=datetime.datetime(2014, 9, 1, 11, 30),
+                                 end_time=datetime.datetime(2014, 9, 1, 14),
+                                 apntmnt_msg='email beforehand',
+                                 days='MWF',
+                                 user=users[6]))
+
+'''
+
+faculty.append(models.Faculty(salutation='Dr.',
+                         #secondary_email='person@fakemail.com',
+                         website_url='http://www.csc.villanova.edu/~goelman',
+                         faculty_type='full time',
+                         faculty_rank='Associate Professor',
+                         status='Active',
+                         office_loc='MSC 162-A',
+                         user=users[6]))
+
+
+edu_goelman = []
+
+edu_goelman.append(models.Education(degree='Ph.D.',
+                             discipline='Mathematics',
+                             school='University of Pennsylvania',
+                             faculty=faculty[6]))
+
+edu_goelman.append(models.Education(degree='B.A.',
+                             discipline='Mathematics',
+                             school='University of Pennsylvania',
+                             faculty=faculty[6]))
+
+fac_edu.append(edu_goelman)
+
+
+fac_int_goelman = []
+
+fac_int_goelman.append(models.FacultyInterests(interest='Database Systems',
+                                             faculty=faculty[6]))
+
+fac_int_goelman.append(models.FacultyInterests(interest='Algorithms',
+                                             faculty=faculty[6]))
+
+fac_int_goelman.append(models.FacultyInterests(interest='Data Modeling',
+                                             faculty=faculty[6]))
+
+fac_int.append(fac_int_goelman)
+
+
+com_mem_goelman = []
+
+com_mem_goelman.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[6],
+                                             committee=com26))
+
+com_mem_goelman.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[6],
+                                             committee=com33))
+
+fac_com_mem.append(com_mem_goelman)
+
+
+fac_serv_goelman = []
+
+fac_serv_goelman.append(models.FacultyServices(name='Advising: Class of 2015',
+                                         category='department',
+                                         faculty=faculty[6]))
+
+fac_serv_goelman.append(models.FacultyServices(name='Colloquia Coordinator',
+                                         category='department',
+                                         faculty=faculty[6]))
+
+fac_serv_goelman.append(models.FacultyServices(name='Integrated BS/MS Program Coordinator',
+                                         category='department',
+                                         faculty=faculty[6]))
+
+fac_serv_goelman.append(models.FacultyServices(name='CCSC-NE 2009 Co-Chair',
+                                         category='professional',
+                                         faculty=faculty[6]))
+
+fac_serv.append(fac_serv_goelman)
+
+# Mrs. Helwig
+
+users.append(models.User(fname='Catherine',
+                   minit='L.',
+                   lname='Helwig',
+                   email='catherine.helwig@villanova.edu',
+                   vu_ldap='chelwig',
+                   image=fac_images[7],
+                   user_role=user_role_prof))
+
+user_phone.append(models.PhoneNumber(area_code='(610)',
+                             number='519-5412',
+                             #extension='1234',
+                             user=users[7]))
+
+'''
+user_offhour.append(models.OfficeHours(start_time=datetime.datetime(2014, 9, 1, 11, 30),
+                                 end_time=datetime.datetime(2014, 9, 1, 14),
+                                 apntmnt_msg='email beforehand',
+                                 days='MWF',
+                                 user=users[7]))
+
+'''
+
+faculty.append(models.Faculty(salutation='Mrs.',
+                         #secondary_email='person@fakemail.com',
+                         website_url='http://www.csc.villanova.edu/~helwig',
+                         faculty_type='full time',
+                         faculty_rank='Instructor',
+                         status='Active',
+                         office_loc='MSC 292-B',
+                         user=users[7]))
+
+
+edu_helwig = []
+
+edu_helwig.append(models.Education(degree='M.S.',
+                             discipline='Computer Science',
+                             school='Villanova University',
+                             faculty=faculty[7]))
+
+edu_helwig.append(models.Education(degree='B.A.',
+                             discipline='History, Philosophy',
+                             school='Chestnut Hill College',
+                             faculty=faculty[7]))
+
+fac_edu.append(edu_helwig)
+
+
+fac_int_helwig = []
+
+fac_int_helwig.append(models.FacultyInterests(interest='Algorithms',
+                                             faculty=faculty[7]))
+
+fac_int_helwig.append(models.FacultyInterests(interest='Object-Oriented Software',
+                                             faculty=faculty[7]))
+
+fac_int_helwig.append(models.FacultyInterests(interest='Data Structures',
+                                             faculty=faculty[7]))
+
+fac_int.append(fac_int_helwig)
+
+
+com_mem_helwig = []
+
+com_mem_helwig.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[7],
+                                             committee=com11))
+
+com_mem_helwig.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[7],
+                                             committee=com28))
+
+com_mem_helwig.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[7],
+                                             committee=com30))
+
+fac_com_mem.append(com_mem_helwig)
+
+
+fac_serv_helwig = []
+
+fac_serv_helwig.append(models.FacultyServices(name='Advising: Class of 2015',
+                                         category='department',
+                                         faculty=faculty[7]))
+
+fac_serv.append(fac_serv_helwig)
+
+# Dr. Japaridze
+
+users.append(models.User(fname='Giorgi',
+                   lname='Japaridze',
+                   email='giorgi.japaridze@villanova.edu',
+                   vu_ldap='gjaparid',
+                   image=fac_images[8],
+                   user_role=user_role_prof))
+
+user_phone.append(models.PhoneNumber(area_code='(610)',
+                             number='519-7332',
+                             #extension='1234',
+                             user=users[8]))
+
+'''
+user_offhour.append(models.OfficeHours(start_time=datetime.datetime(2014, 9, 1, 11, 30),
+                                 end_time=datetime.datetime(2014, 9, 1, 14),
+                                 apntmnt_msg='email beforehand',
+                                 days='MWF',
+                                 user=users[8]))
+
+'''
+
+faculty.append(models.Faculty(salutation='Dr.',
+                         #secondary_email='person@fakemail.com',
+                         website_url='http://www.csc.villanova.edu/~japaridz',
+                         faculty_type='full time',
+                         faculty_rank='Professor',
+                         status='Active',
+                         office_loc='MSC 165-A',
+                         user=users[8]))
+
+
+edu_japaridze = []
+
+edu_japaridze.append(models.Education(degree='Ph.D.',
+                             discipline='Computer Science',
+                             school='University of Pennsylvania',
+                             faculty=faculty[8]))
+
+edu_japaridze.append(models.Education(degree='Ph.D.',
+                             discipline='Mathematical Logic',
+                             school='Moscow State University',
+                             faculty=faculty[8]))
+
+edu_japaridze.append(models.Education(degree='M.S.',
+                             discipline='Philosophy',
+                             school='Tbilisi State University',
+                             faculty=faculty[8]))
+
+fac_edu.append(edu_japaridze)
+
+
+fac_int_japaridze = []
+
+fac_int_japaridze.append(models.FacultyInterests(interest='Computational Theory',
+                                             faculty=faculty[8]))
+
+fac_int_japaridze.append(models.FacultyInterests(interest='Artificial Intelligence',
+                                             faculty=faculty[8]))
+
+fac_int_japaridze.append(models.FacultyInterests(interest='Logic',
+                                             faculty=faculty[8]))
+
+fac_int.append(fac_int_japaridze)
+
+
+com_mem_japaridze = []
+
+com_mem_japaridze.append(models.CommitteeMembers(role='Chair',
+                                             faculty=faculty[8],
+                                             committee=com15))
+
+com_mem_japaridze.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[8],
+                                             committee=com18))
+
+com_mem_japaridze.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[8],
+                                             committee=com26))
+
+fac_com_mem.append(com_mem_japaridze)
+
+
+fac_serv_japaridze = []
+
+fac_serv_japaridze.append(models.FacultyServices(name='Advising: Part Time Students',
+                                         category='department',
+                                         faculty=faculty[8]))
+
+fac_serv_japaridze.append(models.FacultyServices(name='Library Acquisitions',
+                                         category='department',
+                                         faculty=faculty[8]))
+
+fac_serv.append(fac_serv_japaridze)
+
+# Dr. Kim
+
+users.append(models.User(fname='Edward',
+                   lname='Kim',
+                   email='edward.kim@villanova.edu',
+                   vu_ldap='ekim07',
+                   image=fac_images[9],
+                   user_role=user_role_prof))
+
+faculty.append(models.Faculty(salutation='Dr.',
+                         faculty_type='full time',
+                         faculty_rank='Assistant Professor',
+                         status='Active',
+                         office_loc='MSC 165-B',
+                         user=users[9]))
+
+'''
+***Dr. Kim's information is missing***
+
+user_phone.append(models.PhoneNumber(area_code='(610)',
+                             number='519-7344',
+                             #extension='1234',
+                             user=users[9]))
+
+
+user_offhour.append(models.OfficeHours(start_time=datetime.datetime(2014, 9, 1, 11, 30),
+                                 end_time=datetime.datetime(2014, 9, 1, 14),
+                                 apntmnt_msg='email beforehand',
+                                 days='MWF',
+                                 user=users[9]))
+
+edu_kim = []
+
+fac_edu.append(edu_kim)
+
+
+fac_int_kim = []
+
+fac_int.append(fac_int_kim)
+
+
+com_mem_kim = []
+
+fac_com_mem.append(com_mem_kim)
+
+
+fac_serv_kim = []
+
+fac_serv.append(fac_serv_kim)
+'''
+
+# Dr. Klassner
+
+users.append(models.User(fname='Frank',
+                   minit='I.',
+                   lname='Klassner',
+                   email='frank.klassner@villanova.edu',
+                   vu_ldap='fklassne',
+                   image=fac_images[10],
+                   user_role=user_role_prof))
+
+user_phone.append(models.PhoneNumber(area_code='(610)',
+                             number='519-5671',
+                             #extension='1234',
+                             user=users[10]))
+
+'''
+user_offhour.append(models.OfficeHours(start_time=datetime.datetime(2014, 9, 1, 11, 30),
+                                 end_time=datetime.datetime(2014, 9, 1, 14),
+                                 apntmnt_msg='email beforehand',
+                                 days='MWF',
+                                 user=users[10]))
+
+'''
+
+faculty.append(models.Faculty(salutation='Dr.',
+                         #secondary_email='person@fakemail.com',
+                         website_url='http://www.csc.villanova.edu/~klassner',
+                         faculty_type='full time',
+                         faculty_rank='Associate Professor',
+                         status='Active',
+                         office_loc='MSC 160-C',
+                         user=users[10]))
+
+
+edu_klassner = []
+
+edu_klassner.append(models.Education(degree='Ph.D.',
+                             discipline='Computer Science',
+                             school='University of Massachusetts',
+                             faculty=faculty[10]))
+
+edu_klassner.append(models.Education(degree='M.S.',
+                             discipline='Computer Science',
+                             school='University of Massachusetts',
+                             faculty=faculty[10]))
+
+edu_klassner.append(models.Education(degree='B.S.',
+                             discipline='Computer Science',
+                             school='University of Scranton',
+                             faculty=faculty[10]))
+
+edu_klassner.append(models.Education(degree='B.S.',
+                             discipline='Electronics Engineering',
+                             school='University of Scranton',
+                             faculty=faculty[10]))
+
+fac_edu.append(edu_klassner)
+
+
+fac_int_klassner = []
+
+fac_int_klassner.append(models.FacultyInterests(interest='Web-Based Software Systems',
+                                             faculty=faculty[10]))
+
+fac_int_klassner.append(models.FacultyInterests(interest='Artificial Intelligence',
+                                             faculty=faculty[10]))
+
+fac_int_klassner.append(models.FacultyInterests(interest='Signal Processing',
+                                             faculty=faculty[10]))
+
+fac_int.append(fac_int_klassner)
+
+
+com_mem_klassner = []
+
+com_mem_klassner.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[10],
+                                             committee=com12))
+
+com_mem_klassner.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[10],
+                                             committee=com20))
+
+com_mem_klassner.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[10],
+                                             committee=com44))
+
+com_mem_klassner.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[10],
+                                             committee=com30))
+
+com_mem_klassner.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[10],
+                                             committee=com34))
+
+fac_com_mem.append(com_mem_klassner)
+
+
+fac_serv_klassner = []
+
+fac_serv_klassner.append(models.FacultyServices(name='Advising: Class of 2016',
+                                         category='department',
+                                         faculty=faculty[10]))
+
+fac_serv_klassner.append(models.FacultyServices(name='Programming Team Coach',
+                                         category='department',
+                                         faculty=faculty[10]))
+
+fac_serv_klassner.append(models.FacultyServices(name='Intelligent Systems Lab Coordinator',
+                                         category='department',
+                                         faculty=faculty[10]))
+
+fac_serv_klassner.append(models.FacultyServices(name='Director, Center of Excellence in Enterprise Technology',
+                                         category='department',
+                                         faculty=faculty[10]))
+
+fac_serv_klassner.append(models.FacultyServices(name='Virtual Reality Lab Coordinator',
+                                         category='department',
+                                         faculty=faculty[10]))
+
+fac_serv.append(fac_serv_klassner)
+
+# Dr. Levitin
+
+users.append(models.User(fname='Anany',
+                   lname='Levitin',
+                   email='anany.levitin@villanova.edu',
+                   vu_ldap='alevitin',
+                   image=fac_images[11],
+                   user_role=user_role_prof))
+
+user_phone.append(models.PhoneNumber(area_code='(610)',
+                             number='519-7349',
+                             #extension='1234',
+                             user=users[11]))
+
+'''
+user_offhour.append(models.OfficeHours(start_time=datetime.datetime(2014, 9, 1, 11, 30),
+                                 end_time=datetime.datetime(2014, 9, 1, 14),
+                                 apntmnt_msg='email beforehand',
+                                 days='MWF',
+                                 user=users[11]))
+
+'''
+
+faculty.append(models.Faculty(salutation='Dr.',
+                         #secondary_email='person@fakemail.com',
+                         website_url='http://www.csc.villanova.edu/~levitin',
+                         faculty_type='full time',
+                         faculty_rank='Professor',
+                         status='Active',
+                         office_loc='MSC 162-B',
+                         user=users[11]))
+
+
+edu_levitin = []
+
+edu_levitin.append(models.Education(degree='Ph.D.',
+                             discipline='Mathematics',
+                             school='Hebrew University of Jerusalem',
+                             faculty=faculty[11]))
+
+fac_edu.append(edu_levitin)
+
+
+fac_int_levitin = []
+
+fac_int_levitin.append(models.FacultyInterests(interest='Algorithms',
+                                             faculty=faculty[11]))
+
+fac_int_levitin.append(models.FacultyInterests(interest='Data and Information',
+                                             faculty=faculty[11]))
+
+fac_int.append(fac_int_levitin)
+
+
+com_mem_levitin = []
+
+com_mem_levitin.append(models.CommitteeMembers(role='Chair',
+                                             faculty=faculty[11],
+                                             committee=com11))
+
+com_mem_levitin.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[11],
+                                             committee=com26))
+
+com_mem_levitin.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[11],
+                                             committee=com4))
+
+com_mem_levitin.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[11],
+                                             committee=com15))
+
+com_mem_levitin.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[11],
+                                             committee=com24))
+
+fac_com_mem.append(com_mem_levitin)
+
+
+fac_serv_levitin = []
+
+fac_serv_levitin.append(models.FacultyServices(name='Advising: Class of 2018',
+                                         category='department',
+                                         faculty=faculty[11]))
+
+fac_serv.append(fac_serv_levitin)
+
+# Dr. Papalaskari
+
+users.append(models.User(fname='Mary',
+                   minit='A.',
+                   lname='Papalaskari',
+                   email='mary.papalaskari@villanova.edu',
+                   vu_ldap='mpapalas',
+                   image=fac_images[12],
+                   user_role=user_role_prof))
+
+user_phone.append(models.PhoneNumber(area_code='(610)',
+                             number='519-7333',
+                             #extension='1234',
+                             user=users[12]))
+
+'''
+user_offhour.append(models.OfficeHours(start_time=datetime.datetime(2014, 9, 1, 11, 30),
+                                 end_time=datetime.datetime(2014, 9, 1, 14),
+                                 apntmnt_msg='email beforehand',
+                                 days='MWF',
+                                 user=users[12]))
+
+'''
+
+faculty.append(models.Faculty(salutation='Dr.',
+                         #secondary_email='person@fakemail.com',
+                         website_url='http://www.csc.villanova.edu/~map',
+                         faculty_type='full time',
+                         faculty_rank='Assistant Professor',
+                         status='Active',
+                         office_loc='MSC 162-C',
+                         user=users[12]))
+
+
+edu_papa = []
+
+edu_papa.append(models.Education(degree='Ph.D.',
+                             discipline='Artificial Intelligence',
+                             school='Edinburgh University',
+                             faculty=faculty[12]))
+
+edu_papa.append(models.Education(degree='M.S.',
+                             discipline='Computer Science',
+                             school='University of Alberta',
+                             faculty=faculty[12]))
+
+edu_papa.append(models.Education(degree='B.S.',
+                             discipline='Mathematics and Computer Science',
+                             school='Lakehead University',
+                             faculty=faculty[12]))
+
+fac_edu.append(edu_papa)
+
+
+fac_int_papa = []
+
+fac_int_papa.append(models.FacultyInterests(interest='Computational Theory',
+                                             faculty=faculty[12]))
+
+fac_int_papa.append(models.FacultyInterests(interest='Artificial Intelligence',
+                                             faculty=faculty[12]))
+
+fac_int.append(fac_int_papa)
+
+
+com_mem_papa = []
+
+com_mem_papa.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[12],
+                                             committee=com4))
+
+com_mem_papa.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[12],
+                                             committee=com10))
+
+com_mem_papa.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[12],
+                                             committee=com9))
+
+com_mem_papa.append(models.CommitteeMembers(role='Chair',
+                                             faculty=faculty[12],
+                                             committee=com28))
+
+com_mem_papa.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[12],
+                                             committee=com30))
+
+fac_com_mem.append(com_mem_papa)
+
+
+fac_serv_papa = []
+
+fac_serv_papa.append(models.FacultyServices(name='Advising: Class of 2017',
+                                         category='department',
+                                         faculty=faculty[12]))
+
+fac_serv.append(fac_serv_papa)
+
+# Dr. Soong
+
+users.append(models.User(fname='Norman',
+                   minit='L.',
+                   lname='Soong',
+                   email='norman.soong@villanova.edu',
+                   vu_ldap='nsoong',
+                   image=fac_images[13],
+                   user_role=user_role_prof))
+
+user_phone.append(models.PhoneNumber(area_code='(610)',
+                             number='519-6462',
+                             #extension='1234',
+                             user=users[13]))
+
+'''
+user_offhour.append(models.OfficeHours(start_time=datetime.datetime(2014, 9, 1, 11, 30),
+                                 end_time=datetime.datetime(2014, 9, 1, 14),
+                                 apntmnt_msg='email beforehand',
+                                 days='MWF',
+                                 user=users[13]))
+
+'''
+
+faculty.append(models.Faculty(salutation='Dr.',
+                         website_url='http://www.csc.villanova.edu/~soong',
+                         faculty_type='full time',
+                         faculty_rank='Professor Emeritus',
+                         status='Active',
+                         user=users[13]))
+
+
+edu_soong = []
+
+edu_soong.append(models.Education(degree='Ph.D.',
+                             discipline='Aerospace Engineering',
+                             school='University of Florida',
+                             faculty=faculty[13]))
+
+edu_soong.append(models.Education(degree='M.S.',
+                             discipline='Systems Engineering',
+                             school='University of Pennsylvania',
+                             faculty=faculty[13]))
+
+edu_soong.append(models.Education(degree='M.S.',
+                             discipline='Aerospace Engineering',
+                             school='University of Florida',
+                             faculty=faculty[13]))
+
+edu_soong.append(models.Education(degree='B.S.',
+                             discipline='Mechanical Engineering',
+                             school='National Taiwan University',
+                             faculty=faculty[13]))
+
+fac_edu.append(edu_soong)
+
+
+fac_int_soong = []
+
+fac_int_soong.append(models.FacultyInterests(interest='Graphics',
+                                             faculty=faculty[13]))
+
+fac_int_soong.append(models.FacultyInterests(interest='Information Visualization',
+                                             faculty=faculty[13]))
+
+fac_int_soong.append(models.FacultyInterests(interest='Audible User Interfaces',
+                                             faculty=faculty[13]))
+
+fac_int.append(fac_int_soong)
+
+'''
+com_mem_soong = []
+
+fac_com_mem.append(com_mem_soong)
+
+
+fac_serv_soong = []
+
+fac_serv.append(fac_serv_soong)
+'''
+
+# Dr. Way
+
+users.append(models.User(fname='Tom',
+                   minit='P.',
+                   lname='Way',
+                   email='thomas.way@villanova.edu',
+                   vu_ldap='tway',
+                   image=fac_images[14],
+                   user_role=user_role_prof))
+
+user_phone.append(models.PhoneNumber(area_code='(610)',
+                             number='519-5033',
+                             #extension='1234',
+                             user=users[14]))
+
+'''
+user_offhour.append(models.OfficeHours(start_time=datetime.datetime(2014, 9, 1, 11, 30),
+                                 end_time=datetime.datetime(2014, 9, 1, 14),
+                                 apntmnt_msg='email beforehand',
+                                 days='MWF',
+                                 user=users[14]))
+
+'''
+
+faculty.append(models.Faculty(salutation='Dr.',
+                         #secondary_email='person@fakemail.com',
+                         website_url='http://www.csc.villanova.edu/~tway',
+                         faculty_type='full time',
+                         faculty_rank='Associate Professor',
+                         status='Active',
+                         office_loc='MSC 160-A',
+                         user=users[14]))
+
+
+edu_way = []
+
+edu_way.append(models.Education(degree='Ph.D.',
+                             discipline='Computer Science',
+                             school='University of Delaware',
+                             faculty=faculty[14]))
+
+edu_way.append(models.Education(degree='M.S.',
+                             discipline='Computer Science',
+                             school='University of Delaware',
+                             faculty=faculty[14]))
+
+edu_way.append(models.Education(degree='B.A.',
+                             discipline='Film',
+                             school='University of Maryland',
+                             faculty=faculty[14]))
+
+fac_edu.append(edu_way)
+
+
+fac_int_way = []
+
+fac_int_way.append(models.FacultyInterests(interest='Software Engineering',
+                                             faculty=faculty[14]))
+
+fac_int_way.append(models.FacultyInterests(interest='Compiler Optimization',
+                                             faculty=faculty[14]))
+
+fac_int_way.append(models.FacultyInterests(interest='Applied Computer Science',
+                                             faculty=faculty[14]))
+
+fac_int_way.append(models.FacultyInterests(interest='Nanocompilers',
+                                             faculty=faculty[14]))
+
+fac_int_way.append(models.FacultyInterests(interest='High Performance Computing',
+                                             faculty=faculty[14]))
+
+fac_int_way.append(models.FacultyInterests(interest='Modeling and Simulation',
+                                             faculty=faculty[14]))
+
+fac_int.append(fac_int_way)
+
+
+com_mem_way = []
+
+com_mem_way.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[14],
+                                             committee=com5))
+
+com_mem_way.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[14],
+                                             committee=com11))
+
+com_mem_way.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[14],
+                                             committee=com4))
+
+com_mem_way.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[14],
+                                             committee=com20))
+
+com_mem_way.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[14],
+                                             committee=com19))
+
+com_mem_way.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[14],
+                                             committee=com42))
+
+com_mem_way.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[14],
+                                             committee=com23))
+
+com_mem_way.append(models.CommitteeMembers(role='Chair',
+                                             faculty=faculty[14],
+                                             committee=com30))
+
+com_mem_way.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[14],
+                                             committee=com27))
+
+com_mem_way.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[14],
+                                             committee=com14))
+
+com_mem_way.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[14],
+                                             committee=com39))
+
+fac_com_mem.append(com_mem_way)
+
+
+fac_serv_way = []
+
+fac_serv_way.append(models.FacultyServices(name='Advising: Class of 2018',
+                                         category='department',
+                                         faculty=faculty[14]))
+
+fac_serv_way.append(models.FacultyServices(name='Villanova ACM Faculty Advisor',
+                                         category='department',
+                                         faculty=faculty[14]))
+
+fac_serv_way.append(models.FacultyServices(name='Applied Computing Technology Lab Coordinator',
+                                         category='department',
+                                         faculty=faculty[14]))
+
+fac_serv.append(fac_serv_way)
+
+# Ms. Zimmerman
+
+users.append(models.User(fname='Barbara',
+                   minit='H.',
+                   lname='Zimmerman',
+                   email='barbara.zimmerman@villanova.edu',
+                   vu_ldap='bzimmerm',
+                   image=fac_images[15],
+                   user_role=user_role_prof))
+
+user_phone.append(models.PhoneNumber(area_code='(610)',
+                             number='519-5354',
+                             #extension='1234',
+                             user=users[15]))
+
+'''
+user_offhour.append(models.OfficeHours(start_time=datetime.datetime(2014, 9, 1, 11, 30),
+                                 end_time=datetime.datetime(2014, 9, 1, 14),
+                                 apntmnt_msg='email beforehand',
+                                 days='MWF',
+                                 user=users[15]))
+
+'''
+
+faculty.append(models.Faculty(salutation='Ms.',
+                         #secondary_email='person@fakemail.com',
+                         website_url='http://homepage.villanova.edu/barbara.zimmerman',
+                         faculty_type='full time',
+                         faculty_rank='Instructor',
+                         status='Active',
+                         office_loc='MSC 160-B',
+                         user=users[15]))
+
+
+edu_zimmerman = []
+
+edu_zimmerman.append(models.Education(degree='M.S.',
+                             discipline='Computer Science',
+                             school='University of Maryland',
+                             faculty=faculty[15]))
+
+edu_zimmerman.append(models.Education(degree='B.A.',
+                             discipline='Mathematics',
+                             school='University of Pennsylvania',
+                             faculty=faculty[15]))
+
+fac_edu.append(edu_zimmerman)
+
+
+fac_int_zimmerman = []
+
+fac_int_zimmerman.append(models.FacultyInterests(interest='Human-Computer Interaction',
+                                             faculty=faculty[15]))
+
+fac_int_zimmerman.append(models.FacultyInterests(interest='Software Project Management',
+                                             faculty=faculty[15]))
+
+fac_int_zimmerman.append(models.FacultyInterests(interest='Web Design',
+                                             faculty=faculty[15]))
+
+fac_int_zimmerman.append(models.FacultyInterests(interest='Computer Education for Non-Majors',
+                                             faculty=faculty[15]))
+
+fac_int.append(fac_int_zimmerman)
+
+
+com_mem_zimmerman = []
+
+com_mem_zimmerman.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[15],
+                                             committee=com7))
+
+com_mem_zimmerman.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[15],
+                                             committee=com28))
+
+com_mem_zimmerman.append(models.CommitteeMembers(role='Member',
+                                             faculty=faculty[15],
+                                             committee=com30))
+
+fac_com_mem.append(com_mem_zimmerman)
+
+
+fac_serv_zimmerman = []
+
+fac_serv_zimmerman.append(models.FacultyServices(name='Advising: Class of 2018',
+                                         category='department',
+                                         faculty=faculty[15]))
+
+fac_serv_zimmerman.append(models.FacultyServices(name='President, Phi Beta Kappa Delaware Valley Association',
+                                         category='department',
+                                         faculty=faculty[15]))
+
+fac_serv.append(fac_serv_zimmerman)
 
 
 
