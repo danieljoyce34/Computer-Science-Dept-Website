@@ -17,23 +17,15 @@ from datetime import timedelta
 from functools import update_wrapper
 from sqlalchemy import desc
 
-# Folder path for uploading images
-UPLOAD_FOLDER = '/app/static/images/'
-NEWS_UPLOAD_FOLDER = UPLOAD_FOLDER + 'news/'
-SIDEBAR_UPLOAD_FOLDER = UPLOAD_FOLDER + 'sidebar/'
-# File limitations for uploading images
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
-
 # Checks if a file is valid
 def allowed_file(filename):
     return '.' in filename and \
-           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
+           filename.rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSION']
 
 @app.route('/')
 @app.route('/index')
 def index():
     sideviews = Sideview.query.filter_by(active=1).all()
-    #sideviews = Sideview.query.all()
     sideview = sideviews[random.randint(0, len(sideviews) - 1)]
 
     alerts = Alert.query.order_by(desc(Alert.id)).all()
@@ -43,7 +35,6 @@ def index():
     for new in news:
         json = new.to_json_format()
         json['image_url'] = '/static/images/news/' + new.image.image_name + '.' + new.image.image_extension
-        #json['image_url'] = '/static/images/image1.jpg'
         carouselNews.append(json)
 
     return render_template('index.html', sideview=sideview, alerts=alerts,
