@@ -63,6 +63,9 @@
   width: 6em;
   height: 6em;
   margin: 1px 5px 5px 0px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; 
 }
 
 .footer {
