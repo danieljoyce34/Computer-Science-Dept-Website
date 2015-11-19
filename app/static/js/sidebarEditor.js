@@ -218,14 +218,7 @@ function validSidebarInput(){
 
 // Adds sidebar to the db
 function saveSidebar(id){
-	var data = {
-		'title' : $('#sbe-title-edit').val(),
-		'content' : $('#sbe-content-edit').val(),
-		'image' : $('#sbe-img-edit').val(),
-		'category' : $('#sbe-category-edit option:selected').val(),
-		'active' : $('#sbe-active-edit').is(':checked') ? 1 : 0,
-		'image_url' : $('#sbe-img-preview').css('background-image')
-	};
+	imageURL = $('#sbe-img-preview').css('background-image')
 	var formData = new FormData($('#sbe-side')[0]);
 
 	url = '/addSidebar';
@@ -240,7 +233,7 @@ function saveSidebar(id){
         cache: false,
         success: function(result) {
         	jsonObj = $.parseJSON(result);
-           	hideEditForm(function(){ (id == -1) ? addSidebarContainer(data, jsonObj.sideviewID, jsonObj.imageID) : updateSidebarContainer(data, jsonObj.imageID); });
+           	hideEditForm(function(){ (id == -1) ? addSidebarContainer(jsonObj.sideview, imageURL) : updateSidebarContainer(jsonObj.sideview, imageURL); });
         },
         error: function(data, textStatus, jqXHR){
         	alert("Unable to save the sidebar content. Please try again later.");
@@ -250,25 +243,25 @@ function saveSidebar(id){
 }
 
 // Adds a new sidebar container
-function addSidebarContainer(sidebar, id, imgID){
+function addSidebarContainer(sideview, imgURL){
 	//TODO: add div for image when that gets implemented
 	$('#sbe-list').prepend($('<div class="sbe-sidebar-container">')
-		.append($('<div class="sbe-container-title">').text(sidebar.title))
-		.append($('<div class="sbe-container-id">').text(id))
-		.append($('<div class="sbe-container-content">').text(sidebar.content))
-		.append($('<div class="sbe-container-category">').text(sidebar.category))
-		.append($('<div class="sbe-container-active">').text(sidebar.active))
-		.append($('<div class="sbe-container-image">').text(imgID).css('background-image', sidebar.image_url)));
+		.append($('<div class="sbe-container-title">').text(sideview.title))
+		.append($('<div class="sbe-container-id">').text(sideview.id))
+		.append($('<div class="sbe-container-content">').text(sideview.content))
+		.append($('<div class="sbe-container-category">').text(sideview.category))
+		.append($('<div class="sbe-container-active">').text(sideview.active))
+		.append($('<div class="sbe-container-image">').text(sideview.image_id).css('background-image', imgURL)));
 	$('#sbe-list .sbe-sidebar-container').first().click();
 }
 
-function updateSidebarContainer(data, imgID){
+function updateSidebarContainer(sideview, imgURL){
 	sidebar = $('#sbe-list .sbe-selected');
-	sidebar.find('.sbe-container-title').text(data.title);
-	sidebar.find('.sbe-container-content').text(data.content);
-	sidebar.find('.sbe-container-category').text(data.category);
-	sidebar.find('.sbe-container-active').text(data.active);
-	sidebar.find('.sbe-container-image').text(imgID).css('background-image', data.image_url);
+	sidebar.find('.sbe-container-title').text(sideview.title);
+	sidebar.find('.sbe-container-content').text(sideview.content);
+	sidebar.find('.sbe-container-category').text(sideview.category);
+	sidebar.find('.sbe-container-active').text(sideview.active);
+	sidebar.find('.sbe-container-image').text(sideview.image_id).css('background-image', imgURL);
 	$('#sbe-list .sbe-selected').click();
 }
 

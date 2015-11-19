@@ -263,27 +263,23 @@ def sidebarEditor():
 
 @app.route('/addSidebar', methods=['POST'])
 def addSideview():
-    title = request.form['title']
-    content = request.form['content']
-    category = request.form['category']
-    active = 1 if 'active' in request.form else 0
-    imgID = 3 if request.form['img-id'] == "" else request.form['img-id']
-    # Saves image to static/image folder
     imgfile = request.files['img']
-    if secure_filename(imgfile.filename) == "":
-        sideview = Sideview(title = title, content = content, category = category, active = active, image_id=imgID)
-        db.session.add(sideview)
-        db.session.commit()
-        newSideview = Sideview.query.order_by(desc(Sideview.id)).first()
+    imgId = 3
+    if secure_filename(imgfile.filename) == "" and request.form['img-id'] != "":
+        imgId = request.form['img-id']
     elif imgfile and allowed_file(imgfile.filename):
         sideImage = uploadImage('sidebar', imgfile)
-        imgID = sideImage.id
-        sideview = Sideview(title = title, content = content, category = category, active = active, image_id=sideImage.id)
-        db.session.add(sideview)
-        db.session.commit()
+        imgId = sideImage.id
+    sideview = Sideview(title = request.form['title'],
+                        content = request.form['content'],
+                        category = request.form['category'],
+                        active = 1 if 'active' in request.form else 0,
+                        image_id = imgId)
+    db.session.add(sideview)
+    db.session.commit()
 
-        newSideview = Sideview.query.order_by(desc(Sideview.id)).first()
-    return json.dumps({'status' : 'OK', 'sideviewID' : newSideview.id, 'imageID' : imgID})
+    newSideview = Sideview.query.order_by(desc(Sideview.id)).first()
+    return json.dumps({'status' : 'OK', 'sideview' : newSideview.to_json_format() })
 
 @app.route('/editSidebar/<int:sidebar_id>', methods=['POST'])
 def editSideview(sidebar_id):
@@ -292,17 +288,16 @@ def editSideview(sidebar_id):
     sideview.content = request.form['content']
     sideview.category = request.form['category']
     sideview.active = 1 if 'active' in request.form else 0
-    # Saves image to static/image folder
     imgfile = request.files['img']
     if secure_filename(imgfile.filename) == "":
         sideview.image_id = request.form['img-id']
         db.session.commit()
-        return json.dumps({'status' : 'OK', 'imageID': sideview.image_id})
+        return json.dumps({'status' : 'OK', 'sideview' : sideview.to_json_format()})
     elif imgfile and allowed_file(imgfile.filename):
         sidebarImage = uploadImage('sidebar', imgfile)
         sideview.image_id = sidebarImage.id
         db.session.commit()
-        return json.dumps({'status' : 'OK', 'imageID' : sideview.image_id})
+        return json.dumps({'status' : 'OK', 'sideview' : sideview.to_json_format()})
     return json.dumps({'status' : 'ERROR'})
 
 @app.route('/admin')
