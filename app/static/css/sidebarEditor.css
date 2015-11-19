@@ -136,7 +136,7 @@
 	}
 }
 
-.sbe-container-content, .sbe-container-id, .sbe-container-category, .sbe-container-active{
+.sbe-container-content, .sbe-container-id, .sbe-container-category, .sbe-container-active, .sbe-container-image{
 	display: none;
 }
 
@@ -224,7 +224,7 @@
 	height: auto;
 	width: auto;
 	margin-bottom: 15px;
-	display: inline-block;
+	display: none;
 }
 
 #sbe-img-preview{

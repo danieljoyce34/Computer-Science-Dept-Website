@@ -72,6 +72,7 @@ $(document).ready(function(){
 			// Set sidebar image preview to the selected image
 			$('#sbe-img-preview').css('background-image', "url(" + $('.selected-image .image-preview').prop('src') + ")");
 			$('#sbe-img-upload').val("");
+			$('#sbe-img-id').val($('.selected-image .image-id').text());
 			$('.selected-image').removeClass("selected-image");
 		}
 		else{
@@ -101,6 +102,8 @@ function setPreview(content){
 	$('#sbe-content-edit').val(content.find('.sbe-container-content').text());
 	$('#sbe-category-edit').val(content.find('.sbe-container-category').text());
 	$('#sbe-active-edit').prop('checked', content.find('.sbe-container-active').text()==1);
+	$('#sbe-img-preview').css('background-image', content.find('.sbe-container-image').css('background-image'));
+	$('#sbe-img-id').val(content.find('.sbe-container-image').text());
 }
 
 // Shows the preview fields
@@ -126,6 +129,9 @@ function extendSidePreview(){
 function clearSide(){
 	$('#sbe-side-title, #sbe-side-content').text('');
 	$('#sbe-content-edit, #sbe-side input').val('');
+	$('#sbe-img-preview').css('background-image', "");
+	$('#sbe-img-upload').val("");
+	$('#sbe-img-id').val("");
 }
 
 // Shows sidebar edit fields
@@ -217,7 +223,8 @@ function saveSidebar(id){
 		'content' : $('#sbe-content-edit').val(),
 		'image' : $('#sbe-img-edit').val(),
 		'category' : $('#sbe-category-edit option:selected').val(),
-		'active' : $('#sbe-active-edit').is(':checked') ? 1 : 0
+		'active' : $('#sbe-active-edit').is(':checked') ? 1 : 0,
+		'image_url' : $('#sbe-img-preview').css('background-image')
 	};
 	var formData = new FormData($('#sbe-side')[0]);
 
@@ -233,7 +240,7 @@ function saveSidebar(id){
         cache: false,
         success: function(result) {
         	jsonObj = $.parseJSON(result);
-           	hideEditForm(function(){ (id == -1) ? addSidebarContainer(data, jsonObj.sideviewID) : updateSidebarContainer(data); });
+           	hideEditForm(function(){ (id == -1) ? addSidebarContainer(data, jsonObj.sideviewID, jsonObj.imageID) : updateSidebarContainer(data, jsonObj.imageID); });
         },
         error: function(data, textStatus, jqXHR){
         	alert("Unable to save the sidebar content. Please try again later.");
@@ -243,23 +250,25 @@ function saveSidebar(id){
 }
 
 // Adds a new sidebar container
-function addSidebarContainer(sidebar, id){
+function addSidebarContainer(sidebar, id, imgID){
 	//TODO: add div for image when that gets implemented
 	$('#sbe-list').prepend($('<div class="sbe-sidebar-container">')
 		.append($('<div class="sbe-container-title">').text(sidebar.title))
 		.append($('<div class="sbe-container-id">').text(id))
 		.append($('<div class="sbe-container-content">').text(sidebar.content))
 		.append($('<div class="sbe-container-category">').text(sidebar.category))
-		.append($('<div class="sbe-container-active">').text(sidebar.active)));
+		.append($('<div class="sbe-container-active">').text(sidebar.active))
+		.append($('<div class="sbe-container-image">').text(imgID).css('background-image', sidebar.image_url)));
 	$('#sbe-list .sbe-sidebar-container').first().click();
 }
 
-function updateSidebarContainer(data){
+function updateSidebarContainer(data, imgID){
 	sidebar = $('#sbe-list .sbe-selected');
 	sidebar.find('.sbe-container-title').text(data.title);
 	sidebar.find('.sbe-container-content').text(data.content);
 	sidebar.find('.sbe-container-category').text(data.category);
 	sidebar.find('.sbe-container-active').text(data.active);
+	sidebar.find('.sbe-container-image').text(imgID).css('background-image', data.image_url);
 	$('#sbe-list .sbe-selected').click();
 }
 

@@ -30,6 +30,11 @@
 				<div class="sbe-container-category">{{ s.category }}</div>
 				<div class="sbe-container-active">{{ s.active }}</div>
 				<!--//TODO: Add div for image url -->
+				{% if s.image_id %}
+					<div class="sbe-container-image" style="background: url({{ url_for('static', filename='images/sidebar/') }}{{ s.image['image_name'] }}.{{ s.image['image_extension'] }})">{{ s.image_id }}</div>
+				{% else %}
+					<div class="sbe-container-image">-1</div>
+				{% endif %}
 			</div>
 		{% endfor %}
 	</div>
@@ -38,27 +43,28 @@
 		<div id="sbe-side-title"></div>
 		<div class="sbe-side-label">Title</div>
 		<input type="text" id="sbe-title-edit" name="title">
+
 		<div id="sbe-side-content"></div>
 		<div class="sbe-side-label">Content</div>
 		<textarea rows="4" cols="50" id="sbe-content-edit" name="content" form="sbe-side"></textarea>
-		<div class="sbe-side-label">Image</div>
-		<div id="sbe-img-edit">
-			<div id="sbe-img-preview">
-				<div id="ip-open-btn">+</div>
-			</div>
-			<input type='file' id="sbe-img-upload" name="img" accept="image/*">
-		</div>
-		<!--
-		<input type='file' id="sbe-img-edit" name="img" accept="image/*">
-		<button type="button" class=".modal-btn" id="ip-open-btn">Select Image</button>
-		-->
+
 		<div class="sbe-side-label">Category</div>
 		<select id="sbe-category-edit" name="category">
 			<option value="" disabled selected style='display:none;'>Select a Category	</option>
 			<option value="Senior Project">Senior Project</option>
 			<option value="Other">Not a Senior Project</option>
 		</select>
+
 		<div id="sbe-active"><input type="checkbox" name="active" id="sbe-active-edit" value="active">Active</div>
+
+		<div class="sbe-side-label">Image</div>
+		<div id="sbe-img-edit">
+			<div id="sbe-img-preview">
+				<div id="ip-open-btn">+</div>
+			</div>
+			<input type='file' id="sbe-img-upload" name="img" accept="image/*">
+			<input type="text" id="sbe-img-id" name="img-id" style="display:none;">
+		</div>
 	</form>
 
 	<div id="sbe-edit-options">
