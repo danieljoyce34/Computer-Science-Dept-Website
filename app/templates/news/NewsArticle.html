@@ -10,7 +10,7 @@
 	<div id="news-content">
 		<h1 id="news-title">{{ news['headline'] }}</h1>
 		<h4 id="news-date">{{ news['post_date'] }}</h4>
-		<img id="news-image" src={{ image }}>
+		<div id="news-image" style="background-image: url({{ url_for('static', filename='images/news/') }}{{ news.image['image_name'] }}.{{ news.image['image_extension'] }})"></div>
 		<p id="news-article">{{ news['article'] }}</p>
 	</div>
 {% endblock %}

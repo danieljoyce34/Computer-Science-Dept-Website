@@ -11,14 +11,19 @@
 }
 
 #news-date{
-	float: right;
+	text-align: right;
 	margin: 0;
+	width: 100%;
 }
 
 #news-image{
 	display: block;
-	max-width: 100%;
+	width: 100%;
+	height: 350px;
 	margin: 0 auto;
+	background-size: contain;
+  	background-repeat: no-repeat;
+ 	background-position: center; 
 }
 
 @media screen and (max-width: 610px){
