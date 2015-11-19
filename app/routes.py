@@ -291,14 +291,13 @@ def editSideview(sidebar_id):
     imgfile = request.files['img']
     if secure_filename(imgfile.filename) == "":
         sideview.image_id = request.form['img-id']
-        db.session.commit()
-        return json.dumps({'status' : 'OK', 'sideview' : sideview.to_json_format()})
     elif imgfile and allowed_file(imgfile.filename):
         sidebarImage = uploadImage('sidebar', imgfile)
         sideview.image_id = sidebarImage.id
-        db.session.commit()
-        return json.dumps({'status' : 'OK', 'sideview' : sideview.to_json_format()})
-    return json.dumps({'status' : 'ERROR'})
+    else:
+        return json.dumps({'status' : 'ERROR'})
+    db.session.commit()
+    return json.dumps({'status' : 'OK', 'sideview' : sideview.to_json_format()})
 
 @app.route('/admin')
 @login_required
