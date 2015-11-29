@@ -32,19 +32,7 @@
 				data-active="{{ s.active }}"
 				data-img-id="{{ s.image_id }}"
 				data-img-url="url({{ url_for('static', filename='images/sidebar/') }}{{ s.image['image_name'] }}.{{ s.image['image_extension'] }})"
-			>
-
-				<div class="sbe-container-title">{{ s.title }}</div>
-				<div class="sbe-container-id">{{ s.id }}</div>
-				<div class="sbe-container-content">{{ s.content }}</div>
-				<div class="sbe-container-category">{{ s.category }}</div>
-				<div class="sbe-container-active">{{ s.active }}</div>
-				{% if s.image_id %}
-					<div class="sbe-container-image" style="background: url({{ url_for('static', filename='images/sidebar/') }}{{ s.image['image_name'] }}.{{ s.image['image_extension'] }})">{{ s.image_id }}</div>
-				{% else %}
-					<div class="sbe-container-image">-1</div>
-				{% endif %}
-			</div>
+			></div>
 		{% endfor %}
 	</div>
 

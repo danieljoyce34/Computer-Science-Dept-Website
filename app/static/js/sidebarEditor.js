@@ -8,14 +8,12 @@ $(document).ready(function(){
 		$('.sbe-sidebar-container').each(function(){
 			$(this).data('title').toLowerCase().indexOf(search) >= 0 ? $(this).show() : $(this).hide();
 		});
-		// Hide/show preview based on it's visibility
 		checkSelected();
 	});
 
 	// Clear button for search filter
 	$('#sbe-search-clear').click(function(){
 		$('#sbe-search').val('');
-		// Show all sidebar contents
 		$('.sbe-sidebar-container').show();
 		checkSelected();
 	});
@@ -60,7 +58,7 @@ $(document).ready(function(){
 
 	$('#sbe-save').click(function(){
 		if(validSidebarInput())
-			saveSidebar($('.sbe-selected .sbe-container-id').text());
+			saveSidebar($('.sbe-selected').data('id'));
 	})
 
 	$('#ip-ok-btn').click(function(){
@@ -70,7 +68,7 @@ $(document).ready(function(){
 			// Use image info before removing selected-image class
 
 			// Set sidebar image preview to the selected image
-			$('#sbe-img-preview').css('background-image', "url(" + $('.selected-image .image-preview').prop('src') + ")");
+			$('#sbe-img-preview').css('background-image', $('.selected-image .image-preview').css('background-image'));
 			$('#sbe-img-upload').val("");
 			$('#sbe-img-id').val($('.selected-image .image-id').text());
 			$('.selected-image').removeClass("selected-image");
@@ -96,14 +94,14 @@ function checkSelected(){
 function setPreview(content){
 	// Preview Display
 	$('#sbe-side-title').text(content.data('title'));
-	$('#sbe-side-content').text(content.find('.sbe-container-content').text());
+	$('#sbe-side-content').text(content.data('content'));
 	// Edit Display
 	$('#sbe-title-edit').val(content.data('title'));
-	$('#sbe-content-edit').val(content.find('.sbe-container-content').text());
-	$('#sbe-category-edit').val(content.find('.sbe-container-category').text());
-	$('#sbe-active-edit').prop('checked', content.find('.sbe-container-active').text()==1);
-	$('#sbe-img-preview').css('background-image', content.find('.sbe-container-image').css('background-image'));
-	$('#sbe-img-id').val(content.find('.sbe-container-image').text());
+	$('#sbe-content-edit').val(content.data('content'));
+	$('#sbe-category-edit').val(content.data('category'));
+	$('#sbe-active-edit').prop('checked', content.data('active')==1);
+	$('#sbe-img-preview').css('background-image', content.data('img-url'));
+	$('#sbe-img-id').val(content.data('img-id'));
 }
 
 // Shows the preview fields
@@ -247,25 +245,27 @@ function addSidebarContainer(sideview, imgURL){
 	//TODO: add div for image when that gets implemented
 	s = $('<div class="sbe-sidebar-container">');
 	s.data('title', sideview.title);
+	s.data('id', sideview.id);
+	s.data('content', sideview.content);
+	s.data('category', sideview.category);
+	s.data('active', sideview.active);
+	s.data('img-id', sideview.image_id);
+	s.data('img-url', imgURL);
 
 	$('#sbe-list').prepend(s
-		.append($('<div class="sbe-container-title">').text(sideview.title))
-		.append($('<div class="sbe-container-id">').text(sideview.id))
-		.append($('<div class="sbe-container-content">').text(sideview.content))
-		.append($('<div class="sbe-container-category">').text(sideview.category))
-		.append($('<div class="sbe-container-active">').text(sideview.active))
-		.append($('<div class="sbe-container-image">').text(sideview.image_id).css('background-image', imgURL)));
+		.append($('<div class="sbe-container-title">').text(sideview.title)))
 	$('#sbe-list .sbe-sidebar-container').first().click();
 }
 
 function updateSidebarContainer(sideview, imgURL){
 	sidebar = $('#sbe-list .sbe-selected');
 	sidebar.data('title', sideview.title);
+	sidebar.data('content', sideview.content);
+	sidebar.data('category', sideview.category);
+	sidebar.data('active', sideview.active);
+	sidebar.data('img-id', sideview.image_id);
+	sidebar.data('img-url', imgURL);
 	sidebar.find('.sbe-container-title').text(sideview.title);
-	sidebar.find('.sbe-container-content').text(sideview.content);
-	sidebar.find('.sbe-container-category').text(sideview.category);
-	sidebar.find('.sbe-container-active').text(sideview.active);
-	sidebar.find('.sbe-container-image').text(sideview.image_id).css('background-image', imgURL);
 	$('#sbe-list .sbe-selected').click();
 }
 
