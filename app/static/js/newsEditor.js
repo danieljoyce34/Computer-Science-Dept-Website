@@ -62,6 +62,27 @@ $(document).ready(function(){
 		if(validNewsInput())
 			saveNews($('.ne-selected .ne-container-id').text());
 	})
+
+	$('#ip-ok-btn').click(function(){
+		if($('#image-list').find('.selected-image').length){
+			//alert("Selected Image ID: " + $('.selected-image .image-id').text());
+			$('#image-picker').hide();
+			// Use image info before removing selected-image class
+
+			// Set sidebar image preview to the selected image
+			$('#ne-img-preview').css('background-image', "url(" + $('.selected-image .image-preview').prop('src') + ")");
+			$('#ne-img-upload').val("");
+			$('#ne-img-id').val($('.selected-image .image-id').text());
+			$('.selected-image').removeClass("selected-image");
+		}
+		else{
+			alert("Please select an image");
+		}
+	});
+	
+	$("#ne-img-upload").change(function(){
+    	readURL(this);
+	});
 });
 
 // Checks if an article is selected from the list
@@ -74,12 +95,16 @@ function checkSelected(){
 // Sets the fields for the article preview
 function setPreview(article){
 	// Preview Display
-	$('#ne-side-title').text(article.find('.ne-container-title').text());
-	$('#ne-side-article').text(article.find('.ne-container-article').text());
+	$('#ne-side-title').text(article.data('title'));
+	$('#ne-side-article').text(article.data('article'));
+	//$('#ne-side-article').text(article.find('.ne-container-article').text());
 	// Edit Display
 	$('#ne-title-edit').val(article.find('.ne-container-title').text());
 	$('#ne-intro-edit').val(article.find('.ne-container-intro').text());
-	$('#ne-article-edit').val(article.find('.ne-container-article').text());
+	$('#ne-article-edit').val(article.data('article'));
+	$('#ne-img-preview').css('background-image', "url("+article.data('imgurl')+")");
+	$('#ne-img-id').val(article.data('imgid'));
+
 	// Date Formatting
 	var start = new Date(article.find('.ne-container-start').text());
 	var sDate = start.getFullYear() + "-" + ("0" + (start.getMonth() + 1)).slice(-2) + "-" + ("0" + start.getDate()).slice(-2);
@@ -93,7 +118,7 @@ function setPreview(article){
 function showPreview(){
 	$('#ne-side-title, #ne-side-article').show();
 	$('.ne-side-label').hide();
-	$('#ne-title-edit, #ne-intro-edit, #ne-article-edit, #ne-img-edit, #ne-sdate-edit, #ne-edate-edit').hide();
+	$('#ne-title-edit, #ne-intro-edit, #ne-article-edit, #ne-img-edit, #ne-sdate-edit, #ne-edate-edit, #ne-img-edit').hide();
 }
 
 // Side preview slide animation
@@ -112,13 +137,16 @@ function extendSidePreview(){
 function clearSide(){
 	$('#ne-side-title, #ne-side-article').text('');
 	$('#ne-article-edit, #ne-side input').val('');
+	$('#ne-img-preview').css('background-image', "");
+	$('#ne-img-upload').val("");
+	$('#ne-img-id').val("");
 }
 
 // Shows news edit fields
 function showEdit(){
 	$('#ne-side-title, #ne-side-article').hide();
 	$('.ne-side-label').show();
-	$('#ne-title-edit, #ne-intro-edit, #ne-article-edit, #ne-img-edit, #ne-sdate-edit, #ne-edate-edit').show();
+	$('#ne-title-edit, #ne-intro-edit, #ne-article-edit, #ne-img-edit, #ne-sdate-edit, #ne-edate-edit, #ne-img-edit').show();
 }
 
 // Side edit display slide animation
@@ -199,24 +227,16 @@ function validNewsInput(){
 		alert('The start date must be before the end date');
 		return false;
 	}
-	else if(!$('#ne-img-edit').is('img')){
+	/*else if(!$('#ne-img-edit').is('img')){
 		alert('Chosen file is not an image');
 		return false;
-	}
+	}*/
 	return true;
 }
 
 // Adds news to the db
 function saveNews(id){
-	var data = {
-		'headline' : $('#ne-title-edit').val(),
-		'intro' : $('#ne-intro-edit').val(),
-		'article' : $('#ne-article-edit').val(),
-		'image' : $('#ne-img-edit').val(),
-		'start_date' : $('#ne-sdate-edit').val(),
-		'end_date' : $('#ne-edate-edit').val(),
-	};
-
+	imageURL = $('#ne-img-preview').css('background-image');
 	var formData = new FormData($('#ne-side')[0]);
 
 	url = '/addNews';
@@ -231,7 +251,7 @@ function saveNews(id){
         cache: false,
         success: function(result) {
         	jsonObj = $.parseJSON(result);
-           	hideEditForm(function(){ (id == -1) ? addNewsContainer(data, jsonObj.newsID) : updateNewsContainer(data); });
+           	hideEditForm(function(){ (id == -1) ? addNewsContainer(jsonObj.news, imageURL) : updateNewsContainer(jsonObj.news, imageURL); });
         },
         error: function(data, textStatus, jqXHR){
         	if ('image')
@@ -242,16 +262,20 @@ function saveNews(id){
 }
 
 // Adds a new news container
-function addNewsContainer(news, id){
+function addNewsContainer(news, imgURL){
 	//TODO: add div for image when that gets implemented
-	$('#ne-list').prepend($('<div class="ne-news-container">')
+	$('#ne-list').prepend(
+		$('<div class="ne-news-container" 
+			data-article="'+news.article+'"
+			data-imgid="'+news.image_id+'"
+			data-imgurl="'+imgURL+'"
+		>')			
 		.append($('<div class="ne-container-title">').text(news.headline))
 		.append($('<div class="ne-container-intro">').text(news.intro))
 		.append($('<div class="ne-container-id">').text(id))
 		.append($('<div class="ne-container-article">').text(news.article))
 		.append($('<div class="ne-container-start">').text(news.start_date))
 		.append($('<div class="ne-container-end">').text(news.end_date)));
-	
 	$('#ne-list .ne-news-container').first().click();
 }
 
@@ -259,7 +283,8 @@ function updateNewsContainer(data){
 	news = $('#ne-list .ne-selected');
 	news.find('.ne-container-title').text(data.headline);
 	news.find('.ne-container-intro').text(data.intro);
-	news.find('.ne-container-article').text(data.article);
+	news.data('article', data.article);
+	//news.find('.ne-container-article').text(data.article);
 	news.find('.ne-container-start').text(data.start_date);
 	news.find('.ne-container-end').text(data.end_date);
 	$('#ne-list .ne-selected').click();

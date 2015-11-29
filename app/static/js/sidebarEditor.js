@@ -6,7 +6,7 @@ $(document).ready(function(){
 		var search = $(this).val().toLowerCase();
 		// Hide/show sidebar contents based on search terms
 		$('.sbe-sidebar-container').each(function(){
-			$(this).find('.sbe-container-title').text().toLowerCase().indexOf(search) >= 0 ? $(this).show() : $(this).hide();
+			$(this).data('title').toLowerCase().indexOf(search) >= 0 ? $(this).show() : $(this).hide();
 		});
 		// Hide/show preview based on it's visibility
 		checkSelected();
@@ -95,10 +95,10 @@ function checkSelected(){
 // Sets the fields for the content preview
 function setPreview(content){
 	// Preview Display
-	$('#sbe-side-title').text(content.find('.sbe-container-title').text());
+	$('#sbe-side-title').text(content.data('title'));
 	$('#sbe-side-content').text(content.find('.sbe-container-content').text());
 	// Edit Display
-	$('#sbe-title-edit').val(content.find('.sbe-container-title').text());
+	$('#sbe-title-edit').val(content.data('title'));
 	$('#sbe-content-edit').val(content.find('.sbe-container-content').text());
 	$('#sbe-category-edit').val(content.find('.sbe-container-category').text());
 	$('#sbe-active-edit').prop('checked', content.find('.sbe-container-active').text()==1);
@@ -245,7 +245,10 @@ function saveSidebar(id){
 // Adds a new sidebar container
 function addSidebarContainer(sideview, imgURL){
 	//TODO: add div for image when that gets implemented
-	$('#sbe-list').prepend($('<div class="sbe-sidebar-container">')
+	s = $('<div class="sbe-sidebar-container">');
+	s.data('title', sideview.title);
+
+	$('#sbe-list').prepend(s
 		.append($('<div class="sbe-container-title">').text(sideview.title))
 		.append($('<div class="sbe-container-id">').text(sideview.id))
 		.append($('<div class="sbe-container-content">').text(sideview.content))
@@ -257,6 +260,7 @@ function addSidebarContainer(sideview, imgURL){
 
 function updateSidebarContainer(sideview, imgURL){
 	sidebar = $('#sbe-list .sbe-selected');
+	sidebar.data('title', sideview.title);
 	sidebar.find('.sbe-container-title').text(sideview.title);
 	sidebar.find('.sbe-container-content').text(sideview.content);
 	sidebar.find('.sbe-container-category').text(sideview.category);

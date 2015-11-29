@@ -21,7 +21,17 @@
 
 	<div id="ne-list">
 		{% for n in news %}
-			<div class="ne-news-container">		
+			<div 
+				class="ne-news-container"
+				data-title="{{ n.headline }}"
+				data-intro="{{ n.intro }}"
+				data-id="{{ n.id }}"
+				data-article="{{ n.article }}"
+				data-start="{{ n.start_date }}"
+				data-end="{{ n.end_date }}"
+				data-imgid="{{ n.image_id }}"
+				data-imgurl="{{ url_for('static', filename='images/news/') }}{{ n.image['image_name'] }}.{{ n.image['image_extension'] }}"
+				>
 				<div class="ne-container-title">{{ n.headline }}</div>
 				<div class="ne-container-intro">{{ n.intro }}</div>
 				<div class="ne-container-id">{{ n.id }}</div>
@@ -42,8 +52,19 @@
 		<div id="ne-side-article"></div>
 		<div class="ne-side-label">Article</div>
 		<textarea rows="4" cols="50" id="ne-article-edit" name="article" form="ne-side"></textarea>
+
 		<div class="ne-side-label">Image</div>
+		<!--
 		<input type='file' id="ne-img-edit" name="img" accept="image/*">
+		-->
+		<div id="ne-img-edit">
+			<div id="ne-img-preview">
+				<div id="ip-open-btn">+</div>
+			</div>
+			<input type="file" id="ne-img-upload" name="img" accept="image/*">
+			<input type="text" id="ne-img-id" name="img-id" style="display:none;">
+		</div>
+
 		<div class="ne-side-label">Start Date</div>
 		<input type="date" id="ne-sdate-edit" name="start_date">
 		<div class="ne-side-label">End Date</div>
@@ -51,10 +72,6 @@
 	</form>
 
 	<div id="ne-edit-options">
-		<!--
-		<input type="submit" value="Save" form="ne-side" id="ne-save">
-		<input type="submit" value="Add" form="ne-side" id="ne-submit">
-		-->
 		<button type="button" id="ne-submit">Add</button>
 		<button type="button" id="ne-save">Save</button>
 		<input type="submit" value="Cancel" id="ne-cancel">
