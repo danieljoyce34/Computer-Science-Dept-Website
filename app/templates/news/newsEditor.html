@@ -7,6 +7,7 @@
 {% endblock %}
 
 {% block content %}
+{% include "components/imagepicker.html" %}
 <div id="news-editor">
 	<div id="ne-options">
 		<input type="text" id="ne-search" placeholder="Search by Title">
@@ -25,8 +26,8 @@
 				data-article="{{ n.article }}"
 				data-start="{{ n.start_date }}"
 				data-end="{{ n.end_date }}"
-				data-imgid="{{ n.image_id }}"
-				data-imgurl="url({{ url_for('static', filename='images/news/') }}{{ n.image['image_name'] }}.{{ n.image['image_extension'] }})"
+				data-img-id="{{ n.image_id }}"
+				data-img-url="url({{ url_for('static', filename='images/news/') }}{{ n.image['image_name'] }}.{{ n.image['image_extension'] }})"
 				>
 				<div class="ne-container-title">{{ n.headline }}</div>
 				<div class="ne-container-intro">{{ n.intro }}</div>

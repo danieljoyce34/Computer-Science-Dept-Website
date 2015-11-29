@@ -231,7 +231,6 @@ function saveSidebar(id){
 
 // Adds a new sidebar container
 function addSidebarContainer(sideview, imgURL){
-	//TODO: add div for image when that gets implemented
 	s = $('<div class="sbe-sidebar-container">');
 	s.data('title', sideview.title);
 	s.data('id', sideview.id);
@@ -241,7 +240,7 @@ function addSidebarContainer(sideview, imgURL){
 	s.data('img-id', sideview.image_id);
 	s.data('img-url', imgURL);
 
-	$('#sbe-list').prepend(s.append($('<div class="sbe-container-title">').text(sideview.title)))
+	$('#sbe-list').prepend(s.append($('<div class="sbe-container-title">').text(sideview.title)));
 	$('#sbe-list .sbe-sidebar-container').first().click();
 }
 
@@ -261,7 +260,6 @@ function readURL(input) {
 	if (input.files && input.files[0]) {
 	    var reader = new FileReader();
 		reader.onload = function (e) {
-	    	//$('#sbe-img-preview').attr('src', e.target.result);
 	        $('#sbe-img-preview').css('background-image', "url(" + e.target.result + ")");
 	    }
 	    reader.readAsDataURL(input.files[0]);

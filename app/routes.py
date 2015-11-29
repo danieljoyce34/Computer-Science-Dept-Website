@@ -77,7 +77,6 @@ def allPeopleAjax():
             people_result.append(json)
         return render_template('about/faculty.html', people=people_result)
 
-
 @app.route('/retrieveFullTimeFaculty', methods=['GET'])
 def fullTimeFacultyAjax():
     if request.method == 'GET':
@@ -91,7 +90,6 @@ def fullTimeFacultyAjax():
             faculties_result.append(json)
         return jsonify(faculties=faculties_result)
 
-
 @app.route('/retrieveAdjunctFaculty', methods=['GET'])
 def adjunctFacultyAjax():
     if request.method == 'GET':
@@ -104,7 +102,6 @@ def adjunctFacultyAjax():
             json = util._merge_two_dicts(user_dict, faculty_dict)
             faculties_result.append(json)
         return jsonify(faculties=faculties_result)
-
 
 @app.route('/retrieveStaff', methods=['GET'])
 def staffAjax():
@@ -244,9 +241,9 @@ def load_user(id):
 def before_request():
     g.user = current_user
 
-def uploadImage(type, imgfile):
+def uploadImage(type, imgfile, loc):
     filename = secure_filename(imgfile.filename)
-    imgfile.save(os.path.join(app.config['SIDEBAR_UPLOAD_FOLDER'], filename))
+    imgfile.save(os.path.join(loc, filename))
     filenameList = filename.split('.')
     image = Image(image_type=type, image_name=filenameList[0], image_extension=filenameList[1])
     db.session.add(image)
@@ -268,7 +265,7 @@ def addSideview():
     if secure_filename(imgfile.filename) == "" and request.form['img-id'] != "":
         imgId = request.form['img-id']
     elif imgfile and allowed_file(imgfile.filename):
-        sideImage = uploadImage('sidebar', imgfile)
+        sideImage = uploadImage('sidebar', imgfile, app.config['SIDEBAR_UPLOAD_FOLDER'])
         imgId = sideImage.id
     sideview = Sideview(title = request.form['title'],
                         content = request.form['content'],
@@ -292,7 +289,7 @@ def editSideview(sidebar_id):
     if secure_filename(imgfile.filename) == "":
         sideview.image_id = request.form['img-id']
     elif imgfile and allowed_file(imgfile.filename):
-        sidebarImage = uploadImage('sidebar', imgfile)
+        sidebarImage = uploadImage('sidebar', imgfile, app.config['SIDEBAR_UPLOAD_FOLDER'])
         sideview.image_id = sidebarImage.id
     else:
         return json.dumps({'status' : 'ERROR'})
@@ -308,38 +305,31 @@ def loggedInPage():
 @login_required
 def newsEditor():
     news = News.query.order_by(desc(News.id)).all()
-    return render_template('news/newsEditor.html', news=news)
+    newsimages = Image.query.filter_by(image_type='news').all()
+    return render_template('news/newsEditor.html', news=news, images=newsimages)
 
 @app.route('/addNews', methods=['POST'])
 def addNews():
-    headline = request.form['headline']
-    intro = request.form['intro']
-    article = request.form['article']
-    start = request.form['start_date']
-    end = request.form['end_date']
-    # Saves image to static/image folder
     imgfile = request.files['img']
-    if secure_filename(imgfile.filename) == "":
-        news = News(headline=headline, intro=intro, article=article, start_date=start, end_date=end)
-        db.session.add(news)
-        db.session.commit()
-
-        newNews = News.query.order_by(desc(News.id)).first()
-        return json.dumps({'status' : 'OK', 'newsID' : newNews.id})
+    imgId = 4
+    if secure_filename(imgfile.filename) == "" and request.form['img-id'] != "":
+        imgId = request.form['img-id']
     elif imgfile and allowed_file(imgfile.filename):
-        filename = secure_filename(imgfile.filename)
-        imgfile.save(os.path.join(app.config['NEWS_UPLOAD_FOLDER'], filename))
-        filenameList = filename.split('.')
-        newsImage = Image(image_type='news', image_name=filenameList[0], image_extension=filenameList[1])
-        db.session.add(newsImage)
+        nImage = uploadImage('news', imgfile, app.config['NEWS_UPLOAD_FOLDER'])
+        imgId = nImage.id
+    news = News(headline = request.form['headline'],
+                intro = request.form['intro'],
+                article = request.form['article'],
+                start_date = request.form['start_date'],
+                end_date = request.form['end_date'],
+                image_id = imgId)
+    db.session.add(news)
+    db.session.commit()
 
-        news = News(headline=headline, intro=intro, article=article, start_date=start, end_date=end, image=newsImage)
-        db.session.add(news)
-        db.session.commit()
-
-        newNews = News.query.order_by(desc(News.id)).first()
-        return json.dumps({'status' : 'OK', 'newsID' : newNews.id})
-    return json.dumps({'status' : 'ERROR'})
+    newNews = News.query.order_by(desc(News.id)).first()
+    return json.dumps({'status':'OK', 'news':newNews.to_json_format() })
+    # TODO: Put error handling in a try catch statement or something
+    #return json.dumps({'status' : 'ERROR'})
 
 @app.route('/editNews/<int:news_id>', methods=['POST'])
 def editNews(news_id):
@@ -347,18 +337,19 @@ def editNews(news_id):
     news.headline = request.form['headline']
     news.intro = request.form['intro']
     news.article = request.form['article']
-    news.start = request.form['start_date']
-    news.end = request.form['end_date']
+    news.start_date = request.form['start_date']
+    news.end_date = request.form['end_date']
     # Saves image to static/image folder
     imgfile = request.files['img']
     if secure_filename(imgfile.filename) == "":
+        news.image_id = request.form['img-id']
         db.session.commit()
-        return json.dumps({'status' : 'OK'})
-    if imgfile and allowed_file(imgfile.filename):
-        filename = secure_filename(imgfile.filename)
-        imgfile.save(os.path.join(app.config['NEWS_UPLOAD_FOLDER'], filename))
+        return json.dumps({'status' : 'OK', 'news':news.to_json_format() })
+    elif imgfile and allowed_file(imgfile.filename):
+        newsImage = uploadImage('news', imgfile, app.config['NEWS_UPLOAD_FOLDER'])
+        news.image_id = newsImage.id
         db.session.commit()
-        return json.dumps({'status' : 'OK'})
+        return json.dumps({'status' : 'OK', 'news':news.to_json_format() })
     return json.dumps({'status' : 'ERROR'})
 
 @app.route('/alertEditor')

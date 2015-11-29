@@ -6,16 +6,14 @@ $(document).ready(function(){
 		var search = $(this).val().toLowerCase();
 		// Hide/show news articles based on search terms
 		$('.ne-news-container').each(function(){
-			$(this).find('.ne-container-title').text().toLowerCase().indexOf(search) >= 0 ? $(this).show() : $(this).hide();
+			$(this).data('title').toLowerCase().indexOf(search) >= 0 ? $(this).show() : $(this).hide();
 		});
-		// Hide/show preview based on it's visibility
 		checkSelected();
 	});
 
 	// Clear button for search filter
 	$('#ne-search-clear').click(function(){
 		$('#ne-search').val('');
-		// Show all news articles
 		$('.ne-news-container').show();
 		checkSelected();
 	});
@@ -60,29 +58,23 @@ $(document).ready(function(){
 
 	$('#ne-save').click(function(){
 		if(validNewsInput())
-			saveNews($('.ne-selected .ne-container-id').text());
+			saveNews($('.ne-selected').data('id'));
 	})
 
 	$('#ip-ok-btn').click(function(){
 		if($('#image-list').find('.selected-image').length){
-			//alert("Selected Image ID: " + $('.selected-image .image-id').text());
 			$('#image-picker').hide();
-			// Use image info before removing selected-image class
-
-			// Set sidebar image preview to the selected image
-			$('#ne-img-preview').css('background-image', "url(" + $('.selected-image .image-preview').prop('src') + ")");
+			// Set news image preview to the selected image
+			$('#ne-img-preview').css('background-image', $('.selected-image .image-preview').css('background-image'));
 			$('#ne-img-upload').val("");
 			$('#ne-img-id').val($('.selected-image .image-id').text());
 			$('.selected-image').removeClass("selected-image");
 		}
-		else{
+		else
 			alert("Please select an image");
-		}
 	});
 	
-	$("#ne-img-upload").change(function(){
-    	readURL(this);
-	});
+	$("#ne-img-upload").change(function(){ readURL(this); });
 });
 
 // Checks if an article is selected from the list
@@ -97,19 +89,18 @@ function setPreview(article){
 	// Preview Display
 	$('#ne-side-title').text(article.data('title'));
 	$('#ne-side-article').text(article.data('article'));
-	//$('#ne-side-article').text(article.find('.ne-container-article').text());
 	// Edit Display
-	$('#ne-title-edit').val(article.find('.ne-container-title').text());
-	$('#ne-intro-edit').val(article.find('.ne-container-intro').text());
+	$('#ne-title-edit').val(article.data('title'));
+	$('#ne-intro-edit').val(article.data('intro'));
 	$('#ne-article-edit').val(article.data('article'));
-	$('#ne-img-preview').css('background-image', "url("+article.data('imgurl')+")");
-	$('#ne-img-id').val(article.data('imgid'));
+	$('#ne-img-preview').css('background-image', article.data('img-url'));
+	$('#ne-img-id').val(article.data('img-id'));
 
 	// Date Formatting
-	var start = new Date(article.find('.ne-container-start').text());
+	var start = new Date(article.data('start'));
 	var sDate = start.getFullYear() + "-" + ("0" + (start.getMonth() + 1)).slice(-2) + "-" + ("0" + start.getDate()).slice(-2);
 	$('#ne-sdate-edit').val(sDate);
-	var end = new Date(article.find('.ne-container-end').text());
+	var end = new Date(article.data('end'));
 	var eDate = end.getFullYear() + "-" + ("0" + (end.getMonth() + 1)).slice(-2) + "-" + ("0" + end.getDate()).slice(-2);
 	$('#ne-edate-edit').val(eDate);
 }
@@ -117,8 +108,7 @@ function setPreview(article){
 // Shows the preview fields
 function showPreview(){
 	$('#ne-side-title, #ne-side-article').show();
-	$('.ne-side-label').hide();
-	$('#ne-title-edit, #ne-intro-edit, #ne-article-edit, #ne-img-edit, #ne-sdate-edit, #ne-edate-edit, #ne-img-edit').hide();
+	$('.ne-side-label, #ne-title-edit, #ne-intro-edit, #ne-article-edit, #ne-img-edit, #ne-sdate-edit, #ne-edate-edit, #ne-img-edit').hide();
 }
 
 // Side preview slide animation
@@ -136,17 +126,14 @@ function extendSidePreview(){
 // Clears preview/form fields
 function clearSide(){
 	$('#ne-side-title, #ne-side-article').text('');
-	$('#ne-article-edit, #ne-side input').val('');
+	$('#ne-article-edit, #ne-side input, #ne-img-upload, #ne-img-id').val('');
 	$('#ne-img-preview').css('background-image', "");
-	$('#ne-img-upload').val("");
-	$('#ne-img-id').val("");
 }
 
 // Shows news edit fields
 function showEdit(){
 	$('#ne-side-title, #ne-side-article').hide();
-	$('.ne-side-label').show();
-	$('#ne-title-edit, #ne-intro-edit, #ne-article-edit, #ne-img-edit, #ne-sdate-edit, #ne-edate-edit, #ne-img-edit').show();
+	$('.ne-side-label, #ne-title-edit, #ne-intro-edit, #ne-article-edit, #ne-img-edit, #ne-sdate-edit, #ne-edate-edit, #ne-img-edit').show();
 }
 
 // Side edit display slide animation
@@ -263,30 +250,39 @@ function saveNews(id){
 
 // Adds a new news container
 function addNewsContainer(news, imgURL){
-	//TODO: add div for image when that gets implemented
-	$('#ne-list').prepend(
-		$('<div class="ne-news-container" 
-			data-article="'+news.article+'"
-			data-imgid="'+news.image_id+'"
-			data-imgurl="'+imgURL+'"
-		>')			
-		.append($('<div class="ne-container-title">').text(news.headline))
-		.append($('<div class="ne-container-intro">').text(news.intro))
-		.append($('<div class="ne-container-id">').text(id))
-		.append($('<div class="ne-container-article">').text(news.article))
-		.append($('<div class="ne-container-start">').text(news.start_date))
-		.append($('<div class="ne-container-end">').text(news.end_date)));
+	n = $('<div	class="ne-news-container">');
+	n.data('title', news.headline);
+	n.data('intro', news.intro);
+	n.data('id', news.id);
+	n.data('article', news.article);
+	n.data('start', news.start_date);
+	n.data('end', news.end_date);
+	n.data('img-id', news.image_id);
+	n.data('img-url', imgURL);
+	$('#ne-list').prepend(n.append($('<div class="ne-container-title">').text(news.headline)));
 	$('#ne-list .ne-news-container').first().click();
 }
 
-function updateNewsContainer(data){
-	news = $('#ne-list .ne-selected');
-	news.find('.ne-container-title').text(data.headline);
-	news.find('.ne-container-intro').text(data.intro);
-	news.data('article', data.article);
-	//news.find('.ne-container-article').text(data.article);
-	news.find('.ne-container-start').text(data.start_date);
-	news.find('.ne-container-end').text(data.end_date);
+function updateNewsContainer(news, imgURL){
+	n = $('#ne-list .ne-selected');
+	n.data('title', news.headline);
+	n.data('intro', news.intro);
+	n.data('article', news.article);
+	n.data('start', news.start_date);
+	n.data('end', news.end_date);
+	n.data('img-id', news.image_id);
+	n.data('img-url', imgURL);
+	n.find('.ne-container-title').text(news.headline);
 	$('#ne-list .ne-selected').click();
 }
 
+function readURL(input) {
+	if (input.files && input.files[0]) {
+	    var reader = new FileReader();
+		reader.onload = function (e) {
+	    	//$('#sbe-img-preview').attr('src', e.target.result);
+	        $('#ne-img-preview').css('background-image', "url(" + e.target.result + ")");
+	    }
+	    reader.readAsDataURL(input.files[0]);
+  	}
+}
