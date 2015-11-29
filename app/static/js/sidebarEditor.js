@@ -63,24 +63,18 @@ $(document).ready(function(){
 
 	$('#ip-ok-btn').click(function(){
 		if($('#image-list').find('.selected-image').length){
-			//alert("Selected Image ID: " + $('.selected-image .image-id').text());
 			$('#image-picker').hide();
-			// Use image info before removing selected-image class
-
 			// Set sidebar image preview to the selected image
 			$('#sbe-img-preview').css('background-image', $('.selected-image .image-preview').css('background-image'));
 			$('#sbe-img-upload').val("");
 			$('#sbe-img-id').val($('.selected-image .image-id').text());
 			$('.selected-image').removeClass("selected-image");
 		}
-		else{
+		else
 			alert("Please select an image");
-		}
 	});
 	
-	$("#sbe-img-upload").change(function(){
-    	readURL(this);
-	});
+	$("#sbe-img-upload").change(function(){	readURL(this); });
 });
 
 // Checks if an content is selected from the list
@@ -107,8 +101,7 @@ function setPreview(content){
 // Shows the preview fields
 function showPreview(){
 	$('#sbe-side-title, #sbe-side-content').show();
-	$('.sbe-side-label').hide();
-	$('#sbe-title-edit, #sbe-content-edit, #sbe-img-edit, #sbe-category-edit, #sbe-active, #ip-open-btn').hide();
+	$('.sbe-side-label, #sbe-title-edit, #sbe-content-edit, #sbe-img-edit, #sbe-category-edit, #sbe-active, #ip-open-btn').hide();
 }
 
 // Side preview slide animation
@@ -126,18 +119,14 @@ function extendSidePreview(){
 // Clears preview/form fields
 function clearSide(){
 	$('#sbe-side-title, #sbe-side-content').text('');
-	$('#sbe-content-edit, #sbe-side input').val('');
+	$('#sbe-content-edit, #sbe-side input, #sbe-img-upload, #sbe-img-id').val('');
 	$('#sbe-img-preview').css('background-image', "");
-	$('#sbe-img-upload').val("");
-	$('#sbe-img-id').val("");
 }
 
 // Shows sidebar edit fields
 function showEdit(){
 	$('#sbe-side-title, #sbe-side-content').hide();
-	$('.sbe-side-label').show();
-	$('#sbe-title-edit, #sbe-content-edit, #sbe-img-edit, #sbe-category-edit, #ip-open-btn').show();
-	$('#sbe-active').show();
+	$('.sbe-side-label, #sbe-title-edit, #sbe-content-edit, #sbe-img-edit, #sbe-category-edit, #ip-open-btn, #sbe-active').show();
 }
 
 // Side edit display slide animation
@@ -252,20 +241,19 @@ function addSidebarContainer(sideview, imgURL){
 	s.data('img-id', sideview.image_id);
 	s.data('img-url', imgURL);
 
-	$('#sbe-list').prepend(s
-		.append($('<div class="sbe-container-title">').text(sideview.title)))
+	$('#sbe-list').prepend(s.append($('<div class="sbe-container-title">').text(sideview.title)))
 	$('#sbe-list .sbe-sidebar-container').first().click();
 }
 
 function updateSidebarContainer(sideview, imgURL){
-	sidebar = $('#sbe-list .sbe-selected');
-	sidebar.data('title', sideview.title);
-	sidebar.data('content', sideview.content);
-	sidebar.data('category', sideview.category);
-	sidebar.data('active', sideview.active);
-	sidebar.data('img-id', sideview.image_id);
-	sidebar.data('img-url', imgURL);
-	sidebar.find('.sbe-container-title').text(sideview.title);
+	s = $('#sbe-list .sbe-selected');
+	s.data('title', sideview.title);
+	s.data('content', sideview.content);
+	s.data('category', sideview.category);
+	s.data('active', sideview.active);
+	s.data('img-id', sideview.image_id);
+	s.data('img-url', imgURL);
+	s.find('.sbe-container-title').text(sideview.title);
 	$('#sbe-list .sbe-selected').click();
 }
 

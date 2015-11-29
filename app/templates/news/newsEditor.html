@@ -1,5 +1,3 @@
-<!-- Needs to inherit pageFrameTemplate, extends base for now because the pageFrameTemplate footer looks kind of weird on the news editor -->
-
 {% extends "formFrameTemplate.html" %}
 {% block title %}News Editor{% endblock %}
 
@@ -13,8 +11,6 @@
 	<div id="ne-options">
 		<input type="text" id="ne-search" placeholder="Search by Title">
 		<input type="submit" value="x" id="ne-search-clear">
-		<!--//TODO: Implement delete option + find icon -->
-		<!--<button type="button" id="ne-delete" title="delete" disabled>x</button>-->
 		<button type="button" id="ne-edit" title="edit" disabled><i class="icon ion-edit"></i></button>
 		<button type="button" id="ne-add" title="add"><i class="icon ion-android-add"></i></button>
 	</div>
@@ -30,7 +26,7 @@
 				data-start="{{ n.start_date }}"
 				data-end="{{ n.end_date }}"
 				data-imgid="{{ n.image_id }}"
-				data-imgurl="{{ url_for('static', filename='images/news/') }}{{ n.image['image_name'] }}.{{ n.image['image_extension'] }}"
+				data-imgurl="url({{ url_for('static', filename='images/news/') }}{{ n.image['image_name'] }}.{{ n.image['image_extension'] }})"
 				>
 				<div class="ne-container-title">{{ n.headline }}</div>
 				<div class="ne-container-intro">{{ n.intro }}</div>
