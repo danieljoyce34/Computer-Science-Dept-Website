@@ -12,7 +12,10 @@
 			<div id="image-list">
 				{% for i in images %}
 					<div class="image-container">
+						<div class="image-preview" style="background-image: url({{ url_for('static', filename='images/') }}{{ i.image_type }}/{{ i.image_name }}.{{ i.image_extension }})"></div>
+						<!--
 						<img class="image-preview" src="{{ url_for('static', filename='images/') }}{{ i.image_type }}/{{ i.image_name }}.{{ i.image_extension }}"></img>
+						-->
 						<div class="image-name">{{ i.image_name }}.{{ i.image_extension }}</div>
 						<div class="image-id">{{ i.id }}</div>
 					</div>

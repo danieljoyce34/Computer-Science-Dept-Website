@@ -5,19 +5,6 @@ $(document).ready(function(){
 		$(this).addClass("selected-image");
 	});
 
-	/*
-	$('#ip-ok-btn').click(function(){
-		if($('#image-list').find('.selected-image').length){
-			alert("Selected Image ID: " + $('.selected-image .image-id').text());
-			$('#image-picker').hide();
-			// Use image info before removing selected-image class
-			$('.selected-image').removeClass("selected-image");
-		}
-		else{
-			alert("Please select an image");
-		}
-	});*/
-
 	$('#ip-open-btn').click(function(){
 		$('#image-picker').show();
 	});
