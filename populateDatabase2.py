@@ -5,6 +5,8 @@ import datetime
 user_role_prof = models.UserRole(role='Faculty')
 user_role_staff = models.UserRole(role='Staff')
 user_role_grad = models.UserRole(role='Graduate')
+user_role_ugrad = models.UserRole(role='Undergrad')
+user_role_web = models.UserRole(role='Webteam')
 
 
 ### Committees ###
@@ -220,6 +222,65 @@ fac_images.append(models.Image(image_type='icon',
                           alt_text="Dr. Gehlot",
                           image_extension='png'))
 
+fac_images.append(models.Image(image_type='icon',
+                          alt_text="Dr. Goelman",
+                          image_extension='png'))
+
+fac_images.append(models.Image(image_type='icon',
+                          alt_text="Mrs. Helwig",
+                          image_extension='png'))
+
+fac_images.append(models.Image(image_type='icon',
+                          alt_text="Dr. Japaridze",
+                          image_extension='png'))
+
+fac_images.append(models.Image(image_type='icon',
+                          alt_text="Dr. Kim",
+                          image_extension='png'))
+
+fac_images.append(models.Image(image_type='icon',
+                          alt_text="Dr. Klassner",
+                          image_extension='png'))
+
+fac_images.append(models.Image(image_type='icon',
+                          alt_text="Dr. Levitin",
+                          image_extension='png'))
+
+fac_images.append(models.Image(image_type='icon',
+                          alt_text="Dr. Papalaskari",
+                          image_extension='png'))
+
+fac_images.append(models.Image(image_type='icon',
+                          alt_text="Dr. Soong",
+                          image_extension='png'))
+
+fac_images.append(models.Image(image_type='icon',
+                          alt_text="Dr. Way",
+                          image_extension='png'))
+
+fac_images.append(models.Image(image_type='icon',
+                          alt_text="Ms. Zimmerman",
+                          image_extension='png'))
+
+### STAFF IMAGES ###
+
+staff_images = []
+
+staff_images.append(models.Image(image_type='icon',
+                          alt_text="Adele Ballard",
+                          image_extension='png'))
+
+staff_images.append(models.Image(image_type='icon',
+                          alt_text="Joe Dalbo",
+                          image_extension='png'))
+
+staff_images.append(models.Image(image_type='icon',
+                          alt_text="Anne Hischar",
+                          image_extension='png'))
+
+staff_images.append(models.Image(image_type='icon',
+                          alt_text="Najib Nadi",
+                          image_extension='png'))
 
 ### INSTANTIATE LISTS ###
 users = []
@@ -238,10 +299,12 @@ fac_int = []
 
 fac_serv = []
 
+staff = []
 
 ### FACULTY ### 
 
-# Dr. Joyce
+# Dr. Joyce (User 0)
+
 users.append(models.User(fname='Daniel',
                    minit='T.',
                    lname='Joyce',
@@ -349,7 +412,7 @@ fac_serv_joyce.append(models.FacultyServices(name='AP Computer Science Exam Read
 
 fac_serv.append(fac_serv_joyce)
 
-# Dr. Beck
+# Dr. Beck (User 1)
 
 users.append(models.User(fname='Robert',
                    minit='E.',
@@ -488,7 +551,7 @@ fac_serv_beck.append(models.FacultyServices(name='Undergraduate Independent Stud
 
 fac_serv.append(fac_serv_beck)
 
-# Dr. Cassel
+# Dr. Cassel (User 2)
 
 users.append(models.User(fname='Lillian', 
                    lname='Cassel',
@@ -621,7 +684,7 @@ fac_serv_cassel.append(models.FacultyServices(name='Digital Library Lab Coordina
 
 fac_serv.append(fac_serv_cassel)
 
-# Dr. Damian
+# Dr. Damian (User 3)
 
 users.append(models.User(fname='Mirela',
                    lname='Damian',
@@ -724,7 +787,7 @@ fac_serv_damian.append(models.FacultyServices(name='Networks Lab Coordinator',
 
 fac_serv.append(fac_serv_damian)
 
-# Dr. Fleischman
+# Dr. Fleischman (User 4)
 
 users.append(models.User(fname='William',
                    minit='M.',
@@ -816,7 +879,7 @@ fac_serv_fleischman.append(models.FacultyServices(name='Advising: Class of 2017'
 
 fac_serv.append(fac_serv_fleischman)
 
-# Dr. Gehlot
+# Dr. Gehlot (User 5)
 
 users.append(models.User(fname='Vijay',
                    lname='Gehlot',
@@ -922,7 +985,7 @@ fac_serv_gehlot.append(models.FacultyServices(name='Graduate Program Director',
 
 fac_serv.append(fac_serv_gehlot)
 
-# Dr. Goelman
+# Dr. Goelman (User 6)
 
 users.append(models.User(fname='Don',
                    lname='Goelman',
@@ -1017,7 +1080,7 @@ fac_serv_goelman.append(models.FacultyServices(name='CCSC-NE 2009 Co-Chair',
 
 fac_serv.append(fac_serv_goelman)
 
-# Mrs. Helwig
+# Mrs. Helwig (User 7)
 
 users.append(models.User(fname='Catherine',
                    minit='L.',
@@ -1105,7 +1168,7 @@ fac_serv_helwig.append(models.FacultyServices(name='Advising: Class of 2015',
 
 fac_serv.append(fac_serv_helwig)
 
-# Dr. Japaridze
+# Dr. Japaridze (User 8)
 
 users.append(models.User(fname='Giorgi',
                    lname='Japaridze',
@@ -1201,7 +1264,7 @@ fac_serv_japaridze.append(models.FacultyServices(name='Library Acquisitions',
 
 fac_serv.append(fac_serv_japaridze)
 
-# Dr. Kim
+# Dr. Kim (User 9)
 
 users.append(models.User(fname='Edward',
                    lname='Kim',
@@ -1252,7 +1315,7 @@ fac_serv_kim = []
 fac_serv.append(fac_serv_kim)
 '''
 
-# Dr. Klassner
+# Dr. Klassner (User 10)
 
 users.append(models.User(fname='Frank',
                    minit='I.',
@@ -1374,7 +1437,7 @@ fac_serv_klassner.append(models.FacultyServices(name='Virtual Reality Lab Coordi
 
 fac_serv.append(fac_serv_klassner)
 
-# Dr. Levitin
+# Dr. Levitin (User 11)
 
 users.append(models.User(fname='Anany',
                    lname='Levitin',
@@ -1461,7 +1524,7 @@ fac_serv_levitin.append(models.FacultyServices(name='Advising: Class of 2018',
 
 fac_serv.append(fac_serv_levitin)
 
-# Dr. Papalaskari
+# Dr. Papalaskari (User 12)
 
 users.append(models.User(fname='Mary',
                    minit='A.',
@@ -1559,7 +1622,7 @@ fac_serv_papa.append(models.FacultyServices(name='Advising: Class of 2017',
 
 fac_serv.append(fac_serv_papa)
 
-# Dr. Soong
+# Dr. Soong (User 13)
 
 users.append(models.User(fname='Norman',
                    minit='L.',
@@ -1640,7 +1703,7 @@ fac_serv_soong = []
 fac_serv.append(fac_serv_soong)
 '''
 
-# Dr. Way
+# Dr. Way (User 14)
 
 users.append(models.User(fname='Tom',
                    minit='P.',
@@ -1782,7 +1845,7 @@ fac_serv_way.append(models.FacultyServices(name='Applied Computing Technology La
 
 fac_serv.append(fac_serv_way)
 
-# Ms. Zimmerman
+# Ms. Zimmerman (User 15)
 
 users.append(models.User(fname='Barbara',
                    minit='H.',
@@ -1878,41 +1941,111 @@ fac_serv_zimmerman.append(models.FacultyServices(name='President, Phi Beta Kappa
 fac_serv.append(fac_serv_zimmerman)
 
 
+### STAFF ###
+
+# Adele Ballard (User 16)
+
+users.append(models.User(fname='Adele',
+                   minit='E.',
+                   lname='Ballard',
+                   email='adele.ballard@villanova.edu',
+                   vu_ldap='aballard',
+                   image=staff_images[0],
+                   user_role=user_role_staff))
+
+user_phone.append(models.PhoneNumber(area_code='(610)',
+                             number='519-7310',
+                             #extension='1234',
+                             user=users[16]))
+
+staff.append(models.Staff(position='Administrative Assistant',
+                       office_loc='MSC 161',
+                       user=users[16]))
+
+# Joe Dalbo (User 17)
+
+users.append(models.User(fname='Joe',
+                   lname='Dalbo',
+                   email='joseph.dalbo@villanova.edu',
+                   vu_ldap='jdalbo',
+                   image=staff_images[1],
+                   user_role=user_role_staff))
+
+user_phone.append(models.PhoneNumber(area_code='(610)',
+                             number='519-5334',
+                             #extension='1234',
+                             user=users[17]))
+
+staff.append(models.Staff(position='PC LAN Administrator',
+                       office_loc='MSC G55',
+                       user=users[17]))
+
+# Anne Hischar (User 18)
+
+users.append(models.User(fname='Anne',
+                   minit='L.',
+                   lname='Hischar',
+                   email='anne.hischar@villanova.edu',
+                   vu_ldap='ahischar',
+                   image=staff_images[2],
+                   user_role=user_role_staff))
+
+staff.append(models.Staff(user_id=users[18],
+                       position='Administrative Assistant II',
+                       office_loc='MSC 161',
+                       user=users[18]))
+
+# Najib Nadi (User 19)
+
+users.append(models.User(fname='Najib',
+                   lname='Nadi',
+                   email='najib.nadi@villanova.edu',
+                   vu_ldap='nnadi',
+                   image=staff_images[3],
+                   user_role=user_role_staff))
+
+user_phone.append(models.PhoneNumber(area_code='(610)',
+                             number='519-4852',
+                             #extension='1234',
+                             user=users[19]))
+
+staff.append(models.Staff(position='Systems Administrator', 
+                        office_loc='MSC 165-C',
+                        user=users[19]))
+
+
+
 
 #### ADD TO DATABASE ####
 
 #db.create_all()
 
 ### ADD USER ROLES ###
-'''
 db.session.add(user_role_prof)
 db.session.add(user_role_grad)
 db.session.add(user_role_staff)
-'''
+db.session.add(user_role_ugrad)
+db.session.add(user_role_web)
 
 ### ADD COMMITTEES ###
-'''
 for i in range(1,45):
   db.session.add(eval("com" + str(i)))
-'''
 
 ### ADD FACULTY IMAGES ###
-'''
 for i in fac_images:
   db.session.add(i)
-'''
+
+### ADD STAFF IMAGES ###
+for i in staff_images:
+  db.session.add(i)
 
 ### ADD USERS ###
-'''
 for i in users:
   db.session.add(i)
-'''
 
 ### ADD USER PHONE NUMBERS ###
-'''
 for i in user_phone:
   db.session.add(i)
-'''
 
 ### ADD USER OFFICE HOURS ###
 '''
@@ -1921,38 +2054,35 @@ for i in user_offhour:
 '''
 
 ### ADD FACULTY ###
-'''
 for i in faculty:
   db.session.add(i)
-'''
 
 ### ADD FACULTY EDUCATIONS ###
-'''
 for i in fac_edu:
   for j in i:
     db.session.add(j)
-'''
 
 ### ADD FACULTY INTERESTS ###
-'''
 for i in fac_int:
   for j in i:
     db.session.add(j)
-'''
 
 ### ADD FACULTY COMMITTEE MEMBERSHIPS ###
-'''
 for i in fac_com_mem:
   for j in i:
     db.session.add(j)
-'''
 
 ### ADD FACULTY SERVICES ###
-'''
 for i in fac_serv:
   for j in i:
     db.session.add(j)
-'''
 
+### ADD STAFF ###
+for i in staff:
+  db.session.add(i)
 
 db.session.commit()
+
+
+
+
