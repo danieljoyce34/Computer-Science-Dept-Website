@@ -219,20 +219,22 @@ class Staff(db.Model):
 class Administration(db.Model):
     __tablename__ = 'administration'
     id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(64))
     description = db.Column(db.String(128))
-    priority = db.Column(db.String(64))
+    priority = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def to_json_format(self):
         json = {'id': self.id,
+                'title': self.title,
                 'description': self.description,
                 'priority': self.priority,
                 'user_id': self.user_id}
         return json
 
     def __repr__(self):
-        return ('<Administration id %i, description %s, priority %s, user_id %i>'
-                % (self.id, self.description, self.priority, self.user_id))
+        return ('<Administration id %i, title %s, description %s, priority %i, user_id %i>'
+                % (self.id, self.title, self.description, self.priority, self.user_id))
 
 
 class PhoneNumber(db.Model):

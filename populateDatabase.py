@@ -92,7 +92,8 @@ staff = models.Staff(position='PC LAND Administrator',
                      office_loc='MSC-161',
                      user=user_staff)
 
-administration = models.Administration(description='Webmaster of the CS Dept',
+administration = models.Administration(title='Webmaster of the CS Dept',
+                                       description='does stuff',
                                        priority='None',
                                        user=prof)
 
@@ -215,7 +216,8 @@ course_sect_2 = models.CourseSection(course_time_id='2',
                                      faculty=faculty,
                                      course_time=course_time_1)
 
-# db.create_all()
+db.create_all()
+'''
 db.session.add(image_icon)
 db.session.add(sideview)
 db.session.add(news)
@@ -256,4 +258,5 @@ db.session.add(course_sect_1)
 db.session.add(course_sect_2)
 db.session.add(course_time_1)
 db.session.add(course_time_2)
+'''
 db.session.commit()
