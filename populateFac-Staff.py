@@ -301,6 +301,8 @@ fac_serv = []
 
 staff = []
 
+admin = []
+
 ### FACULTY ### 
 
 # Dr. Joyce (User 0)
@@ -2014,6 +2016,43 @@ staff.append(models.Staff(position='Systems Administrator',
                         user=users[19]))
 
 
+### ADMINISTRATION ###
+
+admin.append(models.Administration(title='Chair of the Department of Computing Sciences'
+                              description='Oversees both the graduate and undergraduate programs', 
+                              priority=1, 
+                              user=users[2]))
+
+admin.append(models.Administration(title='Graduate Program Director'
+                              description='Administers all aspects of the department\'s M.S. degree program', 
+                              priority=2, 
+                              user=users[5]))
+
+admin.append(models.Administration(title='Independent Study Coordinator'
+                              description='Administers the IS course and can assist students with the process'
+                              ' of finding an advisor and topic', 
+                              priority=3, 
+                              user=users[0]))
+
+admin.append(models.Administration(title='Administrative Assistant'
+                              description='Provides support for the department\'s programs', 
+                              priority=4, 
+                              user=users[16]))
+
+admin.append(models.Administration(title='Program Coordinator'
+                              description='Helps students with various department inquiries', 
+                              priority=5, 
+                              user=users[18]))
+
+admin.append(models.Administration(title='Systems Administrator'
+                              description='Oversees all aspects of the department laboratories and equipment', 
+                              priority=6, 
+                              user=users[19]))
+
+admin.append(models.Administration(title='PC LAN Administrator'
+                              description='Supports key system administration tasks', 
+                              priority=7, 
+                              user=users[17]))
 
 
 #### ADD TO DATABASE ####
@@ -2079,6 +2118,10 @@ for i in fac_serv:
 
 ### ADD STAFF ###
 for i in staff:
+  db.session.add(i)
+
+### ADD ADMINISTRATION ###
+for i in admin:
   db.session.add(i)
 
 db.session.commit()
