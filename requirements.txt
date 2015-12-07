@@ -3,4 +3,5 @@ flask==0.10.1
 SQLAlchemy==0.9.8
 flask-sqlalchemy==2.0
 mysql-python==1.2.5
+python-ldap==2.4.21
 Flask-Login==0.3.0
