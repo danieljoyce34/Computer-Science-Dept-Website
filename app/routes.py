@@ -37,6 +37,8 @@ def index():
         json = new.to_json_format()
         if new.image is not None:
             json['image_url'] = '/static/images/news/' + new.image.image_name + '.' + new.image.image_extension
+        else:
+            json['image_url'] = '/static/images/news/news-placeholder.jpg'
         carouselNews.append(json)
 
     return render_template('index.html', sideview=sideview, alerts=alerts, carouselNews=carouselNews)
