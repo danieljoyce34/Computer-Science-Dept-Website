@@ -30,12 +30,6 @@
 				data-img-url="url({{ url_for('static', filename='images/news/') }}{{ n.image['image_name'] }}.{{ n.image['image_extension'] }})"
 				>
 				<div class="ne-container-title">{{ n.headline }}</div>
-				<div class="ne-container-intro">{{ n.intro }}</div>
-				<div class="ne-container-id">{{ n.id }}</div>
-				<div class="ne-container-article">{{ n.article }}</div>
-				<div class="ne-container-start">{{ n.start_date }}</div>
-				<div class="ne-container-end">{{ n.end_date }}</div>
-				<!--//TODO: Add div for image url -->
 			</div>
 		{% endfor %}
 	</div>
