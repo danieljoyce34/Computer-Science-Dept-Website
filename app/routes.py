@@ -31,11 +31,12 @@ def index():
     # Get alerts (most recent first)
     alerts = Alert.query.order_by(desc(Alert.id)).all()
 
-    news = News.query.limit(4).all()
+    news = News.query.order_by(desc(News.id)).limit(4).all()
     carouselNews = []
     for new in news:
         json = new.to_json_format()
-        json['image_url'] = '/static/images/news/' + new.image.image_name + '.' + new.image.image_extension
+        if new.image is not None:
+            json['image_url'] = '/static/images/news/' + new.image.image_name + '.' + new.image.image_extension
         carouselNews.append(json)
 
     return render_template('index.html', sideview=sideview, alerts=alerts, carouselNews=carouselNews)
