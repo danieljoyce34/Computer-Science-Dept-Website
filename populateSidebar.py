@@ -805,10 +805,62 @@ sideview.append(models.Sideview(
     'held a career in Finance and then in Client Service Management.  Villanova was a great school when I attended, and it\'s '
     'an even better school now.  Students are really encouraged to \'give it all you\'ve got\', my orientation slogan from '
     'freshman year."',
-    title='Caroline Scales',
+    title='Candice Goglio',
     category='Where Are They Now?',
     active=0,
     image=sb_images[47]))
+
+sideview.append(models.Sideview(
+    content='<ul>'
+	'<li><b>AJ Palkovic</b> will be working at Fog Creek Software in New York. This company is run by Joel Spolsky, the man '
+	'behind the well known blog: joelonsoftware.com. </li>'
+	'<li><b>Victoria Suwardiman</b> is participating in the CRA-W program - Distributed Research Experience for Undergraduates. '
+	'She will work with Dr. Julie Kientz at the University of Washington. Dr. Kientz has particular interests in technology '
+	'and health/education. </li>'
+	'<li><b>Kory Kirk</b> and <b>Kevin Berry</b> will both participate in Google\'s <a href="http://code.google.com/soc/">Summer '
+	'of Code</a> program. This well known program offers student developers stipends to write code for various open source '
+	'software projects.</li>'
+	'<li><b>Kurt Lehmer</b> will work on a a robotics research project headed by Dr. Peyton-Jones of the CPE department here '
+	'at Villanova. The results of his efforts might be seen in Dr. Klassner\'s robotics class in the fall.</li>'
+	'<li><b>Greg Francis</b> will be interning with JPMorgan Chase Wilmington, DE as a Technology Analyst. He will work on '
+	'application development related to business analysis, as part of a technology team.</li>'
+	'<li><b>Casey Burkhardt</b> will be working as a Software Engineering Intern at Google Headquarters in Mountain View, '
+	'California with T.V. Raman\'s accessibility research team and the Android team to improve the accessibility of '
+	'Google\'s mobile platform.</li>'
+	'<li><b>Taylor Clifton</b> will be interning at the Jet Propulsion Laboratory at Cal Tech.</li>'
+	'<li><b>Chris Miller</b> has an internship with Motorola in Horsham, PA this summer. His job is as a Business Analyst '
+	'and he will be working with the assimilation of smaller companies purchased by Motorola and assessing their '
+	'technological standards.</li>'
+	'<li><b>Michael Dokas</b> will be working at Goldman Sach in Operations.</li>'
+	'<li><b>Ankit Patel</b> will work with Dr. Cassel this summer at Villanova on the Ensemble web portal project.</li>'
+	'<li><b>Zach Horst</b> will be at the New York Stock Exchange as an IT intern analyst, working on a solo project creating '
+	'gadgets and apps for the brokers and traders on the floor.</li>'
+	'<li><b>Zachary Fanelle</b> plans to work with the IS department at South Jersey Healthcare System.</li>'
+	'<li><b>Nicholas Burns</b> will be working for Computer Sciences Corporation at Sikorsky Aircraft.</li>'
+	'</ul>',
+    title='Here are some of the many interesting jobs and/or internships that CS majors have planned for the upcoming summer.',
+    category='Summer Internships',
+    active=0,
+    image=sb_images[48]))
+
+sideview.append(models.Sideview(
+    content='Jason Dobies, known as "Jay" or "General", graduated from Villanova as a Computer Science and Mathematics major '
+    'in 2001. During his junior and senior years he interned with Lockheed Martin as a visual basic programmer. After graduating '
+    'from Villanova he worked for five different companies within five years. For the past four years however, he has settled '
+    'in with Red Hat as a senior software engineer. He enjoys this job because of the freedom it provides as well as the pride '
+    'that the company has in its workers. Red Hat makes open source software easier to use for other major corporations. While '
+    'working for Red Hat, Jay realized how much he wanted to help other people. He believes that teaching is a great way to '
+    'fulfill that ambition. After earning Masters in Software Engineering from Drexel University he applied to teach at Villanova. '
+    'In the Spring of 2008 he started teaching Data Structures and Algorithms II. He is able to incorporate real world examples '
+    'that he sees day to day in his work at Red Hat into his classroom. He also supplies the students with personal advice on '
+    'surviving college and choosing a job or internship. Jay is happily married to his wife (duh), whom he met during his '
+    'junior year at Villanova (they were married in the Villanova Church). They are currently living in New Jersey with their '
+    'two-year old daughter. If you ever need a good laugh or advice, you can catch him on campus on Tuesdays and Thursdays, '
+    'usually sitting in the Connelly Center.',
+    title='Jason Dobies',
+    category='Where Are They Now?',
+    active=0,
+    image=sb_images[49]))
 
 
 
