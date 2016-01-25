@@ -26,7 +26,7 @@
 	<div id="staff-list">
 		{% for p in people %}
 			<div class="staff-container">	
-				<a href="{{ p.profile_url }}"><img src="/static/images/image1.jpg" class="profile_image"></a>
+				<a href="{{ p.profile_url }}"><img src="{{ p.image_url }}" class="profile_image"></a>
 				<div class="staff-name"><a href="{{ p.profile_url }}">{{ p.name }}</a></div>
 				<div class="staff-position">{{ p.job_title }}</div>
 				<div class="staff-email">{{ p.person_type }}</div>

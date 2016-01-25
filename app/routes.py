@@ -58,21 +58,23 @@ def allPeopleAjax():
 
         people_result = []
         for faculty in faculties:
+            img_url = '/static/images/faculty/' + faculty.user.lname + '.jpg'
             json = {'user_id': faculty.user_id,
                     'name': faculty.user.fname + ' ' + faculty.user.lname,
                     'person_type': faculty.faculty_type,
                     'job_title': faculty.faculty_rank,
-                    'image_url': '/static/images/image1.jpg',
+                    'image_url': img_url,
                     'profile_url': '/faculty/' + str(faculty.id)}
             people_result.append(json)
 
         staffs = Staff.query.all()
         for staff in staffs:
+            img_url = '/static/images/staff/' + staff.user.lname + '.jpg'
             json = {'user_id': staff.user_id,
                     'name': staff.user.fname + ' ' + staff.user.lname,
                     'person_type': 'staff',
                     'job_title': staff.position,
-                    'image_url': '/static/images/image1.jpg',
+                    'image_url': img_url,
                     'profile_url': '/staff/' + str(staff.id)}
             people_result.append(json)
         return render_template('about/faculty.html', people=people_result)
