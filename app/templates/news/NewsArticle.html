@@ -11,6 +11,10 @@
 		<h1 id="news-title">{{ news['headline'] }}</h1>
 		<h4 id="news-date">{{ news['post_date'] }}</h4>
 		<div id="news-image" style="background-image: url({{ url_for('static', filename='images/news/') }}{{ news.image['image_name'] }}.{{ news.image['image_extension'] }})"></div>
-		<p id="news-article">{{ news['article'] }}</p>
+		<p id="news-article">
+			{% autoescape false %}
+				{{ news['article'] }}
+			{% endautoescape %}
+		</p>
 	</div>
 {% endblock %}
