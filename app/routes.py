@@ -485,6 +485,9 @@ def faculty_profile(faculty_id):
     if request.method == 'GET':
         faculty = Faculty.query.filter_by(id=faculty_id).first()
 
+        if faculty.user.minit is None:
+            faculty.user.minit = ''
+
         faculty_result = []
         faculty_dict = faculty.to_json_format()
         user_dict = faculty.user.to_json_format()
@@ -545,12 +548,16 @@ def staff_profile(staff_id):
     if request.method == 'GET':
         staff = Staff.query.filter_by(id=staff_id).first()
 
+        if staff.user.minit is None:
+            staff.user.minit = ''
+
         staff_result = []
         staff_dict = staff.to_json_format()
         user_dict = staff.user.to_json_format()
         json = util._merge_two_dicts(user_dict, staff_dict)
 
         staff_phones = staff.user.phone_numbers
+        phone_list = []
         for p in staff_phones:
             phone_list = [p.area_code + p.number + (", Ext. " + p.extension if p.extension else "") for p in staff_phones]
         json = util._append_to_dict(json, phone_list, 'phone_number')

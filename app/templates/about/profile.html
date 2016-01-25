@@ -10,7 +10,7 @@
 	{% if data %}
 		<div id="profile-header" class="block">
 			<div id="ph-basics">
-				<div id="ph-image"></div>
+				<img src="/static/images/faculty/{{ data['lname'] }}.jpg" id="ph-image">
 				<div id="ph-name">
 					{{ data['salutation'] }} {{ data['fname'] }} {{data['minit']}} {{data['lname'] }}</div>
         		<div id="ph-position">{{ data['faculty_rank'] }}</div>

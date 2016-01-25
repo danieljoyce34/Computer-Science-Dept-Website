@@ -83,9 +83,6 @@
 	width: 200px;
 	height: 200px;
 	margin: 0 auto;
-	/* TODO: get profile image */
-	background-image: url('https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/000/2c8/24c/039e2a7.jpg');
-	background: url('https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/000/2c8/24c/039e2a7.jpg');
 	background-size: 200px 200px;
 	background-position: center; 
 	border-radius: 150px;
