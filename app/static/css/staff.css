@@ -73,6 +73,10 @@
 	font-size: 18px;
 }
 
+.staff-name a {
+	text-decoration: none;
+}
+
 .staff-email{
 	font-size: 13px;
 	color: blue;

@@ -62,10 +62,12 @@ def allPeopleAjax():
         people_result = []
         for faculty in faculties:
             img_url = '/static/images/faculty/' + faculty.user.lname + '.jpg'
+            ptype = faculty.faculty_type
+            ptype = ptype.title()
             json = {'user_id': faculty.user_id,
                     'name': faculty.user.fname + ' ' + faculty.user.lname,
                     'lname': faculty.user.lname,
-                    'person_type': faculty.faculty_type,
+                    'person_type': ptype,
                     'job_title': faculty.faculty_rank,
                     'image_url': img_url,
                     'profile_url': '/faculty/' + str(faculty.id)}
@@ -77,7 +79,7 @@ def allPeopleAjax():
             json = {'user_id': staff.user_id,
                     'name': staff.user.fname + ' ' + staff.user.lname,
                     'lname': staff.user.lname,
-                    'person_type': 'staff',
+                    'person_type': 'Staff',
                     'job_title': staff.position,
                     'image_url': img_url,
                     'profile_url': '/staff/' + str(staff.id)}
