@@ -112,17 +112,17 @@
 <part>id</part>
 </key>
 </table>
-<table x="102" y="598" name="alerts">
+<table x="115" y="594" name="alerts">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="content" null="0" autoincrement="0">
-<datatype>MEDIUMTEXT</datatype>
-<default>'NULL'</default></row>
 <row name="user_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="user" row="id" />
 </row>
+<row name="content" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>'NULL'</default></row>
 <row name="category" null="0" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>'NULL'</default><comment>class, colloquium, event</comment>
@@ -135,6 +135,9 @@
 <default>NULL</default></row>
 <row name="start_date" null="1" autoincrement="0">
 <datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="link" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
@@ -225,7 +228,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="315" y="620" name="phone_number">
+<table x="412" y="600" name="phone_number">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -241,33 +244,6 @@
 <default>NULL</default></row>
 <row name="extension" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="534" y="564" name="address">
-<row name="id" null="0" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="user_id" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="user" row="id" />
-</row>
-<row name="line1" null="0" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>'NULL'</default></row>
-<row name="line2" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="city" null="0" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>'NULL'</default></row>
-<row name="state" null="0" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>'NULL'</default></row>
-<row name="zip" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
