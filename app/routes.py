@@ -452,17 +452,17 @@ def opportunites(subpage):
 
     return render_template('opportunities/index.html')
 
-@app.route('/events', defaults={'subpage': None})
-@app.route('/events/<subpage>')
-def events(subpage):
+@app.route('/news', defaults={'subpage': None})
+@app.route('/news/<subpage>')
+def news(subpage):
     if subpage is not None:
-        uri = 'events/%s' % (subpage + '.html')
+        uri = 'news/%s' % (subpage + '.html')
         try:
             return render_template(uri)
         except TemplateNotFound:
             abort(404)
 
-    return render_template('events/index.html')
+    return render_template('news/index.html')
 
 
 ##URLS are silly in flask, need to use a colon to separate the page, else if there's a trailing slash everything breaks###
