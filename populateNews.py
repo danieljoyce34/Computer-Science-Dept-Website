@@ -6,17 +6,17 @@ news_images = []
 
 news_images.append(models.Image(image_type='news',
                           alt_text="UPE 2015",
-                          image_extension='png',
+                          image_extension='jpg',
                           image_name='UPE2015'))
 
 news_images.append(models.Image(image_type='news',
                           alt_text="Programming Team",
-                          image_extension='png',
+                          image_extension='jpg',
                           image_name='programming_team'))
 
 news_images.append(models.Image(image_type='news',
                           alt_text="VWCS",
-                          image_extension='png',
+                          image_extension='jpg',
                           image_name='VWCS'))
 
 
@@ -87,7 +87,7 @@ news.append(models.News(headline='Villanova Women in Computer Science host Resum
                    'On Friday, October 2, 2015, the Villanova Women in Computer Science (VWCS) hosted '
                    'a workshop on resume-writing and interview skills facilitated by career expert Beth '
                    'Cahill, Assistant Director of Student Services.  Beth provided important tips on what '
-                   'to reveal in a resume that says “Interview me!” and what to keep to yourself, how to '
+                   'to reveal in a resume that says "Interview me!" and what to keep to yourself, how to '
                    'prepare for successful interviews and how to make the most out of networking opportunities. '
                    'This great workshop helped students get started on their job and internship searches with '
                    'confidence, and built a momentum that will continue throughout the upcoming 2015 Grace '
@@ -96,7 +96,7 @@ news.append(models.News(headline='Villanova Women in Computer Science host Resum
                    'On Friday, October 2, 2015, the Villanova Women in Computer Science (VWCS) hosted '
                    'a workshop on resume-writing and interview skills facilitated by career expert Beth '
                    'Cahill, Assistant Director of Student Services.  Beth provided important tips on what '
-                   'to reveal in a resume that says “Interview me!” and what to keep to yourself, how to '
+                   'to reveal in a resume that says "Interview me!" and what to keep to yourself, how to '
                    'prepare for successful interviews and how to make the most out of networking opportunities. '
                    'This great workshop helped students get started on their job and internship searches with '
                    'confidence, and built a momentum that will continue throughout the upcoming 2015 Grace '
