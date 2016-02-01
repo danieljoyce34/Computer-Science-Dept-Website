@@ -176,7 +176,7 @@ class User(db.Model):
 
     def __repr__(self):
         return ('<User id %i, fname %s, minit %s, lname %s, email %s, vu_ldap %s,'
-                ' image_id %i, user_role_id %i>'
+                'image_id %i, user_role_id %i>'
                 % (self.id, self.fname, self.minit, self.lname, self.email,
                    self.vu_ldap, self.image_id, self.user_role_id))
 
@@ -202,18 +202,20 @@ class Staff(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     position = db.Column(db.String(64))
     office_loc = db.Column(db.String(64))
+    phone_num = db.Column(db.String(32))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def to_json_format(self):
         json = {'id': self.id,
                 'position': self.position,
                 'office_loc': self.office_loc,
+                'phone_num': self.phone_num,
                 'user_id': self.user_id}
         return json
 
     def __repr__(self):
-        return ('<Staff id %i, position %s, office_loc %s, user_id %i>'
-                % (self.id, self.position, self.office_loc, self.user_id))
+        return ('<Staff id %i, position %s, office_loc %s, phone_num %s, user_id %i>'
+                % (self.id, self.position, self.office_loc, self.phone_num, self.user_id))
 
 
 class Administration(db.Model):
@@ -343,6 +345,7 @@ class Faculty(db.Model):
     faculty_rank = db.Column(db.String(32))
     status = db.Column(db.String(32))
     office_loc = db.Column(db.String(64))
+    phone_num = db.Column(db.String(32))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     educations = db.relationship('Education',
                                  backref=db.backref('faculty'))
@@ -366,16 +369,17 @@ class Faculty(db.Model):
                 'faculty_rank': self.faculty_rank,
                 'status': self.status,
                 'office_loc': self.office_loc,
+                'phone_num': self.phone_num,
                 'user_id': self.user_id}
         return json
 
     def __repr__(self):
         return ('<Faculty id %i, salutation %s, secondary_email %s, website_url %s,'
                 ' faculty_type %s, faculty_rank %s, status %s, office_loc %s,'
-                ' user_id %s>'
+                ' phone_num %s, user_id %s>'
                 % (self.id, self.salutation, self.secondary_email, self.website_url,
                     self.faculty_type, self.faculty_rank, self.status,
-                    self.office_loc, self.user_id))
+                    self.office_loc, self.phone_num, self.user_id))
 
 
 class Education(db.Model):
