@@ -200,67 +200,83 @@ fac_images = []
 
 fac_images.append(models.Image(image_type='icon',
                           alt_text="Dr. Joyce",
-                          image_extension='png'))
+                          image_extension='jpg',
+                          image_name='Joyce'))
 
 fac_images.append(models.Image(image_type='icon',
                           alt_text="Dr. Beck",
-                          image_extension='png'))
+                          image_extension='jpg',
+                          image_name='Beck'))
 
 fac_images.append(models.Image(image_type='icon',
                           alt_text="Dr. Cassel",
-                          image_extension='png'))
+                          image_extension='jpg',
+                          image_name='Cassel'))
 
 fac_images.append(models.Image(image_type='icon',
                           alt_text="Dr. Damian",
-                          image_extension='png'))
+                          image_extension='jpg',
+                          image_name='Damian'))
 
 fac_images.append(models.Image(image_type='icon',
                           alt_text="Dr. Fleischman",
-                          image_extension='png'))
+                          image_extension='jpg',
+                          image_name='Fleischman'))
 
 fac_images.append(models.Image(image_type='icon',
                           alt_text="Dr. Gehlot",
-                          image_extension='png'))
+                          image_extension='jpg',
+                          image_name='Gehlot'))
 
 fac_images.append(models.Image(image_type='icon',
                           alt_text="Dr. Goelman",
-                          image_extension='png'))
+                          image_extension='jpg',
+                          image_name='Goelman'))
 
 fac_images.append(models.Image(image_type='icon',
                           alt_text="Mrs. Helwig",
-                          image_extension='png'))
+                          image_extension='jpg',
+                          image_name='Helwig'))
 
 fac_images.append(models.Image(image_type='icon',
                           alt_text="Dr. Japaridze",
-                          image_extension='png'))
+                          image_extension='jpg',
+                          image_name='Japaridze'))
 
 fac_images.append(models.Image(image_type='icon',
                           alt_text="Dr. Kim",
-                          image_extension='png'))
+                          image_extension='jpg',
+                          image_name='Kim'))
 
 fac_images.append(models.Image(image_type='icon',
                           alt_text="Dr. Klassner",
-                          image_extension='png'))
+                          image_extension='jpg',
+                          image_name='Klassner'))
 
 fac_images.append(models.Image(image_type='icon',
                           alt_text="Dr. Levitin",
-                          image_extension='png'))
+                          image_extension='jpg',
+                          image_name='Levitin'))
 
 fac_images.append(models.Image(image_type='icon',
                           alt_text="Dr. Papalaskari",
-                          image_extension='png'))
+                          image_extension='jpg',
+                          image_name='Papalaskari'))
 
 fac_images.append(models.Image(image_type='icon',
                           alt_text="Dr. Soong",
-                          image_extension='png'))
+                          image_extension='jpg',
+                          image_name='Soong'))
 
 fac_images.append(models.Image(image_type='icon',
                           alt_text="Dr. Way",
-                          image_extension='png'))
+                          image_extension='jpg',
+                          image_name='Way'))
 
 fac_images.append(models.Image(image_type='icon',
                           alt_text="Ms. Zimmerman",
-                          image_extension='png'))
+                          image_extension='jpg',
+                          image_name='Zimmerman'))
 
 ### STAFF IMAGES ###
 
@@ -268,19 +284,23 @@ staff_images = []
 
 staff_images.append(models.Image(image_type='icon',
                           alt_text="Adele Ballard",
-                          image_extension='png'))
+                          image_extension='jpg',
+                          image_name='Ballard'))
 
 staff_images.append(models.Image(image_type='icon',
                           alt_text="Joe Dalbo",
-                          image_extension='png'))
+                          image_extension='jpg',
+                          image_name='Dalbo'))
 
 staff_images.append(models.Image(image_type='icon',
                           alt_text="Anne Hischar",
-                          image_extension='png'))
+                          image_extension='jpg',
+                          image_name='Hischar'))
 
 staff_images.append(models.Image(image_type='icon',
                           alt_text="Najib Nadi",
-                          image_extension='png'))
+                          image_extension='jpg',
+                          image_name='Nadi'))
 
 ### INSTANTIATE LISTS ###
 users = []
