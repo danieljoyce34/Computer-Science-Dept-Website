@@ -55,7 +55,7 @@ def getNewsWithId(news_id):
     return render_template('news/NewsArticle.html', news=news, image=image)
 
 @app.route('/retrievePeople', methods=['GET'])
-def allPeopleAjax():
+def allPeopleAjax(subpage):
     if request.method == 'GET':
         faculties = Faculty.query.all()
 
@@ -87,7 +87,8 @@ def allPeopleAjax():
 
         people_result = sorted(people_result, key=lambda k: k['lname'])
 
-        return render_template('about/faculty.html', people=people_result)
+#        return render_template('about/faculty.html', people=people_result)
+        return render_template('about/' + subpage + '.html', people=people_result)
 
 @app.route('/retrieveFullTimeFaculty', methods=['GET'])
 def fullTimeFacultyAjax():
@@ -406,8 +407,8 @@ def aboutUs(subpage):
     if subpage is not None:
         uri = 'about/%s' % subpage + '.html'
         try:
-            if subpage == 'faculty':
-                return allPeopleAjax()
+            if subpage == 'faculty' or subpage == 'adjunct' or subpage == 'staff':
+                return allPeopleAjax(subpage)
             else:
                 return render_template(uri)
         except TemplateNotFound:
