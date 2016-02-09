@@ -11,8 +11,8 @@
 	box-sizing: border-box;
 	background: white;
 	box-shadow: 5px 5px 5px #888888;
-	border-radius: 7px;
 }
+
 #ae-creator:after{
   clear: both;
   content: "";
@@ -24,25 +24,25 @@
 	width: 100%;
 	height: 100px;
 	background:#F8F8F8;
-	font-size: 18px;
+	font-size: 20px;
 	padding: 15px;
 	box-sizing: border-box;
 	box-shadow:inset 1px 1px 5px #6E6E6E;
 	border: none;
-	border-radius: 4px;
 }
 
 #ae-new-details{
 	position: relative;
 	height: auto;
 }
+
 #ae-new-details:after{
   clear: both;
   content: "";
   display: block;
 }
 
-#ae-new-details div, #ae-new-details select{
+#ae-new-details div, #ae-new-details select {
 	float: left;
 	margin: 10px;
 }
@@ -53,6 +53,7 @@
 	height: 25px;
 	width: 100%;
 }
+
 #ae-new-submit, #ae-new-reset{
 	float: right;
 	margin: 0 5px;
@@ -80,8 +81,8 @@
 	box-sizing: border-box;
 	background: white;
 	box-shadow: 5px 5px 5px #888888;
-	border-radius: 3px;
 }
+
 .ae-container:after{
   clear: both;
   content: "";
