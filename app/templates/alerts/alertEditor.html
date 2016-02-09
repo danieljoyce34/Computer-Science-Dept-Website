@@ -28,6 +28,11 @@
 			<span>End Date</span>
 			<input type="date" id="ae-new-end">
 		</div>
+		<div>
+		<!-- (TODO) test this part of the form -->
+			<span>Link (optional)</span>
+			<input type="url" id="ae-new-link" placeholder="http://example.com">
+		</div>
 	</div>
 
 	<div id="ae-new-buttons">
@@ -62,16 +67,25 @@
 					<span>End Date</span>
 					<input type="date" class="ae-edit-end">
 				</div>
+				<div>
+					<span>Link (optional)</span>
+					<input type="url" id="ae-edit-link" placeholder>
+				</div>
 			</div>
+
 			<div class="ae-edit-buttons">
 				<button type="button" class="ae-edit-cancel">Cancel</button>
 				<button type="button" class="ae-edit-submit">Submit</button>
 			</div>
 
-			<div style="display:none;" class="ae-hidden-id">{{ a.id }}</div>
-			<div style="display:none;" class="ae-hidden-start">{{ a.start_date }}</div>
-			<div style="display:none;" class="ae-hidden-end">{{ a.end_date }}</div>
-			<div style="display:none;" class="ae-hidden-cat">{{ a.category }}</div>
+			<div style="display:none" class="ae-hidden-id">{{ a.id }}</div>
+			<div style="display:none" class="ae-hidden-start">{{ a.start_date }}</div>
+			<div style="display:none" class="ae-hidden-end">{{ a.end_date }}</div>
+			<div style="display:none" class="ae-hidden-cat">{{ a.category }}</div>
+			<!-- (TODO) test this part of the form -->
+			{% if a.link %}
+			<div style="display:none" class="ae-hidden-link">{{ a.link }}</div>
+			{% endif %}
 		</div>
 	{% endfor %}
 	<script type="text/javascript" src="{{ url_for('static', filename='js/alertEditor.js') }}"></script>
