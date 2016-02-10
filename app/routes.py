@@ -441,6 +441,18 @@ def research(subpage):
 
     return render_template('research/index.html')
 
+@app.route('/gradGC', defaults={'subpage': None})
+@app.route('/gradGC/<subpage>')
+def gradGC(subpage):
+    if subpage is not None:
+        uri = 'academics/gradGC/%s' % (subpage + '.html')
+        try:
+            return render_template(uri)
+        except TemplateNotFound:
+            abort(404)
+
+    return render_template('academics/gradGC/index.html')
+
 @app.route('/opportunities', defaults={'subpage': None})
 @app.route('/opportunities/<subpage>')
 def opportunites(subpage):
