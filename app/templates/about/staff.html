@@ -9,11 +9,11 @@
 
 {% block content %}
 
-<h2>Full-Time Faculty</h2>
+<h2>Administrative and Technical Support</h2>
 
 	<div id="staff-list">
 		{% for p in people %}
-{% if p.person_type == "Full Time" %}
+{% if p.person_type == "Staff" %}
 			<div class="staff-container">	
 				<a href="{{ p.profile_url }}"><img src="{{ p.image_url }}" class="profile_image"></a>
 				<div class="staff-name"><a href="{{ p.profile_url }}">{{ p.name }}</a></div>

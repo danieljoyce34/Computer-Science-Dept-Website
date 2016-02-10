@@ -24,3 +24,5 @@ csc_web/bin/python2
 /flask
 
 venv/
+
+.DS_Store

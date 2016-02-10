@@ -8,19 +8,29 @@
 {% block header %} {{ super() }} {% endblock %}
 
 {% block content %}
+	<div id="filters">
+		<div class="filter-field">
+			<div class="filter-label">Faculty Type</div>
+			<select class="filter-input" id="type-filter">
+				<option value="All">All</option>
+				<option value="Full Time">Full Time</option>
+				<option value="Staff">Staff</option>
+			</select>
+		</div>
+				
+		<input type="text" id="search-filter" placeholder="Search">
 
-<h2>Full-Time Faculty</h2>
+		<button type="button" id="filter-reset">Reset</button>
+	</div>
 
 	<div id="staff-list">
 		{% for p in people %}
-{% if p.person_type == "Full Time" %}
 			<div class="staff-container">	
 				<a href="{{ p.profile_url }}"><img src="{{ p.image_url }}" class="profile_image"></a>
 				<div class="staff-name"><a href="{{ p.profile_url }}">{{ p.name }}</a></div>
 				<div class="staff-position">{{ p.job_title }}</div>
 				<div class="staff-email">{{ p.person_type }}</div>
 			</div>
-{% endif %}
 		{% endfor %}
 	</div>
 

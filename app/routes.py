@@ -55,7 +55,7 @@ def getNewsWithId(news_id):
     return render_template('news/NewsArticle.html', news=news, image=image)
 
 @app.route('/retrievePeople', methods=['GET'])
-def allPeopleAjax():
+def allPeopleAjax(subpage):
     if request.method == 'GET':
         faculties = Faculty.query.all()
 
@@ -87,7 +87,8 @@ def allPeopleAjax():
 
         people_result = sorted(people_result, key=lambda k: k['lname'])
 
-        return render_template('about/faculty.html', people=people_result)
+#        return render_template('about/faculty.html', people=people_result)
+        return render_template('about/' + subpage + '.html', people=people_result)
 
 @app.route('/retrieveFullTimeFaculty', methods=['GET'])
 def fullTimeFacultyAjax():
@@ -406,8 +407,8 @@ def aboutUs(subpage):
     if subpage is not None:
         uri = 'about/%s' % subpage + '.html'
         try:
-            if subpage == 'faculty':
-                return allPeopleAjax()
+            if subpage == 'faculty' or subpage == 'adjunct' or subpage == 'staff':
+                return allPeopleAjax(subpage)
             else:
                 return render_template(uri)
         except TemplateNotFound:
@@ -440,6 +441,18 @@ def research(subpage):
 
     return render_template('research/index.html')
 
+@app.route('/gradGC', defaults={'subpage': None})
+@app.route('/gradGC/<subpage>')
+def gradGC(subpage):
+    if subpage is not None:
+        uri = 'academics/gradGC/%s' % (subpage + '.html')
+        try:
+            return render_template(uri)
+        except TemplateNotFound:
+            abort(404)
+
+    return render_template('academics/gradGC/index.html')
+
 @app.route('/opportunities', defaults={'subpage': None})
 @app.route('/opportunities/<subpage>')
 def opportunites(subpage):
@@ -452,17 +465,17 @@ def opportunites(subpage):
 
     return render_template('opportunities/index.html')
 
-@app.route('/events', defaults={'subpage': None})
-@app.route('/events/<subpage>')
-def events(subpage):
+@app.route('/news', defaults={'subpage': None})
+@app.route('/news/<subpage>')
+def news(subpage):
     if subpage is not None:
-        uri = 'events/%s' % (subpage + '.html')
+        uri = 'news/%s' % (subpage + '.html')
         try:
             return render_template(uri)
         except TemplateNotFound:
             abort(404)
 
-    return render_template('events/index.html')
+    return render_template('news/index.html')
 
 
 ##URLS are silly in flask, need to use a colon to separate the page, else if there's a trailing slash everything breaks###
