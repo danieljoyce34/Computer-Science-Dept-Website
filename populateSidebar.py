@@ -3,16 +3,31 @@ import datetime
 
 ### SIDEBAR IMAGES ###
 sb_images = []
-'''
+
 sb_images.append(models.Image(image_type='sidebar',
-							alt_text='',
-							image_extension='',
-							image_name=''))
-'''
+							alt_text='Check This Out',
+							image_extension='jpg',
+							image_name='check_this_out'))
+
 sb_images.append(models.Image(image_type='sidebar',
-							alt_text='',
-							image_extension='',
-							image_name=''))
+							alt_text='Senior Project',
+							image_extension='jpg',
+							image_name='senior_proj'))
+
+sb_images.append(models.Image(image_type='sidebar',
+							alt_text='Where Now?',
+							image_extension='jpg',
+							image_name='where_now'))
+
+sb_images.append(models.Image(image_type='sidebar',
+							alt_text='Summer Internships',
+							image_extension='jpg',
+							image_name='internships'))
+
+sb_images.append(models.Image(image_type='sidebar',
+							alt_text='Dept Entreprenuers',
+							image_extension='jpg',
+							image_name='dept_entrep'))
 
 
 ### SIDEBAR ###
@@ -20,8 +35,8 @@ sb_images.append(models.Image(image_type='sidebar',
 sideview = []
 
 sideview.append(models.Sideview(
-    content='A team of students (Jasmine Serano, David Siah, Will Makabenta, Zachary '
-    'Zaccaro ...  with a nod to former team members Peter Rokowski and Sahithi Yalamanchi) '
+    content='A team of students (David Siah, Will Makabenta, Zachary '
+    'Zaccaro ...  with a nod to former team members Jasmine Serano, Peter Rokowski, and Sahithi Yalamanchi) '
 	'led by Xiaojie Jiang are creating a new version of our department website. Technologies '
 	'involved include Python, Flask, JQuery, Git, MySQL, HTML5, and CSS3. Follow their progress '
 	'<a href="http://cscvillanova.pythonanywhere.com/">HERE</a> but keep in mind that we still '
@@ -70,7 +85,7 @@ sideview.append(models.Sideview(
     title='CodeWarriors',
     category='Senior Project',
     active=0,
-    image=sb_images[2]))
+    image=sb_images[1]))
 
 sideview.append(models.Sideview(
     content="NeuroSoccer is the name of my project, and its goal is "
@@ -89,7 +104,7 @@ sideview.append(models.Sideview(
     title='NeuroSoccer',
     category='Senior Project',
     active=0,
-    image=sb_images[3]))
+    image=sb_images[1]))
 
 sideview.append(models.Sideview(
     content="There are many frameworks available for iOS 2D game development such"
@@ -109,7 +124,7 @@ sideview.append(models.Sideview(
     title='2D Game Development',
     category='Senior Project',
     active=0,
-    image=sb_images[4]))
+    image=sb_images[1]))
 
 sideview.append(models.Sideview(
     content="Mojo Rank is an (anti)social network for college students - in particular "
@@ -124,7 +139,7 @@ sideview.append(models.Sideview(
     title='Mojo Rank',
     category='Senior Project',
     active=0,
-    image=sb_images[5]))
+    image=sb_images[1]))
 
 sideview.append(models.Sideview(
     content="Luke and Nick will be creating a website for the Blue Key Society, the "
@@ -140,7 +155,7 @@ sideview.append(models.Sideview(
     title='Blue Key Site',
     category='Senior Project',
     active=0,
-    image=sb_images[6]))
+    image=sb_images[1]))
 
 sideview.append(models.Sideview(
     content="Algorithmic trading goes by many different names including: automated trading, "
@@ -156,7 +171,7 @@ sideview.append(models.Sideview(
     title='Algorithmic Trading',
     category='Senior Project',
     active=0,
-    image=sb_images[7]))
+    image=sb_images[1]))
 
 sideview.append(models.Sideview(
     content="As graphics scenes continue to grow in importance and complexity, it becomes increasingly "
@@ -177,7 +192,7 @@ sideview.append(models.Sideview(
     title='3D Graphics Environments',
     category='Senior Project',
     active=0,
-    image=sb_images[8]))
+    image=sb_images[1]))
 
 sideview.append(models.Sideview(
     content='We aim to create a web application that utilizes the data on Twitter in order to allow users to stay '
@@ -201,7 +216,7 @@ sideview.append(models.Sideview(
     title='Data Gurus Application',
     category='Senior Project',
     active=0,
-    image=sb_images[9]))
+    image=sb_images[1]))
 
 sideview.append(models.Sideview(
     content='Last year, the Block-It Scientists were hired to create a Villanova Volleyball Summer Camp Registration website, '
@@ -217,7 +232,7 @@ sideview.append(models.Sideview(
     title='Villanova Volleyball Registration Website',
     category='Senior Project',
     active=0,
-    image=sb_images[10]))
+    image=sb_images[1]))
 
 sideview.append(models.Sideview(
     content='Edward J. McLaughlin III originally enrolled at Villanova University within the college of Commerce and Finance.  '
@@ -234,7 +249,7 @@ sideview.append(models.Sideview(
     title='Edward J. McLaughlin III',
     category='Where Are They Now?',
     active=0,
-    image=sb_images[11]))
+    image=sb_images[2]))
 
 sideview.append(models.Sideview(
     content='For my senior project I am building a web site for a band called Future Games. The page can be found here: '
@@ -249,7 +264,7 @@ sideview.append(models.Sideview(
     title='Kristin Arcurio',
     category='Senior Project',
     active=0,
-    image=sb_images[12]))
+    image=sb_images[1]))
 
 sideview.append(models.Sideview(
     content='Villanova\'s voice is a web application being developed for student use. It lets students anonymously post their '
@@ -263,7 +278,7 @@ sideview.append(models.Sideview(
     title='Joseph Quadrino',
     category='Senior Project',
     active=0,
-    image=sb_images[13]))
+    image=sb_images[1]))
 
 sideview.append(models.Sideview(
     content='Yapl (Yet another Programming Language) is a superset of the ECMA 262 programming language specification, '
@@ -282,7 +297,7 @@ sideview.append(models.Sideview(
     title='Taylor Clifton',
     category='Senior Project',
     active=0,
-    image=sb_images[14]))
+    image=sb_images[1]))
 
 sideview.append(models.Sideview(
     content='A web application that provides an interface for students to take assignments (exams, homeworks) and provides data about '
@@ -295,7 +310,7 @@ sideview.append(models.Sideview(
     title='Ivan Barria',
     category='Senior Project',
     active=0,
-    image=sb_images[15]))
+    image=sb_images[1]))
 
 sideview.append(models.Sideview(
     content='Our project is taking social networking to another level. While almost everyone can update their facebooks and twitters '
@@ -308,7 +323,7 @@ sideview.append(models.Sideview(
     title='Roberra Akillu & Patrick Ringelstein',
     category='Senior Project',
     active=0,
-    image=sb_images[16]))
+    image=sb_images[1]))
 
 sideview.append(models.Sideview(
     content='Bookshelf is a social media website that allows users to share with each other the book(s) they are currently reading, '
@@ -322,7 +337,7 @@ sideview.append(models.Sideview(
     title='Steve Garvin, James Mensch, Ben Woodrum',
     category='Senior Project',
     active=0,
-    image=sb_images[17]))
+    image=sb_images[1]))
 
 sideview.append(models.Sideview(
     content='Have you ever been frustrated in the grocery store when having to double back to previously visited aisles just to get '
@@ -336,7 +351,7 @@ sideview.append(models.Sideview(
     title='The GrocerEZ Program (Christopher Chestnut)',
     category='Senior Project',
     active=0,
-    image=sb_images[18]))
+    image=sb_images[1]))
 
 sideview.append(models.Sideview(
     content='For our senior project we will be releasing four new iPhone games. These will be based on classic arcade games, '
@@ -350,7 +365,7 @@ sideview.append(models.Sideview(
     title='Benjamin Smith & Philip Williams',
     category='Senior Project',
     active=0,
-    image=sb_images[19]))
+    image=sb_images[1]))
 
 sideview.append(models.Sideview(
     content='SagaScribe is a chat-based game engine designed to give creative control to the users. We take form of traditional '
@@ -365,7 +380,7 @@ sideview.append(models.Sideview(
     title='Tom English, Travis Klein, Peter Rowkowski & Matt Sher',
     category='Senior Project',
     active=0,
-    image=sb_images[20]))
+    image=sb_images[1]))
 
 sideview.append(models.Sideview(
     content='For this project, we are looking to help the realtors of the Critelli Realtors company. In the past, the realtors '
@@ -379,7 +394,7 @@ sideview.append(models.Sideview(
     title='Alyssa Critelli & Amy Zuerndorfer',
     category='Senior Project',
     active=0,
-    image=sb_images[21]))
+    image=sb_images[1]))
 
 sideview.append(models.Sideview(
     content='Team Tre Amici is creating an Android application which will be ideal for runners. The app will recognize how quickly '
@@ -393,7 +408,7 @@ sideview.append(models.Sideview(
     title='James Bradley, Mauro Mescia & Kristen O\'Leary',
     category='Senior Project',
     active=0,
-    image=sb_images[22]))
+    image=sb_images[1]))
 
 sideview.append(models.Sideview(
     content='Team Muisdro is creating an application in collaboration with Villanova\'s volleyball team. The application will use '
@@ -405,7 +420,7 @@ sideview.append(models.Sideview(
     title='Karen Mui & Bianca Isidro',
     category='Senior Project',
     active=0,
-    image=sb_images[23]))
+    image=sb_images[1]))
 
 sideview.append(models.Sideview(
     content='<ul>'
@@ -424,7 +439,7 @@ sideview.append(models.Sideview(
     title='Here are some of the jobs and internships CS majors have participated in over this past summer.',
     category='Summer Internships',
     active=0,
-    image=sb_images[24]))
+    image=sb_images[3]))
 
 sideview.append(models.Sideview(
     content='<ul>'
@@ -443,7 +458,7 @@ sideview.append(models.Sideview(
     title='Here are some of the jobs and internships CS majors have participated in over this past summer.',
     category='Summer Internships',
     active=0,
-    image=sb_images[25]))
+    image=sb_images[3]))
 
 sideview.append(models.Sideview(
     content='<ul>'
@@ -462,7 +477,7 @@ sideview.append(models.Sideview(
     title='Here are some of the jobs and internships CS majors have participated in over this past summer.',
     category='Summer Internships',
     active=0,
-    image=sb_images[26]))
+    image=sb_images[3]))
 
 sideview.append(models.Sideview(
     content='<ul>'
@@ -480,7 +495,7 @@ sideview.append(models.Sideview(
     title='Here are some of the jobs and internships CS majors have participated in over this past summer.',
     category='Summer Internships',
     active=0,
-    image=sb_images[27]))
+    image=sb_images[3]))
 
 sideview.append(models.Sideview(
     content='<ul>'
@@ -497,7 +512,7 @@ sideview.append(models.Sideview(
     title='Here are some of the jobs and internships CS majors have participated in over this past summer.',
     category='Summer Internships',
     active=0,
-    image=sb_images[28]))
+    image=sb_images[3]))
 
 sideview.append(models.Sideview(
     content='Steve Castellotti graduated from Villanova University with a BSCS in 2000. Steve is the owner of '
@@ -510,7 +525,7 @@ sideview.append(models.Sideview(
     title='Steve Castellotti',
     category='Department Entreprenuers',
     active=0,
-    image=sb_images[29]))
+    image=sb_images[4]))
 
 sideview.append(models.Sideview(
     content='Ben LeDonni graduated from Villanova University with a BSCS in 2002 and an MSCS in 2003. After '
@@ -522,10 +537,10 @@ sideview.append(models.Sideview(
     'Creative Multimedia Solutions, which focuses on developing web presences for companies that don\'t have a '
     'website or need one that is more up to date. It also provides network and PC support in and around the '
     'Northeast Philadelphia area.',
-    title='Ben LeDonni, BSCS ’02, MSCS ’03, Owner at Creative Multimedia Solutions',
+    title='Ben LeDonni, BSCS \'02, MSCS \'03, Owner at Creative Multimedia Solutions',
     category='Department Entreprenuers',
     active=0,
-    image=sb_images[30]))
+    image=sb_images[4]))
 
 sideview.append(models.Sideview(
     content='John Keleher received his BS in Computer Science from Villanova University in 2002.  He went on '
@@ -541,10 +556,10 @@ sideview.append(models.Sideview(
     'problem of coaches, athletic directors, and compliance officers.  He is driven to uncovering the challenges '
     'of each client, develop an understanding of what they need, and deliver the industry leading features of ARMS, '
     'Athletic Relationship Management Software.',
-    title='John Keleher, BSCS ’02, Managing Director at ARMS College Athletics Software',
+    title='John Keleher, BSCS \'02, Managing Director at ARMS College Athletics Software',
     category='Department Entreprenuers',
     active=0,
-    image=sb_images[31]))
+    image=sb_images[4]))
 
 sideview.append(models.Sideview(
     content='William Loftus received his BSCS from Villanova University in 1985. He has worked twenty-seven years '
@@ -564,10 +579,10 @@ sideview.append(models.Sideview(
     'using Java. He has also contributed to research in various areas.  Some of his numerous awards including a '
     'Special Achievement Award from DARPA, Philadelphia\'s 40 under 40 in 1999, and E&Y Entrepreneur of the Year award '
     'in 2004.',
-    title='Bill Loftus, BSCS ’85, Senior Executive Managing Director at Accenture',
+    title='Bill Loftus, BSCS \'85, Senior Executive Managing Director at Accenture',
     category='Department Entreprenuers',
     active=0,
-    image=sb_images[32]))
+    image=sb_images[4]))
 
 sideview.append(models.Sideview(
     content='When I graduated Villanova in 2005, I never knew the path that lay before me. I had a job with Lockheed '
@@ -581,7 +596,7 @@ sideview.append(models.Sideview(
     title='Katie Richardson',
     category='Where Are They Now?',
     active=0,
-    image=sb_images[33]))
+    image=sb_images[2]))
 
 sideview.append(models.Sideview(
     content='John Lamb graduated from Villanova in 1992, and received his masters in Computer Science in 2003.  Some '
@@ -602,7 +617,7 @@ sideview.append(models.Sideview(
     title='John Lamb',
     category='Where Are They Now?',
     active=0,
-    image=sb_images[34]))
+    image=sb_images[2]))
 
 sideview.append(models.Sideview(
     content='Edward J. McLaughlin III graduated from Villanova with a Computer Science degree in 1999. He recently '
@@ -623,7 +638,7 @@ sideview.append(models.Sideview(
     title='Edward J. McLaughlin III',
     category='Where Are They Now?',
     active=0,
-    image=sb_images[35]))
+    image=sb_images[2]))
 
 sideview.append(models.Sideview(
     content='John Fiedler received his BSCS from Villanova in 2005.<br>He says, "Since graduating from Villanova in '
@@ -640,7 +655,7 @@ sideview.append(models.Sideview(
     title='John Fiedler',
     category='Where Are They Now?',
     active=0,
-    image=sb_images[36]))
+    image=sb_images[2]))
 
 sideview.append(models.Sideview(
     content='James Ballow received his BSCS from Villanova in 2004.<br>He says, "After a paid internship as a junior '
@@ -656,7 +671,7 @@ sideview.append(models.Sideview(
     title='James Ballow',
     category='Where Are They Now?',
     active=0,
-    image=sb_images[37]))
+    image=sb_images[2]))
 
 sideview.append(models.Sideview(
     content='Amy Roberge received her BSCS from Villanova in 2008.<br>She says, "I am currently living in Brighton, MA '
@@ -672,7 +687,7 @@ sideview.append(models.Sideview(
     title='Amy Roberge',
     category='Where Are They Now?',
     active=0,
-    image=sb_images[38]))
+    image=sb_images[2]))
 
 sideview.append(models.Sideview(
     content='Colleen McInerney received her BSCS from Villanova in 2008.<br>She says, "After graduating from Villanova '
@@ -686,7 +701,7 @@ sideview.append(models.Sideview(
     title='Colleen McInerney',
     category='Where Are They Now?',
     active=0,
-    image=sb_images[39]))
+    image=sb_images[2]))
 
 sideview.append(models.Sideview(
     content='Wendy Hillegass received her BSCS from Villanova in 2004.<br>She says, "After graduating from Villanova '
@@ -703,7 +718,7 @@ sideview.append(models.Sideview(
     title='Wendy Hillegass',
     category='Where Are They Now?',
     active=0,
-    image=sb_images[40]))
+    image=sb_images[2]))
 
 sideview.append(models.Sideview(
     content='Karla Janet Castro Granja received her BSCS from Villanova in 2005.<br>She says, "I am a systems '
@@ -722,7 +737,7 @@ sideview.append(models.Sideview(
     title='Karla Ganja',
     category='Where Are They Now?',
     active=0,
-    image=sb_images[41]))
+    image=sb_images[2]))
 
 sideview.append(models.Sideview(
     content='Melissa Corning received her BSCS from Villanova in 2008.<br>She says, "I\'ve been working since '
@@ -744,7 +759,7 @@ sideview.append(models.Sideview(
     title='Melissa Corning',
     category='Where Are They Now?',
     active=0,
-    image=sb_images[42]))
+    image=sb_images[2]))
 
 sideview.append(models.Sideview(
     content='Caroline Cassigneul received her BSCS from Villanova in 2001.<br>She says, "As I left Villanova, I found '
@@ -755,7 +770,7 @@ sideview.append(models.Sideview(
     title='Caroline Cassigneul',
     category='Where Are They Now?',
     active=0,
-    image=sb_images[43]))
+    image=sb_images[2]))
 
 sideview.append(models.Sideview(
     content='Kallie Nordengren received a BSCS from Villanova in 2006, as well as a MSCS from Villanova in 2007. '
@@ -767,7 +782,7 @@ sideview.append(models.Sideview(
     title='Kallie Nordengren',
     category='Where Are They Now?',
     active=0,
-    image=sb_images[44]))
+    image=sb_images[2]))
 
 sideview.append(models.Sideview(
     content='Alison Lowery received her BSCS from Villanova in 1988 and later went on to receive her MSE from '
@@ -781,7 +796,7 @@ sideview.append(models.Sideview(
     title='Kallie Nordengren',
     category='Where Are They Now?',
     active=0,
-    image=sb_images[45]))
+    image=sb_images[2]))
 
 sideview.append(models.Sideview(
     content='Caroline Scales received her BSCS from  Villanova in 1987.<br>She talks about life after college and '
@@ -796,7 +811,7 @@ sideview.append(models.Sideview(
     title='Caroline Scales',
     category='Where Are They Now?',
     active=0,
-    image=sb_images[46]))
+    image=sb_images[2]))
 
 sideview.append(models.Sideview(
     content='Candice Goglio received her BSCS from Villanova in 1987 and went on to earn her MBA from Long Island University '
@@ -808,7 +823,7 @@ sideview.append(models.Sideview(
     title='Candice Goglio',
     category='Where Are They Now?',
     active=0,
-    image=sb_images[47]))
+    image=sb_images[2]))
 
 sideview.append(models.Sideview(
     content='<ul>'
@@ -841,7 +856,7 @@ sideview.append(models.Sideview(
     title='Here are some of the many interesting jobs and/or internships that CS majors have planned for the upcoming summer.',
     category='Summer Internships',
     active=0,
-    image=sb_images[48]))
+    image=sb_images[3]))
 
 sideview.append(models.Sideview(
     content='Jason Dobies, known as "Jay" or "General", graduated from Villanova as a Computer Science and Mathematics major '
@@ -860,7 +875,7 @@ sideview.append(models.Sideview(
     title='Jason Dobies',
     category='Where Are They Now?',
     active=0,
-    image=sb_images[49]))
+    image=sb_images[2]))
 
 
 
