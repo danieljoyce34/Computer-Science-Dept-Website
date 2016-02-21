@@ -17,7 +17,7 @@ function cycleImages (images) {
 		swapImage(images[i]['image_url'], images[i]['id']);
 		swapTitle(images[i]['headline'], images[i]['intro']);
 		
-	}, 10000);
+	}, 30000);
 }
 
 function swapImage (url, id) {
