@@ -3,7 +3,7 @@ from flask import current_app, redirect, url_for, abort, Response, g, session
 from app import app, db, loginManager
 from .models import Image, Sideview, News, Alert, Faculty, User, Staff, Education
 from .models import FacultyServices, FacultyInterests, CommitteeMembers, Committee
-from .models import OfficeHours
+from .models import OfficeHours, Course
 import util
 import jinja2
 from jinja2 import TemplateNotFound
@@ -591,3 +591,21 @@ def staff_profile(staff_id):
 
         staff_result.append(json)
         return render_template("about/profile.html", data=staff_result[0])
+
+@app.route('/courses/<int:course_id>', methods=['GET'])
+def course_info(course_id):
+    if request.method == 'GET':
+        course = Course.query.filter_by(id=course_id).first()
+
+        course_result = []
+        course_dict = course.to_json_format()
+        json = course_dict
+
+        objectives = course.objectives
+        obj_list = [o.to_json_format() for o in objectives]
+        obj_list = sorted(obj_list, key=lambda k: k['sequence'])
+        json = util._append_to_dict(json, obj_list, 'objectives')
+
+        course_result.append(json)
+
+        return render_template("academics/courseInfo.html", data=course_result[0])

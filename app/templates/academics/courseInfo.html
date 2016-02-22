@@ -1,0 +1,42 @@
+{% extends "pageFrameTemplate.html" %}
+{% block title %}Computer Science Department{% endblock %}
+{% block head %} 
+	{{ super() }} 
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/course.css') }}">
+{% endblock %}
+{% block header %} {{ super() }} {% endblock %}
+
+{% block content %}
+	{% if data %}
+		<div id="course-info">
+			<h1>Course Information</h1>
+			<hr>
+
+			<h2 id="course-title">{{data['course']}}: {{data['title']}}</h2>
+
+			<p><b class="course-attributes" id="course-credits">Credits: </b>{{data['credits']}}
+				<b class="course-attributes" id ="course-level">Level: </b>{{data['level']}}</p>
+			<br>
+
+			<b class="course-attributes">Description:</b><br><p>{{data['description']}}</p>
+
+    		{% if data['objectives'] %}
+    		<div id="objectives">
+				<b class="course-attributes">Objectives:</b><br>
+				<ul>
+				{% for o in data['objectives'] %}
+					<li>{{ o.objective }}</li><br>
+				{% endfor %}
+				</ul>
+			</div>
+			{% endif %}		
+		</div>
+			
+    {% else %}
+       	<div>Fetch Request failed</div>
+    {% endif %}
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+{% endblock %}

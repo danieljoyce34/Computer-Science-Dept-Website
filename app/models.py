@@ -488,6 +488,8 @@ class Course(db.Model):
     description = db.Column(db.Text)
     prerequisites = db.Column(db.String(64))
     term_id = db.Column(db.Integer, db.ForeignKey('term.id'))
+    objectives = db.relationship('Objective',
+                                 backref=db.backref('courses'))
 
     def to_json_format(self):
         json = {'id': self.id,
@@ -511,7 +513,7 @@ class Course(db.Model):
 class Objective(db.Model):
     __tablename__ = 'objectives'
     id = db.Column(db.Integer, primary_key=True)
-    course_id = db.Column(db.Integer, db.ForeignKey('course.id'))
+    course_id = db.Column(db.Integer, db.ForeignKey('courses.id'))
     objective = db.Column(db.Text)
     sequence = db.Column(db.Integer)
 
