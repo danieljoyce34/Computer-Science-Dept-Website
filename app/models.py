@@ -355,10 +355,6 @@ class Faculty(db.Model):
                                         backref=db.backref('faculty'))
     committee_members = db.relationship('CommitteeMembers',
                                         backref=db.backref('faculty'))
-    course_sections = db.relationship('CourseSection',
-                                      backref=db.backref('faculty'))
-    textbooks = db.relationship('Textbook',
-                                backref=db.backref('faculty'))
 
     def to_json_format(self):
         json = {'id': self.id,
@@ -484,18 +480,19 @@ class Committee(db.Model):
 class Course(db.Model):
     __tablename__ = 'courses'
     id = db.Column(db.Integer, primary_key=True)
+    course = db.Column(db.String(16))
+    department = db.Column(db.String(32))
     title = db.Column(db.String(32))
     credits = db.Column(db.Integer)
     level = db.Column(db.String(16))
     description = db.Column(db.Text)
     prerequisites = db.Column(db.String(16))
-    department_id = db.Column(db.Integer, db.ForeignKey('departments.id'))
     term_id = db.Column(db.Integer, db.ForeignKey('term.id'))
-    courses = db.relationship('CourseSection', backref=db.backref('course'))
 
     def to_json_format(self):
         json = {'id': self.id,
-                'department_id': self.department_id,
+                'course': self.course,
+                'department': self.department,
                 'title': self.title,
                 'credits': self.credits,
                 'level': self.level,
@@ -505,102 +502,29 @@ class Course(db.Model):
         return json
 
     def __repr__(self):
-        return ('<Course id %i, department_id %i, title %s, credits %i, level %s,'
+        return ('<Course id %i, course %s, department %s, title %s, credits %i, level %s,'
                 ' description %s, prerequisites %s, term_id %i>'
-                % (self.id, self.department_id, self.title, self.credits,
+                % (self.id, self.course, self.department, self.title, self.credits,
                     self.level, self.description, self.prerequisites, self.term_id))
 
 
-class Department(db.Model):
-    __tablename__ = 'departments'
+class Objective(db.Model):
+    __tablename__ = 'objectives'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(64))
-    courses = db.relationship('Course', backref=db.backref('department'))
-
-    def to_json_format(self):
-        json = {'id': self.id,
-                'dept_name': self.dept_name}
-        return json
-
-    def __repr__(self):
-        return ('<id %i, dept_name %s>'
-                % (self.id, self.dept_name))
-
-
-class Textbook(db.Model):
-    __tablename__ = 'textbooks'
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(32))
-    author = db.Column(db.String(32))
-    edition = db.Column(db.String(8))
-    publisher_id = db.Column(db.Integer)
-    isbn = db.Column(db.Integer)
-    author_id = db.Column(db.Integer, db.ForeignKey('faculty.id'))
-    sections = db.relationship('CourseSection', backref=db.backref('textbook'))
-
-    def to_json_format(self):
-        json = {'id': self.id,
-                'title': self.title,
-                'author': self.author,
-                'edition': self.edition,
-                'publisher_id': self.publisher_id,
-                'isbn': self.isbn,
-                'author_id': self.author_id}
-        return json
-
-    def __repr__(self):
-        return ('<id %i, title %s, author %s, edition %s,'
-                ' publisher_id %i, isbn %i, author_id %i>'
-                % (self.id, self.title, self.author, self.edition,
-                    self.publisher_id, self.isbn, self.author_id))
-
-
-class CourseTimes(db.Model):
-    __tablename__ = 'course_times'
-    id = db.Column(db.Integer, primary_key=True)
-    days = db.Column(db.String(8))
-    start_time = db.Column(db.DateTime)
-    end_time = db.Column(db.DateTime)
-    sections = db.relationship(
-        'CourseSection', backref=db.backref('course_time'))
-
-    def to_json_format(self):
-        json = {'id': self.id,
-                'days': self.days,
-                'start_time': self.start_time,
-                'end_time': self.end_time}
-        return json
-
-    def __repr__(self):
-        return ('<id %i, days %s, start_time %s, end_time %s>'
-                % (self.id, self.days, str(self.start_time), str(self.end_time)))
-
-
-class CourseSection(db.Model):
-    __tablename__ = 'course_sections'
-    id = db.Column(db.Integer, primary_key=True)
-    room = db.Column(db.String(16))
-    section_type = db.Column(db.String(32))
-    course_id = db.Column(db.Integer, db.ForeignKey('courses.id'))
-    faculty_id = db.Column(db.Integer, db.ForeignKey('faculty.id'))
-    textbook_id = db.Column(db.Integer, db.ForeignKey('textbooks.id'))
-    course_time_id = db.Column(db.Integer, db.ForeignKey('course_times.id'))
+    course_id = db.Column(db.Integer, db.ForeignKey('course.id'))
+    objective = db.Column(db.Text)
+    sequence = db.Column(db.Integer)
 
     def to_json_format(self):
         json = {'id': self.id,
                 'course_id': self.course_id,
-                'faculty_id': self.faculty_id,
-                'textbook_id': self.textbook_id,
-                'course_time_id': self.course_time_id,
-                'room': self.room,
-                'section_type': self.section_type}
+                'objective': self.objective,
+                'sequence': self.sequence}
         return json
 
     def __repr__(self):
-        return ('<id %i, course_id %i, faculty_id %i, textbook_id %i,'
-                ' course_time_id %i, room %s, section_type %s>'
-                % (self.id, self.course_id, self.faculty_id, self.textbook_id,
-                    self.course_time_id, self.room, self.section_type))
+        return ('<Objective id %i, course_id %i, objective %s, sequence %i>'
+                % (self.id, self.course_id, self.objective, self.sequence))
 
 
 class ExitInterview(db.Model):

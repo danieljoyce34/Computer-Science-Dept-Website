@@ -61,7 +61,9 @@ def allPeopleAjax(subpage):
 
         people_result = []
         for faculty in faculties:
-            img_url = '/static/images/faculty/' + faculty.user.lname + '.jpg'
+            img_name = faculty.user.image.image_name
+            img_ext = faculty.user.image.image_extension
+            img_url = '/static/images/faculty/' + img_name + "." + img_ext
             ptype = faculty.faculty_type
             ptype = ptype.title()
             json = {'user_id': faculty.user_id,
@@ -513,6 +515,11 @@ def faculty_profile(faculty_id):
         user_dict = faculty.user.to_json_format()
         json = util._merge_two_dicts(user_dict, faculty_dict)
 
+        img_name = faculty.user.image.image_name
+        img_ext = faculty.user.image.image_extension
+        image_source = "/static/images/faculty/" + img_name + "." + img_ext
+        json = util._append_to_dict(json, image_source, 'img_src')
+
         educations = faculty.educations
         edu_list = [e.to_json_format() for e in educations]
         json = util._append_to_dict(json, edu_list, 'educations')
@@ -524,11 +531,6 @@ def faculty_profile(faculty_id):
         faculty_interests = faculty.faculty_interests
         interest_list = [interest.interest for interest in faculty_interests]
         json = util._append_to_dict(json, interest_list, 'interests')
-
-        faculty_phones = faculty.user.phone_numbers
-        for p in faculty_phones:
-            phone_list = [p.area_code + p.number + (", Ext. " + p.extension if p.extension else "") for p in faculty_phones]
-        json = util._append_to_dict(json, phone_list, 'phone_number')
 
         faculty_committee_members = faculty.committee_members
         department_committee = []
@@ -575,6 +577,11 @@ def staff_profile(staff_id):
         staff_dict = staff.to_json_format()
         user_dict = staff.user.to_json_format()
         json = util._merge_two_dicts(user_dict, staff_dict)
+
+        img_name = staff.user.image.image_name
+        img_ext = staff.user.image.image_extension
+        image_source = "/static/images/staff/" + img_name + "." + img_ext
+        json = util._append_to_dict(json, image_source, 'img_src')
 
         staff_phones = staff.user.phone_numbers
         phone_list = []
