@@ -481,12 +481,12 @@ class Course(db.Model):
     __tablename__ = 'courses'
     id = db.Column(db.Integer, primary_key=True)
     course = db.Column(db.String(16))
-    department = db.Column(db.String(32))
-    title = db.Column(db.String(32))
+    department = db.Column(db.String(64))
+    title = db.Column(db.String(64))
     credits = db.Column(db.Integer)
     level = db.Column(db.String(16))
     description = db.Column(db.Text)
-    prerequisites = db.Column(db.String(16))
+    prerequisites = db.Column(db.String(64))
     term_id = db.Column(db.Integer, db.ForeignKey('term.id'))
 
     def to_json_format(self):

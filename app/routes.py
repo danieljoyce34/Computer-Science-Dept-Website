@@ -3,7 +3,7 @@ from flask import current_app, redirect, url_for, abort, Response, g, session
 from app import app, db, loginManager
 from .models import Image, Sideview, News, Alert, Faculty, User, Staff, Education
 from .models import FacultyServices, FacultyInterests, CommitteeMembers, Committee
-from .models import OfficeHours, PhoneNumber
+from .models import OfficeHours
 import util
 import jinja2
 from jinja2 import TemplateNotFound
