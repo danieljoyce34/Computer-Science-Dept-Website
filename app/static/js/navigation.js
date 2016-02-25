@@ -16,8 +16,8 @@ $(document).ready(function(){
 
 	// Slide transition for displaying submenu options on hover
 	$('.nav-item').hover(
-		function(){ $(this).children('.subnav').slideDown(100); },
-		function(){ $(this).children('.subnav').slideUp(100); }
+		function(){ $(this).children('.subnav').stop().slideDown(100); },
+		function(){ $(this).children('.subnav').stop().slideUp(100); }
 	);
 });
 
