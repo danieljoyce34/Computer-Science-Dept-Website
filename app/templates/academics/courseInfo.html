@@ -29,7 +29,16 @@
 				{% endfor %}
 				</ul>
 			</div>
-			{% endif %}		
+			{% endif %}
+
+			<b class="course-attributes">Prerequisites:</b><br>
+
+			{% if data['prerequisites'] == "None" or not data['prerequisites'] %}
+			<p>There are no prerequisites for this course.</p>
+			{% else %}
+			<p>{{data['prerequisites']}}</p>
+			{% endif %}
+
 		</div>
 			
     {% else %}
