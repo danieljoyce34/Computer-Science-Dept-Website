@@ -106,7 +106,6 @@ body {
   bottom: 0;
   left: 0;
   overflow: auto;
-  background: #D8D8D8;
 }
 
 /* Wraps and centers main content*/
@@ -235,7 +234,6 @@ body {
 }
 
 #content {
-  background: #E4E9E8;
   padding: 20px 10px;
   box-sizing: border-box;
 }
