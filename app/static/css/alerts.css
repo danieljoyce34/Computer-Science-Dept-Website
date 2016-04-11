@@ -29,6 +29,23 @@
 	text-align: right;
 }
 
+/* Dr. Joyce .. think we should ditch the color coded
+   alerts and either just color every other one differently
+   or color all the same and have a separater like a line ..
+   4/11/16 going to try to color every other one
+*/
+
+.OddAlert {
+        background: #0E93BE;
+}
+
+.EvenAlert {
+        background: #1DDCE4;
+          }
+
+/* if it works the below can be removed - DJ 4/11 */
+
+
 .General {
 	background: #DCDCDC; 
 }
