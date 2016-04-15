@@ -16,7 +16,7 @@
 }
 
 .alert-card {
- /* background-color: lightgrey;  */
+  background-color: lightgrey;
   width: 66%;
   height: 400px;
   float: left;

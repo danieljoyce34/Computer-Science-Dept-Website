@@ -40,8 +40,7 @@
 }
 
 .EvenAlert {
-        background: #94C8D9;
-/*        background: #1DDCE4;  */
+        background: #1DDCE4;
           }
 
 /* if it works the below can be removed - DJ 4/11 */
