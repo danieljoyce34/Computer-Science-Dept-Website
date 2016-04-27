@@ -71,6 +71,7 @@ def allPeopleAjax(subpage):
                     'lname': faculty.user.lname,
                     'person_type': ptype,
                     'job_title': faculty.faculty_rank,
+                    'status': faculty.status,
                     'image_url': img_url,
                     'profile_url': '/faculty/' + str(faculty.id)}
             people_result.append(json)
@@ -477,7 +478,9 @@ def news(subpage):
         except TemplateNotFound:
             abort(404)
 
-    return render_template('news/index.html')
+    news = News.query.order_by(desc(News.id)).all()
+    newsimages = Image.query.filter_by(image_type='news').all()
+    return render_template('news/index.html', news=news, images=newsimages)
 
 
 ##URLS are silly in flask, need to use a colon to separate the page, else if there's a trailing slash everything breaks###
