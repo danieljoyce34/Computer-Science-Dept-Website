@@ -33,14 +33,18 @@
    alerts and either just color every other one differently
    or color all the same and have a separater like a line ..
    4/11/16 going to try to color every other one
+
+   oh and I think the even/odd are backwards
 */
 
 .OddAlert {
-        background: #0E93BE;
+        background: #94C8D9; 
+/*        background: #0E93BE;  */
 }
 
 .EvenAlert {
-        background: #94C8D9;
+        background: #58ACFA;
+/*        background: #81DAF5;
 /*        background: #1DDCE4;  */
           }
 
