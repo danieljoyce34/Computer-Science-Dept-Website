@@ -1,12 +1,57 @@
-{% extends "pageFrameTemplate.html" %}
-{% block title %}Computer Science Department{% endblock %}
-{% block head %} {{ super() }} {% endblock %}
-{% block header %} {{ super() }} {% endblock %}
-{% block content %}
-	<div id="content">
-<h2>Coming Soon</h2>
-	</div>
+{% extends "formFrameTemplate.html" %}
+{% block title %}News{% endblock %}
+{% block head %} 
+	{{ super() }} 
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/news.css') }}">
 {% endblock %}
+
+{% block header %} {{ super() }} {% endblock %}
+
+{% block content %}
+{% include "components/imagepicker.html" %}
+<h1 id="title">News & Announcements</h1>
+<div id="news-editor">
+	<div id="ne-options">
+		<input type="text" id="ne-search" placeholder="Search by Title">
+		<input type="submit" value="x" id="ne-search-clear">
+		<div id="ne-show">
+			<p>Show: </p>
+			<input type="number" id="ne-show-num" value="50">
+		</div>
+		<button type="button" id="ne-return" title="return"><i class="icon ion-arrow-right-a"></i></button>
+	</div>
+
+	<div id="ne-list">
+		{% for n in news %}
+			<div 
+				class="ne-news-container"
+				data-title="{{ n.headline }}"
+				data-intro="{{ n.intro }}"
+				data-id="{{ n.id }}"
+				data-article="{{ n.article }}"
+				data-start="{{ n.start_date }}"
+				data-end="{{ n.end_date }}"
+				data-img-id="{{ n.image_id }}"
+				data-img-url="url({{ url_for('static', filename='images/news/') }}{{ n.image['image_name'] }}.{{ n.image['image_extension'] }})"
+				>
+				<div class="ne-container-title">{{ n.headline }}</div>
+			</div>
+		{% endfor %}
+	</div>
+
+	<div id="ne-side">
+		<div id="ne-side-start_date"></div>
+		<div id="ne-side-title"></div>
+		<div id="ne-side-article"></div>
+		<div id="ne-img-preview"></div>
+	</div>
+
+</div>
+
+	<script type="text/javascript" src="{{ url_for('static', filename='js/news.js') }}"></script>
+	
+{% endblock %}
+
 {% block footer %}
 	{{ super() }}
 {% endblock %}

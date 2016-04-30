@@ -13,7 +13,7 @@
 
 	<div id="staff-list">
 		{% for p in people %}
-{% if p.person_type == "Adjunct" %}
+{% if p.person_type == "Adjunct" and p.status == "Active" %}
 			<div class="staff-container">	
 				<a href="{{ p.profile_url }}"><img src="{{ p.image_url }}" class="profile_image"></a>
 				<div class="staff-name"><a href="{{ p.profile_url }}">{{ p.name }}</a></div>
