@@ -1,0 +1,19 @@
+{% extends "pageFrameTemplate.html" %}
+{% block title %}Computer Science Department{% endblock %}
+{% block head %} {{ super() }} {% endblock %}
+{% block header %} {{ super() }} {% endblock %}
+{% block content %}
+	<div id="content">
+
+  <h3>Utilizing a NoSQL Data Store for Scalable Log Analysis</h3>
+  <p><strong>Author:</strong> Hema Chandra Reddy Ethapu</p>
+  <p><strong>Advisor:</strong> Dr. Don Goelman</p>
+  <p><strong>Description:</strong> A potential problem for persisting large volume of data logs with a conventional relational database is that loading massive logs produced at high rates is not fast enough due to the strong consistency model and high cost of indexing. As a possible alternative, a modern NoSQL data store, which sacrifices transactional consistency to achieve higher performance and scalability, can be utilized. The purpose of this project is to investigate to what degree a state-of-the-art NoSQL database can achieve high performance persisting and fundamental analyses of large-scale data logs from real world applications. 
+
+For the evaluation, a state of-the-art NoSQL database, MongoDB, is compared with a relational DBMS from a major commercial vendor and with a popular open source relational DBMS. MongoDB is chosen because it provides both primary and secondary indexing compared to other popular NoSQL systems. These indexing techniques are essential for scalable processing of queries over large-scale data logs. To explore the impact of parallelism on query execution, sharding was investigated for MongoDB. However, for high-performance loading and analysis of data logs, MongoDB is shown to be a viable alternative compared to relational databases for queries.</p>
+ 
+	</div>
+{% endblock %}
+{% block footer %}
+	{{ super() }}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "pageFrameTemplate.html" %}
+{% block title %}Computer Science Department{% endblock %}
+{% block head %} {{ super() }} {% endblock %}
+{% block header %} {{ super() }} {% endblock %}
+{% block content %}
+	<div id="content">
+
+ <h3>Magic: The Gathering in Common Lisp</h3>
+  <p><strong>Author:</strong> Jeffrey Linahan</p>
+  <p><strong>Advisor:</strong> Dr. Paula Matuszek</p>
+  <p><strong>Description:</strong> Magic: The Gathering is the world's most popular trading card game.  So far, attempts to program the 210-page rulebook in order to create an AI for the game have resulted in systems that are very complex and not able to compete with humans.  I believe the root cause of this to be the choice of programming language.  As an AI is more limited by the smartness of the algorithms used than the raw speed of the implementation, I will implement a subset of Magic: The Gathering in Common Lisp, a classical AI language.  The following features of Lisp mesh well with the challenges of Magic: The Gathering: a read-eval-print loop, macros and support for domain specific languages, dynamic typing, ease of scripting, multiple inheritance, and symbolic computation.  The implementation will consist of a command line interface to play the game with two hardcoded decks.</p>
+ 
+	</div>
+{% endblock %}
+{% block footer %}
+	{{ super() }}
+{% endblock %}

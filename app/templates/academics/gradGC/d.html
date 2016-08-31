@@ -1,0 +1,24 @@
+{% extends "pageFrameTemplate.html" %}
+{% block title %}Computer Science Department{% endblock %}
+{% block head %} {{ super() }} {% endblock %}
+{% block header %} {{ super() }} {% endblock %}
+{% block content %}
+	<div id="content">
+
+<h3>Application Comparison on LAMP versus MEAN framework </h3>
+  <p><strong>Author:</strong> Evin Brown</p>
+  <p><strong>Advisor:</strong> Mr. Stephen Frein</p>
+  <p><strong>Description:</strong> For this project, I will be building an application across two different frameworks but will perform the same function.  I will build this application with, theoretically, the same functions on both a LAMP framework and a MEAN framework.  The applications will most likely have to be re-written in the preferred supported language of the framework.   The purpose is to compare LAMP versus MEAN.  And hopefully in the end learn a few universal, repeatable lessons about where LAMP would be more useful versus MEAN.  
+
+The application will function within the Comcast Corporate Network due to security concerns.  I will be changing Comcast Corporate objects and therefore at the request of our network security team, I will need to keep these applications built on internal machines.  Previously, my advisor and I thought that AWS would be an appropriate environment to support these frameworks but upon further review for the security of this application I am no longer planning on doing that. 
+
+The applicationâ€™s functional purpose will be to intercept and manage notifications from a Merlin Data Service.  Merlin is a proprietary database that has a 16 digit ID for every series, episode, movie, and title that Comcast has ever been aware of, representative of all television guide data.  The application will receive all notifications and be looking for one type of notification: that of a remapped ID.  Within the message for the remapped ID, the old ID and the new ID are present.    When a notification of the type marked as a remapped ID is found, then the application will search our system to see if any content is currently mapped to the now invalid old ID, and edit that ID to the new and valid ID.  This will ensure that all IDs in our system are active and valid.  
+
+A specification document will be supplied along side the application to explain any design decisions that were made for each framework and in regards to the notification listener for the web services.      
+</p>
+ 
+	</div>
+{% endblock %}
+{% block footer %}
+	{{ super() }}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "pageFrameTemplate.html" %}
+{% block title %}Computer Science Department{% endblock %}
+{% block head %} {{ super() }} {% endblock %}
+{% block header %} {{ super() }} {% endblock %}
+{% block content %}
+	<div id="content">
+
+ <h3>Improving Quality of Experience for WiFi users through SSID prioritization </h3>
+  <p><strong>Author:</strong> Ivan Ong</p>
+  <p><strong>Advisor:</strong> Dr. Vijay Gehlot</p>
+  <p><strong>Description:</strong> This paper explores how to tune parameters on the PHY and MAC layer of 802.11 to improve the Quality of Experience (QoE) of a mobile device when associating to its home network in the absence of a controller or without the need of a third party connection manager app to ensure prioritization from the client itself. An empirical analysis of the behavior of certain clients as they attempt to associate to their residential wireless gateway routers is also provided with a simulated beacon interval exploit. Based on the analysis, some guidelines for potential SSID prioritization methodologies will be proposed. </p>
+ 
+	</div>
+{% endblock %}
+{% block footer %}
+	{{ super() }}
+{% endblock %}

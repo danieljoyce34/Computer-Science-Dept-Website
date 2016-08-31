@@ -1,0 +1,17 @@
+{% extends "pageFrameTemplate.html" %}
+{% block title %}Computer Science Department{% endblock %}
+{% block head %} {{ super() }} {% endblock %}
+{% block header %} {{ super() }} {% endblock %}
+{% block content %}
+	<div id="content">
+
+  <h3>Finding possible ways of distance culling in 3D objects using THREE.js and WebGL</h3>
+  <p><strong>Author:</strong> Neha Karing</p>
+  <p><strong>Advisor:</strong> Edward Kim</p>
+  <p><strong>Description:</strong> This project involves working and experimenting with various ways in which Distance Culling (or Size Culling) can be performed on 3D objects in the space. Distance Culling (or Size Culling) is a process of choosing to display only specified parts (or pixels) of the objects in order to increase the performance. Depending on size of the object and distance from the camera, culling distance can be calculated. By efficiently reducing the number of pixels to be displayed, Performance can be increased. Using THREE.js lod objects and calculating bounding spheres or bounding objects can be one way of doing it, but it requires to add the objects to the objects which might not be efficient all the time. In this project different possible ways of achieving this will be tried. Goal of this project is to find the best possible way depending on several factors such as cost, performance and quality and show how it can be useful in today's 3D world.</p>
+
+	</div>
+{% endblock %}
+{% block footer %}
+	{{ super() }}
+{% endblock %}
