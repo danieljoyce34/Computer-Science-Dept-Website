@@ -403,6 +403,19 @@ def submitAlertEdits(alert_id):
 def carousel():
     return render_template('carousel.html')
 
+# next 4 routes are for compatibility with previous version of site and sites linking to us
+@app.route('/about')
+def about():
+   return render_template('about/index.html')
+
+@app.route('/prospective')
+def prospective():
+   return render_template('about/prospective.html')
+
+@app.route('/faculty')
+def faculty():
+   return render_template('about/facStaff.html')
+
 @app.route('/aboutUs', defaults={'subpage':None})
 @app.route('/aboutUs/', defaults={'subpage':None})
 @app.route('/aboutUs/<subpage>')
