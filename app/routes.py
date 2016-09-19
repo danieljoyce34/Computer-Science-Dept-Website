@@ -403,7 +403,7 @@ def submitAlertEdits(alert_id):
 def carousel():
     return render_template('carousel.html')
 
-# next 4 routes are for compatibility with previous version of site and sites linking to us
+# next 3 routes are for compatibility with previous version of site and sites linking to us
 @app.route('/about')
 def about():
    return render_template('about/index.html')
