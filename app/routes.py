@@ -377,23 +377,22 @@ def alertEditor():
 @app.route('/addAlert', methods=['POST'])
 def addAlert():
     content = request.json['content']
-    category = request.json['category']
     start_date = request.json['start_date']
     end_date = request.json['end_date']
-    alert = Alert(content=content, category=category, start_date=start_date, end_date=end_date, user_id=1)
+    author = request.json['author']
+    alert = Alert(content=content, start_date=start_date, end_date=end_date, user_id=1, author=author)
     db.session.add(alert)
     db.session.commit()
     newAlert = Alert.query.order_by(desc(Alert.id)).first()
     user = User.query.filter_by(id=newAlert.user_id).first()
     alertUser = user.lname + ', ' + user.fname
-    return json.dumps({'status' : 'OK', 'alertID' : newAlert.id, 'alertPostDate' : newAlert.post_date, 'alertUser' : alertUser })
+    return json.dumps({'status' : 'OK', 'alertID' : newAlert.id, 'alertUser' : alertUser })
 
 
 @app.route('/editAlert/<int:alert_id>', methods=['POST'])
 def submitAlertEdits(alert_id):
     alert = Alert.query.filter_by(id=alert_id).first()
     alert.content = request.json['content']
-    alert.category = request.json['category']
     alert.start_date = request.json['start_date']
     alert.end_date = request.json['end_date']
     db.session.commit()
