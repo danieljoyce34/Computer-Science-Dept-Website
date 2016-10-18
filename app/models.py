@@ -89,28 +89,25 @@ class Alert(db.Model):
     __tablename__ = 'alerts'
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.Text)
-    category = db.Column(db.String(64))
-    post_date = db.Column(db.DateTime, default=datetime.date.today())
     start_date = db.Column(db.DateTime, default=datetime.date.today())
     end_date = db.Column(db.DateTime, default=util._next_month())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    author = db.Column(db.String(32))
 
     def to_json_format(self):
         json = {'id': self.id,
                 'content': self.content,
                 'user_id': self.user_id,
-                'category': self.category,
-                'post_date': self.post_date,
                 'start_date': self.start_date,
-                'end_date': self.end_date}
+                'end_date': self.end_date,
+                'author': self.author}
         return json
 
     def __repr__(self):
-        return ('<Alert id %i, content %s, user_id %i, category %s, post_date %s,'
-                ' start_date %s, end_date %s>'
-                % (self.id, self.content, self.user_id, self.category,
-                    str(self.post_date), str(self.start_date),
-                    str(self.end_date)))
+        return ('<Alert id %i, content %s, user_id %i,'
+                ' start_date %s, end_date %s, author %s>'
+                % (self.id, self.content, self.user_id, str(self.start_date),
+                    str(self.end_date), self.author))
 
 
 

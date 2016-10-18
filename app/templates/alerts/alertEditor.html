@@ -8,18 +8,39 @@
 
 {% block content %}
 <div id="ae-creator">
-	<textarea id="ae-new-content" placeholder="Enter Alert Text" maxlength="175"></textarea>
+
+	<div class="editor">
+    <div class="toolbar">
+        <span id="btnedit-bold" class="btnedit" title="Bold text"><img src="/static/images/bold.png" /></span>
+        <span id="btnedit-italic" class="btnedit" title="Italic text"><img src="/static/images/italic.png" /></span>
+        <span id="btnedit-underline" class="btnedit" title="Underline text"><img src="/static/images/underline.png" /></span>
+        <span id="divider">&nbsp;</span>
+        <span id="btnedit-link" class="btnedit" title="Insert link"><img src="/static/images/link.png" /></span>
+    </div>
+    <textarea id="ae-new-content" name="editor-preview" class="area" placeholder="Enter Alert Text" maxlength="175"></textarea>
+    <span id="helper"><i>*For bold, italics, and underline: highlight text you want to edit, then click the appropriate button</i></span>
+	</div>
+	<p>&nbsp;</p>
+	<div class="editor-preview"></div>
+
+	<div id="prompt" style="display: none; padding-bottom: 30px;">
+	    <div class="prompt-background"></div>
+	    <div class="prompt-dialog">
+	        <div class="prompt-message">
+	            <p><b>Insert Hyperlink</b></p>
+	        </div>
+	        <form class="prompt-form">
+	            <p>Replacement Text</p>
+	            <input id="btnedit-title" type="text" style="display: block; width: 80%; margin-right: auto; margin-left: auto;">
+	            <p>http://example.com/</p>
+	            <input id="btnedit-url" type="text" style="display: block; width: 80%; margin-right: auto; margin-left: auto;">
+	            <button id="btnedit-ok" class="btn-orange" onClick="$('#prompt').show();">Submit</button>
+	            <button id="btnedit-cancel" class="btn-orange" onClick="$('#prompt').hide();">Cancel</button>
+	        </form>
+	    </div>
+	</div>
 
 	<div id="ae-new-details">
-		<select id="ae-new-category">	
-			<option value="" disabled selected style='display:none;'>Select a Category	</option>
-			<option value="General">General</option>
-			<option value="Warning">Warning</option>
-			<option value="Colloquium">Colloquium</option>
-			<option value="Class">Class</option>
-			<option value="Meeting">Meeting</option>
-			<option value="Club">Club</option>
-		</select>
 		<div>
 			<span>Start Date</span>
 			<input type="date" id="ae-new-start">
@@ -29,9 +50,8 @@
 			<input type="date" id="ae-new-end">
 		</div>
 		<div>
-		<!-- (TODO) test this part of the form -->
-			<span>Link (optional)</span>
-			<input type="url" id="ae-new-link" placeholder="http://example.com">
+			<span>Your Name</span>
+			<input type="text" id="ae-new-author">
 		</div>
 	</div>
 
@@ -48,17 +68,9 @@
 			<textarea class="ae-container-content-edit" maxlength="175">{{ a.content }}</textarea>
 			<div class="ae-container-header">
 				<a href="#" class="ae-container-edit-button">Edit</a> 
-				<span>Posted by: {{ a.user_id }} on {{ a.post_date }}</span>
+				<span>Posted by: {{ a.author }}</span>
 			</div>
 			<div class="ae-container-edits">
-				<select class="ae-edit-category">	
-					<option value="General">General</option>
-					<option value="Warning">Warning</option>
-					<option value="Colloquium">Colloquium</option>
-					<option value="Class">Class</option>
-					<option value="Meeting">Meeting</option>
-					<option value="Club">Club</option>
-				</select>
 				<div>
 					<span>Start Date</span>
 					<input type="date" class="ae-edit-start">
@@ -68,8 +80,8 @@
 					<input type="date" class="ae-edit-end">
 				</div>
 				<div>
-					<span>Link (optional)</span>
-					<input type="url" id="ae-edit-link" placeholder>
+					<span>Your Name</span>
+					<input type="text" class="ae-edit-author">
 				</div>
 			</div>
 
@@ -81,12 +93,6 @@
 			<div style="display:none" class="ae-hidden-id">{{ a.id }}</div>
 			<div style="display:none" class="ae-hidden-start">{{ a.start_date }}</div>
 			<div style="display:none" class="ae-hidden-end">{{ a.end_date }}</div>
-			<div style="display:none" class="ae-hidden-cat">{{ a.category }}</div>
-			
-			<!-- (TODO) test this part of the form -->
-			{% if a.link %}
-			<div style="display:none" class="ae-hidden-link">{{ a.link }}</div>
-			{% endif %}
 		</div>
 	{% endfor %}
 	<script type="text/javascript" src="{{ url_for('static', filename='js/alertEditor.js') }}"></script>
