@@ -215,12 +215,12 @@ def submitLogin():
     username = request.form['username']
     password = request.form['password']
     # user fake user below for now
-    if username == 'graduate' and password == 'password':
+    if username == 'graduate' and password == 'wordpass':
         print(username)
         user = User.query.get(int(1))
         login_user(user, False)
         return redirect(request.args.get('next') or url_for('loggedInPage'))
-    if username == 'faculty' and password == 'password':
+    if username == 'faculty' and password == 'csdeptrocks':
         print(username)
         user = User.query.get(int(2))
         login_user(user, False)
