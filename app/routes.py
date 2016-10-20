@@ -214,30 +214,15 @@ def login():
 def submitLogin():
     username = request.form['username']
     password = request.form['password']
-    # user fake user below for now
-    if username == 'graduate' and password == 'wordpass':
+    # TODO: still need to implement ldap support
+    if username == 'djoyce' and password == 'wordpass':
         print(username)
         user = User.query.get(int(1))
         login_user(user, False)
         return redirect(request.args.get('next') or url_for('loggedInPage'))
-    if username == 'faculty' and password == 'csdeptrocks':
+    if username == 'alerts' and password == 'strela':
         print(username)
         user = User.query.get(int(2))
-        login_user(user, False)
-        return redirect(request.args.get('next') or url_for('loggedInPage'))
-    if username == 'staff' and password == 'password':
-        print(username)
-        user = User.query.get(int(3))
-        login_user(user, False)
-        return redirect(request.args.get('next') or url_for('loggedInPage'))
-    if username == 'undergrad' and password == 'password':
-        print(username)
-        user = User.query.get(int(4))
-        login_user(user, False)
-        return redirect(request.args.get('next') or url_for('loggedInPage'))
-    if username == 'webteam' and password == 'password':
-        print(username)
-        user = User.query.get(int(5))
         login_user(user, False)
         return redirect(request.args.get('next') or url_for('loggedInPage'))
     # on the machine that's whitelisted, we need to check if user already
@@ -268,7 +253,7 @@ def uploadImage(type, imgfile, loc):
     return image
 
 @app.route('/sidebarEditor')
-#@login_required
+@login_required
 def sidebarEditor():
     sideviews = Sideview.query.order_by(desc(Sideview.id)).all()
     sideimages = Image.query.filter_by(image_type='sidebar').all()
