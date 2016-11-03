@@ -409,6 +409,8 @@ def aboutUs(subpage):
         try:
             if subpage == 'faculty' or subpage == 'adjunct' or subpage == 'staff':
                 return allPeopleAjax(subpage)
+            elif subpage == 'committees':
+                return allCommitteeInfo()
             else:
                 return render_template(uri)
         except TemplateNotFound:
@@ -609,3 +611,33 @@ def course_info(course_id):
         course_result.append(json)
 
         return render_template("academics/courseInfo.html", data=course_result[0])
+
+@app.route('/retreiveCommitteeInfo', methods=['GET'])
+def allCommitteeInfo():
+    if request.method == 'GET':
+        committees = Committee.query.all()
+
+        com_result = []
+        for c in committees:
+            json = {'comid': c.id,
+                    'name': c.name,
+                    'category': c.category,
+                    'description': c.description}
+            com_result.append(json)
+
+        com_result = sorted(com_result, key=lambda k: k['name'])
+
+
+        members = CommitteeMembers.query.all()
+
+        mem_result = []
+        for m in members:
+            json = {'facid': m.faculty_id,
+                    'name': m.faculty.user.fname + ' ' + m.faculty.user.lname,
+                    'committee': m.committee.name,
+                    'role': m.role}
+            mem_result.append(json)
+
+        mem_result = sorted(mem_result, key=lambda k: k['role'])
+
+        return render_template('about/committees.html', committees=com_result, members=mem_result)
