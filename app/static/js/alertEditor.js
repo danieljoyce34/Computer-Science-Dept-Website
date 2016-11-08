@@ -20,6 +20,7 @@ $(document).ready(function(){
 		container.find('.ae-edit-start').val(startDate.getFullYear() + "-" + ("0" + (startDate.getMonth() + 1)).slice(-2) + "-" + ("0" + startDate.getDate()).slice(-2));
 		endDate = new Date(container.find('.ae-hidden-end').text());
 		container.find('.ae-edit-end').val(endDate.getFullYear() + "-" + ("0" + (endDate.getMonth() + 1)).slice(-2) + "-" + ("0" + endDate.getDate()).slice(-2));
+		container.find('.ae-edit-author').val(container.find('.ae-hidden-author').text());
 		// Hide other alert editing displays
 		container.siblings().find('.ae-edit-cancel').click();
 	});
@@ -136,7 +137,7 @@ function validAlert(){
 		return false;
 	}
 	// Check for valid name
-	else if($('#ae-new-author').val() == ""){
+	else if($('#ae-new-author').val().trim() == ""){
 		alert('An author is required');
 		return false;
 	}
@@ -221,7 +222,7 @@ function validAlertEdits(a){
 		return false;
 	}
 	// Check for valid name
-	else if($('#ae-new-author').val() == ""){
+	else if(a.find('.ae-edit-author').val() == ""){
 		alert('An author is required');
 		return false;
 	}
@@ -237,7 +238,7 @@ function submitAlertEdits(a){
 	var contentEdit = a.find('.ae-container-content-edit').val();
 	var startEdit = a.find('.ae-edit-start').val();
 	var endEdit = a.find('.ae-edit-end').val();
-	var authorEdit = $('#ae-edit-author').val();
+	var authorEdit = a.find('.ae-edit-author').val();
 	var data = {
     	'content' : contentEdit,
     	'start_date' : startEdit,

@@ -380,6 +380,7 @@ def submitAlertEdits(alert_id):
     alert.content = request.json['content']
     alert.start_date = request.json['start_date']
     alert.end_date = request.json['end_date']
+    alert.author = request.json['author']
     db.session.commit()
     return json.dumps({'status' : 'OK'})
 
