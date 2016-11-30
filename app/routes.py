@@ -13,6 +13,7 @@ import random
 
 from werkzeug import secure_filename
 
+import datetime
 from datetime import timedelta
 from functools import update_wrapper
 from sqlalchemy import desc
@@ -29,7 +30,8 @@ def index():
     sideviews = Sideview.query.filter_by(active=1).all()
     sideview = sideviews[random.randint(0, len(sideviews) - 1)]
     # Get alerts (most recent first)
-    alerts = Alert.query.order_by(desc(Alert.id)).all()
+    currDate = datetime.datetime.now()
+    alerts = Alert.query.filter(Alert.end_date>=currDate).filter(Alert.start_date<=currDate).order_by(desc(Alert.id)).all()
 
     news = News.query.order_by(desc(News.id)).limit(4).all()
     carouselNews = []
