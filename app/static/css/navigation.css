@@ -47,11 +47,13 @@
 	height: 40px;
 	line-height: 40px;
 	color: #fff;
-	border-left: 1px #fff dashed;
+	border-left: 1px #fff solid;
+	border-top: 1px #fff solid;
+	border-right: 1px #fff solid;
 }
 
 .nav-item:first-child > a{
-	border-left: none;
+/*	border-left: none;*/
 }
 
 .subnav {
@@ -62,6 +64,8 @@
 .subnav-item{
 	display: block;
 	width: 100%;
+    border: 1px solid #ddd;
+    margin-top:-1px;
 }
 
 .subnav a {

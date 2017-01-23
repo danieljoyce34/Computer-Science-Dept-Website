@@ -10,18 +10,10 @@
 		</p>			
 
 		<div id="dot-container">
-			<!-- Dynamically generate these later -->
-			<input id="carousel-item-1" type="radio" name="carousel-dots">
-			<label for="carousel-item-1">Go to item 1</label>
-
-			<input id="carousel-item-2" type="radio" name="carousel-dots">
-			<label for="carousel-item-2">Go to item 2</label>
-
-			<input id="carousel-item-3" type="radio" name="carousel-dots"> 
-			<label for="carousel-item-3">Go to item 3</label>
-
-			<input id="carousel-item-4" type="radio" name="carousel-dots">
-			<label for="carousel-item-4">Go to item 4</label>
+			{% for n in carouselNews %}
+				<input id="carousel-item-{{ n['num'] }}" type="radio" name="carousel-dots">
+				<label for="carousel-item-{{ n['num'] }}">{{ n['num'] }}</label>
+			{% endfor %}
 		</div>
 	</div>
 </div>
