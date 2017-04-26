@@ -17,7 +17,7 @@
 
 .alert-card {
  /* background-color: lightgrey;  */
-  width: 66%;
+  width: 33%;
   height: 400px;
   float: left;
   overflow: auto;
@@ -33,16 +33,23 @@
 .facebar-card {
   width: 33%;
   height: 400px;
-  float: right;
+  float: left;
   overflow: auto;
 }
 
 
 /* Stacks cards on top of each other */
-@media screen and (max-width: 780px){
-  .alert-card, .sidebar-card{ width: 100%; }
-  .sidebar-card{ height: auto; }
+@media screen and (max-width: 1024px){
+  .alert-card{width : 100%} 
+  .sidebar-card, .facebar-card{width: 50%;}
+  .sidebar-card{ height: 375px; }
   .alert-card{ height: 300px; }
+}
+@media screen and (max-width: 700px){
+  .alert-card, .sidebar-card{width: 100%;}
+  .alert-card{ height: 300px;}
+  .sidebar-card{ height: 100%;}
+  .facebar-card{display: none}
 }
 
 #sidebar {
