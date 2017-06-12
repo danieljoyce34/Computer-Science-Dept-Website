@@ -48,15 +48,15 @@ function checkSelected(){
 function setPreview(article){
 	// Preview Display
 	$('#ne-side-title').text(article.data('title'));
-	$('#ne-side-article').text(article.data('article'));
+	document.getElementById("ne-side-article").innerHTML = article.data('article');
 	
 	$('#ne-img-preview').css('background-image', article.data('img-url'));
 	$('#ne-img-id').val(article.data('img-id'));
 
 	// Date Formatting
 	var start = new Date(article.data('start'));
-	var sDate = start.getFullYear() + "-" + ("0" + (start.getMonth() + 1)).slice(-2) + "-" + ("0" + start.getDate()).slice(-2);
-	$('#ne-side-start_date').text("Posted: " + article.data('start'));
+	var sDate = ("0" + (start.getMonth() + 1)).slice(-2) + "-" + ("0" + start.getDate()).slice(-2) + "-" + start.getFullYear();
+	$('#ne-side-start_date').text("Posted: " + sDate);
 }
 
 // Shows the preview fields

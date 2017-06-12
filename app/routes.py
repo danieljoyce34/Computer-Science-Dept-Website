@@ -33,15 +33,19 @@ def index():
     currDate = datetime.datetime.now()
     alerts = Alert.query.filter(Alert.end_date>=currDate).filter(Alert.start_date<=currDate).order_by(desc(Alert.id)).all()
 
-    news = News.query.order_by(desc(News.id)).limit(4).all()
+    news = News.query.filter(News.end_date>=currDate).filter(News.start_date<=currDate).order_by(desc(News.post_date)).limit(10).all()
     carouselNews = []
+    i = 1
     for new in news:
         json = new.to_json_format()
         if new.image is not None:
             json['image_url'] = '/static/images/news/' + new.image.image_name + '.' + new.image.image_extension
+            json['num'] = i
         else:
             json['image_url'] = '/static/images/news/news-placeholder.jpg'
+            json['num'] = i
         carouselNews.append(json)
+        i = i+1
 
     return render_template('index.html', sideview=sideview, alerts=alerts, carouselNews=carouselNews)
 
