@@ -32,7 +32,7 @@
 		      	{% if m.committee == c.name %}
 		      	<p><a href='/faculty/{{ m.facid }}' class="memberlinks" style="text-decoration: none; padding-left: 10px;">
 		      	{{ m.name }} 
-		      	{% if m.role == "Chair" %}
+		      	{% if m.role != "Member" and m.role != "member" %}
 		      	({{ m.role}})
 		      	{% endif %}
 		      	</a></p>
@@ -68,7 +68,7 @@
 		      	{% if m.committee == c.name %}
 		      	<p><a href='/faculty/{{ m.facid }}' class="memberlinks" style="text-decoration: none; padding-left: 10px;">
 		      	{{ m.name }} 
-		      	{% if m.role == "Chair" %}
+		      	{% if m.role != "Member" and m.role != "member" %}
 		      	({{ m.role}})
 		      	{% endif %}
 		      	</a></p>
@@ -104,7 +104,7 @@
 		      	{% if m.committee == c.name %}
 		      	<p><a href='/faculty/{{ m.facid }}' class="memberlinks" style="text-decoration: none; padding-left: 10px;">
 		      	{{ m.name }} 
-		      	{% if m.role == "Chair" %}
+		      	{% if m.role != "Member" and m.role != "member" %}
 		      	({{ m.role}})
 		      	{% endif %}
 		      	</a></p>
@@ -140,7 +140,7 @@
 		      	{% if m.committee == c.name %}
 		      	<p><a href='/faculty/{{ m.facid }}' class="memberlinks" style="text-decoration: none; padding-left: 10px;">
 		      	{{ m.name }} 
-		      	{% if m.role == "Chair" %}
+		      	{% if m.role != "Member" and m.role != "member" %}
 		      	({{ m.role}})
 		      	{% endif %}
 		      	</a></p>
@@ -176,7 +176,7 @@
 		      	{% if m.committee == c.name %}
 		      	<p><a href='/faculty/{{ m.facid }}' class="memberlinks" style="text-decoration: none; padding-left: 10px;">
 		      	{{ m.name }} 
-		      	{% if m.role == "Chair" %}
+		      	{% if m.role != "Member" and m.role != "member" %}
 		      	({{ m.role}})
 		      	{% endif %}
 		      	</a></p>

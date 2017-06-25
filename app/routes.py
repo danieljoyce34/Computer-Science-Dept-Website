@@ -432,7 +432,10 @@ def academics(subpage):
     if subpage is not None:
         uri = 'academics/%s' % (subpage + '.html')
         try:
-            return render_template(uri)
+            if subpage == 'courses':
+                return courseInfo()
+            else:
+                return render_template(uri)
         except TemplateNotFound:
             abort(404)
     
@@ -601,6 +604,8 @@ def staff_profile(staff_id):
         staff_result.append(json)
         return render_template("about/profile.html", data=staff_result[0])
 
+
+
 @app.route('/courses/<int:course_id>', methods=['GET'])
 def course_info(course_id):
     if request.method == 'GET':
@@ -618,6 +623,27 @@ def course_info(course_id):
         course_result.append(json)
 
         return render_template("academics/courseInfo.html", data=course_result[0])
+
+
+def courseInfo():
+    if request.method == 'GET':
+        courses = Course.query.all()
+
+        cou_result = []
+        for c in courses:
+            json = {'couid': c.id,
+                    'course': c.course,
+                    'department': c.department,
+                    'title': c.title,
+                    'credits': c.credits,
+                    'level': c.level,
+                    'description': c.description,
+                    'prerequisites': c.prerequisites}
+            cou_result.append(json)
+
+        cou_result = sorted(cou_result, key=lambda k: k['course'])
+
+        return render_template('academics/courses.html', courses=cou_result)
 
 @app.route('/retreiveCommitteeInfo', methods=['GET'])
 def allCommitteeInfo():
