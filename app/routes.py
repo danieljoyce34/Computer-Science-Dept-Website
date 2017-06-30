@@ -595,11 +595,11 @@ def staff_profile(staff_id):
         image_source = "/static/images/staff/" + img_name + "." + img_ext
         json = util._append_to_dict(json, image_source, 'img_src')
 
-        staff_phones = staff.user.phone_numbers
-        phone_list = []
-        for p in staff_phones:
-            phone_list = [p.area_code + p.number + (", Ext. " + p.extension if p.extension else "") for p in staff_phones]
-        json = util._append_to_dict(json, phone_list, 'phone_number')
+ #       staff_phones = staff.user.phone_numbers
+ #       phone_list = []
+ #       for p in staff_phones:
+ #           phone_list = [p.area_code + p.number + (", Ext. " + p.extension if p.extension else "") for p in staff_phones]
+ #       json = util._append_to_dict(json, phone_list, 'phone_number')
 
         staff_result.append(json)
         return render_template("about/profile.html", data=staff_result[0])
