@@ -16,6 +16,8 @@
 <p>The administration of the Villanova Department of Computing Sciences is supported by the following committees:</p>
 {% for c in committees %}
 	{% if c.category == "department" %}
+	{% for m in members if m.committee == c.name %}
+	{% if loop.index == 1 %}
 	<div class="container" style="padding-left: 0px;">
 	  <div class="panel-group">
 	    <div class="panel panel-default">
@@ -43,6 +45,8 @@
 	    </div>
 	  </div>
 	</div>
+		{% endif %}
+	{% endfor %}
 	{% endif %}
 {% endfor %}
 </div>
@@ -52,6 +56,8 @@
 <p>The following college committees are served by the faculty:</p></br>
 {% for c in committees %}
 	{% if c.category == "college" %}
+	{% for m in members if m.committee == c.name %}
+	{% if loop.index == 1 %}
 	<div class="container" style="padding-left: 0px;">
 	  <div class="panel-group">
 	    <div class="panel panel-default">
@@ -79,6 +85,8 @@
 	    </div>
 	  </div>
 	</div>
+	{% endif %}
+	{% endfor %}
 	{% endif %}
 {% endfor %}
 </div>
@@ -88,6 +96,8 @@
 <p>The following university committees are served by the faculty:</p></br>
 {% for c in committees %}
 	{% if c.category == "university" %}
+	{% for m in members if m.committee == c.name %}
+	{% if loop.index == 1 %}
 	<div class="container" style="padding-left: 0px;">
 	  <div class="panel-group">
 	    <div class="panel panel-default">
@@ -115,6 +125,8 @@
 	    </div>
 	  </div>
 	</div>
+	{% endif %}
+	{% endfor %}
 	{% endif %}
 {% endfor %}
 </div>
@@ -124,6 +136,8 @@
 <p>The following Inter-department committees are served by the faculty:</p></br>
 {% for c in committees %}
 	{% if c.category == "inter-department" %}
+	{% for m in members if m.committee == c.name %}
+	{% if loop.index == 1 %}
 	<div class="container" style="padding-left: 0px;">
 	  <div class="panel-group">
 	    <div class="panel panel-default">
@@ -152,6 +166,8 @@
 	  </div>
 	</div>
 	{% endif %}
+	{% endfor %}
+	{% endif %}
 {% endfor %}
 </div>
 
@@ -160,6 +176,8 @@
 <p>The following professional committees are served by the faculty:</p></br>
 {% for c in committees %}
 	{% if c.category == "professional" %}
+	{% for m in members if m.committee == c.name %}
+	{% if loop.index == 1 %}
 	<div class="container" style="padding-left: 0px;">
 	  <div class="panel-group">
 	    <div class="panel panel-default">
@@ -187,6 +205,8 @@
 	    </div>
 	  </div>
 	</div>
+	{% endif %}
+	{% endfor %}
 	{% endif %}
 {% endfor %}
 </div>
