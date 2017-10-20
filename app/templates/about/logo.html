@@ -1,0 +1,24 @@
+{% extends "pageFrameTemplate.html" %}
+{% block title %}Computer Science Department{% endblock %}
+{% block head %} {{ super() }} {% endblock %}
+{% block header %} {{ super() }} {% endblock %}
+
+{% block content %}
+    <div id="content">
+    	<div id="overview">	
+		<div id="logo">
+			<h3>Department of Computing Sciences Logo</h3>
+<p>The logo for our department spells out "Department of Computing Sciences" in binary code.
+ It can be called a "Binary Tree", which some may recognize as a computer science pun involving the related data structure.
+</br>The logo was created by Peter Ronkowski, a former student in the department.
+</p>
+<img id="logo" style="background-color: #1F3664" src="{{ url_for('static', filename='images/logo-white-binary-2.png') }}" alt="Logo"/>
+		</div>
+    </div>
+
+    </div>
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+{% endblock %}
