@@ -49,6 +49,7 @@ function setPreview(article){
 	// Preview Display
 	$('#ne-side-title').text(article.data('title'));
 	document.getElementById("ne-side-article").innerHTML = article.data('article');
+	$('#ne-side-intro').text(article.data('intro'));
 	
 	$('#ne-img-preview').css('background-image', article.data('img-url'));
 	$('#ne-img-id').val(article.data('img-id'));
@@ -61,7 +62,7 @@ function setPreview(article){
 
 // Shows the preview fields
 function showPreview(){
-	$('#ne-side-start_date, #ne-side-title, #ne-side-article, #ne-img-preview').show();
+	$('#ne-side-start_date, #ne-side-title, #ne-side-intro, #ne-side-article, #ne-img-preview').show();
 }
 
 // Side preview slide animation (show)

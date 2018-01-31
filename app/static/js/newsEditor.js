@@ -65,7 +65,7 @@ $(document).ready(function(){
 		if($('#image-list').find('.selected-image').length){
 			$('#image-picker').hide();
 			// Set news image preview to the selected image
-			$('#ne-img-preview').css('background-image', $('.selected-image .image-preview').css('background-image'));
+			$('#ne-img-edit-preview').css('background-image', $('.selected-image .image-preview').css('background-image'));
 			$('#ne-img-upload').val("");
 			$('#ne-img-id').val($('.selected-image .image-id').text());
 			$('.selected-image').removeClass("selected-image");
@@ -88,12 +88,15 @@ function checkSelected(){
 function setPreview(article){
 	// Preview Display
 	$('#ne-side-title').text(article.data('title'));
+	$('#ne-side-intro').text(article.data('intro'));
 	$('#ne-side-article').text(article.data('article'));
+	$('#ne-img-preview').css('background-image', article.data('img-url'));
+
 	// Edit Display
 	$('#ne-title-edit').val(article.data('title'));
 	$('#ne-intro-edit').val(article.data('intro'));
 	$('#ne-article-edit').val(article.data('article'));
-	$('#ne-img-preview').css('background-image', article.data('img-url'));
+	$('#ne-img-edit-preview').css('background-image', article.data('img-url'));
 	$('#ne-img-id').val(article.data('img-id'));
 
 	// Date Formatting
@@ -107,7 +110,7 @@ function setPreview(article){
 
 // Shows the preview fields
 function showPreview(){
-	$('#ne-side-title, #ne-side-article').show();
+	$('#ne-side-title, #ne-side-intro, #ne-side-article, #ne-img-preview').show();
 	$('.ne-side-label, #ne-title-edit, #ne-intro-edit, #ne-article-edit, #ne-img-edit, #ne-sdate-edit, #ne-edate-edit, #ne-img-edit').hide();
 }
 
@@ -125,15 +128,16 @@ function extendSidePreview(){
 
 // Clears preview/form fields
 function clearSide(){
-	$('#ne-side-title, #ne-side-article').text('');
+	$('#ne-side-title, #ne-side-article, #ne-side-intro').text('');
 	$('#ne-article-edit, #ne-side input, #ne-img-upload, #ne-img-id').val('');
+	$('#ne-img-edit-preview').css('background-image', "");
 	$('#ne-img-preview').css('background-image', "");
 }
 
 // Shows news edit fields
 function showEdit(){
-	$('#ne-side-title, #ne-side-article').hide();
-	$('.ne-side-label, #ne-title-edit, #ne-intro-edit, #ne-article-edit, #ne-img-edit, #ne-sdate-edit, #ne-edate-edit, #ne-img-edit').show();
+	$('#ne-side-title, #ne-side-article, #ne-side-intro, #ne-img-preview').hide();
+	$('.ne-side-label, #ne-title-edit, #ne-intro-edit, #ne-article-edit, #ne-img-edit, #ne-sdate-edit, #ne-edate-edit, #ne-img-edit, #ne-img-edit-preview').show();
 }
 
 // Side edit display slide animation
@@ -223,7 +227,7 @@ function validNewsInput(){
 
 // Adds news to the db
 function saveNews(id){
-	imageURL = $('#ne-img-preview').css('background-image');
+	imageURL = $('#ne-img-edit-preview').css('background-image');
 	var formData = new FormData($('#ne-side')[0]);
 
 	url = '/addNews';
@@ -281,7 +285,7 @@ function readURL(input) {
 	    var reader = new FileReader();
 		reader.onload = function (e) {
 	    	//$('#sbe-img-preview').attr('src', e.target.result);
-	        $('#ne-img-preview').css('background-image', "url(" + e.target.result + ")");
+	        $('#ne-img-edit-preview').css('background-image', "url(" + e.target.result + ")");
 	    }
 	    reader.readAsDataURL(input.files[0]);
   	}

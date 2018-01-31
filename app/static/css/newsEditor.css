@@ -216,6 +216,11 @@
 	padding: 5px;
 }
 
+#ne-side-intro{
+	font-size: 1.1em;
+	padding: 25px;
+}
+
 #ne-side-article{
 	font-size: 1.1em;
 	padding: 5px;
@@ -228,7 +233,7 @@
 	margin-bottom: 15px;
 }
 
-#ne-img-preview{
+#ne-img-edit-preview{
 	width: 190px;
 	height: 190px;
 	line-height: 190px;
@@ -237,6 +242,16 @@
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
+}
+
+#ne-img-preview{
+	height: 100%;
+	width: 100%;
+	position: relative;
+	background-size: 80%;
+	background-repeat: no-repeat;
+    background-position: top;
+    margin-top: 30px;
 }
 
 #ip-open-btn{
@@ -249,6 +264,9 @@
 	color: #fff;
 }
 #ne-img-preview:hover > #ip-open-btn{
+	visibility: visible !important;
+}
+#ne-img-edit-preview:hover > #ip-open-btn{
 	visibility: visible !important;
 }
 
