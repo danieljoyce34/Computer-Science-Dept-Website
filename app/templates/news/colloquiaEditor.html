@@ -1,0 +1,88 @@
+{% extends "formFrameTemplate.html" %}
+{% block title %}Colloquia Editor{% endblock %}
+
+{% block head %}
+	{{ super() }}
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/colloquiaEditor.css') }}">
+{% endblock %}
+
+{% block content %}
+<div id="colloquia-editor">
+	<div id="ce-options">
+		<input type="text" id="ce-search" placeholder="Search by Title">
+		<input type="submit" value="x" id="ce-search-clear">
+		<button type="button" id="ce-edit" title="edit" disabled><i class="icon ion-edit"></i></button>
+		<button type="button" id="ce-add" title="add"><i class="icon ion-android-add"></i></button>
+	</div>
+
+	<div id="ce-list">
+		{% for c in colloquia %}
+			<div 
+				class="ce-colloquium-container"
+				data-id="{{ c.id }}"
+				data-title="{{ c.title }}"
+				data-speaker="{{ c.speaker }}"
+				data-start="{{ c.event_date }}"
+				data-location="{{ c.location }}"
+				data-prelude="{{ c.prelude }}"
+				data-bio="{{ c.speaker_bio }}"
+				data-article="{{ c.content }}"
+				data-postlude="{{ c.postlude }}"
+				data-author="{{ c.author }}"
+				>
+				<div class="ce-container-title">{{ c.title }}</div>
+			</div>
+		{% endfor %}
+	</div>
+
+	<form id="ce-side" method="post">
+		<div id="ce-side-title"></div>
+		<div class="ce-side-label">Title*</div>
+		<input type="text" id="ce-title-edit" name="title">
+
+		<div id="ce-side-event"></div>
+		<div id="ce-side-time"></div>
+		<div class="ce-side-label">Event Date*/Time</div>
+		<input type="datetime-local" id="ce-edate-edit" name="event_date">
+
+		<div id="ce-side-speaker"></div>
+		<div class="ce-side-label">Speaker</div>
+		<input type="text" id="ce-speaker-edit" name="speaker">
+
+		<div id="ce-side-location"></div>
+		<div class="ce-side-label">Location*</div>
+		<input type="text" id="ce-location-edit" name="location">
+		
+		<div id="ce-side-prelude"></div>
+		<div class="ce-side-label">Prelude</div>
+		<textarea rows="4" cols="50" id="ce-prelude-edit" name="prelude" form="ce-side"></textarea>
+
+		<div id="ce-side-bio"></div>
+		<div class="ce-side-label">Speaker Bio</div>
+		<textarea rows="4" cols="50" id="ce-bio-edit" name="speaker_bio" ></textarea>
+		
+		<div id="ce-side-article"></div>
+		<div class="ce-side-label">Content*</div>
+		<textarea rows="4" cols="50" id="ce-content-edit" name="content" form="ce-side"></textarea>
+		
+		<div id="ce-side-postlude"></div>
+		<div class="ce-side-label">Postlude</div>
+		<textarea rows="4" cols="50" id="ce-postlude-edit" name="postlude" form="ce-side"></textarea>
+		
+		<div id="ce-side-author"></div>
+		<div class="ce-side-label">Author*</div>
+		<input type="text" id="ce-author-edit" name="author">
+		
+		<div class="ce-side-label">(* indicates required fields)</br>Leave time at 12:00am for empty</div>
+	</form>
+
+	<div id="ce-edit-options">
+		<!--<button type="button" id="ce-preview">Preview</button>-->
+		<button type="button" id="ce-submit">Add</button>
+		<button type="button" id="ce-save">Save</button>
+		<input type="submit" value="Cancel" id="ce-cancel">
+	</div>
+
+</div>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/colloquiaEditor.js') }}"></script>
+{% endblock %}

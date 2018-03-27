@@ -1,0 +1,48 @@
+#colloquia-content{
+	width: 100%;
+	position: relative;
+	background: #E4E9E8;  
+	padding: 20px 10px;
+	box-sizing: border-box;
+}
+
+#colloquia-title{
+	margin: 5px 10px;
+}
+
+#colloquia-date{
+	text-align: right;
+	margin: 0;
+	width: 100%;
+}
+
+#colloquia-image{
+	display: block;
+	width: 100%;
+	height: 350px;
+	margin: 0 auto;
+	background-size: contain;
+  	background-repeat: no-repeat;
+ 	background-position: center; 
+}
+
+@media screen and (max-width: 610px){
+	#colloquia-title{
+		font-size: 25px;
+	}
+	#colloquia-date{
+		font-size: 14px;
+	}
+}
+
+@media screen and (max-width: 490px){
+	#colloquia-title{
+		font-size: 15px;
+	}
+	#colloquia-date{
+		font-size: 10px;
+	}
+	#colloquia-article{
+		font-size: 11px;
+	}
+}
