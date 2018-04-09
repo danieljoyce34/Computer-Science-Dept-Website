@@ -1,7 +1,7 @@
 from flask import render_template, request, jsonify, make_response, json
 from flask import current_app, redirect, url_for, abort, Response, g, session
 from app import app, db, loginManager
-from .models import Image, Sideview, News, Alert, Faculty, User, Staff, Education
+from .models import Image, Sideview, News, Colloquia, Alert, Faculty, User, Staff, Education
 from .models import FacultyServices, FacultyInterests, CommitteeMembers, Committee
 from .models import OfficeHours, Course
 import util
@@ -32,7 +32,6 @@ def index():
     # Get alerts (most recent first)
     currDate = datetime.datetime.now()
     alerts = Alert.query.filter(Alert.end_date>=currDate).filter(Alert.start_date<=currDate).order_by(desc(Alert.id)).all()
-
     news = News.query.filter(News.end_date>=currDate).filter(News.start_date<=currDate).order_by(desc(News.post_date)).limit(10).all()
     carouselNews = []
     i = 1
@@ -46,7 +45,6 @@ def index():
             json['num'] = i
         carouselNews.append(json)
         i = i+1
-
     return render_template('index.html', sideview=sideview, alerts=alerts, carouselNews=carouselNews)
 
 @app.route('/news/<int:news_id>')
@@ -59,6 +57,13 @@ def getNewsWithId(news_id):
     else:
         image = '/static/images/news/' + news.image.image_name + '.' + news.image.image_extension
     return render_template('news/NewsArticle.html', news=news, image=image)
+
+@app.route('/colloquia/<int:colloquia_id>')
+def getColloquiaWithId(colloquia_id):
+    colloquia = Colloquia.query.filter_by(id=colloquia_id).first()
+    if colloquia is None:
+        abort(404)
+    return render_template('news/ColloquiaArticle.html', colloquia=colloquia)
 
 @app.route('/retrievePeople', methods=['GET'])
 def allPeopleAjax(subpage):
@@ -359,6 +364,51 @@ def editNews(news_id):
         return json.dumps({'status' : 'OK', 'news':news.to_json_format() })
     return json.dumps({'status' : 'ERROR'})
 
+@app.route('/colloquiaEditor')
+@login_required
+def colloquiaEditor():
+    colloquia = Colloquia.query.order_by(desc(Colloquia.id)).all()
+    return render_template('news/colloquiaEditor.html', colloquia=colloquia)
+
+@app.route('/addColloquia', methods=['POST'])
+def addColloquia():
+    title = request.form['title']
+    speaker = request.form['speaker']
+    speaker_bio = request.form['speaker_bio']
+    prelude = request.form['prelude']
+    content = request.form['content']
+    postlude = request.form['postlude']
+    event_date = request.form['event_date']
+    location = request.form['location']
+    author = request.form['author']
+    colloquia = Colloquia(title=title, speaker=speaker, speaker_bio=speaker_bio, prelude=prelude, content=content, postlude=postlude, event_date=event_date, location=location, author=author)
+    try:
+	db.session.add(colloquia)
+        db.session.commit()
+        newColloquia = Colloquia.query.order_by(desc(Colloquia.id)).first()
+        return json.dumps({'status':'OK', 'colloquia':newColloquia.to_json_format() })
+    except:
+        # TODO: Put error handling in a try catch statement or something
+        return json.dumps({'status' : 'ERROR'})
+
+@app.route('/editColloquia/<int:colloquia_id>', methods=['POST'])
+def editColloquia(colloquia_id):
+    colloquia = Colloquia.query.filter_by(id=colloquia_id).first()
+    colloquia.title = request.form['title']
+    colloquia.speaker = request.form['speaker']
+    colloquia.speaker_bio = request.form['speaker_bio']
+    colloquia.prelude = request.form['prelude']
+    colloquia.content = request.form['content']
+    colloquia.postlude = request.form['postlude']
+    colloquia.event_date = request.form['event_date']
+    colloquia.location = request.form['location']
+    colloquia.author = request.form['author']
+    try:
+        db.session.commit()
+        return json.dumps({'status' : 'OK', 'colloquia':colloquia.to_json_format() })
+    except:
+	return json.dumps({'status' : 'ERROR'})
+
 @app.route('/alertEditor')
 @login_required
 def alertEditor():
@@ -483,7 +533,11 @@ def news(subpage):
     if subpage is not None:
         uri = 'news/%s' % (subpage + '.html')
         try:
-            return render_template(uri)
+	    if subpage == 'colloquia' or subpage == 'Colloquia':
+		colloquia = Colloquia.query.order_by(desc(Colloquia.id)).all()
+	        return render_template(uri, colloquia=colloquia)
+            else:
+		return render_template(uri)
         except TemplateNotFound:
             abort(404)
 

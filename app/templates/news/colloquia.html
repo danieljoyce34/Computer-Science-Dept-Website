@@ -1,0 +1,64 @@
+{% extends "formFrameTemplate.html" %}
+{% block title %}Colloquia{% endblock %}
+{% block head %} 
+	{{ super() }} 
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/colloquia.css') }}">
+{% endblock %}
+
+{% block header %} {{ super() }} {% endblock %}
+
+{% block content %}
+{% include "components/imagepicker.html" %}
+<h1 id="title">Colloquia Listing</h1>
+<div id="colloquium-editor">
+	<div id="ce-options">
+		<input type="text" id="ce-search" placeholder="Search by Title">
+		<input type="submit" value="x" id="ce-search-clear">
+		<div id="ce-show">
+			<p>Show: </p>
+			<input type="number" id="ce-show-num" value="50">
+		</div>
+		<button type="button" id="ce-return" title="return"><i class="icon ion-arrow-right-a"></i></button>
+	</div>
+
+	<div id="ce-list">
+		{% for c in colloquia %}
+			<div 
+				class="ce-colloquium-container"
+				data-id="{{ c.id }}"
+				data-title="{{ c.title }}"
+				data-speaker="{{ c.speaker }}"
+				data-start="{{ c.event_date }}"
+				data-location="{{ c.location }}"
+				data-prelude="{{ c.prelude }}"
+				data-bio="{{ c.speaker_bio }}"
+				data-article="{{ c.content }}"
+				data-postlude="{{ c.postlude }}"
+				>
+				<div class="ce-container-title">{{ c.title }}</div>
+			</div>
+		{% endfor %}
+	</div>
+
+	<div id="ce-side">
+		<div id="ce-side-title"></div>
+		<div id="ce-side-event_date"></div>
+		<div id="ce-side-time"></div>
+		<div id="ce-side-speaker"></div>
+		<div id="ce-side-location"></div>
+		<div id="ce-side-prelude"></div>
+		<div id="ce-side-bio"></div>
+		<div id="ce-side-article"></div>
+		<div id="ce-side-postlude"></div>
+		<div id="ce-img-preview"></div>
+	</div>
+
+</div>
+
+	<script type="text/javascript" src="{{ url_for('static', filename='js/colloquia.js') }}"></script>
+	
+{% endblock %}
+
+{% block footer %}
+	{{ super() }}
+{% endblock %}

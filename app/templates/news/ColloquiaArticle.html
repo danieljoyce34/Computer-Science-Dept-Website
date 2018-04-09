@@ -1,0 +1,19 @@
+{% extends "pageFrameTemplate.html" %}
+{% block title %}{{ colloquia['title'] }}{% endblock %}
+{% block head %} 
+	{{ super() }}
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/colloquiaArticle.css') }}">
+{% endblock %}
+{% block header %} {{ super() }} {% endblock %}
+
+{% block content %}
+	<div id="colloquia-content">
+		<h1 id="colloquia-title">{{ colloquia['title'] }}</h1>
+		<h4 id="colloquia-date">{{ colloquia['event_date'] }}</h4>
+		<p id="colloquia-article">
+			{% autoescape false %}
+				{{ colloquia['content'] }}
+			{% endautoescape %}
+		</p>
+	</div>
+{% endblock %}

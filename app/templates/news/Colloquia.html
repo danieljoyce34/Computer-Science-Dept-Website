@@ -1,100 +1,75 @@
 {% extends "pageFrameTemplate.html" %}
-{% block title %}Computer Science Department{% endblock %}
-{% block head %} {{ super() }} {% endblock %}
-{% block header %} {{ super() }} {% endblock %}
-{% block content %}
-  <h2>CSC Colloquia Series</h2>
-  <p>The CSC department's colloquia series invites guest speakers from academia
-    and industry to present their work. The general public is welcome to attend.
-  Refreshments and informal discussion with the speaker follow the presentation.</p>
-
-<br /><br />
-
-  <p></p><center><strong>Fall 2016 Colloquium Schedule</strong></center><p></p>
-    
-September 12, 2016<br />
-Speaker: Marcelo Balduccini<br />
-Title : Cybersecurity as Reasoning about Actions and Change<br />
-<p>Speaker Bio : Dr. Balduccini is an Assistant Research Professor at the College of Computing and Informatics of Drexel University. His research interests are focused on artificial intelligence, and include knowledge representation and reasoning, reasoning about actions and change, natural language understanding, and constraint satisfaction. Dr. Balduccini’s recent projects include algorithms for efficient reasoning in hybrid qualitative-quantitative domains and semantics-intensive techniques for information retrieval. His research has been funded by DARPA, NASA, IARPA, as well as various companies and industrial consortia.</p>
-<p>Prior to joining Drexel, he worked as a Principal Research Scientist at Kodak Research Laboratories, where he led projects focused on planning, scheduling, and workflow automation, and ranging from fundamental research to transition-to- practice. Dr. Balduccini is affiliated with the AJ Drexel Institute for Energy and the Environment and with the Drexel University Cybersecurity Institute. He has published over 70 refereed technical publications, including three book chapters, and has edited two volumes.
-</p>
-
-<br /><br />
-    
-
-September 19, 2016<br />
-Ideabounce – ICE Center<br />
-
-
-<br /><br />
-    
-
-September 26, 2016 <br />
-Speaker: Alexandra Coman <br />
-Title: Goal Reasoning and Artificially Intelligent Rebel Agents<br />
-<p>Speaker Bio: Alexandra Coman received her Ph.D. from Lehigh University in 2013. She was an Assistant Professor of Computer Science at Ohio Northern University for 3 years and is currently an NRC postdoctoral research associate at the Naval Research Laboratory. Her research interests within Artificial Intelligence include case-based reasoning, automated planning, goal reasoning, and interactive storytelling.
-</p>
-
-<br /><br />
-    
-
-October 3, 2016<br />
-CS Faculty Research Presentations<br />
-
-
-<br /><br />
-    
-
-October 17, 2016<br />
-Speaker: Henry Carter<br />
-Title: Improving biometric authentication with Cloud-based SMC<br />
-<p>
-Speaker Bio: Dr. Carter is an assistant professor in the Department of Computing Sciences at Villanova University. His research interests are in applied cryptography in mobile computing. Specifically, his work focuses on providing provably secure privacy solutions to mobile phone users. He completed his PhD and MS in Computer Science at the Georgia Institute of Technology in 2015 and 2012, respectively, and his undergraduate degree in 2010 at Belmont University.
-</p>
-
-<br /><br />
-    
-
-October 31, 2016<br />
-Speaker: Henry Baird<br />
-Title: How to Work with Creative People<br />
-<p>Speaker Bio:
-Dr. Baird joined Lehigh in January 2004 after thirty years in industrial research as Principal Scientist and area manager at PARC (Palo Alto, CA), department head and Member of Research Staff at Bell Labs (Murray Hill, NJ), and member of technical staff at RCA Sarnoff Labs (Princeton, NJ).
-He has published five books and over one hundred technical papers.  He holds ten patents.  He has been elected Fellow of the IEEE and of the IAPR, and he received an ICDAR Outstanding Contributions Award.  He earned a Ph.D. in EECS from Princeton Univ. in 1984.  He also holds a Masters degree in CS from Rutgers Univ., and a bachelors in Mathematics from Harvard College.
-</p>
-
-<br /><br />
-    
-
-
-November 14, 2016<br />
-Speaker: Chris Stuezle<br />
-Title: Parallel Algorithms in GIS<br />
-<p>Speaker Bio: Christopher’s research is in the areas of Geographic Information Systems and Human-Computer Interaction. His work revolves around exploring the mathematics of terrain data through new terrain representations and statistical analysis.  He has authored several publications in both computer science and civil engineering. He has also helped design a group collaborative problem solving system involving identification of inexpensive, off-the-shelf laser pointers using their unique IR signatures.  Christopher joined Merrimack in the Fall 2012.
-He received his Ph. D. in June, 2012 from Rensselaer Polytechnic Institute in Troy, NY in the area of Computer Graphics. He graduated with a B.A. in Computer Science and Mathematics from Wheaton College in Norton, Massachusetts in 2007.
-</p>
-
-<br /><br />
-    
-November 21, 2016<br />
-Speaker: AJ Palkovic<br />
-Title: Dropbox Paper<br />
-<p>Speaker Bio: AJ is currently a Staff engineer and TL at Dropbox, working on Dropbox Paper.  He has been working on Paper for a little over 2 years now, helping to build out and validate many of the features in the product and scale the team from the initial 5 engineers to the 30+ they have today.  Before that AJ graduated from Villanova with a BS &amp; MS in Computer Science and was an engineer at Google working on Search Quality.  AJ is also the original developer and architect for Schedulr, the course planning tool used by Villanovans across campus.
-</p>
-
-<br /><br />
-
-December 5, 2016<br />
-Location: Idea Accelerator, Falvey Memorial Library<br />
-Title: Computer Science Education Week - Hour of Code<br />
-<p> Abstract:
-Ever wondered what it is like to write computer code? Regardless of your area of expertise, and whether you are a faculty member, staff member or a student, we invite you to discover what computational thinking is all about. No past experience necessary! This event is part of the Department of Computing Sciences celebration of Computer Science Education Week (https://csedweek.org/) and will feature presentations, puzzles, and activities for anyone who would like to take a break from the ordinary and learn about computer science. We hope you can join us!
-
-</p>
-
-<br /><br />
-
+{% block title %}Computer Science Colloquia{% endblock %}
+{% block head %} 
+	{{ super() }} 
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/Colloquia.css') }}">
 {% endblock %}
+
+{% block header %} {{ super() }} {% endblock %}
+
+{% block content %}
+	<h1 id="title"> Colloquia </h1>
+	<div id="upcoming">
+		<h2> Upcoming: </h2>
+	</div>
+	<div id="ce-list-upcoming">
+		{% for col in colloquia %}
+			<div id="upcoming-{{ loop.index }}" class="ce-colloquium-container" 
+				data-id="{{ col.id }}"
+				data-title="{{ col.title }}"
+				data-speaker="{{ col.speaker }}"
+				data-start="{{ col.event_date }}"
+				data-location="{{ col.location }}"
+				data-prelude="{{ col.prelude }}"
+				data-bio="{{ col.speaker_bio }}"
+				data-article="{{ col.content }}"
+				data-postlude="{{ col.postlude }}"
+			>
+				<div class="ce-container-title"><em>{{ col.title }}</em><div id="{{ col.id }}-speaker" class="ce-info"></div></div>
+				<div id="{{ col.id }}-start" class="ce-info"></div>
+				<div id="{{ col.id }}-time" class="ce-info"></div>
+				<div id="{{ col.id }}-location" class="ce-info"></div></br>
+				<div id="{{ col.id }}-bio" class="ce-info"></div>
+				<div id="{{ col.id }}-prelude" class="ce-info"></div>
+				<div id="{{ col.id }}-content" class="ce-info"></div>
+				<div id="{{ col.id }}-postlude" class="ce-info"></div>
+			</div>
+		{% endfor %}
+	</div>
+	<div id="recent">
+		<h2> Recent: </h2>
+	</div>
+	<div id="ce-list-recent">
+		{% for c in colloquia %}
+			{% if loop.index <= 2 %}
+			<div id="recent-{{ loop.index }}" class="ce-colloquium-container" 
+				data-id="{{ c.id }}"
+				data-title="{{ c.title }}"
+				data-speaker="{{ c.speaker }}"
+				data-start="{{ c.event_date }}"
+				data-location="{{ c.location }}"
+				data-prelude="{{ c.prelude }}"
+				data-bio="{{ c.speaker_bio }}"
+				data-article="{{ c.content }}"
+				data-postlude="{{ c.postlude }}"
+			>
+				<div class="ce-container-title"><em>{{ c.title }}</em><div id="r{{ c.id }}-speaker" class="ce-info"></div></div>
+				<div id="r{{ c.id }}-start" class="ce-info"></div>
+				<div id="r{{ c.id }}-time" class="ce-info"></div>
+				<div id="r{{ c.id }}-location" class="ce-info"></div></br>
+				<div id="r{{ c.id }}-bio" class="ce-info"></div>
+				<div id="r{{ c.id }}-prelude" class="ce-info"></div>
+				<div id="r{{ c.id }}-content" class="ce-info"></div>
+				<div id="r{{ c.id }}-postlude" class="ce-info"></div>
+			</div>
+			{% endif %}
+		{% endfor %}
+	</div>
+
+	</br><a id="ce-link" href="colloquia">View more</a>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/Colloquia.js') }}"></script>
+{% endblock %}
+
 {% block footer %}
-  {{ super() }}
+	{{ super() }}
 {% endblock %}

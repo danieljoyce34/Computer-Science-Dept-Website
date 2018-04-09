@@ -85,6 +85,41 @@ class News(db.Model):
                     self.intro, self.article, str(self.post_date), self.image_id))
 
 
+class Colloquia(db.Model):
+    __tablename__ = 'colloquia'
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.Text)
+    speaker = db.Column(db.Text)
+    speaker_bio = db.Column(db.Text)
+    prelude = db.Column(db.Text)
+    content = db.Column(db.Text)
+    postlude = db.Column(db.Text)
+    event_date = db.Column(db.DateTime, default=datetime.date.today())
+    location = db.Column(db.Text)
+    author = db.Column(db.Text)
+
+    def to_json_format(self):
+        json = {'id': self.id,
+                'title': self.title,
+		'speaker': self.speaker,
+		'speaker_bio': self.speaker_bio,
+		'prelude': self.prelude,
+                'content': self.content,
+		'postlude': self.postlude,
+		'event_date': self.event_date,
+		'location': self.location,
+		'author': self.author}
+        return json
+
+    def __repr__(self):
+        return ('<Colloquia id %i, title %s, speaker %s, speaker_bio %s,'
+        	' prelude %s, content %s, postlude %s, event_date %s, location %s,'
+        	' author %s>'
+                % (self.id, self.title, self.speaker, self.speaker_bio, self.prelude,
+                    self.content, self.postlude, str(self.event_date), self.location, 
+                    self.author))
+
+
 class Alert(db.Model):
     __tablename__ = 'alerts'
     id = db.Column(db.Integer, primary_key=True)
