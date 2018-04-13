@@ -403,7 +403,7 @@ function addColloquiaAlert(){
 
 	// Formatting dates
 	var temp = new Date($('#ce-edate-edit').val());
-	aContent = aContent + ', at ' + (temp.getMonth()+1) + '/' + temp.getDate() + '/' + temp.getYear();
+	aContent = aContent + ', on ' + (temp.getMonth()+1) + '/' + temp.getDate() + '/' + temp.getFullYear();
 	
 	// Creating start/end dates from colloquia's date
 	var date = new Date($('#ce-edate-edit').val());
@@ -417,10 +417,10 @@ function addColloquiaAlert(){
 			if (date.getDate() <= 7) {
 				// aStart month = December, year--
 				sDate.setMonth(11);
-				sDate.setYear(date.getYear()-1);
+				sDate.setYear(date.getFullYear()-1);
 			}else if (date.getDate() >= days - 7) {
 				// Year is the same
-				eDate.setMonth(2);
+				eDate.setMonth(1);
 			}
 
 			sDate.setDate((date.getDate() - 7) % days);
@@ -428,7 +428,7 @@ function addColloquiaAlert(){
 			break;
 		case 1:
 			// Leap year adjustments
-			if (date.getYear() % 4 == 0)
+			if (date.getFullYear() % 4 == 0)
 				days = 29;
 			else days = 28;
 			
@@ -539,7 +539,7 @@ function addColloquiaAlert(){
 			if (date.getDate() >= 24) {
 				// aEnd month = January, year++
 				eDate.setMonth(0);
-				eDate.setYear(date.getYear()+1);
+				eDate.setYear(date.getFullYear()+1);
 			}else if (date.getDate() <= 7) {
 				// Year is the same
 				sDate.setMonth(date.getMonth()-1);
@@ -553,13 +553,14 @@ function addColloquiaAlert(){
 			alert('An error was made creating the alert dates, please edit manually');
 			break;
 	}
-	aStart = sDate;
-	aEnd = eDate;
+	aStart = sDate.getFullYear() + '-' + ('0' + (sDate.getMonth()+1)).slice(-2) + '-' + ('0' + sDate.getDate()).slice(-2) + 'T00:00';
+	aEnd = eDate.getFullYear() + '-' + ('0' + (eDate.getMonth()+1)).slice(-2) + '-' + ('0' + eDate.getDate()).slice(-2) + 'T00:00';
 
 	var data = {
     	'content' : aContent,
     	'start_date' : aStart,
     	'end_date' : aEnd,
+	//'user_id' : 1,
     	'author' : aAuthor
 	};
 
@@ -575,7 +576,7 @@ function addColloquiaAlert(){
         	    // addNewAlert(data, result.alertID, result.alertUser);
         	},
         	error: function(data, textStatus, jqXHR){
-        		alert("Unable to save colloquia alert. Please try again later.");
+        		alert("Unable to save colloquia alert. Please edit manually.");
         	}
     	});
 	
@@ -589,7 +590,7 @@ function addColloquiaAlert(){
 	return false;
 }
 */
-// Unused: Uncomment and edit for colloquia editor image support
+// Unused: Uncomment and edit for colloquia editor image support (not properly implemented)
 /*function readURL(input) {
 	if (input.files && input.files[0]) {
 	    var reader = new FileReader();
